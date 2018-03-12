@@ -13,4 +13,7 @@
 - [查询DSL](10QueryDSL/readme.md)
 - [索引脚本API](11IndexedScriptsAPI/readme.md)
 - [管理员API](12JavaAPIAdministration/readme.md)
+
+> ES版本 5.6.8
+
 > 译-王斌
