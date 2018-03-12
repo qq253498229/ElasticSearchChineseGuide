@@ -1,8 +1,8 @@
 # Maven仓库
 
-## ElasticSearch 已经托管在 Maven 中央仓库
+ES 已经托管在 Maven 中央仓库
 
-### 例如：您可以在maven项目的pom.xml中加入如下依赖：
+例如：您可以在maven项目的pom.xml中加入如下依赖来使用ES：
 
 ```xml
 <dependency>
@@ -27,3 +27,6 @@
   <version>5.6.8</version>
 </dependency>
 ```
+
+- [Log4j 2 日志](./log4j2.md)
+- [使用其它的日志](./UsingAnotherLogger.md)
