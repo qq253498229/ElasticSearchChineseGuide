@@ -5,7 +5,7 @@
 - [Javadoc](2JavaDoc/readme.md)
 - [Maven仓库](3MavenRepository/readme.md)
 - [处理JAR依赖冲突](4DealingWithJARDependencyConflicts/readme.md)
-- [嵌入依赖的JAR(暂无)](5EmbeddingJARWithDependencies/readme.md)
+- [嵌入依赖的JAR](5EmbeddingJARWithDependencies/readme.md)
 - [客户端(暂无)](6Client/readme.md)
 - [文档API(暂无)](7DocumentAPIs/readme.md)
 - [检索API(暂无)](8SearchAPI/readme.md)
