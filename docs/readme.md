@@ -15,7 +15,8 @@
 - [管理员API(暂无)](12JavaAPIAdministration/readme.md)
 
 
+> 本文旨在帮助中文用户学习ES，转载请注明出处。
 
-> 欢迎大家踊跃提交issue/pull request
+> 欢迎大家踊跃提交issue/pull request。联系方式：codeforfun@foxmail.com
 
 > ES版本 5.6.8
