@@ -14,7 +14,7 @@
 
 如果你使用过json格式，那么这里对你来说没什么困难的，
 唯一需要注意的是你需要通过[Date Format](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/mapping-date-format.html)
-对日期进行编码
+对日期进行格式化。
 
 
 ```java
