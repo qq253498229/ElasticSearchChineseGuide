@@ -67,10 +67,10 @@ XContentBuilder builder = jsonBuilder()
     .endObject()
 ```
 
-这里需要注意，你也可以使用 **startArray(String)** / **endArray()** 方法代替 **startObject()** / **endObject()** 方法添加一个数组。
+这里需要注意，你也可以使用 **startArray(String)** / **endArray()** 方法代替 **startObject()** / **endObject()** 方法来添加一个数组。
 顺便说一下，**field** 可以接受很多对象类型。你可以直接传一个**number**，**date** 或者是其它 **XContentBuilder** 类型的对象。
 
-如果你想查看生成的JSON内容，你可以使用**string()**方法：
+如果你想查看生成的JSON内容，你可以使用 **string()** 方法：
 
 ```java
 String json = builder.string();
