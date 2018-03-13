@@ -6,7 +6,7 @@
 - [Maven仓库](3MavenRepository/readme.md)
 - [处理JAR依赖冲突](4DealingWithJARDependencyConflicts/readme.md)
 - [嵌入依赖的JAR](5EmbeddingJARWithDependencies/readme.md)
-- [Client(暂无)](6Client/readme.md)
+- [Client](6Client/readme.md)
 - [文档API(暂无)](7DocumentAPIs/readme.md)
 - [检索API(暂无)](8SearchAPI/readme.md)
 - [聚合(暂无)](9Aggregations/readme.md)

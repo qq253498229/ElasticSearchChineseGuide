@@ -17,4 +17,4 @@
 任何尚未支持的API仍然可以使用 [low level Java REST Client]() 通过json的方式来调用。
 
 - [Transport Client](TransportClient.md)
-- [Connecting a Client to a Coordinating Only Node](ConnectingAClientToACoordinatingOnlyNode.md)
+- [将client连接到一个节点](ConnectingAClientToACoordinatingOnlyNode.md)

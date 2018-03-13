@@ -1,8 +1,7 @@
 # Transport Client
 
-The **TransportClient** connects remotely to an Elasticsearch cluster using the transport module. 
-It does not join the cluster, but simply gets one or more initial transport addresses and communicates with them in round robin fashion on each action 
-(though most actions will probably be "two hop" operations).
+**TransportClient** 使用 transport模块远程连接到ES集群。
+它并不是加入到集群中，而只是获取一个或多个初始传输地址，在操作的时候以循环的方式与之通信(大部分操作可能都是TwoHop操作)
 
 ```java
 // on startup
@@ -16,7 +15,7 @@ TransportClient client = new PreBuiltTransportClient(Settings.EMPTY)
 client.close();
 ```
 
-Note that you have to set the cluster name if you use one different than "elasticsearch":
+注意如果你的集群名称不是 **elasticsearch** 的话，你需要设置成你自己的：
 
 ```java
 Settings settings = Settings.builder()
@@ -25,17 +24,17 @@ TransportClient client = new PreBuiltTransportClient(settings);
 //Add transport addresses and do something with the client...
 ```
 
-The Transport client comes with a cluster sniffing feature which allows it to dynamically add new hosts and remove old ones. 
-When sniffing is enabled, the transport client will connect to the nodes in its internal node list, which is built via calls to **addTransportAddress**. 
-After this, the client will call the internal cluster state API on those nodes to discover available data nodes. 
-The internal node list of the client will be replaced with those data nodes only. This list is refreshed every five seconds by default. 
-Note that the IP addresses the sniffer connects to are the ones declared as the publish address in those node’s elasticsearch config.
+**Transport client** 具有嗅探的特性，可以自动添加新主机和删除旧主机。
+当嗅探被开启时，**transport client**通过调用**addTransportAddress**方法与内部节点列表中的某一个节点建立连接。
+在这之后，**client**就可以调用节点内部的API来获取数据了。
+客户端内部的节点列表会替换这些数据节点，列表默认情况下每5秒刷新一次。
+注意嗅探所连接的ip地址可以声明在es的配置文件中。
 
-Keep in mind that the list might possibly not include the original node it connected to if that node is not a data node. 
-If, for instance, you initially connect to a master node, after sniffing, no further requests will go to that master node, 
-but rather to any data nodes instead. The reason the transport client excludes non-data nodes is to avoid sending search traffic to master only nodes.
+请记住，如果该节点连接的不是数据节点，那么这个节点列表可能不会包含它的原始节点。
+例如，你初始化并连接到了一个主节点，在嗅探之后，接下来的请求都不会发送到这个主节点，而是发送到其它的数据节点。
+transport client排除非数据节点的原因，是为了避免向主节点发送搜索请求。
 
-In order to enable sniffing, set **client.transport.sniff** to true:
+想起用嗅探特性，请设置**client.transport.sniff**为**true**：
 
 ```java
 Settings settings = Settings.builder()
@@ -43,10 +42,10 @@ Settings settings = Settings.builder()
 TransportClient client = new PreBuiltTransportClient(settings);
 ```
 
-Other transport client level settings include:
+transport client级别的其它设置：
 
 参数 | 作用
 ---|---
-client.transport.ignore_cluster_name | Set to **true** to ignore cluster name validation of connected nodes. (since 0.19.4)
-client.transport.ping_timeout | The time to wait for a ping response from a node. Defaults to **5s** .
-client.transport.nodes_sampler_interval | How often to sample / ping the nodes listed and connected. Defaults to **5s** .
+client.transport.ignore_cluster_name | 设置成**true**可以忽略节点名称的校验。(v0.19.4+)
+client.transport.ping_timeout | ping超时时间，默认**5**秒。
+client.transport.nodes_sampler_interval | sample/ping节点列表并连接的间隔，默认**5**秒
