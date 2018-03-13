@@ -7,16 +7,17 @@
 - [处理JAR依赖冲突](4DealingWithJARDependencyConflicts/readme.md)
 - [嵌入依赖的JAR](5EmbeddingJARWithDependencies/readme.md)
 - [Client](6Client/readme.md)
-- [文档API(暂无)](7DocumentAPIs/readme.md)
-- [检索API(暂无)](8SearchAPI/readme.md)
+- [Document接口](7DocumentAPIs/readme.md)
+- [Search接口(暂无)](8SearchAPI/readme.md)
 - [聚合(暂无)](9Aggregations/readme.md)
 - [查询DSL(暂无)](10QueryDSL/readme.md)
-- [索引脚本API(暂无)](11IndexedScriptsAPI/readme.md)
-- [管理员API(暂无)](12JavaAPIAdministration/readme.md)
-
-- [名词解释(对比关系型数据库)](0Words/readme.md)
+- [索引脚本接口(暂无)](11IndexedScriptsAPI/readme.md)
+- [管理员接口(暂无)](12JavaAPIAdministration/readme.md)
 
 
+- [《Elasticsearch: 权威指南》中文版](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html)
+- [名词解释(对比关系型数据库)](0Remark/words.md)
+- [贡献说明](0Remark/Contribution.md)
 
 > 原文[地址](https://www.elastic.co/guide/en/elasticsearch/client/java-api/5.6/index.html)
 
@@ -24,4 +25,4 @@
 
 > 欢迎大家踊跃提交issue/pull request。联系方式：codeforfun@foxmail.com
 
-> ES版本 5.6.8
+> ES版本 5.6
