@@ -1,21 +1,20 @@
-# Document APIs
+# 文档接口
 
-This section describes the following CRUD APIs:
+这部分讲的是下面这些CRUD接口:
 
-## Single document APIs
+## 单文档接口
 
-- [Index API](Index API.md)
-- [Get API](Get API.md)
-- [Delete API](Delete API.md)
-- [Delete By Query API](Delete By Query API.md)
-- [Update API](Update API.md)
+- [索引接口](Index API.md)
+- [查询(通过主键)接口](Get API.md)
+- [删除接口](Delete API.md)
+- [根据条件删除接口](Delete By Query API.md)
+- [修改接口](Update API.md)
 
-## Multi-document APIs
+## 多文档接口
 
-- [Multi Get API](Multi Get API.md)
-- [Bulk API](Bulk API.md)
-- [Using Bulk Processor](Using Bulk Processor.md)
+- [批量查询接口](Multi Get API.md)
+- [批处理接口](Bulk API.md)
+- [使用批处理处理器](Using Bulk Processor.md)
 
-
-> note: All CRUD APIs are single-index APIs. 
-The **index** parameter accepts a single index name, or an **alias** which points to a single index.
+> 所有的CRUD接口都是针对同一个索引的接口。
+**index** 参数只可以接受单独的索引名，也可以使用**alias**来指向这个索引
