@@ -2,7 +2,7 @@
 
 Multi Get接口允许通过index,type,id获取文档列表：
 
-```json
+```java
 MultiGetResponse multiGetItemResponses = client.prepareMultiGet()
     //通过id获取
     .add("twitter", "tweet", "1")           
