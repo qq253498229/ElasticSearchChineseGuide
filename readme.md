@@ -21,6 +21,9 @@
 
 > 原文[地址](https://www.elastic.co/guide/en/elasticsearch/client/java-api/5.6/index.html)
 
+> osc[地址](https://gitee.com/consolelog/chinese_translation_of_elasticsearchjavaapi)
+> github[地址](https://github.com/qq253498229/ElasticSearchChineseGuide)
+
 > 本文旨在帮助中文用户学习ES，转载请注明出处。
 
 > 欢迎大家踊跃提交issue/pull request。联系方式：codeforfun@foxmail.com
