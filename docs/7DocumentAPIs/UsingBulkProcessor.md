@@ -46,7 +46,7 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(
         .setFlushInterval(TimeValue.timeValueSeconds(5)) 
         //设置执行批处理请求时允许的最大并发数。0代表每次只执行一个请求，1代表允许1条并发请求
         .setConcurrentRequests(1) 
-        //设置异常策略，间隔100ms重试3次。当批处理执行的时候抛出EsRejectedExecutionException异常的时候，会启动重试策略。原因可能是硬件资源太低。如想关闭该策略，可以传入BackoffPolicy.noBackoff()
+        //设置异常策略，间隔100ms重试一次，一共重试3次。当批处理执行的时候抛出EsRejectedExecutionException异常的时候，会启动重试策略。原因可能是硬件资源太低。如想关闭该策略，可以传入BackoffPolicy.noBackoff()
         .setBackoffPolicy(
             BackoffPolicy.exponentialBackoff(TimeValue.timeValueMillis(100), 3)) 
         .build();
