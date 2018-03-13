@@ -7,8 +7,8 @@
 - 使用第三方库(例如:[Jackson](http://wiki.fasterxml.com/JacksonHome))来把你的Bean转换成Json格式
 - 使用内置的 **XContentFactory.jsonBuilder()**  工具
 
-在内部，所有类型都会转换成**byte[]**类型。因此，如果你的对象已经是这种格式了，那么就直接使用它吧。
-当然**jsonBuilder**是一个高度优化的工具，你可以使用它来直接构造**byte[]**
+在内部，所有类型都会转换成 **byte[]** 类型。因此，如果你的对象已经是这种格式了，那么就直接使用它吧。
+当然 **jsonBuilder** 是一个高度优化的工具，你可以使用它来直接构造 **byte[]**
 
 ## 手动拼接
 
@@ -40,7 +40,7 @@ json.put("message","trying out Elasticsearch");
 
 你可以使用[Jackson](http://wiki.fasterxml.com/JacksonHome)将你的Bean序列化成JSON。
 请将[Jackson Databind](http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)加入你的项目中。
-然后你就可以使用**ObjectMapper**来序列化你的Bean了：
+然后你就可以使用 **ObjectMapper** 来序列化你的Bean了：
 
 ```java
 import com.fasterxml.jackson.databind.*;
