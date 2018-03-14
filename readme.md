@@ -8,7 +8,7 @@
 - [嵌入依赖的JAR](docs/5EmbeddingJARWithDependencies/readme.md)
 - [Client](docs/6Client/readme.md)
 - [Document接口](docs/7DocumentAPIs/readme.md)
-- [Search接口(暂无)](docs/8SearchAPI/readme.md)
+- [Search接口](docs/8SearchAPI/readme.md)
 - [聚合(暂无)](docs/9Aggregations/readme.md)
 - [查询DSL(暂无)](docs/10QueryDSL/readme.md)
 - [索引脚本接口(暂无)](docs/11IndexedScriptsAPI/readme.md)
