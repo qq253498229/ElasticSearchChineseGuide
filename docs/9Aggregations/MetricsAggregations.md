@@ -6,7 +6,7 @@
 - [平均值聚合](#平均值聚合)
 - [统计聚合](#统计聚合)
 - [拓展统计聚合](#拓展统计聚合)
-- [值计数(value count)聚合](#值计数)
+- [值计数聚合](#值计数聚合)
 - [百分比聚合](#百分比聚合)
 - [百分比等级聚合](#百分比等级聚合)
 - [基数聚合](#基数聚合)
@@ -208,9 +208,9 @@ double sumOfSquares = agg.getSumOfSquares();
 double variance = agg.getVariance();
 ```
 
-## 值计数(value count)聚合
+## 值计数聚合
 
-你可以通过JavaAPI使用[值计数聚合](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-aggregations-metrics-valuecount-aggregation.html)。
+你可以通过JavaAPI使用[值计数(value count)聚合](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-aggregations-metrics-valuecount-aggregation.html)。
 
 ### 准备聚合请求
 
