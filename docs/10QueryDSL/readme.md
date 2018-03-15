@@ -16,7 +16,7 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 
 - [匹配所有的查询](MatchAllQuery.md)
 - [全文检索](FullTextQueries.md)
-- [术语级别查询](TermLevelQueries.md)
+- [匹配查询](TermLevelQueries.md)
 - [复合查询](CompoundQueries.md)
 - [关联关系查询](JoiningQueries.md)
 - [地理位置查询](GeoQueries.md)
