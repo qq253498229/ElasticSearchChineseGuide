@@ -95,3 +95,75 @@ QueryBuilder qb = rangeQuery("age")
     .gte("10")                        
     .lt("20");        
 ```
+
+## exists查询
+
+查看[Exists Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-exists-query.html)
+
+```java
+QueryBuilder qb = existsQuery("name");  
+```
+
+## prefix查询
+
+查看[Prefix Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-prefix-query.html)
+
+```java
+QueryBuilder qb = prefixQuery(
+    //字段名    
+    "brand",    
+    //前缀
+    "heine"     
+);
+```
+
+## wildcard查询
+
+查看[Wildcard Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-wildcard-query.html)
+
+```java
+QueryBuilder qb = wildcardQuery("user", "k?mc*");
+```
+
+## regexp查询
+
+查看[Regexp Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-regexp-query.html)
+
+```java
+QueryBuilder qb = regexpQuery(
+    //字段名，允许类似JavsScript的层级关系    
+    "name.first",        
+    //正则表达式
+    "s.*y");             
+```
+
+## fuzzy查询
+
+查看[Fuzzy Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-fuzzy-query.html)
+
+```java
+QueryBuilder qb = fuzzyQuery(
+    "name",     
+    "kimzhy"    
+);
+```
+
+## type查询
+
+查看[Type Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-type-query.html)
+
+```java
+QueryBuilder qb = typeQuery("my_type"); 
+```
+
+## ids查询
+
+查看[Ids Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-ids-query.html)
+
+```java
+QueryBuilder qb = idsQuery("my_type", "type2")
+    .addIds("1", "4", "100");
+// type是可选项
+QueryBuilder qb = idsQuery() 
+    .addIds("1", "4", "100");
+```
