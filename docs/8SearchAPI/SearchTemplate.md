@@ -1,4 +1,4 @@
-# 模版检索
+# 模版查询
 
 查看[Search Template](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-template.html)文档。
 
@@ -21,7 +21,7 @@ template_params.put("param_gender", "male");
 }
 ```
 
-创建你的模版检索请求：
+创建你的模版查询请求：
 
 ```java
 SearchResponse sr = new SearchTemplateRequestBuilder(client)
@@ -33,9 +33,9 @@ SearchResponse sr = new SearchTemplateRequestBuilder(client)
     .setScriptParams(template_params)   
     //设置请求(可以在这里定义index)          
     .setRequest(new SearchRequest()) 
-    //执行并返回检索响应             
+    //执行并返回查询响应             
     .get()               
-    //从响应中获取检索结果                         
+    //从响应中获取查询结果                         
     .getResponse();  
 ```
 

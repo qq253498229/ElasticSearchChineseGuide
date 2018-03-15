@@ -2,7 +2,7 @@
 
 ES提供了完整的JavaAPI来使用聚合，请查阅[Aggregations guide](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-aggregations.html)([中文](https://www.elastic.co/guide/cn/elasticsearch/guide/cn/aggregations.html))。
 
-使用工厂来构建聚合( **AggregationBuilders** )，并将需要计算的聚合加入到检索请求中：
+使用工厂来构建聚合( **AggregationBuilders** )，并将需要计算的聚合加入到查询请求中：
 
 ```java
 SearchResponse sr = node.client().prepareSearch()

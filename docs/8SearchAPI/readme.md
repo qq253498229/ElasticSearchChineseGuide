@@ -1,8 +1,8 @@
 # Search接口
 
-Search接口允许执行一个检索操作，并返回与检索条件相匹配的结果。允许跨index检索，也可以跨type检索。
-可以使用[query Java API](https://www.elastic.co/guide/en/elasticsearch/client/java-api/5.6/java-query-dsl.html)作为检索语句。
-检索的请求体使用**SearchSourceBuilder**构建。例：
+Search接口允许执行一个查询操作，并返回与查询条件相匹配的结果。允许跨index查询，也可以跨type查询。
+可以使用[query Java API](https://www.elastic.co/guide/en/elasticsearch/client/java-api/5.6/java-query-dsl.html)作为查询语句。
+查询的请求体使用**SearchSourceBuilder**构建。例：
 
 ```java
 import org.elasticsearch.action.search.SearchResponse;
@@ -20,10 +20,10 @@ SearchResponse response = client.prepareSearch("index1", "index2")
         .get();
 ```
 
-注意所有的参数都不是必填的，下面的例子就是一个最小的检索请求：
+注意所有的参数都不是必填的，下面的例子就是一个最小的查询请求：
 
 ```java
-// 使用默认的参数，检索所有集群的所有文档。
+// 使用默认的参数，查询所有集群的所有文档。
 SearchResponse response = client.prepareSearch().get();
 ```
 
@@ -35,4 +35,4 @@ SearchResponse response = client.prepareSearch().get();
 - [批量查询](MultiSearchAPI.md)
 - [使用聚合](UsingAggregations.md)
 - [设置终止标志](TerminateAfter.md)
-- [模版检索](SearchTemplate.md)
+- [模版查询](SearchTemplate.md)

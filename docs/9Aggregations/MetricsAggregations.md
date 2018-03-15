@@ -424,7 +424,7 @@ AggregationBuilder aggregation =
         );
 ```
 
-大多数在检索时使用的参数在这里都可以使用，比如 **from** , **size** , **sort** , **highlight** , **explain** ...
+大多数在查询时使用的参数在这里都可以使用，比如 **from** , **size** , **sort** , **highlight** , **explain** ...
 
 ```java
 AggregationBuilder aggregation =

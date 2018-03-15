@@ -10,7 +10,7 @@
 - [Document接口](docs/7DocumentAPIs/readme.md)
 - [Search接口](docs/8SearchAPI/readme.md)
 - [聚合](docs/9Aggregations/readme.md)
-- [查询DSL(暂无)](docs/10QueryDSL/readme.md)
+- [表达式查询(暂无)](docs/10QueryDSL/readme.md)
 - [索引脚本接口(暂无)](docs/11IndexedScriptsAPI/readme.md)
 - [管理员接口(暂无)](docs/12JavaAPIAdministration/readme.md)
 

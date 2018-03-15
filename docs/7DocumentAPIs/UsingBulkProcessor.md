@@ -112,6 +112,6 @@ bulkProcessor.close();
 // 刷新indices
 client.admin().indices().prepareRefresh().get();
 
-// 现在可以开始检索了!
+// 现在可以开始查询了!
 client.prepareSearch().get();
 ```
