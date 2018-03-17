@@ -1,0 +1,84 @@
+= ElasticSearch-Java API
+
+== 目录
+
+* <<Preface,前言>>
+
+* <<JavaDoc,Javadoc>>
+
+* <<MavenRepository,Maven仓库>>
+
+* <<DealingWithJARDependencyConflicts,处理JAR依赖冲突>>
+
+* <<EmbeddingJARWithDependencies,嵌入依赖的JAR>>
+
+* <<Client,Client>>
+
+* <<DocumentAPIs,Document接口>>
+
+* <<SearchAPI,Search接口>>
+
+* <<Aggregations,聚合>>
+
+* <<QueryDSL,表达式查询(暂无)>>
+
+* <<IndexedScriptsAPI,索引脚本接口(暂无)>>
+
+* <<JavaAPIAdministration,管理员接口(暂无)>>
+
+* https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html[《Elasticsearch: 权威指南》中文版]
+
+* <<Remark,名词解释(对比关系型数据库)>>
+
+* <<Contribution,贡献说明>>
+
+[quote]
+____
+原文
+https://www.elastic.co/guide/en/elasticsearch/client/java-api/5.6/index.html[地址]
+____
+
+[quote]
+____
+osc
+https://gitee.com/consolelog/chinese_translation_of_elasticsearchjavaapi[地址]
+____
+
+[quote]
+____
+github
+https://github.com/qq253498229/ElasticSearchChineseGuide[地址]
+____
+
+[quote]
+____
+本文旨在帮助中文用户学习ES，转载请注明出处。
+____
+
+[quote]
+____
+欢迎大家踊跃提交issue/pull request。联系方式：codeforfun@foxmail.com
+____
+
+[quote]
+____
+ES版本 5.6
+____
+
+include::01_Preface/010_index.asciidoc[]
+
+include::02_Javadoc/020_index.asciidoc[]
+
+include::03_Maven_Repository/030_index.asciidoc[]
+
+include::04_Client/040_index.asciidoc[]
+
+include::05_Document_APIs/050_index.asciidoc[]
+
+include::06_Search_API/060_index.asciidoc[]
+
+include::07_Aggregations/070_index.asciidoc[]
+
+include::08_Query_DSL/080_index.asciidoc[]
+
+include::09_Java_API_Administration/090_index.asciidoc[]
