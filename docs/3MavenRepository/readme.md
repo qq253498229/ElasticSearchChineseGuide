@@ -8,7 +8,7 @@ ES 已经托管在 Maven 中央仓库
 <dependency>
   <groupId>org.elasticsearch</groupId>
   <artifactId>elasticsearch</artifactId>
-  <version>5.6.8</version>
+  <version>6.2.2</version>
 </dependency>
 ```
 
@@ -16,7 +16,7 @@ ES 已经托管在 Maven 中央仓库
 <dependency>
   <groupId>org.elasticsearch.client</groupId>
   <artifactId>transport</artifactId>
-  <version>5.6.8</version>
+  <version>6.2.2</version>
 </dependency>
 ```
 
@@ -24,9 +24,9 @@ ES 已经托管在 Maven 中央仓库
 <dependency>
   <groupId>org.elasticsearch.client</groupId>
   <artifactId>elasticsearch-rest-high-level-client</artifactId>
-  <version>5.6.8</version>
+  <version>6.2.2</version>
 </dependency>
 ```
-
+- [Lucene Snapshot仓库](./LuceneSnapshotRepository.md)
 - [Log4j 2 日志](./log4j2.md)
 - [使用其它的日志](./UsingAnotherLogger.md)

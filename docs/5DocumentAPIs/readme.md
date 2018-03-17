@@ -15,5 +15,7 @@
 - [Multi Get接口](MultiGetAPI.md)
 - [Bulk接口](BulkAPI.md)
 - [使用Bulk Processor](UsingBulkProcessor.md)
+- [通过脚本修改接口](UpdateByQueryAPI.md)
+- [重新索引接口](ReindexAPI.md)
 
 > 所有的CRUD接口都是针对同一个索引的接口。**index** 参数只可以接受单独的索引名，也可以使用**alias**来指向这个索引

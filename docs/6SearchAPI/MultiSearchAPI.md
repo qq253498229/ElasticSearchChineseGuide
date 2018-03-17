@@ -1,6 +1,6 @@
 # 批量查询
 
-点击[这里](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-multi-search.html)查看批量查询的文档。
+点击[这里](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search-multi-search.html)查看批量查询的文档。
 
 ```java
 SearchRequestBuilder srb1 = client

@@ -22,5 +22,5 @@ for (MultiGetItemResponse itemResponse : multiGetItemResponses) {
 }
 ```
 
-有关Get操作的更多信息，请查阅 [multi get接口](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/docs-multi-get.html)
+有关Get操作的更多信息，请查阅 [multi get接口](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/docs-multi-get.html)
 文档([中文](https://www.elastic.co/guide/cn/elasticsearch/guide/current/_Retrieving_Multiple_Documents.html))。

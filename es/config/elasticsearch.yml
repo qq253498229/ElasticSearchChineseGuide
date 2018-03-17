@@ -86,6 +86,25 @@
 # Require explicit names when deleting indices:
 #
 #action.destructive_requires_name: true
-network.host: 0.0.0.0
+
+
+#cluster.name: "elasticsearch"
+#network.host: 0.0.0.0
+#xpack.monitoring.exporters.my_remote:
+#  type: http
+#  host: ["0.0.0.0"]
+# minimum_master_nodes need to be explicitly set when bound on a public IP
+# set to 1 to allow single node clusters
+# Details: https://github.com/elastic/elasticsearch/pull/17288
+#discovery.zen.minimum_master_nodes: 1
+#discovery.zen.ping.unicast.hosts: ["0.0.0.0", "[::1]"]
 #http.cors.enabled: true
 #http.cors.allow-origin: "*"
+
+#cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+
+# minimum_master_nodes need to be explicitly set when bound on a public IP
+# set to 1 to allow single node clusters
+# Details: https://github.com/elastic/elasticsearch/pull/17288
+#discovery.zen.minimum_master_nodes: 1

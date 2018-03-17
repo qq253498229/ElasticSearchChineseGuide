@@ -46,4 +46,4 @@ long _version = response.getVersion();
 RestStatus status = response.status();
 ```
 
-有关索引操作的更多信息，请查阅REST [index](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/docs-index_.html)文档([中文](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index-doc.html))。
+有关索引操作的更多信息，请查阅REST [index](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/docs-index_.html)文档([中文](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index-doc.html))。

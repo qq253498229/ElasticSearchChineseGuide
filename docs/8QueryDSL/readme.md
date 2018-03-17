@@ -2,7 +2,7 @@
 
 ES以类似REST[Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html)([中文](https://www.elastic.co/guide/cn/elasticsearch/guide/cn/query-dsl-intro.html))的方式提供了完整的表达式查询。
 
-可以通过 **QueryBuilders** 构建查询。构建成功后就可以使用 [Search API](../8SearchAPI/readme.md)。
+可以通过 **QueryBuilders** 构建查询。构建成功后就可以使用 [Search API](../6SearchAPI/readme.md)。
 
 使用 **QueryBuilders** 之前需要在类中引入 ：
 

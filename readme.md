@@ -4,15 +4,13 @@
 - [前言](docs/1Preface/readme.md)
 - [Javadoc](docs/2JavaDoc/readme.md)
 - [Maven仓库](docs/3MavenRepository/readme.md)
-- [处理JAR依赖冲突](docs/4DealingWithJARDependencyConflicts/readme.md)
-- [嵌入依赖的JAR](docs/5EmbeddingJARWithDependencies/readme.md)
-- [Client](docs/6Client/readme.md)
-- [Document接口](docs/7DocumentAPIs/readme.md)
-- [Search接口](docs/8SearchAPI/readme.md)
-- [聚合](docs/9Aggregations/readme.md)
-- [表达式查询(暂无)](docs/10QueryDSL/readme.md)
-- [索引脚本接口(暂无)](docs/11IndexedScriptsAPI/readme.md)
-- [管理员接口(暂无)](docs/12JavaAPIAdministration/readme.md)
+- [Client](docs/4Client/readme.md)
+- [Document接口](docs/5DocumentAPIs/readme.md)
+- [Search接口](docs/6SearchAPI/readme.md)
+- [聚合](docs/7Aggregations/readme.md)
+- [表达式查询(暂无)](docs/8QueryDSL/readme.md)
+- [索引脚本接口(暂无)](docs/9IndexedScriptsAPI/readme.md)
+- [管理员接口(暂无)](docs/10JavaAPIAdministration/readme.md)
 
 
 - [《Elasticsearch: 权威指南》中文版](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html)
@@ -28,4 +26,4 @@
 
 > 欢迎大家踊跃提交issue/pull request。联系方式：codeforfun@foxmail.com
 
-> ES版本 5.6
+> ES版本 6.2.2

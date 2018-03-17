@@ -23,4 +23,14 @@
 
 [boosting查询](boosting查询)
 
-- 
+- 这里查询条件将会分为正匹配和负匹配。正匹配到的文档将会加分，负匹配得到的文档将会减分。
+
+## constant_score查询
+
+查看[Constant Score Query](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/query-dsl-constant-score-query.html)
+
+```java
+constantScoreQuery(
+        termQuery("name","kimchy"))                          
+    .boost(2.0f);  
+```

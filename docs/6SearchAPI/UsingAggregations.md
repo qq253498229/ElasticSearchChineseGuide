@@ -20,4 +20,4 @@ Terms agg1 = sr.getAggregations().get("agg1");
 Histogram agg2 = sr.getAggregations().get("agg2");
 ```
 
-查看[Aggregations Java API ](../9Aggregations/readme.md)详细文档
+查看[Aggregations Java API ](../7Aggregations/readme.md)详细文档

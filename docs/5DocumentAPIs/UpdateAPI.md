@@ -1,6 +1,6 @@
 # Update接口
 
-你可以创建一个**UpdateRequest**并发送给**client**
+你可以创建一个 **UpdateRequest** 并发送给 **client**
 
 ```java
 UpdateRequest updateRequest = new UpdateRequest();
@@ -14,7 +14,7 @@ updateRequest.doc(jsonBuilder()
 client.update(updateRequest).get();
 ```
 
-或者也可以使用**prepareUpdate()** 方法
+或者也可以使用 **prepareUpdate()** 方法
 
 ```java
 client.prepareUpdate("ttl", "doc", "1")
@@ -30,7 +30,7 @@ client.prepareUpdate("ttl", "doc", "1")
         .get();
 ```
 
-注意，不能同时使用**script**和**doc**。
+注意，不能同时使用 **script** 和 **doc** 。
 
 ## 使用脚本更新文档
 
