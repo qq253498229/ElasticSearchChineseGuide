@@ -6,4 +6,4 @@
 - 使用markdown语法
 - link文件名中间不要有空格，否则GitHub会不识别
 - 个人使用心得请写在md文件末尾并作出备注(例如: 心得：xxxxxx)
-- 为了对接elastic官方文档，之后会加入AscIIDoc语法，md版本不会停止更新，待更新结束会将全部文档转移至md版本。
+- 为了对接elastic官方文档，之后会加入AscIIDoc语法，md版本不会停止更新。
