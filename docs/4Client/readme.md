@@ -2,10 +2,10 @@
 
 你有很多方法来使用 **java client**
 
-- 在一个已有的集群中执行标准的[index]()，[get]()，[delete]()和[search]()操作。
+- 在一个已有的集群中执行标准的[index](../5DocumentAPIs/IndexAPI.md#index接口)，[get](../5DocumentAPIs/GetAPI.md)，[delete](../5DocumentAPIs/DeleteAPI.md)和[search](../6SearchAPI/readme.md)操作。
 - 在一个已有的集群中执行管理任务
 
-获取 ES **client** 很简单。最常用的方法就是创建一个连接到集群的[TransportClient]()，并从中获取client。
+获取 ES **client** 很简单。最常用的方法就是创建一个连接到集群的[TransportClient](../4Client/readme.md#transportclient)，并从中获取client。
 
 > 重要：集群中的客户端节点必须重要版本相同（例如5.6.8和5.6.2，2.4.6和2.4.0）。
 虽然不同版本的客户端可以同时连接到同一个集群中，但是一些新版本的新特性在旧版本可能就不会被支持了。
@@ -70,5 +70,5 @@ client.transport.nodes_sampler_interval | sample/ping节点列表并连接的间
 
 ## 将client连接到一个节点
 在本地[连接到一个节点](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/modules-node.html#coordinating-only-node)，
-然后在应用中创建一个 [TransportClient](#Transport Client)吧。
+然后在应用中创建一个 [TransportClient](#TransportClient)吧。
 这样这个节点就可以加载你需要的任何插件了(例如discovery插件)。
