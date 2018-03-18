@@ -1,4 +1,4 @@
-# 表达式查询
+# 领域查询
 
 ES以类似REST[Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl.html)([中文](https://www.elastic.co/guide/cn/elasticsearch/guide/cn/query-dsl-intro.html))的方式提供了完整的表达式查询。
 
@@ -20,5 +20,5 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 - [组合查询](CompoundQueries.md)
 - [关联关系查询](JoiningQueries.md)
 - [地理位置查询](GeoQueries.md)
-- [专业查询](SpecializedQueries.md)
+- [特殊查询](SpecializedQueries.md)
 - [跨度查询](SpanQueries.md)

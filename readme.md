@@ -8,7 +8,7 @@
 - [Document接口](docs/5DocumentAPIs/readme.md)
 - [Search接口](docs/6SearchAPI/readme.md)
 - [聚合](docs/7Aggregations/readme.md)
-- [表达式查询(暂无)](docs/8QueryDSL/readme.md)
+- [领域查询](docs/8QueryDSL/readme.md)
 - [索引脚本接口(暂无)](docs/9IndexedScriptsAPI/readme.md)
 - [管理员接口(暂无)](docs/10JavaAPIAdministration/readme.md)
 
