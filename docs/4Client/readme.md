@@ -5,7 +5,7 @@
 - 在一个已有的集群中执行标准的[index](../5DocumentAPIs/IndexAPI.md#index接口)，[get](../5DocumentAPIs/GetAPI.md)，[delete](../5DocumentAPIs/DeleteAPI.md)和[search](../6SearchAPI/readme.md)操作。
 - 在一个已有的集群中执行管理任务
 
-获取 ES **client** 很简单。最常用的方法就是创建一个连接到集群的[TransportClient](../4Client/readme.md#transportclient)，并从中获取client。
+获取 ES **client** 很简单。最常用的方法就是创建一个连接到集群的[TransportClient](../4Client/readme.md#TransportClient)，并从中获取client。
 
 > 重要：集群中的客户端节点必须重要版本相同（例如5.6.8和5.6.2，2.4.6和2.4.0）。
 虽然不同版本的客户端可以同时连接到同一个集群中，但是一些新版本的新特性在旧版本可能就不会被支持了。
