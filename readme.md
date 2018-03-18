@@ -9,8 +9,7 @@
 - [Search接口](docs/6SearchAPI/readme.md)
 - [聚合](docs/7Aggregations/readme.md)
 - [领域查询](docs/8QueryDSL/readme.md)
-- [索引脚本接口(暂无)](docs/9IndexedScriptsAPI/readme.md)
-- [管理员接口(暂无)](docs/10JavaAPIAdministration/readme.md)
+- [管理员接口](docs/9JavaAPIAdministration/readme.md)
 
 
 - [《Elasticsearch: 权威指南》中文版](https://www.elastic.co/guide/cn/elasticsearch/guide/current/index.html)
