@@ -1,4 +1,4 @@
-# 链接查询
+# 关联关系查询
 
 在ES这样的分布式系统中使用SQL风格的关联语句对性能的损耗是非常大的。所以，ES提供了两种支持水平拓展的关联操作。
 
@@ -62,7 +62,7 @@ TransportClient client = new PreBuiltTransportClient(settings);
 client.addTransportAddress(new InetSocketTransportAddress(new InetSocketAddress(InetAddresses.forString("127.0.0.1"), 9300)));
 ```
 
-否则父链接模块将不会被加载，并且[TransportClient]中不能使用 **has_parent** 查询。
+否则父链接模块将不会被加载，并且[TransportClient](../4Client/readme.md#TransportClient)中不能使用 **has_parent** 查询。
 
 ```java
 JoinQueryBuilders.hasParentQuery(

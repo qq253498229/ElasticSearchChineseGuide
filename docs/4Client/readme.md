@@ -16,7 +16,7 @@
 你可以点击[这里](https://github.com/elastic/elasticsearch/issues/27205)把你的应用需要添加的api告诉我们。
 任何尚未支持的API仍然可以使用 [low level Java REST Client]() 通过json的方式来调用。
 
-## Transport Client
+## TransportClient
 
 **TransportClient** 使用 transport模块远程连接到ES集群。
 它并不是加入到集群中，而只是获取一个或多个初始传输地址，在操作的时候以循环的方式与之通信(大部分操作可能都是TwoHop操作)
