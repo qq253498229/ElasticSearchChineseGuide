@@ -85,7 +85,7 @@ client.update(updateRequest).get();
 }
 ```
 
-如果 **index/type/1** 这个文档不存在，我们会得到一个心的文档：
+        如果 **index/type/1** 这个文档不存在，我们会得到一个新的文档：
 
 ```json
 {
