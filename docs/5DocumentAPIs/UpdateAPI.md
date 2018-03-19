@@ -78,10 +78,10 @@ client.update(updateRequest).get();
 
 如果 **index/type/1** 这个文档已经存在了，在这个操作之后我们会有一个这样的文档：
 
-```json
+```java
 {
     "name"  : "Joe Dalton",
-    "gender": "male" //这个字段是通过update request添加的
+    "gender": "male" //这个字段是通过UpdateRequest添加的
 }
 ```
 
