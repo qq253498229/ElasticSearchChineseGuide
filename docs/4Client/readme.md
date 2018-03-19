@@ -69,6 +69,6 @@ client.transport.ping_timeout | ping超时时间，默认**5**秒。
 client.transport.nodes_sampler_interval | sample/ping节点列表并连接的间隔，默认**5**秒
 
 ## 将client连接到一个节点
-在本地[连接到一个节点](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/modules-node.html#coordinating-only-node)，
+在本地[连接到一个节点](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/modules-node.html#coordinating-only-node)，
 然后在应用中创建一个 [TransportClient](#TransportClient)吧。
 这样这个节点就可以加载你需要的任何插件了(例如discovery插件)。
