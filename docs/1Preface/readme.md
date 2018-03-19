@@ -1,6 +1,6 @@
 # 前言
 
-本节介绍了由ElasticSearch(之后简称为ES)提供的Java API，所有操作都使用[Client](../4Client/readme.md)来执行，所以的请求默认就是异步的（可以使用listener监听，也可以直接返回结果）
+本节介绍了由ElasticSearch(之后简称为ES)提供的Java API，所有操作都使用[Client](../4Client/readme.md)来执行，所有请求默认是异步的（可以使用listener监听，也可以直接返回结果）
 
 此外，也可以使用[Bulk](../5DocumentAPIs/BulkAPI.md)来批量的执行一系列操作。
 
