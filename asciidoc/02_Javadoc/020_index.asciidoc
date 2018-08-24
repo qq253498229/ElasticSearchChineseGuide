@@ -1,7 +1,0 @@
-[[Javadoc]]
-
-=== Javadoc
-
-TransClient 的Javadoc可以在
-https://artifacts.elastic.co/javadoc/org/elasticsearch/client/transport/5.6.8/index.html[这里]
-找到
