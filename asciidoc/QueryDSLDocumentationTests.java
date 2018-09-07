@@ -23,7 +23,7 @@ import org.apache.lucene.search.join.ScoreMode;
 import org.elasticsearch.common.geo.GeoPoint;
 import org.elasticsearch.common.geo.ShapeRelation;
 import org.elasticsearch.common.geo.builders.CoordinatesBuilder;
-import org.elasticsearch.common.geo.builders.MultiPointBuilder;
+import org.elasticsearch.common.geo.builders.ShapeBuilders;
 import org.elasticsearch.common.unit.DistanceUnit;
 import org.elasticsearch.index.query.GeoShapeQueryBuilder;
 import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
@@ -101,8 +101,8 @@ public class QueryDSLDocumentationTests extends ESTestCase {
     public void testBoosting() {
         // tag::boosting
         boostingQuery(
-                termQuery("name","kimchy"),                      // <1>
-                termQuery("name","dadoonet"))                    // <2>
+                    termQuery("name","kimchy"),                      // <1>
+                    termQuery("name","dadoonet"))                    // <2>
                 .negativeBoost(0.2f);                                // <3>
         // end::boosting
     }
@@ -110,7 +110,7 @@ public class QueryDSLDocumentationTests extends ESTestCase {
     public void testCommonTerms() {
         // tag::common_terms
         commonTermsQuery("name",                                     // <1>
-                "kimchy");                                  // <2>
+                         "kimchy");                                  // <2>
         // end::common_terms
     }
 
@@ -118,7 +118,7 @@ public class QueryDSLDocumentationTests extends ESTestCase {
         // tag::constant_score
         constantScoreQuery(
                 termQuery("name","kimchy"))                          // <1>
-                .boost(2.0f);                                            // <2>
+            .boost(2.0f);                                            // <2>
         // end::constant_score
     }
 
@@ -162,7 +162,7 @@ public class QueryDSLDocumentationTests extends ESTestCase {
     public void testGeoBoundingBox() {
         // tag::geo_bounding_box
         geoBoundingBoxQuery("pin.location")                          // <1>
-                .setCorners(40.73, -74.1,                                // <2>
+            .setCorners(40.73, -74.1,                                // <2>
                         40.717, -73.99);                             // <3>
         // end::geo_bounding_box
     }
@@ -170,14 +170,14 @@ public class QueryDSLDocumentationTests extends ESTestCase {
     public void testGeoDistance() {
         // tag::geo_distance
         geoDistanceQuery("pin.location")                             // <1>
-                .point(40, -70)                                          // <2>
-                .distance(200, DistanceUnit.KILOMETERS);                 // <3>
+            .point(40, -70)                                          // <2>
+            .distance(200, DistanceUnit.KILOMETERS);                 // <3>
         // end::geo_distance
     }
 
     public void testGeoPolygon() {
         // tag::geo_polygon
-        List<GeoPoint> points = new ArrayList<>();           // <1>
+        List<GeoPoint> points = new ArrayList<GeoPoint>();           // <1>
         points.add(new GeoPoint(40, -70));
         points.add(new GeoPoint(30, -80));
         points.add(new GeoPoint(20, -90));
@@ -190,14 +190,14 @@ public class QueryDSLDocumentationTests extends ESTestCase {
             // tag::geo_shape
             GeoShapeQueryBuilder qb = geoShapeQuery(
                     "pin.location",                                      // <1>
-                    new MultiPointBuilder(                         // <2>
+                    ShapeBuilders.newMultiPoint(                         // <2>
                             new CoordinatesBuilder()
-                                    .coordinate(0, 0)
-                                    .coordinate(0, 10)
-                                    .coordinate(10, 10)
-                                    .coordinate(10, 0)
-                                    .coordinate(0, 0)
-                                    .build()));
+                        .coordinate(0, 0)
+                        .coordinate(0, 10)
+                        .coordinate(10, 10)
+                        .coordinate(10, 0)
+                        .coordinate(0, 0)
+                        .build()));
             qb.relation(ShapeRelation.WITHIN);                           // <3>
             // end::geo_shape
         }
@@ -206,12 +206,12 @@ public class QueryDSLDocumentationTests extends ESTestCase {
             // tag::indexed_geo_shape
             // Using pre-indexed shapes
             GeoShapeQueryBuilder qb = geoShapeQuery(
-                    "pin.location",                                  // <1>
-                    "DEU",                                           // <2>
-                    "countries");                                    // <3>
+                        "pin.location",                                  // <1>
+                        "DEU",                                           // <2>
+                        "countries");                                    // <3>
             qb.relation(ShapeRelation.WITHIN)                            // <4>
-                    .indexedShapeIndex("shapes")                             // <5>
-                    .indexedShapePath("location");                           // <6>
+                .indexedShapeIndex("shapes")                             // <5>
+                .indexedShapePath("location");                           // <6>
             // end::indexed_geo_shape
         }
     }
@@ -228,9 +228,9 @@ public class QueryDSLDocumentationTests extends ESTestCase {
     public void testHasParent() {
         // tag::has_parent
         JoinQueryBuilders.hasParentQuery(
-                "blog",                                                  // <1>
-                termQuery("tag","something"),                            // <2>
-                false);                                                  // <3>
+            "blog",                                                  // <1>
+            termQuery("tag","something"),                            // <2>
+            false);                                                  // <3>
         // end::has_parent
     }
 
@@ -251,11 +251,11 @@ public class QueryDSLDocumentationTests extends ESTestCase {
     }
 
     public void testMatch() {
-        // # tag::match[]
+        // tag::match
         matchQuery(
                 "name",                                              // <1>
                 "kimchy elasticsearch");                             // <2>
-        // # end::match[]
+        // end::match
     }
 
     public void testMoreLikeThis() {
@@ -264,8 +264,8 @@ public class QueryDSLDocumentationTests extends ESTestCase {
         String[] texts = {"text like this one"};                     // <2>
 
         moreLikeThisQuery(fields, texts, null)
-                .minTermFreq(1)                                          // <3>
-                .maxQueryTerms(12);                                      // <4>
+            .minTermFreq(1)                                          // <3>
+            .maxQueryTerms(12);                                      // <4>
         // end::more_like_this
     }
 
@@ -305,17 +305,17 @@ public class QueryDSLDocumentationTests extends ESTestCase {
     public void testRange() {
         // tag::range
         rangeQuery("price")                                          // <1>
-                .from(5)                                                 // <2>
-                .to(10)                                                  // <3>
-                .includeLower(true)                                      // <4>
-                .includeUpper(false);                                    // <5>
+            .from(5)                                                 // <2>
+            .to(10)                                                  // <3>
+            .includeLower(true)                                      // <4>
+            .includeUpper(false);                                    // <5>
         // end::range
 
         // tag::range_simplified
         // A simplified form using gte, gt, lt or lte
         rangeQuery("age")                                             // <1>
-                .gte("10")                                                // <2>
-                .lt("20");                                                // <3>
+            .gte("10")                                                // <2>
+            .lt("20");                                                // <3>
         // end::range_simplified
     }
 
@@ -331,7 +331,7 @@ public class QueryDSLDocumentationTests extends ESTestCase {
         // tag::script_inline
         scriptQuery(
                 new Script("doc['num1'].value > 1")                  // <1>
-        );
+            );
         // end::script_inline
 
         // tag::script_file
@@ -355,8 +355,8 @@ public class QueryDSLDocumentationTests extends ESTestCase {
         // tag::span_containing
         spanContainingQuery(
                 spanNearQuery(spanTermQuery("field1","bar"), 5)      // <1>
-                        .addClause(spanTermQuery("field1","baz"))
-                        .inOrder(true),
+                    .addClause(spanTermQuery("field1","baz"))
+                    .inOrder(true),
                 spanTermQuery("field1","foo"));                      // <2>
         // end::span_containing
     }
@@ -366,7 +366,7 @@ public class QueryDSLDocumentationTests extends ESTestCase {
         spanFirstQuery(
                 spanTermQuery("user", "kimchy"),                     // <1>
                 3                                                    // <2>
-        );
+            );
         // end::span_first
     }
 
@@ -382,9 +382,9 @@ public class QueryDSLDocumentationTests extends ESTestCase {
         spanNearQuery(
                 spanTermQuery("field","value1"),                     // <1>
                 12)                                                  // <2>
-                .addClause(spanTermQuery("field","value2"))      // <1>
-                .addClause(spanTermQuery("field","value3"))      // <1>
-                .inOrder(false);                                 // <3>
+                    .addClause(spanTermQuery("field","value2"))      // <1>
+                    .addClause(spanTermQuery("field","value3"))      // <1>
+                    .inOrder(false);                                 // <3>
         // end::span_near
     }
 
@@ -399,8 +399,8 @@ public class QueryDSLDocumentationTests extends ESTestCase {
     public void testSpanOr() {
         // tag::span_or
         spanOrQuery(spanTermQuery("field","value1"))                 // <1>
-                .addClause(spanTermQuery("field","value2"))              // <1>
-                .addClause(spanTermQuery("field","value3"));             // <1>
+            .addClause(spanTermQuery("field","value2"))              // <1>
+            .addClause(spanTermQuery("field","value3"));             // <1>
         // end::span_or
     }
 
@@ -416,8 +416,8 @@ public class QueryDSLDocumentationTests extends ESTestCase {
         // tag::span_within
         spanWithinQuery(
                 spanNearQuery(spanTermQuery("field1", "bar"), 5)     // <1>
-                        .addClause(spanTermQuery("field1", "baz"))
-                        .inOrder(true),
+                    .addClause(spanTermQuery("field1", "baz"))
+                    .inOrder(true),
                 spanTermQuery("field1", "foo"));                     // <2>
         // end::span_within
     }
