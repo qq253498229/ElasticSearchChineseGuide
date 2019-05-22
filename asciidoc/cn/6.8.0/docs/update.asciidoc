@@ -1,8 +1,7 @@
 [[java-docs-update]]
 === Update API
 
-
-You can either create an `UpdateRequest` and send it to the client:
+你可以创建一个 `UpdateRequest` 并发送给client:
 
 [source,java]
 --------------------------------------------------
@@ -17,7 +16,7 @@ updateRequest.doc(jsonBuilder()
 client.update(updateRequest).get();
 --------------------------------------------------
 
-Or you can use `prepareUpdate()` method:
+或者也可以使用 `prepareUpdate()` 方法:
 
 [source,java]
 --------------------------------------------------
@@ -34,16 +33,15 @@ client.prepareUpdate("ttl", "doc", "1")
             .endObject())
         .get();
 --------------------------------------------------
-<1> Your script. It could also be a locally stored script name.
-In that case, you'll need to use `ScriptService.ScriptType.FILE`
-<2> Document which will be merged to the existing one.
+<1> 你的脚本。它也可以是存储中本地文件中，这种情况下，需要使用 `ScriptService.ScriptType.FILE`
+<2> 将要和已有文档合并的文档。
 
 Note that you can't provide both `script` and `doc`.
 
 [[java-docs-update-api-script]]
 ==== Update by script
 
-The update API allows to update a document based on a script provided:
+Update API 允许通过一个脚本来更新文档:
 
 [source,java]
 --------------------------------------------------
@@ -56,8 +54,11 @@ client.update(updateRequest).get();
 [[java-docs-update-api-merge-docs]]
 ==== Update by merging documents
 
-The update API also support passing a partial document, which will be merged into the existing document (simple
-recursive merge, inner merging of objects, replacing core "keys/values" and arrays). For example:
+Update API 也可以传入一部分文档，
+并将之合并
+(简单的递归合并，对象的内部合并，替换键值对和数组)
+到一个已存在的文档中。
+例如:
 
 [source,java]
 --------------------------------------------------
@@ -73,8 +74,7 @@ client.update(updateRequest).get();
 [[java-docs-update-api-upsert]]
 ==== Upsert
 
-There is also support for `upsert`. If the document does not exist, the content of the `upsert`
-element will be used to index the fresh doc:
+Update API 也支持 `upsert` 。如果文档不存在，`upsert` 元素的内容会被建立一个索引:
 
 [source,java]
 --------------------------------------------------
@@ -92,9 +92,9 @@ UpdateRequest updateRequest = new UpdateRequest("index", "type", "1")
         .upsert(indexRequest);              <1>
 client.update(updateRequest).get();
 --------------------------------------------------
-<1> If the document does not exist, the one in `indexRequest` will be added
+<1> 如果文档不存在， `indexRequest` 中的元素就会被建立索引
 
-If the document `index/_doc/1` already exists, we will have after this operation a document like:
+如果 `index/_doc/1` 这个文档已经存在了，在这个操作之后我们会有一个这样的文档:
 
 [source,js]
 --------------------------------------------------
@@ -104,9 +104,9 @@ If the document `index/_doc/1` already exists, we will have after this operation
 }
 --------------------------------------------------
 // NOTCONSOLE
-<1> This field is added by the update request
+<1> 这个字段是通过 update request 添加的
 
-If it does not exist, we will have a new document:
+如果不存在，我们会得到一个新的文档：
 
 [source,js]
 --------------------------------------------------

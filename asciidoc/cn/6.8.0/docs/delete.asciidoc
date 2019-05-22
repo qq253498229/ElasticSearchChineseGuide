@@ -1,42 +1,54 @@
 [[java-docs-delete]]
 === Delete API
 
-The delete API allows one to delete a typed JSON document from a specific
-index based on its id. The following example deletes the JSON document
-from an index called twitter, under a type called `_doc`, with id valued
-1:
+Delete API 可以在指定的索引中根据ID删除一个JSON类型的文档。
+下面就是一个删除JSON文档的例子，它的index是twitter，type是 `_doc` ，id是1:
 
 [source,java]
 --------------------------------------------------
 DeleteResponse response = client.prepareDelete("twitter", "_doc", "1").get();
 --------------------------------------------------
 
-For more information on the delete operation, check out the
-{ref}/docs-delete.html[delete API] docs.
+有关Delete操作的更多信息，请查看 {ref}/docs-delete.html[delete API] 。
 
 [[java-docs-delete-by-query]]
 === Delete By Query API
 
-The delete by query API allows one to delete a given set of documents based on
-the result of a query:
+Delete By Query API 可以根据查询的结果删除一组文档:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[delete-by-query-sync]
+BulkByScrollResponse response =
+  DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
+    .filter(QueryBuilders.matchQuery("gender", "male")) <1>
+    .source("persons") <2>
+    .get(); <3>
+long deleted = response.getDeleted(); <4>
 --------------------------------------------------
 <1> query
 <2> index
-<3> execute the operation
-<4> number of deleted documents
+<3> 执行操作
+<4> 删除文档的数量
 
-As it can be a long running operation, if you wish to do it asynchronously, you can call `execute` instead of `get`
-and provide a listener like:
+由于这个操作可能会运行很长时间，如果你希望异步执行，可以使用 `execute` 代替 `get` 来执行，并提供一个listener，比如:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[delete-by-query-async]
+DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
+    .filter(QueryBuilders.matchQuery("gender", "male")) <1>
+    .source("persons") <2>
+    .execute(new ActionListener<BulkByScrollResponse>() { <3>
+        @Override
+        public void onResponse(BulkByScrollResponse response) {
+            long deleted = response.getDeleted(); <4>
+        }
+        @Override
+        public void onFailure(Exception e) {
+            // Handle the exception
+        }
+    });
 --------------------------------------------------
 <1> query
 <2> index
-<3> listener
-<4> number of deleted documents
+<3> 执行操作
+<4> 删除文档的数量

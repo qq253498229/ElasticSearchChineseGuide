@@ -1,7 +1,7 @@
 [[java-docs-index]]
 === Index API
 
-Index API 可以在指定的索引中将一个结构化的JSON文档建立一个索引，并使其可以被查询到。
+Index API 可以在指定的index中将一个结构化的JSON文档建立索引，并使其可以被查询到。
 
 [[java-docs-index-generate]]
 ==== 生成JSON文档
@@ -102,7 +102,7 @@ String json = Strings.toString(builder);
 [[java-docs-index-doc]]
 ==== 对文档建立索引
 
-下面的例子就是将一个JSON文档建立索引，其中索引index为twitter，type为 `_doc` ，id的值是1:
+下面就是将一个JSON文档建立索引的例子，其中index为twitter，type为 `_doc` ，id的值是1:
 
 [source,java]
 --------------------------------------------------
@@ -119,7 +119,7 @@ IndexResponse response = client.prepareIndex("twitter", "_doc", "1")
         .get();
 --------------------------------------------------
 
-注意，你也可以索引一个JSON字符串类型的文档，并且 ID 也不是必须指定的:
+注意，你也可以对一个JSON字符串类型的文档建立索引，并且 ID 也不是必须的:
 
 [source,java]
 --------------------------------------------------
@@ -150,4 +150,4 @@ long _version = response.getVersion();
 RestStatus status = response.status();
 --------------------------------------------------
 
-有关索引操作的更多信息，请查阅REST {ref}/docs-index_.html[index] 文档。
+有关index操作的更多信息，请查看 REST {ref}/docs-index_.html[index] 。

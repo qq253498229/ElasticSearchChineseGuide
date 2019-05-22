@@ -365,13 +365,14 @@ h6, h7 {
 }
 
 .note, .listingblock, .literalblock {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-bottom: 14px;
-    background-color: #f7f7f9;
-    border: 1px solid #e1e1e8;
-    border-radius: 4px;
-    color: #808080;
+    overflow-x: auto;
+    position: relative;
+    width: 100%;
+    margin: 0 0 15px 0;
+    background-color: #F0F0F0;
+    border-left: 3px solid #00a9e5;
+    display: inline-flex;
+    padding-left: 10px;
 }
 
 table.tableblock {
@@ -508,4 +509,49 @@ div.sect5 code {
 
 .note td.icon .title {
     visibility: hidden;
+}
+
+.conum[data-value] {
+    display: inline-block;
+    color: #fff !important;
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    text-align: center;
+    width: 1.67em;
+    height: 1.67em;
+    font-size: 0.75em;
+    line-height: 1.67em;
+    font-family: "Open Sans", "Sans", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.conum[data-value] + b {
+    display: none;
+}
+
+.conum[data-value]:after {
+    content: attr(data-value);
+}
+
+*:not(pre) > code {
+    font-size: .9375em;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.9);
+    background-color: #eaeaef;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    line-height: 1.45;
+    padding: 0.1em 0.5ex;
+    word-spacing: -.15em;
+}
+
+.admonitionblock {
+    background: #f2f2f3;
+    padding: 10px;
+    min-height: 80px;
+    margin: 15px 0;
+    border-radius: 5px;
+    position: relative;
 }

@@ -374,13 +374,14 @@ h6, h7 {
 }
 
 .note, .listingblock, .literalblock {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-bottom: 14px;
-    background-color: #f7f7f9;
-    border: 1px solid #e1e1e8;
-    border-radius: 4px;
-    color: #808080;
+    overflow-x: auto;
+    position: relative;
+    width: 100%;
+    margin: 0 0 15px 0;
+    background-color: #F0F0F0;
+    border-left: 3px solid #00a9e5;
+    display: inline-flex;
+    padding-left: 10px;
 }
 
 table.tableblock {
@@ -517,6 +518,51 @@ div.sect5 code {
 
 .note td.icon .title {
     visibility: hidden;
+}
+
+.conum[data-value] {
+    display: inline-block;
+    color: #fff !important;
+    background-color: rgba(0, 0, 0, 0.8);
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    text-align: center;
+    width: 1.67em;
+    height: 1.67em;
+    font-size: 0.75em;
+    line-height: 1.67em;
+    font-family: "Open Sans", "Sans", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.conum[data-value] + b {
+    display: none;
+}
+
+.conum[data-value]:after {
+    content: attr(data-value);
+}
+
+*:not(pre) > code {
+    font-size: .9375em;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.9);
+    background-color: #eaeaef;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    line-height: 1.45;
+    padding: 0.1em 0.5ex;
+    word-spacing: -.15em;
+}
+
+.admonitionblock {
+    background: #f2f2f3;
+    padding: 10px;
+    min-height: 80px;
+    margin: 15px 0;
+    border-radius: 5px;
+    position: relative;
 }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -998,7 +1044,7 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-所有的CRUD API 都是单索引 API。 <code>index</code> 参数只可以接受单独的索引名，或者是使用 <code>alias</code> 来指向这个索引。
+所有的CRUD API 都是单index API。 <code>index</code> 参数只可以接受单独的index，或者是使用 <code>alias</code> 来指向这个index。
 </td>
 </tr>
 </table>
@@ -1006,7 +1052,7 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 <div class="sect2">
 <h3 id="java-docs-index">4.1. Index API</h3>
 <div class="paragraph">
-<p>Index API 可以在指定的索引中将一个结构化的JSON文档建立一个索引，并使其可以被查询到。</p>
+<p>Index API 可以在指定的index中将一个结构化的JSON文档建立索引，并使其可以被查询到。</p>
 </div>
 <div class="sect3">
 <h4 id="java-docs-index-generate">4.1.1. 生成JSON文档</h4>
@@ -1121,7 +1167,7 @@ String json = Strings.toString(builder);</code></pre>
 <div class="sect3">
 <h4 id="java-docs-index-doc">4.1.2. 对文档建立索引</h4>
 <div class="paragraph">
-<p>下面的例子就是将一个JSON文档建立索引，其中索引index为twitter，type为 <code>_doc</code> ，id的值是1:</p>
+<p>下面就是将一个JSON文档建立索引的例子，其中index为twitter，type为 <code>_doc</code> ，id的值是1:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1139,7 +1185,7 @@ IndexResponse response = client.prepareIndex("twitter", "_doc", "1")
 </div>
 </div>
 <div class="paragraph">
-<p>注意，你也可以索引一个JSON字符串类型的文档，并且 ID 也不是必须指定的:</p>
+<p>注意，你也可以对一个JSON字符串类型的文档建立索引，并且 ID 也不是必须的:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1172,16 +1218,15 @@ RestStatus status = response.status();</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>有关索引操作的更多信息，请查阅REST <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-index_.html">index</a> 文档。</p>
+<p>有关index操作的更多信息，请查看 REST <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-index_.html">index</a> 。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="java-docs-get">4.2. Get API</h3>
 <div class="paragraph">
-<p>The get API allows to get a typed JSON document from the index based on
-its id. The following example gets a JSON document from an index called
-twitter, under a type called <code>_doc`</code>, with id valued 1:</p>
+<p>Get接口可以根据id从索引中获取JSON文档。
+下面就是一个获取JSON格式文档的例子，它的条件是index为twitter，type是 <code>_doc</code> ，id是1:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1189,17 +1234,14 @@ twitter, under a type called <code>_doc`</code>, with id valued 1:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For more information on the get operation, check out the REST
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-get.html">get</a> docs.</p>
+<p>有关Get操作的更多信息，请查看 REST <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-get.html">get</a> 。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="java-docs-delete">4.3. Delete API</h3>
 <div class="paragraph">
-<p>The delete API allows one to delete a typed JSON document from a specific
-index based on its id. The following example deletes the JSON document
-from an index called twitter, under a type called <code>_doc</code>, with id valued
-1:</p>
+<p>Delete API 可以在指定的索引中根据ID删除一个JSON类型的文档。
+下面就是一个删除JSON文档的例子，它的index是twitter，type是 <code>_doc</code> ，id是1:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1207,19 +1249,22 @@ from an index called twitter, under a type called <code>_doc</code>, with id val
 </div>
 </div>
 <div class="paragraph">
-<p>For more information on the delete operation, check out the
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-delete.html">delete API</a> docs.</p>
+<p>有关Delete操作的更多信息，请查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-delete.html">delete API</a> 。</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="java-docs-delete-by-query">4.4. Delete By Query API</h3>
 <div class="paragraph">
-<p>The delete by query API allows one to delete a given set of documents based on
-the result of a query:</p>
+<p>Delete By Query API 可以根据查询的结果删除一组文档:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../modules/reindex/src/test/java/org/elasticsearch/client/documentation/ReindexDocumentationIT.java[delete-by-query-sync]</code></pre>
+<pre class="pygments highlight"><code data-lang="java">BulkByScrollResponse response =
+  DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
+    .filter(QueryBuilders.matchQuery("gender", "male")) <i class="conum" data-value="1"></i><b>(1)</b>
+    .source("persons") <i class="conum" data-value="2"></i><b>(2)</b>
+    .get(); <i class="conum" data-value="3"></i><b>(3)</b>
+long deleted = response.getDeleted(); <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1234,21 +1279,32 @@ the result of a query:</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>execute the operation</td>
+<td>执行操作</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>number of deleted documents</td>
+<td>删除文档的数量</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>As it can be a long running operation, if you wish to do it asynchronously, you can call <code>execute</code> instead of <code>get</code>
-and provide a listener like:</p>
+<p>由于这个操作可能会运行很长时间，如果你希望异步执行，可以使用 <code>execute</code> 代替 <code>get</code> 来执行，并提供一个listener，比如:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../modules/reindex/src/test/java/org/elasticsearch/client/documentation/ReindexDocumentationIT.java[delete-by-query-async]</code></pre>
+<pre class="pygments highlight"><code data-lang="java">DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
+    .filter(QueryBuilders.matchQuery("gender", "male")) <i class="conum" data-value="1"></i><b>(1)</b>
+    .source("persons") <i class="conum" data-value="2"></i><b>(2)</b>
+    .execute(new ActionListener&lt;BulkByScrollResponse&gt;() { <i class="conum" data-value="3"></i><b>(3)</b>
+        @Override
+        public void onResponse(BulkByScrollResponse response) {
+            long deleted = response.getDeleted(); <i class="conum" data-value="4"></i><b>(4)</b>
+        }
+        @Override
+        public void onFailure(Exception e) {
+            // Handle the exception
+        }
+    });</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -1263,11 +1319,11 @@ and provide a listener like:</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>listener</td>
+<td>执行操作</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>number of deleted documents</td>
+<td>删除文档的数量</td>
 </tr>
 </table>
 </div>
@@ -1275,7 +1331,7 @@ and provide a listener like:</p>
 <div class="sect2">
 <h3 id="java-docs-update">4.5. Update API</h3>
 <div class="paragraph">
-<p>You can either create an <code>UpdateRequest</code> and send it to the client:</p>
+<p>你可以创建一个 <code>UpdateRequest</code> 并发送给client:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1291,7 +1347,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Or you can use <code>prepareUpdate()</code> method:</p>
+<p>或者也可以使用 <code>prepareUpdate()</code> 方法:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1313,12 +1369,11 @@ client.prepareUpdate("ttl", "doc", "1")
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Your script. It could also be a locally stored script name.
-In that case, you&#8217;ll need to use <code>ScriptService.ScriptType.FILE</code></td>
+<td>你的脚本。它也可以是存储中本地文件中，这种情况下，需要使用 <code>ScriptService.ScriptType.FILE</code></td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Document which will be merged to the existing one.</td>
+<td>将要和已有文档合并的文档。</td>
 </tr>
 </table>
 </div>
@@ -1328,7 +1383,7 @@ In that case, you&#8217;ll need to use <code>ScriptService.ScriptType.FILE</code
 <div class="sect3">
 <h4 id="java-docs-update-api-script">4.5.1. Update by script</h4>
 <div class="paragraph">
-<p>The update API allows to update a document based on a script provided:</p>
+<p>Update API 允许通过一个脚本来更新文档:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1341,8 +1396,11 @@ client.update(updateRequest).get();</code></pre>
 <div class="sect3">
 <h4 id="java-docs-update-api-merge-docs">4.5.2. Update by merging documents</h4>
 <div class="paragraph">
-<p>The update API also support passing a partial document, which will be merged into the existing document (simple
-recursive merge, inner merging of objects, replacing core "keys/values" and arrays). For example:</p>
+<p>Update API 也可以传入一部分文档，
+并将之合并
+(简单的递归合并，对象的内部合并，替换键值对和数组)
+到一个已存在的文档中。
+例如:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1358,8 +1416,7 @@ client.update(updateRequest).get();</code></pre>
 <div class="sect3">
 <h4 id="java-docs-update-api-upsert">4.5.3. Upsert</h4>
 <div class="paragraph">
-<p>There is also support for <code>upsert</code>. If the document does not exist, the content of the <code>upsert</code>
-element will be used to index the fresh doc:</p>
+<p>Update API 也支持 <code>upsert</code> 。如果文档不存在，<code>upsert</code> 元素的内容会被建立一个索引:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1382,12 +1439,12 @@ client.update(updateRequest).get();</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>If the document does not exist, the one in <code>indexRequest</code> will be added</td>
+<td>如果文档不存在， <code>indexRequest</code> 中的元素就会被建立索引</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>If the document <code>index/_doc/1</code> already exists, we will have after this operation a document like:</p>
+<p>如果 <code>index/_doc/1</code> 这个文档已经存在了，在这个操作之后我们会有一个这样的文档:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1401,12 +1458,12 @@ client.update(updateRequest).get();</code></pre>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>This field is added by the update request</td>
+<td>这个字段是通过 update request 添加的</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>If it does not exist, we will have a new document:</p>
+<p>如果不存在，我们会得到一个新的文档：</p>
 </div>
 <div class="listingblock">
 <div class="content">

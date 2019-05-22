@@ -16,7 +16,7 @@
 * <<java-docs-update-by-query>>
 * <<java-docs-delete-by-query>>
 
-NOTE: 所有的CRUD API 都是单索引 API。 `index` 参数只可以接受单独的索引名，或者是使用 `alias` 来指向这个索引。
+NOTE: 所有的CRUD API 都是单index API。 `index` 参数只可以接受单独的index，或者是使用 `alias` 来指向这个index。
 
 include::docs/index_.asciidoc[]
 
