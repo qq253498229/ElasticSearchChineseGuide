@@ -1,7 +1,7 @@
 [[java-docs-multi-get]]
 === Multi Get API
 
-The multi get API allows to get a list of documents based on their `index` and `id`:
+Multi get API 允许通过 `index` 和  `id` 获取文档列表:
 
 [source,java]
 --------------------------------------------------
@@ -18,13 +18,11 @@ for (MultiGetItemResponse itemResponse : multiGetItemResponses) { <4>
     }
 }
 --------------------------------------------------
-<1> get by a single id
-<2> or by a list of ids for the same index
-<3> you can also get from another index
-<4> iterate over the result set
-<5> you can check if the document exists
-<6> access to the `_source` field
+<1> 通过单独的id获取
+<2> 在同一个index中，可以通过多个id获取
+<3> 也可以从其它的index中获取文档
+<4> 遍历结果集
+<5> 查看文档是否存在
+<6> 获取 `_source` 字段
 
-For more information on the multi get operation, check out the REST
-{ref}/docs-multi-get.html[multi get] docs.
-
+有关Multi get操作的更多信息，请查看REST {ref}/docs-multi-get.html[multi get]。

@@ -14,7 +14,7 @@ include::./Versions.asciidoc[]
 :pdf-page-size: A4
 :nofooter:
 
-[preface]
+[[preface]]
 == 前言
 
 本节介绍由Elasticsearch提供的Java API。
@@ -42,15 +42,17 @@ JavaHighLevelClient 现在支持了更多常用的接口，但还有许多需要
 来实现并获取结果。
 ===================================
 
+[[java-doc]]
 == Javadoc
 
 TransClient 的Javadoc可以在 {transport-client-javadoc}/index.html[这里] 找到。
 
-== Maven 仓库
+[[maven-repository]]
+== Maven仓库
 
 ElasticSearch已经托管在 http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.elasticsearch.client%22[Maven Central] 上。
 
-举个例子，您可以这样在 `pom.xml` 文件中定义最新版本:
+举个例子，您可以这样在 `pom.xml` 文件中定义最新版本：
 
 [source,xml]
 --------------------------------------------------
@@ -109,6 +111,7 @@ maven {
 }
 --------------------------------------------------
 
+[[log4j-2]]
 === Log4j 2 日志
 
 你需要加入log4j2的依赖:
@@ -123,7 +126,7 @@ maven {
 --------------------------------------------------
 
 加入log4j2的配置文件。
-举个例子，你可以在项目中的 `src/main/resources` 目录加入 `log4j2.properties` 文件，示例内容如下:
+举个例子，你可以在项目中的 `src/main/resources` 目录加入 `log4j2.properties` 文件，示例内容如下：
 
 ["source","properties"]
 --------------------------------------------------
@@ -136,6 +139,7 @@ rootLogger.level = info
 rootLogger.appenderRef.console.ref = console
 --------------------------------------------------
 
+[[use-other-log]]
 === 使用其它的日志
 
 如果您想使用其它日志而不是log4j2，则可以用 http://www.slf4j.org/[SLF4J] 规范下的实现来代替:

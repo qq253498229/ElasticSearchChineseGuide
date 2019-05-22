@@ -649,7 +649,7 @@ div.sect5 code {
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_前言">前言</h2>
+<h2 id="preface">1. 前言</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>本节介绍由Elasticsearch提供的Java API。
@@ -692,7 +692,7 @@ div.sect5 code {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_javadoc">1. Javadoc</h2>
+<h2 id="java-doc">2. Javadoc</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>TransClient 的Javadoc可以在 <a href="https://artifacts.elastic.co/javadoc/org/elasticsearch/client/transport/6.8.0/index.html">这里</a> 找到。</p>
@@ -700,13 +700,13 @@ div.sect5 code {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_maven_仓库">2. Maven 仓库</h2>
+<h2 id="maven-repository">3. Maven仓库</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>ElasticSearch已经托管在 <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.elasticsearch.client%22">Maven Central</a> 上。</p>
 </div>
 <div class="paragraph">
-<p>举个例子，您可以这样在 <code>pom.xml</code> 文件中定义最新版本:</p>
+<p>举个例子，您可以这样在 <code>pom.xml</code> 文件中定义最新版本：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -736,7 +736,7 @@ div.sect5 code {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-transport-usage-maven-lucene">2.1. Lucene Snapshot 仓库</h3>
+<h3 id="java-transport-usage-maven-lucene">3.1. Lucene Snapshot 仓库</h3>
 <div class="paragraph">
 <p>有时候主要版本(如beta版)的第一个版本可能建立在Lucene的快照版本之上，这时候您可能无法解决Lucene的依赖问题。</p>
 </div>
@@ -770,7 +770,7 @@ div.sect5 code {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_log4j_2_日志">2.2. Log4j 2 日志</h3>
+<h3 id="log4j-2">3.2. Log4j 2 日志</h3>
 <div class="paragraph">
 <p>你需要加入log4j2的依赖:</p>
 </div>
@@ -785,7 +785,7 @@ div.sect5 code {
 </div>
 <div class="paragraph">
 <p>加入log4j2的配置文件。
-举个例子，你可以在项目中的 <code>src/main/resources</code> 目录加入 <code>log4j2.properties</code> 文件，示例内容如下:</p>
+举个例子，你可以在项目中的 <code>src/main/resources</code> 目录加入 <code>log4j2.properties</code> 文件，示例内容如下：</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -800,7 +800,7 @@ rootLogger.appenderRef.console.ref = console</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_使用其它的日志">2.3. 使用其它的日志</h3>
+<h3 id="use-other-log">3.3. 使用其它的日志</h3>
 <div class="paragraph">
 <p>如果您想使用其它日志而不是log4j2，则可以用 <a href="http://www.slf4j.org/">SLF4J</a> 规范下的实现来代替:</p>
 </div>
@@ -836,7 +836,7 @@ rootLogger.appenderRef.console.ref = console</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="client">3. Client</h2>
+<h2 id="client">4. Client</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>有很多种使用 <strong>Java client</strong> 的方式供你选择:</p>
@@ -900,7 +900,7 @@ rootLogger.appenderRef.console.ref = console</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="transport-client">3.1. Transport Client</h3>
+<h3 id="transport-client">4.1. Transport Client</h3>
 <div class="paragraph">
 <p><code>TransportClient</code> 使用 transport模块远程连接到Elasticsearch集群。
 它并不是加入到集群中，而只是获取一个或多个初始传输地址，在操作的时候以循环的方式与之进行通信(大部分操作可能都是 "two hop" 操作):</p>
@@ -982,7 +982,7 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="client-connected-to-client-node">3.2. 将 Client 连接到一个协调节点</h3>
+<h3 id="client-connected-to-client-node">4.2. 将 Client 连接到一个协调节点</h3>
 <div class="paragraph">
 <p>你可以在本地开启一个
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/modules-node.html#coordinating-only-node">协调节点</a>
@@ -995,7 +995,7 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-docs">4. 文档 API</h2>
+<h2 id="java-docs">5. 文档 API</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>这部分讲的是这些CRUD API:</p>
@@ -1050,12 +1050,12 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="java-docs-index">4.1. Index API</h3>
+<h3 id="java-docs-index">5.1. Index API</h3>
 <div class="paragraph">
 <p>Index API 可以在指定的index中将一个结构化的JSON文档建立索引，并使其可以被查询到。</p>
 </div>
 <div class="sect3">
-<h4 id="java-docs-index-generate">4.1.1. 生成JSON文档</h4>
+<h4 id="java-docs-index-generate">5.1.1. 生成JSON文档</h4>
 <div class="paragraph">
 <p>有几种不同的方式来生成JSON文档:</p>
 </div>
@@ -1165,7 +1165,7 @@ String json = Strings.toString(builder);</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-index-doc">4.1.2. 对文档建立索引</h4>
+<h4 id="java-docs-index-doc">5.1.2. 对文档建立索引</h4>
 <div class="paragraph">
 <p>下面就是将一个JSON文档建立索引的例子，其中index为twitter，type为 <code>_doc</code> ，id的值是1:</p>
 </div>
@@ -1223,7 +1223,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-get">4.2. Get API</h3>
+<h3 id="java-docs-get">5.2. Get API</h3>
 <div class="paragraph">
 <p>Get接口可以根据id从索引中获取JSON文档。
 下面就是一个获取JSON格式文档的例子，它的条件是index为twitter，type是 <code>_doc</code> ，id是1:</p>
@@ -1238,7 +1238,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-delete">4.3. Delete API</h3>
+<h3 id="java-docs-delete">5.3. Delete API</h3>
 <div class="paragraph">
 <p>Delete API 可以在指定的索引中根据ID删除一个JSON类型的文档。
 下面就是一个删除JSON文档的例子，它的index是twitter，type是 <code>_doc</code> ，id是1:</p>
@@ -1253,7 +1253,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-delete-by-query">4.4. Delete By Query API</h3>
+<h3 id="java-docs-delete-by-query">5.4. Delete By Query API</h3>
 <div class="paragraph">
 <p>Delete By Query API 可以根据查询的结果删除一组文档:</p>
 </div>
@@ -1329,7 +1329,7 @@ long deleted = response.getDeleted(); <i class="conum" data-value="4"></i><b>(4)
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-update">4.5. Update API</h3>
+<h3 id="java-docs-update">5.5. Update API</h3>
 <div class="paragraph">
 <p>你可以创建一个 <code>UpdateRequest</code> 并发送给client:</p>
 </div>
@@ -1381,7 +1381,7 @@ client.prepareUpdate("ttl", "doc", "1")
 <p>Note that you can&#8217;t provide both <code>script</code> and <code>doc</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-api-script">4.5.1. Update by script</h4>
+<h4 id="java-docs-update-api-script">5.5.1. Update by script</h4>
 <div class="paragraph">
 <p>Update API 允许通过一个脚本来更新文档:</p>
 </div>
@@ -1394,7 +1394,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-api-merge-docs">4.5.2. Update by merging documents</h4>
+<h4 id="java-docs-update-api-merge-docs">5.5.2. Update by merging documents</h4>
 <div class="paragraph">
 <p>Update API 也可以传入一部分文档，
 并将之合并
@@ -1414,7 +1414,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-api-upsert">4.5.3. Upsert</h4>
+<h4 id="java-docs-update-api-upsert">5.5.3. Upsert</h4>
 <div class="paragraph">
 <p>Update API 也支持 <code>upsert</code> 。如果文档不存在，<code>upsert</code> 元素的内容会被建立一个索引:</p>
 </div>
@@ -1476,9 +1476,9 @@ client.update(updateRequest).get();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-multi-get">4.6. Multi Get API</h3>
+<h3 id="java-docs-multi-get">5.6. Multi Get API</h3>
 <div class="paragraph">
-<p>The multi get API allows to get a list of documents based on their <code>index</code> and <code>id</code>:</p>
+<p>Multi get API 允许通过 <code>index</code> 和  <code>id</code> 获取文档列表:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1500,37 +1500,36 @@ for (MultiGetItemResponse itemResponse : multiGetItemResponses) { <i class="conu
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>get by a single id</td>
+<td>通过单独的id获取</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>or by a list of ids for the same index</td>
+<td>在同一个index中，可以通过多个id获取</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>you can also get from another index</td>
+<td>也可以从其它的index中获取文档</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>iterate over the result set</td>
+<td>遍历结果集</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>you can check if the document exists</td>
+<td>查看文档是否存在</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>access to the <code>_source</code> field</td>
+<td>获取 <code>_source</code> 字段</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>For more information on the multi get operation, check out the REST
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-multi-get.html">multi get</a> docs.</p>
+<p>有关Multi get操作的更多信息，请查看REST <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-multi-get.html">multi get</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-bulk">4.7. Bulk API</h3>
+<h3 id="java-docs-bulk">5.7. Bulk API</h3>
 <div class="paragraph">
 <p>The bulk API allows one to index and delete several documents in a
 single request. Here is a sample usage:</p>
@@ -1570,7 +1569,7 @@ if (bulkResponse.hasFailures()) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-bulk-processor">4.8. Using Bulk Processor</h3>
+<h3 id="java-docs-bulk-processor">5.8. Using Bulk Processor</h3>
 <div class="paragraph">
 <p>The <code>BulkProcessor</code> class offers a simple interface to flush bulk operations automatically based on the number or size
 of requests, or after a given period.</p>
@@ -1681,7 +1680,7 @@ pass <code>BackoffPolicy.noBackoff()</code>.</td>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="java-docs-bulk-processor-requests">4.8.1. Add requests</h4>
+<h4 id="java-docs-bulk-processor-requests">5.8.1. Add requests</h4>
 <div class="paragraph">
 <p>Then you can simply add your requests to the <code>BulkProcessor</code>:</p>
 </div>
@@ -1693,7 +1692,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-bulk-processor-close">4.8.2. Closing the Bulk Processor</h4>
+<h4 id="java-docs-bulk-processor-close">5.8.2. Closing the Bulk Processor</h4>
 <div class="paragraph">
 <p>When all documents are loaded to the <code>BulkProcessor</code> it can be closed by using <code>awaitClose</code> or <code>close</code> methods:</p>
 </div>
@@ -1718,7 +1717,7 @@ all bulk requests to complete then returns <code>true</code>, if the specified w
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-bulk-processor-tests">4.8.3. Using Bulk Processor in tests</h4>
+<h4 id="java-docs-bulk-processor-tests">5.8.3. Using Bulk Processor in tests</h4>
 <div class="paragraph">
 <p>If you are running tests with Elasticsearch and are using the <code>BulkProcessor</code> to populate your dataset
 you should better set the number of concurrent requests to <code>0</code> so the flush operation of the bulk will be executed
@@ -1749,7 +1748,7 @@ client.prepareSearch().get();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-bulk-global-parameters">4.8.4. Global Parameters</h4>
+<h4 id="java-docs-bulk-global-parameters">5.8.4. Global Parameters</h4>
 <div class="paragraph">
 <p>Global parameters can be specified on the BulkRequest as well as BulkProcessor, similar to the REST API. These global
  parameters serve as defaults and can be overridden by local parameters specified on each sub request. Some parameters
@@ -1793,7 +1792,7 @@ client.prepareSearch().get();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-update-by-query">4.9. Update By Query API</h3>
+<h3 id="java-docs-update-by-query">5.9. Update By Query API</h3>
 <div class="paragraph">
 <p>The simplest usage of <code>updateByQuery</code> updates each
 document in an index without changing the source. This usage enables
@@ -1986,7 +1985,7 @@ after completing the current batch in order to prevent scroll timeouts.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-reindex">4.10. Reindex API</h3>
+<h3 id="java-docs-reindex">5.10. Reindex API</h3>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-reindex.html">reindex API</a>.</p>
 </div>
@@ -2008,7 +2007,7 @@ re-indexed from the source to the target index.</td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-search">5. Search API</h2>
+<h2 id="java-search">6. Search API</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The search API allows one to execute a search query and get back search hits
@@ -2062,7 +2061,7 @@ Although the Java API defines the additional search types QUERY_AND_FETCH and
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html">search</a> docs.</p>
 </div>
 <div class="sect2">
-<h3 id="java-search-scrolling">5.1. Using scrolls in Java</h3>
+<h3 id="java-search-scrolling">6.1. Using scrolls in Java</h3>
 <div class="paragraph">
 <p>Read the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-scroll.html">scroll documentation</a>
 first!</p>
@@ -2090,7 +2089,7 @@ do {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-search-msearch">5.2. MultiSearch API</h3>
+<h3 id="java-search-msearch">6.2. MultiSearch API</h3>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-multi-search.html">MultiSearch API Query</a>
 documentation</p>
@@ -2117,7 +2116,7 @@ for (MultiSearchResponse.Item item : sr.getResponses()) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-search-aggs">5.3. Using Aggregations</h3>
+<h3 id="java-search-aggs">6.3. Using Aggregations</h3>
 <div class="paragraph">
 <p>The following code shows how to add two aggregations within your search:</p>
 </div>
@@ -2146,7 +2145,7 @@ documentation for details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-search-terminate-after">5.4. Terminate After</h3>
+<h3 id="java-search-terminate-after">6.4. Terminate After</h3>
 <div class="paragraph">
 <p>The maximum number of documents to collect for each shard, upon reaching which the query execution will terminate early.
 If set, you will be able to check if the operation terminated early by asking for <code>isTerminatedEarly()</code> in the
@@ -2173,7 +2172,7 @@ if (sr.isTerminatedEarly()) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-search-template">5.5. Search Template</h3>
+<h3 id="java-search-template">6.5. Search Template</h3>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-template.html">Search Template</a> documentation</p>
 </div>
@@ -2355,7 +2354,7 @@ For example, if you have a file named <code>config/scripts/template_gender.musta
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-aggs">6. Aggregations</h2>
+<h2 id="java-aggs">7. Aggregations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Elasticsearch provides a full Java API to play with aggregations. See the
@@ -2387,7 +2386,7 @@ in your class:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_structuring_aggregations">6.1. Structuring aggregations</h3>
+<h3 id="_structuring_aggregations">7.1. Structuring aggregations</h3>
 <div class="paragraph">
 <p>As explained in the
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html">Aggregations guide</a>, you can define
@@ -2428,9 +2427,9 @@ sub aggregations inside an aggregation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_metrics_aggregations">6.2. Metrics aggregations</h3>
+<h3 id="_metrics_aggregations">7.2. Metrics aggregations</h3>
 <div class="sect3">
-<h4 id="java-aggs-metrics-min">6.2.1. Min Aggregation</h4>
+<h4 id="java-aggs-metrics-min">7.2.1. Min Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-min-aggregation.html">Min Aggregation</a>
@@ -2470,7 +2469,7 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-max">6.2.2. Max Aggregation</h4>
+<h4 id="java-aggs-metrics-max">7.2.2. Max Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-max-aggregation.html">Max Aggregation</a>
@@ -2510,7 +2509,7 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-sum">6.2.3. Sum Aggregation</h4>
+<h4 id="java-aggs-metrics-sum">7.2.3. Sum Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-sum-aggregation.html">Sum Aggregation</a>
@@ -2550,7 +2549,7 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-avg">6.2.4. Avg Aggregation</h4>
+<h4 id="java-aggs-metrics-avg">7.2.4. Avg Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-avg-aggregation.html">Avg Aggregation</a>
@@ -2590,7 +2589,7 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-stats">6.2.5. Stats Aggregation</h4>
+<h4 id="java-aggs-metrics-stats">7.2.5. Stats Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-stats-aggregation.html">Stats Aggregation</a>
@@ -2634,7 +2633,7 @@ long count = agg.getCount();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-extendedstats">6.2.6. Extended Stats Aggregation</h4>
+<h4 id="java-aggs-metrics-extendedstats">7.2.6. Extended Stats Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-extendedstats-aggregation.html">Extended Stats Aggregation</a>
@@ -2681,7 +2680,7 @@ double variance = agg.getVariance();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-valuecount">6.2.7. Value Count Aggregation</h4>
+<h4 id="java-aggs-metrics-valuecount">7.2.7. Value Count Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-valuecount-aggregation.html">Value Count Aggregation</a>
@@ -2721,7 +2720,7 @@ long value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-percentile">6.2.8. Percentile Aggregation</h4>
+<h4 id="java-aggs-metrics-percentile">7.2.8. Percentile Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-percentile-aggregation.html">Percentile Aggregation</a>
@@ -2794,7 +2793,7 @@ percent [99.0], value [2.284989339108279]</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-percentile-rank">6.2.9. Percentile Ranks Aggregation</h4>
+<h4 id="java-aggs-metrics-percentile-rank">7.2.9. Percentile Ranks Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-percentile-rank-aggregation.html">Percentile Ranks Aggregation</a>
@@ -2852,7 +2851,7 @@ percent [94.40095147327283], value [2.22]</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-cardinality">6.2.10. Cardinality Aggregation</h4>
+<h4 id="java-aggs-metrics-cardinality">7.2.10. Cardinality Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-cardinality-aggregation.html">Cardinality Aggregation</a>
@@ -2892,7 +2891,7 @@ long value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-geobounds">6.2.11. Geo Bounds Aggregation</h4>
+<h4 id="java-aggs-metrics-geobounds">7.2.11. Geo Bounds Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-geobounds-aggregation.html">Geo Bounds Aggregation</a>
@@ -2943,7 +2942,7 @@ logger.info("bottomRight {}, topLeft {}", bottomRight, topLeft);</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-tophits">6.2.12. Top Hits Aggregation</h4>
+<h4 id="java-aggs-metrics-tophits">7.2.12. Top Hits Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-top-hits-aggregation.html">Top Hits Aggregation</a>
@@ -3029,7 +3028,7 @@ key [female], doc_count [4893]
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-scripted-metric">6.2.13. Scripted Metric Aggregation</h4>
+<h4 id="java-aggs-metrics-scripted-metric">7.2.13. Scripted Metric Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-scripted-metric-aggregation.html">Scripted Metric Aggregation</a>
@@ -3139,9 +3138,9 @@ scriptedResult [2.171917696507009]</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_bucket_aggregations">6.3. Bucket aggregations</h3>
+<h3 id="_bucket_aggregations">7.3. Bucket aggregations</h3>
 <div class="sect3">
-<h4 id="java-aggs-bucket-global">6.3.1. Global Aggregation</h4>
+<h4 id="java-aggs-bucket-global">7.3.1. Global Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-global-aggregation.html">Global Aggregation</a>
@@ -3180,7 +3179,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-filter">6.3.2. Filter Aggregation</h4>
+<h4 id="java-aggs-bucket-filter">7.3.2. Filter Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-filter-aggregation.html">Filter Aggregation</a>
@@ -3218,7 +3217,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-filters">6.3.3. Filters Aggregation</h4>
+<h4 id="java-aggs-bucket-filters">7.3.3. Filters Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-filters-aggregation.html">Filters Aggregation</a>
@@ -3274,7 +3273,7 @@ key [women], doc_count [5018]</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-missing">6.3.4. Missing Aggregation</h4>
+<h4 id="java-aggs-bucket-missing">7.3.4. Missing Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-missing-aggregation.html">Missing Aggregation</a>
@@ -3311,7 +3310,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-nested">6.3.5. Nested Aggregation</h4>
+<h4 id="java-aggs-bucket-nested">7.3.5. Nested Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-nested-aggregation.html">Nested Aggregation</a>
@@ -3349,7 +3348,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-reverse-nested">6.3.6. Reverse Nested Aggregation</h4>
+<h4 id="java-aggs-bucket-reverse-nested">7.3.6. Reverse Nested Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-reverse-nested-aggregation.html">Reverse Nested Aggregation</a>
@@ -3402,7 +3401,7 @@ for (Terms.Bucket bucket : name.getBuckets()) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-children">6.3.7. Children Aggregation</h4>
+<h4 id="java-aggs-bucket-children">7.3.7. Children Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-children-aggregation.html">Children Aggregation</a>
@@ -3448,7 +3447,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-terms">6.3.8. Terms Aggregation</h4>
+<h4 id="java-aggs-bucket-terms">7.3.8. Terms Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-terms-aggregation.html">Terms Aggregation</a>
@@ -3555,7 +3554,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-significantterms">6.3.9. Significant Terms Aggregation</h4>
+<h4 id="java-aggs-bucket-significantterms">7.3.9. Significant Terms Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-significantterms-aggregation.html">Significant Terms Aggregation</a>
@@ -3606,7 +3605,7 @@ for (SignificantTerms.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-range">6.3.10. Range Aggregation</h4>
+<h4 id="java-aggs-bucket-range">7.3.10. Range Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-range-aggregation.html">Range Aggregation</a>
@@ -3668,7 +3667,7 @@ key [1.5-*], from [1.5], to [Infinity], doc_count [20]</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-daterange">6.3.11. Date Range Aggregation</h4>
+<h4 id="java-aggs-bucket-daterange">7.3.11. Date Range Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-daterange-aggregation.html">Date Range Aggregation</a>
@@ -3731,7 +3730,7 @@ key [1960-*], from [1960-01-01T00:00:00.000Z], to [null], doc_count [37]</code><
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-iprange">6.3.12. Ip Range Aggregation</h4>
+<h4 id="java-aggs-bucket-iprange">7.3.12. Ip Range Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-iprange-aggregation.html">Ip Range Aggregation</a>
@@ -3817,7 +3816,7 @@ key [192.168.0.0/16], from [192.168.0.0], to [192.169.0.0], doc_count [50]</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-histogram">6.3.13. Histogram Aggregation</h4>
+<h4 id="java-aggs-bucket-histogram">7.3.13. Histogram Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-histogram-aggregation.html">Histogram Aggregation</a>
@@ -3871,7 +3870,7 @@ for (Histogram.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-datehistogram">6.3.14. Date Histogram Aggregation</h4>
+<h4 id="java-aggs-bucket-datehistogram">7.3.14. Date Histogram Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-datehistogram-aggregation.html">Date Histogram Aggregation</a>
@@ -3952,7 +3951,7 @@ key [2008-01-01T00:00:00.000Z], date [2008], doc_count [3]</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-geodistance">6.3.15. Geo Distance Aggregation</h4>
+<h4 id="java-aggs-bucket-geodistance">7.3.15. Geo Distance Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-geodistance-aggregation.html">Geo Distance Aggregation</a>
@@ -4015,7 +4014,7 @@ key [10.0-500.0], from [10.0], to [500.0], doc_count [4925]</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-bucket-geohashgrid">6.3.16. Geo Hash Grid Aggregation</h4>
+<h4 id="java-aggs-bucket-geohashgrid">7.3.16. Geo Hash Grid Aggregation</h4>
 <div class="paragraph">
 <p>Here is how you can use
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-geohashgrid-aggregation.html">Geo Hash Grid Aggregation</a>
@@ -4079,7 +4078,7 @@ key [u0j2], point [45.087890625, 7.55859375], doc_count [1138]
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-query-dsl">7. Query DSL</h2>
+<h2 id="java-query-dsl">8. Query DSL</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Elasticsearch provides a full Java query dsl in a similar manner to the
@@ -4104,7 +4103,7 @@ builders is <code>QueryBuilders</code>. Once your query is ready, you can use th
 such as <code>count</code> and <code>search</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="java-query-dsl-match-all-query">7.1. Match All Query</h3>
+<h3 id="java-query-dsl-match-all-query">8.1. Match All Query</h3>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-match-all-query.html">Match All Query</a></p>
 </div>
@@ -4115,7 +4114,7 @@ such as <code>count</code> and <code>search</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-full-text-queries">7.2. Full text queries</h3>
+<h3 id="java-full-text-queries">8.2. Full text queries</h3>
 <div class="paragraph">
 <p>The high-level full text queries are usually used for running full text
 queries on full text fields like the body of an email. They understand how the
@@ -4154,7 +4153,7 @@ for exposing directly to users.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-match-query">7.2.1. Match Query</h4>
+<h4 id="java-query-dsl-match-query">8.2.1. Match Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-match-query.html">Match Query</a></p>
 </div>
@@ -4177,7 +4176,7 @@ for exposing directly to users.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-multi-match-query">7.2.2. Multi Match Query</h4>
+<h4 id="java-query-dsl-multi-match-query">8.2.2. Multi Match Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-multi-match-query.html">Multi Match Query</a></p>
 </div>
@@ -4200,7 +4199,7 @@ for exposing directly to users.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-common-terms-query">7.2.3. Common Terms Query</h4>
+<h4 id="java-query-dsl-common-terms-query">8.2.3. Common Terms Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-common-terms-query.html">Common Terms Query</a></p>
 </div>
@@ -4223,7 +4222,7 @@ for exposing directly to users.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-query-string-query">7.2.4. Query String Query</h4>
+<h4 id="java-query-dsl-query-string-query">8.2.4. Query String Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-query-string-query.html">Query String Query</a></p>
 </div>
@@ -4234,7 +4233,7 @@ for exposing directly to users.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-simple-query-string-query">7.2.5. Simple Query String Query</h4>
+<h4 id="java-query-dsl-simple-query-string-query">8.2.5. Simple Query String Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-simple-query-string-query.html">Simple Query String Query</a></p>
 </div>
@@ -4246,7 +4245,7 @@ for exposing directly to users.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-term-level-queries">7.3. Term level queries</h3>
+<h3 id="java-term-level-queries">8.3. Term level queries</h3>
 <div class="paragraph">
 <p>While the <a href="#java-full-text-queries">full text queries</a> will analyze the query
 string before executing, the <em>term-level queries</em> operate on the exact terms
@@ -4315,7 +4314,7 @@ of 1 or 2.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-term-query">7.3.1. Term Query</h4>
+<h4 id="java-query-dsl-term-query">8.3.1. Term Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-term-query.html">Term Query</a></p>
 </div>
@@ -4338,7 +4337,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-terms-query">7.3.2. Terms Query</h4>
+<h4 id="java-query-dsl-terms-query">8.3.2. Terms Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-terms-query.html">Terms Query</a></p>
 </div>
@@ -4361,7 +4360,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-range-query">7.3.3. Range Query</h4>
+<h4 id="java-query-dsl-range-query">8.3.3. Range Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-range-query.html">Range Query</a></p>
 </div>
@@ -4417,7 +4416,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-exists-query">7.3.4. Exists Query</h4>
+<h4 id="java-query-dsl-exists-query">8.3.4. Exists Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-exists-query.html">Exists Query</a>.</p>
 </div>
@@ -4436,7 +4435,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-prefix-query">7.3.5. Prefix Query</h4>
+<h4 id="java-query-dsl-prefix-query">8.3.5. Prefix Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-prefix-query.html">Prefix Query</a></p>
 </div>
@@ -4459,7 +4458,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-wildcard-query">7.3.6. Wildcard Query</h4>
+<h4 id="java-query-dsl-wildcard-query">8.3.6. Wildcard Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-wildcard-query.html">Wildcard Query</a></p>
 </div>
@@ -4482,7 +4481,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-regexp-query">7.3.7. Regexp Query</h4>
+<h4 id="java-query-dsl-regexp-query">8.3.7. Regexp Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-regexp-query.html">Regexp Query</a></p>
 </div>
@@ -4505,7 +4504,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-fuzzy-query">7.3.8. Fuzzy Query</h4>
+<h4 id="java-query-dsl-fuzzy-query">8.3.8. Fuzzy Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-fuzzy-query.html">Fuzzy Query</a></p>
 </div>
@@ -4528,7 +4527,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-type-query">7.3.9. Type Query</h4>
+<h4 id="java-query-dsl-type-query">8.3.9. Type Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-type-query.html">Type Query</a></p>
 </div>
@@ -4547,7 +4546,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-ids-query">7.3.10. Ids Query</h4>
+<h4 id="java-query-dsl-ids-query">8.3.10. Ids Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-ids-query.html">Ids Query</a></p>
 </div>
@@ -4567,7 +4566,7 @@ of 1 or 2.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-compound-queries">7.4. Compound queries</h3>
+<h3 id="java-compound-queries">8.4. Compound queries</h3>
 <div class="paragraph">
 <p>Compound queries wrap other compound or leaf queries, either to combine their
 results and scores, to change their behaviour, or to switch from query to
@@ -4610,7 +4609,7 @@ documents which also match a <code>negative</code> query.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-constant-score-query">7.4.1. Constant Score Query</h4>
+<h4 id="java-query-dsl-constant-score-query">8.4.1. Constant Score Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-constant-score-query.html">Constant Score Query</a></p>
 </div>
@@ -4750,7 +4749,7 @@ documents which also match a <code>negative</code> query.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-joining-queries">7.5. Joining queries</h3>
+<h3 id="java-joining-queries">8.5. Joining queries</h3>
 <div class="paragraph">
 <p>Performing full SQL-style joins in a distributed system like Elasticsearch is
 prohibitively expensive.  Instead, Elasticsearch offers two forms of join
@@ -4775,7 +4774,7 @@ specified query.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-nested-query">7.5.1. Nested Query</h4>
+<h4 id="java-query-dsl-nested-query">8.5.1. Nested Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-nested-query.html">Nested Query</a></p>
 </div>
@@ -4802,7 +4801,7 @@ specified query.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-has-child-query">7.5.2. Has Child Query</h4>
+<h4 id="java-query-dsl-has-child-query">8.5.2. Has Child Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-has-child-query.html">Has Child Query</a></p>
 </div>
@@ -4842,7 +4841,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-has-parent-query">7.5.3. Has Parent Query</h4>
+<h4 id="java-query-dsl-has-parent-query">8.5.3. Has Parent Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-has-parent-query.html">Has Parent</a></p>
 </div>
@@ -4883,7 +4882,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-geo-queries">7.6. Geo queries</h3>
+<h3 id="java-geo-queries">8.6. Geo queries</h3>
 <div class="paragraph">
 <p>Elasticsearch supports two types of geo data:
 <code>geo_point</code> fields which support lat/lon pairs, and
@@ -4915,7 +4914,7 @@ point.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-geo-shape-query">7.6.1. GeoShape Query</h4>
+<h4 id="java-query-dsl-geo-shape-query">8.6.1. GeoShape Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-shape-query.html">Geo Shape Query</a></p>
 </div>
@@ -5020,7 +5019,7 @@ import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-geo-bounding-box-query">7.6.2. Geo Bounding Box Query</h4>
+<h4 id="java-query-dsl-geo-bounding-box-query">8.6.2. Geo Bounding Box Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-bounding-box-query.html">Geo Bounding Box Query</a></p>
 </div>
@@ -5047,7 +5046,7 @@ import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-geo-distance-query">7.6.3. Geo Distance Query</h4>
+<h4 id="java-query-dsl-geo-distance-query">8.6.3. Geo Distance Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-distance-query.html">Geo Distance Query</a></p>
 </div>
@@ -5074,7 +5073,7 @@ import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-geo-polygon-query">7.6.4. Geo Polygon Query</h4>
+<h4 id="java-query-dsl-geo-polygon-query">8.6.4. Geo Polygon Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-polygon-query.html">Geo Polygon Query</a></p>
 </div>
@@ -5098,7 +5097,7 @@ import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-specialized-queries">7.7. Specialized queries</h3>
+<h3 id="java-specialized-queries">8.7. Specialized queries</h3>
 <div class="paragraph">
 <p>This group contains queries which do not fit into the other groups:</p>
 </div>
@@ -5125,7 +5124,7 @@ or collection of documents.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-mlt-query">7.7.1. More Like This Query</h4>
+<h4 id="java-query-dsl-mlt-query">8.7.1. More Like This Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-mlt-query.html">More Like This Query</a></p>
 </div>
@@ -5156,7 +5155,7 @@ or collection of documents.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-script-query">7.7.2. Script Query</h4>
+<h4 id="java-query-dsl-script-query">8.7.2. Script Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-script-query.html">Script Query</a></p>
 </div>
@@ -5211,7 +5210,7 @@ or collection of documents.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-percolate-query">7.7.3. Percolate Query</h4>
+<h4 id="java-query-percolate-query">8.7.3. Percolate Query</h4>
 <div class="paragraph">
 <p>See:
  * <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-percolate-query.html">Percolate Query</a></p>
@@ -5276,7 +5275,7 @@ for(SearchHit hit : response.getHits()) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-wrapper-query">7.7.4. Wrapper Query</h4>
+<h4 id="java-query-dsl-wrapper-query">8.7.4. Wrapper Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-wrapper-query.html">Wrapper Query</a></p>
 </div>
@@ -5296,7 +5295,7 @@ for(SearchHit hit : response.getHits()) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-span-queries">7.8. Span queries</h3>
+<h3 id="java-span-queries">8.8. Span queries</h3>
 <div class="paragraph">
 <p>Span queries are low-level positional queries which provide expert control
 over the order and proximity of the specified terms. These are typically used
@@ -5351,7 +5350,7 @@ within the spans returned by a list of other span queries.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-span-term-query">7.8.1. Span Term Query</h4>
+<h4 id="java-query-dsl-span-term-query">8.8.1. Span Term Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-term-query.html">Span Term Query</a></p>
 </div>
@@ -5374,7 +5373,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-span-multi-term-query">7.8.2. Span Multi Term Query</h4>
+<h4 id="java-query-dsl-span-multi-term-query">8.8.2. Span Multi Term Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-multi-term-query.html">Span Multi Term Query</a></p>
 </div>
@@ -5394,7 +5393,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-span-first-query">7.8.3. Span First Query</h4>
+<h4 id="java-query-dsl-span-first-query">8.8.3. Span First Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-first-query.html">Span First Query</a></p>
 </div>
@@ -5417,7 +5416,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-span-near-query">7.8.4. Span Near Query</h4>
+<h4 id="java-query-dsl-span-near-query">8.8.4. Span Near Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-near-query.html">Span Near Query</a></p>
 </div>
@@ -5444,7 +5443,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-span-or-query">7.8.5. Span Or Query</h4>
+<h4 id="java-query-dsl-span-or-query">8.8.5. Span Or Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-or-query.html">Span Or Query</a></p>
 </div>
@@ -5463,7 +5462,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-span-not-query">7.8.6. Span Not Query</h4>
+<h4 id="java-query-dsl-span-not-query">8.8.6. Span Not Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-not-query.html">Span Not Query</a></p>
 </div>
@@ -5486,7 +5485,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-span-containing-query">7.8.7. Span Containing Query</h4>
+<h4 id="java-query-dsl-span-containing-query">8.8.7. Span Containing Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-containing-query.html">Span Containing Query</a></p>
 </div>
@@ -5509,7 +5508,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-query-dsl-span-within-query">7.8.8. Span Within Query</h4>
+<h4 id="java-query-dsl-span-within-query">8.8.8. Span Within Query</h4>
 <div class="paragraph">
 <p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-within-query.html">Span Within Query</a></p>
 </div>
@@ -5535,7 +5534,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-admin">8. Java API Administration</h2>
+<h2 id="java-admin">9. Java API Administration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Elasticsearch provides a full Java API to deal with administration tasks.</p>
@@ -5561,7 +5560,7 @@ In the rest of this guide, we will use <code>client.admin()</code>.
 </table>
 </div>
 <div class="sect2">
-<h3 id="java-admin-indices">8.1. Indices Administration</h3>
+<h3 id="java-admin-indices">9.1. Indices Administration</h3>
 <div class="paragraph">
 <p>To access indices Java API, you need to call <code>indices()</code> method from an <a href="#java-admin"><code>AdminClient</code></a>:</p>
 </div>
@@ -5583,7 +5582,7 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 </table>
 </div>
 <div class="sect3">
-<h4 id="java-admin-indices-create-index">8.1.1. Create Index</h4>
+<h4 id="java-admin-indices-create-index">9.1.1. Create Index</h4>
 <div class="paragraph">
 <p>Using an <a href="#java-admin-indices"><code>IndicesAdminClient</code></a>, you can create an index with all default settings and no mapping:</p>
 </div>
@@ -5620,7 +5619,7 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-admin-indices-put-mapping">8.1.2. Put Mapping</h4>
+<h4 id="java-admin-indices-put-mapping">9.1.2. Put Mapping</h4>
 <div class="paragraph">
 <p>You can add mappings at index creation time:</p>
 </div>
@@ -5674,7 +5673,7 @@ to the REST API syntax:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-admin-indices-refresh">8.1.3. Refresh</h4>
+<h4 id="java-admin-indices-refresh">9.1.3. Refresh</h4>
 <div class="paragraph">
 <p>The refresh API allows to explicitly refresh one or more index:</p>
 </div>
@@ -5707,7 +5706,7 @@ client.admin().indices()
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-admin-indices-get-settings">8.1.4. Get Settings</h4>
+<h4 id="java-admin-indices-get-settings">9.1.4. Get Settings</h4>
 <div class="paragraph">
 <p>The get settings API allows to retrieve settings of index/indices:</p>
 </div>
@@ -5779,7 +5778,7 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-admin-cluster">8.2. Cluster Administration</h3>
+<h3 id="java-admin-cluster">9.2. Cluster Administration</h3>
 <div class="paragraph">
 <p>To access cluster Java API, you need to call <code>cluster()</code> method from an <a href="#java-admin"><code>AdminClient</code></a>:</p>
 </div>
@@ -5801,7 +5800,7 @@ In the rest of this guide, we will use <code>client.admin().cluster()</code>.
 </table>
 </div>
 <div class="sect3">
-<h4 id="java-admin-cluster-health">8.2.1. Cluster Health</h4>
+<h4 id="java-admin-cluster-health">9.2.1. Cluster Health</h4>
 <div class="sect4">
 <h5 id="java-admin-cluster-health-health">Health</h5>
 <div class="paragraph">
@@ -5947,7 +5946,7 @@ if (!status.equals(ClusterHealthStatus.GREEN)) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="stored-scripts">8.2.2. Stored Scripts API</h4>
+<h4 id="stored-scripts">9.2.2. Stored Scripts API</h4>
 <div class="paragraph">
 <p>The stored script API allows one to interact with scripts and templates
 stored in Elasticsearch. It can be used to create, update, get,
