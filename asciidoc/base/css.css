@@ -284,11 +284,10 @@ html, body {
 }
 
 #header > h1 {
-    background: #a0cc47;
+    background-image: radial-gradient(circle, #1280e1 0%, #002069 100%);
     color: #f9f9f9;
-    border-bottom: 2px solid #042944;
     padding: 20px 0 20px 20px;
-    font-size: 40px;
+    font-size: 3em;
     font-weight: 800;
     line-height: 1.1;
     margin: 0;
