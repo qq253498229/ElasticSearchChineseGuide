@@ -10,3 +10,8 @@ services:
     volumes:
       - "./es/data:/usr/share/elasticsearch/data"
       - "./es/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml"
+  app:
+    image: test:latest
+    build: .
+    ports:
+      - "80:80"

@@ -1,23 +1,22 @@
 [[java-docs]]
 == Document APIs
 
-This section describes the following CRUD APIs:
+这部分讲的是这些CRUD API:
 
-.Single document APIs
+.单文档 API
 * <<java-docs-index>>
 * <<java-docs-get>>
 * <<java-docs-delete>>
 * <<java-docs-update>>
 
-.Multi-document APIs
+.多文档 API
 * <<java-docs-multi-get>>
 * <<java-docs-bulk>>
 * <<java-docs-reindex>>
 * <<java-docs-update-by-query>>
 * <<java-docs-delete-by-query>>
 
-NOTE: All CRUD APIs are single-index APIs. The `index` parameter accepts a single
-index name, or an `alias` which points to a single index.
+NOTE: 所有的CRUD API 都是单索引 API。 `index` 参数只可以接受单独的索引名，或者是使用 `alias` 来指向这个索引。
 
 include::docs/index_.asciidoc[]
 

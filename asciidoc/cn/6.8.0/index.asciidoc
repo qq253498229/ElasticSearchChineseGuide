@@ -10,52 +10,49 @@ include::./Versions.asciidoc[]
 
 本节介绍由Elasticsearch提供的Java API。
 所有的Elasticsearch操作都使用 <<client,Client>> 对象来执行。
-所有操作默认就是异步的（要么接受一个监听，要么返回需要的值）。
+所有操作默认就是异步的（可以使用listener监听，也可以直接返回结果）。
 
 
-另外，可以在Bulk中累积和执行客户端上的操作 。
-Additionally, operations on a client may be accumulated and executed in
-<<java-docs-bulk,Bulk>>.
+此外，也可以使用 <<java-docs-bulk,Bulk>> 在client中批量的执行一系列操作。
 
-Note, all the APIs are exposed through the
-Java API (actually, the Java API is used internally to execute them).
+请注意，所有的API都是通过Java API调用的（实际上，内部也是使用Java API执行的）
 
 [WARNING]
 ===================================
+我们计划在ElasticSearch 7.0中弃用 `TransportClient` ，并在8.0中完全删除它。
+作为替代，您应该使用 {java-rest}/java-rest-high.html[Java High Level REST Client] ，
+它执行的是HTTP请求而不是序列化之后的Java请求。
+{java-rest}/java-rest-high-level-migration.html[迁移指南] 中介绍了迁移所需的所有步骤。
 
-We plan on deprecating the `TransportClient` in Elasticsearch 7.0 and removing
-it completely in 8.0. Instead, you should be using the
-{java-rest}/java-rest-high.html[Java High Level REST Client], which executes
-HTTP requests rather than serialized Java requests. The
-{java-rest}/java-rest-high-level-migration.html[migration guide] describes
-all the steps needed to migrate.
+JavaHighLevelClient 现在支持了更多常用的接口，但还有许多需要添加。
+点击 https://github.com/elastic/elasticsearch/issues/27205[完善 Java high-level REST client]
+通知我们您的应用需要哪些缺失的接口，帮助我们共同完善Elasticsearch。
 
-The Java High Level REST Client currently has support for the more commonly
-used APIs, but there are a lot more that still need to be added.  You can help
-us prioritise by telling us which missing APIs you need for your application
-by adding a comment to this issue:
-https://github.com/elastic/elasticsearch/issues/27205[Java high-level REST
-client completeness].
-
-Any missing APIs can always be implemented today by using the
-link:/guide/en/elasticsearch/client/java-rest/current/java-rest-low.html[low
-level Java REST Client] with JSON request and response bodies.
-
+所有缺失的接口也可以通过使用带有JSON请求体的
+{java-rest}/java-rest-low.html[low level Java REST Client]
+来实现并获取结果。
 ===================================
 
 == Javadoc
 
-The javadoc for the transport client can be found at {transport-client-javadoc}/index.html.
+TransClient 的Javadoc可以在 {transport-client-javadoc}/index.html[这里] 找到。
 
-== Maven Repository
+== Maven 仓库
 
-Elasticsearch is hosted on
-http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.elasticsearch.client%22[Maven
-Central].
+ElasticSearch已经托管在 http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.elasticsearch.client%22[Maven Central] 上。
 
-For example, you can define the latest version in your `pom.xml` file:
+举个例子，您可以这样在 `pom.xml` 文件中定义最新版本：
 
-["source","xml",subs="attributes"]
+[source,xml]
+--------------------------------------------------
+<dependency>
+    <groupId>org.elasticsearch</groupId>
+    <artifactId>elasticsearch</artifactId>
+    <version>{version}</version>
+</dependency>
+--------------------------------------------------
+
+[source,xml]
 --------------------------------------------------
 <dependency>
     <groupId>org.elasticsearch.client</groupId>
@@ -64,18 +61,25 @@ For example, you can define the latest version in your `pom.xml` file:
 </dependency>
 --------------------------------------------------
 
+[source,xml]
+--------------------------------------------------
+<dependency>
+    <groupId>org.elasticsearch.client</groupId>
+    <artifactId>elasticsearch-rest-high-level-client</artifactId>
+    <version>{version}</version>
+</dependency>
+--------------------------------------------------
+
 [[java-transport-usage-maven-lucene]]
-=== Lucene Snapshot repository
+=== Lucene Snapshot 仓库
 
-The very first releases of any major version (like a beta), might have been built on top of a Lucene Snapshot version.
-In such a case you will be unable to resolve the Lucene dependencies of the client.
+有时候主要版本(如beta版)的第一个版本可能建立在Lucene的快照版本之上，这时候您可能无法解决Lucene的依赖问题。
 
-For example, if you want to use the `6.0.0-beta1` version which depends on Lucene `7.0.0-snapshot-00142c9`, you must
-define the following repository.
+例如，如果您使用的是Elasticsearch `6.0.0-beta1` 版本，它依赖的是 `7.0.0-snapshot-00142c9` 版本的Lucene，这时候就需要定义以下仓库.
 
-For Maven:
+对于 Maven:
 
-["source","xml",subs="attributes"]
+["source","xml"]
 --------------------------------------------------
 <repository>
     <id>elastic-lucene-snapshots</id>
@@ -86,9 +90,9 @@ For Maven:
 </repository>
 --------------------------------------------------
 
-For Gradle:
+对于 Gradle:
 
-["source","groovy",subs="attributes"]
+["source","groovy"]
 --------------------------------------------------
 maven {
     name "lucene-snapshots"
@@ -96,11 +100,11 @@ maven {
 }
 --------------------------------------------------
 
-=== Log4j 2 Logger
+=== Log4j 2 日志
 
-You need to also include Log4j 2 dependencies:
+你需要加入log4j2的依赖:
 
-["source","xml",subs="attributes"]
+["source","xml"]
 --------------------------------------------------
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
@@ -109,11 +113,10 @@ You need to also include Log4j 2 dependencies:
 </dependency>
 --------------------------------------------------
 
-And also provide a Log4j 2 configuration file in your classpath.
-For example, you can add in your `src/main/resources` project dir a `log4j2.properties` file like:
+加入log4j2的配置文件。
+举个例子，你可以在项目中的 `src/main/resources` 目录加入 `log4j2.properties` 文件，示例内容如下：
 
-
-["source","properties",subs="attributes"]
+["source","properties"]
 --------------------------------------------------
 appender.console.type = Console
 appender.console.name = console
@@ -124,11 +127,11 @@ rootLogger.level = info
 rootLogger.appenderRef.console.ref = console
 --------------------------------------------------
 
-=== Using another Logger
+=== 使用其它的日志
 
-If you want to use another logger than Log4j 2, you can use http://www.slf4j.org/[SLF4J] bridge to do that:
+如果您想使用其它日志而不是log4j2，则可以用 http://www.slf4j.org/[SLF4J] 规范下的实现来代替:
 
-["source","xml",subs="attributes"]
+["source","xml"]
 --------------------------------------------------
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
@@ -142,10 +145,11 @@ If you want to use another logger than Log4j 2, you can use http://www.slf4j.org
 </dependency>
 --------------------------------------------------
 
-http://www.slf4j.org/manual.html[This page] lists implementations you can use. Pick your favorite logger
-and add it as a dependency. As an example, we will use the `slf4j-simple` logger:
+http://www.slf4j.org/manual.html[这个页面] 列出了可以使用的实现。
+选择你喜欢的日志添加依赖即可。
+举个例子我想使用 `slf4j-simple` 日志就可以添加如下依赖:
 
-["source","xml",subs="attributes"]
+["source","xml"]
 --------------------------------------------------
 <dependency>
     <groupId>org.slf4j</groupId>
