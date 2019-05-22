@@ -26,3 +26,5 @@
 > 欢迎大家踊跃提交issue/pull request。联系方式：codeforfun@foxmail.com
 
 > ES版本 6.2.2
+
+> 6.8.0版本正在施工,7.x在计划中，欢迎小伙伴们参与贡献
