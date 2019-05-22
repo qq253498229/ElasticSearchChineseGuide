@@ -31,5 +31,5 @@
 
 2019-05-22
 
-> 6.8.0版本正在施工,[地址](https://qq253498229.github.io/ElasticSearchChineseGuide/)
+> 6.8.0版本正在施工,[在线地址](https://qq253498229.github.io/ElasticSearchChineseGuide/)
 > 7.x在计划中，欢迎小伙伴们参与贡献
