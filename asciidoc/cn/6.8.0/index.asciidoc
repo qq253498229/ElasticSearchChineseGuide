@@ -2,8 +2,17 @@ include::./Versions.asciidoc[]
 
 [[java-api]]
 = ElasticSearch Java API v{version}
+:doctype: book
 :docinfodir: ../../base
 :docinfo1: header
+:icons: font
+:numbered:
+:source-highlighter: pygments
+:pygments-css: class
+:pygments-linenums-mode: table
+:compat-mode:
+:pdf-page-size: A4
+:nofooter:
 
 [preface]
 == 前言
@@ -41,7 +50,7 @@ TransClient 的Javadoc可以在 {transport-client-javadoc}/index.html[这里] �
 
 ElasticSearch已经托管在 http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.elasticsearch.client%22[Maven Central] 上。
 
-举个例子，您可以这样在 `pom.xml` 文件中定义最新版本：
+举个例子，您可以这样在 `pom.xml` 文件中定义最新版本:
 
 [source,xml]
 --------------------------------------------------
@@ -114,7 +123,7 @@ maven {
 --------------------------------------------------
 
 加入log4j2的配置文件。
-举个例子，你可以在项目中的 `src/main/resources` 目录加入 `log4j2.properties` 文件，示例内容如下：
+举个例子，你可以在项目中的 `src/main/resources` 目录加入 `log4j2.properties` 文件，示例内容如下:
 
 ["source","properties"]
 --------------------------------------------------
