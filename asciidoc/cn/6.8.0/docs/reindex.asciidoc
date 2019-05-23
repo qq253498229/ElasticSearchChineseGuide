@@ -1,11 +1,15 @@
 [[java-docs-reindex]]
 === Reindex API
 
-See {ref}/docs-reindex.html[reindex API].
+查看 {ref}/docs-reindex.html[reindex API]。
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[reindex1]
+BulkByScrollResponse response =
+    ReindexAction.INSTANCE.newRequestBuilder(client)
+    .source("source_index")
+    .destination("target_index")
+    .filter(QueryBuilders.matchQuery("category", "xzy")) <1>
+    .get();
 --------------------------------------------------
-<1> Optionally a query can provided to filter what documents should be
-    re-indexed from the source to the target index.
+<1> 可以提供一个查询语句来筛选 source index 到 target index 的文档。

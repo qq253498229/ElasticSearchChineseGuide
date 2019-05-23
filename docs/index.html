@@ -2047,19 +2047,23 @@ client.admin().cluster().prepareCancelTasks()
 <div class="sect2">
 <h3 id="java-docs-reindex">5.13. Reindex API</h3>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-reindex.html">reindex API</a>.</p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-reindex.html">reindex API</a>。</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../modules/reindex/src/test/java/org/elasticsearch/client/documentation/ReindexDocumentationIT.java[reindex1]</code></pre>
+<pre class="pygments highlight"><code data-lang="java">BulkByScrollResponse response =
+    ReindexAction.INSTANCE.newRequestBuilder(client)
+    .source("source_index")
+    .destination("target_index")
+    .filter(QueryBuilders.matchQuery("category", "xzy")) <i class="conum" data-value="1"></i><b>(1)</b>
+    .get();</code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Optionally a query can provided to filter what documents should be
-re-indexed from the source to the target index.</td>
+<td>可以提供一个查询语句来筛选 source index 到 target index 的文档。</td>
 </tr>
 </table>
 </div>
