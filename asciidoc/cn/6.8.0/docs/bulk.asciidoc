@@ -131,9 +131,8 @@ bulkProcessor.close();
 [[java-docs-bulk-processor-tests]]
 ==== Using Bulk Processor in tests
 
-If you are running tests with Elasticsearch and are using the `BulkProcessor` to populate your dataset
-you should better set the number of concurrent requests to `0` so the flush operation of the bulk will be executed
-in a synchronous manner:
+如果你正使用 Elasticsearch 进行测试并且使用的是 `BulkProcessor` 来批量添加数据，那么最好将并发请求数量设置为 `0` ，
+这样批处理请求将会以同步的方式执行:
 
 [source,java]
 --------------------------------------------------
@@ -142,19 +141,19 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(client, new BulkProcessor.Li
         .setConcurrentRequests(0)
         .build();
 
-// Add your requests
+// 添加请求
 bulkProcessor.add(/* Your requests */);
 
-// Flush any remaining requests
+// 刷新剩余请求
 bulkProcessor.flush();
 
-// Or close the bulkProcessor if you don't need it anymore
+// 如果你不在需要它了则关闭掉
 bulkProcessor.close();
 
 // Refresh your indices
 client.admin().indices().prepareRefresh().get();
 
-// Now you can start searching!
+// 现在可以开始检索啦！
 client.prepareSearch().get();
 --------------------------------------------------
 
