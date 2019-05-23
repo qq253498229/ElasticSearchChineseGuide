@@ -1,10 +1,11 @@
 [[java-search]]
-== Search API
+== 查询 API
 
-The search API allows one to execute a search query and get back search hits
-that match the query. It can be executed across one or more indices and
-across one or more types. The query can be provided using the <<java-query-dsl,query Java API>>.
-The body of the search request is built using the `SearchSourceBuilder`. Here is an example:
+Search API 可以执行一个查询操作，返回与查询条件相匹配的结果。
+允许跨index查询，也可以跨type查询。
+可以使用 <<java-query-dsl,query Java API>> 作为查询语句。
+查询的请求体使用 `SearchSourceBuilder` 构建。
+例:
 
 [source,java]
 --------------------------------------------------
@@ -23,8 +24,7 @@ SearchResponse response = client.prepareSearch("index1", "index2")
         .get();
 --------------------------------------------------
 
-Note that all parameters are optional. Here is the smallest search call
-you can write:
+注意这里所有的参数都不是必填的，下面的例子就是一个最小化的查询请求:
 
 [source,java]
 --------------------------------------------------
@@ -32,19 +32,16 @@ you can write:
 SearchResponse response = client.prepareSearch().get();
 --------------------------------------------------
 
-NOTE:   Although the Java API defines the additional search types QUERY_AND_FETCH and
-        DFS_QUERY_AND_FETCH, these modes are internal optimizations and should not
-        be specified explicitly by users of the API.
 
-For more information on the search operation, check out the REST
-{ref}/search.html[search] docs.
+NOTE: 注意：尽管JavaAPI定义了额外的搜索类型 QUERY_AND_FETCH 和 DFS_QUERY_AND_FETCH ，
+但这些模式其实是底层自动优化时使用的模式，不应该由用户通过API指定。
 
+有关索引操作的更多信息，请查看 REST {ref}/search.html[search]。
 
 [[java-search-scrolling]]
 === Using scrolls in Java
 
-Read the {ref}/search-request-scroll.html[scroll documentation]
-first!
+首先请阅读 {ref}/search-request-scroll.html[scroll documentation]
 
 [source,java]
 --------------------------------------------------
@@ -56,22 +53,22 @@ SearchResponse scrollResp = client.prepareSearch(test)
         .addSort(FieldSortBuilder.DOC_FIELD_NAME, SortOrder.ASC)
         .setScroll(new TimeValue(60000))
         .setQuery(qb)
-        .setSize(100).get(); //max of 100 hits will be returned for each scroll
-//Scroll until no hits are returned
+        .setSize(100).get(); <1>
 do {
     for (SearchHit hit : scrollResp.getHits().getHits()) {
         //Handle the hit...
     }
 
     scrollResp = client.prepareSearchScroll(scrollResp.getScrollId()).setScroll(new TimeValue(60000)).execute().actionGet();
-} while(scrollResp.getHits().getHits().length != 0); // Zero hits mark the end of the scroll and the while loop.
+} while(scrollResp.getHits().getHits().length != 0); <2>
 --------------------------------------------------
+<1> 每次查询最多返回100条结果
+<2> 没有结果返回的时候就停止循环和游标
 
 [[java-search-msearch]]
 === MultiSearch API
 
-See {ref}/search-multi-search.html[MultiSearch API Query]
-documentation
+查看 {ref}/search-multi-search.html[MultiSearch API Query] 文档
 
 [source,java]
 --------------------------------------------------
@@ -85,19 +82,19 @@ MultiSearchResponse sr = client.prepareMultiSearch()
         .add(srb2)
         .get();
 
-// You will get all individual responses from MultiSearchResponse#getResponses()
 long nbHits = 0;
-for (MultiSearchResponse.Item item : sr.getResponses()) {
+for (MultiSearchResponse.Item item : sr.getResponses()) { <1>
     SearchResponse response = item.getResponse();
     nbHits += response.getHits().getTotalHits();
 }
 --------------------------------------------------
+<1> 可以从 MultiSearchResponse#getResponses() 中获取所有独立的响应
 
 
 [[java-search-aggs]]
 === Using Aggregations
 
-The following code shows how to add two aggregations within your search:
+下面这段代码展示了如何在一次查询中加入两个聚合:
 
 [source,java]
 --------------------------------------------------
@@ -113,21 +110,18 @@ SearchResponse sr = client.prepareSearch()
     )
     .get();
 
-// Get your facet results
-Terms agg1 = sr.getAggregations().get("agg1");
+Terms agg1 = sr.getAggregations().get("agg1"); <1>
 Histogram agg2 = sr.getAggregations().get("agg2");
 --------------------------------------------------
+<1> 获取某部分结果
 
-See <<java-aggs,Aggregations Java API>>
-documentation for details.
-
+详情请查看 <<java-aggs,Aggregations Java API>> 。
 
 [[java-search-terminate-after]]
 === Terminate After
 
-The maximum number of documents to collect for each shard, upon reaching which the query execution will terminate early.
-If set, you will be able to check if the operation terminated early by asking for `isTerminatedEarly()` in the
-`SearchResponse` object:
+设置一次查询的最大数，到达这个数量的时候，查询操作就会提前终止。
+如果设置了的话，可以在 `SearchResponse` 对象中使用 `isTerminatedEarly()` 查看操作是否提前结束。例:
 
 [source,java]
 --------------------------------------------------
@@ -136,17 +130,17 @@ SearchResponse sr = client.prepareSearch(INDEX)
     .get();
 
 if (sr.isTerminatedEarly()) {
-    // We finished early
+    // 提前结束时的逻辑
 }
 --------------------------------------------------
-<1> Finish after 1000 docs
+<1> 查询到1000个文档就停止
 
 [[java-search-template]]
 === Search Template
 
-See {ref}/search-template.html[Search Template] documentation
+查看 {ref}/search-template.html[Search Template] 文档
 
-Define your template parameters as a `Map<String,Object>`:
+将模版参数定义成 `Map<String,Object>` 类型:
 
 [source,java]
 --------------------------------------------------
@@ -154,8 +148,8 @@ Map<String, Object> template_params = new HashMap<>();
 template_params.put("param_gender", "male");
 --------------------------------------------------
 
-You can use your stored search templates in `config/scripts`.
-For example, if you have a file named `config/scripts/template_gender.mustache` containing:
+可以将模版存储在 `config/scripts` 目录下。
+如果你的脚本在 `config/scripts/template_gender.mustache` ，则可以这样查询：
 
 [source,js]
 --------------------------------------------------
@@ -169,7 +163,7 @@ For example, if you have a file named `config/scripts/template_gender.mustache` 
 --------------------------------------------------
 // NOTCONSOLE
 
-Create your search template request:
+创建你的查询请求模版:
 
 [source,java]
 --------------------------------------------------
@@ -181,14 +175,14 @@ SearchResponse sr = new SearchTemplateRequestBuilder(client)
     .get()                                        <5>
     .getResponse();                               <6>
 --------------------------------------------------
-<1> template name
-<2> template stored on disk in `gender_template.mustache`
-<3> parameters
-<4> set the execution context (ie. define the index name here)
-<5> execute and get the template response
-<6> get from the template response the search response itself
+<1> 模版名
+<2> 模版存储在本地硬盘 `gender_template.mustache`
+<3> 模版参数
+<4> 设置执行上下文(可以在这里定义index名称)
+<5> 执行并获取模版的响应
+<6> 从模板响应中获取查询结果
 
-You can also store your template in the cluster state:
+你也可以将模版存储在集群state中:
 
 [source,java]
 --------------------------------------------------
@@ -205,7 +199,7 @@ client.admin().cluster().preparePutStoredScript()
         "}")).get();
 --------------------------------------------------
 
-To execute a stored templates, use `ScriptService.ScriptType.STORED`:
+要执行该模版，需要使用 `ScriptService.ScriptType.STORED` 类型:
 
 [source,java]
 --------------------------------------------------
@@ -217,14 +211,14 @@ SearchResponse sr = new SearchTemplateRequestBuilder(client)
         .get()                                <5>
         .getResponse();                       <6>
 --------------------------------------------------
-<1> template name
-<2> template stored in the cluster state
-<3> parameters
-<4> set the execution context (ie. define the index name here)
-<5> execute and get the template response
-<6> get from the template response the search response itself
+<1> 模版名
+<2> 模版存储在集群state中
+<3> 模版参数
+<4> 设置执行上下文(可以在这里定义index名称)
+<5> 执行并获取模版的响应
+<6> 从模板响应中获取查询结果
 
-You can also execute inline templates:
+你也可以执行inline(内联)模版:
 
 [source,java]
 --------------------------------------------------
@@ -242,9 +236,9 @@ sr = new SearchTemplateRequestBuilder(client)
         .get()                               <5>
         .getResponse();                      <6>
 --------------------------------------------------
-<1> template's body
-<2> template is passed inline
-<3> parameters
-<4> set the execution context (ie. define the index name here)
-<5> execute and get the template response
-<6> get from the template response the search response itself
+<1> 模板体
+<2> 模版是通过inline方式传递的
+<3> 模版参数
+<4> 设置执行上下文(可以在这里定义index名称)
+<5> 执行并获取模版的响应
+<6> 从模板响应中获取查询结果
