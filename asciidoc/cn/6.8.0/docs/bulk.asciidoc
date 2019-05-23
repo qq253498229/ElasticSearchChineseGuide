@@ -161,22 +161,42 @@ client.prepareSearch().get();
 [[java-docs-bulk-global-parameters]]
 ==== Global Parameters
 
-Global parameters can be specified on the BulkRequest as well as BulkProcessor, similar to the REST API. These global
- parameters serve as defaults and can be overridden by local parameters specified on each sub request. Some parameters
- have to be set before any sub request is added - index, type - and you have to specify them during  BulkRequest or
- BulkProcessor creation. Some are optional - pipeline, routing - and can be specified at any point before the bulk is sent.
+全局参数可以在 BulkRequest 和 BulkProcessor 上指定，类似于REST API。
+这些全局参数用作默认值，可以被每个子请求的本地参数所覆盖。
+有一些参数必须在子请求添加之前被设置， - index, type - ，并且必须在 BulkRequest 或 BulkProcessor 创建期间指定它们。
+也有一些是可选的 - pipeline, routing - ，这些可以在批量发送之前的任意时间点指定。
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{hlrc-tests}/BulkProcessorIT.java[bulk-processor-mix-parameters]
---------------------------------------------------
-<1> global parameters from the BulkRequest will be applied on a sub request
-<2> local pipeline parameter on a sub request will override global parameters from BulkRequest
+try (BulkProcessor processor = initBulkProcessorBuilder(listener)
+        .setGlobalIndex("tweets")
+        .setGlobalType("_doc")
+        .setGlobalRouting("routing")
+        .setGlobalPipeline("pipeline_id")
+        .build()) {
 
 
-["source","java",subs="attributes,callouts,macros"]
+    processor.add(new IndexRequest()  <1>
+        .source(XContentType.JSON, "user", "some user"));
+    processor.add(new IndexRequest("blogs", "post_type", "1") <2>
+        .source(XContentType.JSON, "title", "some title"));
+}
 --------------------------------------------------
-include-tagged::{hlrc-tests}/BulkRequestWithGlobalParametersIT.java[bulk-request-mix-pipeline]
+<1> BulkRequest 的全局参数将应用于子请求
+<2> 子请求中的本地管道参数将覆盖BulkRequest中的全局参数
+
+
+["source","java"]
 --------------------------------------------------
-<1> local pipeline parameter on a sub request will override global pipeline from the BulkRequest
-<2> global parameter from the BulkRequest will be applied on a sub request
+BulkRequest request = new BulkRequest();
+request.pipeline("globalId");
+
+request.add(new IndexRequest("test", "doc", "1")
+    .source(XContentType.JSON, "field", "bulk1")
+    .setPipeline("perIndexId")); <1>
+
+request.add(new IndexRequest("test", "doc", "2")
+    .source(XContentType.JSON, "field", "bulk2")); <2>
+--------------------------------------------------
+<1> 子请求中的本地管道参数将覆盖BulkRequest中的全局参数
+<2> BulkRequest 的全局参数将应用于子请求

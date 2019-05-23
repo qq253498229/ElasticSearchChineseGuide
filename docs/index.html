@@ -1718,9 +1718,8 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 <div class="sect3">
 <h4 id="java-docs-bulk-processor-tests">5.8.3. Using Bulk Processor in tests</h4>
 <div class="paragraph">
-<p>If you are running tests with Elasticsearch and are using the <code>BulkProcessor</code> to populate your dataset
-you should better set the number of concurrent requests to <code>0</code> so the flush operation of the bulk will be executed
-in a synchronous manner:</p>
+<p>如果你正使用 Elasticsearch 进行测试并且使用的是 <code>BulkProcessor</code> 来批量添加数据，那么最好将并发请求数量设置为 <code>0</code> ，
+这样批处理请求将会以同步的方式执行:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1729,19 +1728,19 @@ in a synchronous manner:</p>
         .setConcurrentRequests(0)
         .build();
 
-// Add your requests
+// 添加请求
 bulkProcessor.add(/* Your requests */);
 
-// Flush any remaining requests
+// 刷新剩余请求
 bulkProcessor.flush();
 
-// Or close the bulkProcessor if you don't need it anymore
+// 如果你不在需要它了则关闭掉
 bulkProcessor.close();
 
 // Refresh your indices
 client.admin().indices().prepareRefresh().get();
 
-// Now you can start searching!
+// 现在可以开始检索啦！
 client.prepareSearch().get();</code></pre>
 </div>
 </div>
@@ -1749,42 +1748,62 @@ client.prepareSearch().get();</code></pre>
 <div class="sect3">
 <h4 id="java-docs-bulk-global-parameters">5.8.4. Global Parameters</h4>
 <div class="paragraph">
-<p>Global parameters can be specified on the BulkRequest as well as BulkProcessor, similar to the REST API. These global
- parameters serve as defaults and can be overridden by local parameters specified on each sub request. Some parameters
- have to be set before any sub request is added - index, type - and you have to specify them during  BulkRequest or
- BulkProcessor creation. Some are optional - pipeline, routing - and can be specified at any point before the bulk is sent.</p>
+<p>全局参数可以在 BulkRequest 和 BulkProcessor 上指定，类似于REST API。
+这些全局参数用作默认值，可以被每个子请求的本地参数所覆盖。
+有一些参数必须在子请求添加之前被设置， - index, type - ，并且必须在 BulkRequest 或 BulkProcessor 创建期间指定它们。
+也有一些是可选的 - pipeline, routing - ，这些可以在批量发送之前的任意时间点指定。</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/BulkProcessorIT.java[bulk-processor-mix-parameters]</code></pre>
+<pre class="pygments highlight"><code data-lang="java">try (BulkProcessor processor = initBulkProcessorBuilder(listener)
+        .setGlobalIndex("tweets")
+        .setGlobalType("_doc")
+        .setGlobalRouting("routing")
+        .setGlobalPipeline("pipeline_id")
+        .build()) {
+
+
+    processor.add(new IndexRequest()  <i class="conum" data-value="1"></i><b>(1)</b>
+        .source(XContentType.JSON, "user", "some user"));
+    processor.add(new IndexRequest("blogs", "post_type", "1") <i class="conum" data-value="2"></i><b>(2)</b>
+        .source(XContentType.JSON, "title", "some title"));
+}</code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>global parameters from the BulkRequest will be applied on a sub request</td>
+<td>BulkRequest 的全局参数将应用于子请求</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>local pipeline parameter on a sub request will override global parameters from BulkRequest</td>
+<td>子请求中的本地管道参数将覆盖BulkRequest中的全局参数</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/BulkRequestWithGlobalParametersIT.java[bulk-request-mix-pipeline]</code></pre>
+<pre class="pygments highlight"><code data-lang="java">BulkRequest request = new BulkRequest();
+request.pipeline("globalId");
+
+request.add(new IndexRequest("test", "doc", "1")
+    .source(XContentType.JSON, "field", "bulk1")
+    .setPipeline("perIndexId")); <i class="conum" data-value="1"></i><b>(1)</b>
+
+request.add(new IndexRequest("test", "doc", "2")
+    .source(XContentType.JSON, "field", "bulk2")); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>local pipeline parameter on a sub request will override global pipeline from the BulkRequest</td>
+<td>子请求中的本地管道参数将覆盖BulkRequest中的全局参数</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>global parameter from the BulkRequest will be applied on a sub request</td>
+<td>BulkRequest 的全局参数将应用于子请求</td>
 </tr>
 </table>
 </div>
