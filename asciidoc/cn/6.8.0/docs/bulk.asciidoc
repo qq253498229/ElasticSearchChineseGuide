@@ -1,8 +1,8 @@
 [[java-docs-bulk]]
 === Bulk API
 
-The bulk API allows one to index and delete several documents in a
-single request. Here is a sample usage:
+Bulk API 允许在一次单独的请求中索引或删除多个文档。
+下面是一个用法示例:
 
 [source,java]
 --------------------------------------------------
@@ -40,10 +40,9 @@ if (bulkResponse.hasFailures()) {
 [[java-docs-bulk-processor]]
 === Using Bulk Processor
 
-The `BulkProcessor` class offers a simple interface to flush bulk operations automatically based on the number or size
-of requests, or after a given period.
+`BulkProcessor` 类提供了一个简单的接口来自动执行批处理操作，它可以设置的规则有请求数、请求数据大小、周期。
 
-To use it, first create a `BulkProcessor` instance:
+要使用它，首先需要创建一个 `BulkProcessor` 实例:
 
 [source,java]
 --------------------------------------------------
@@ -78,34 +77,28 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(
             BackoffPolicy.exponentialBackoff(TimeValue.timeValueMillis(100), 3)) <9>
         .build();
 --------------------------------------------------
-<1> Add your Elasticsearch client
-<2> This method is called just before bulk is executed. You can for example see the numberOfActions with
-    `request.numberOfActions()`
-<3> This method is called after bulk execution. You can for example check if there was some failing requests
-    with `response.hasFailures()`
-<4> This method is called when the bulk failed and raised a `Throwable`
-<5> We want to execute the bulk every 10 000 requests
-<6> We want to flush the bulk every 5mb
-<7> We want to flush the bulk every 5 seconds whatever the number of requests
-<8> Set the number of concurrent requests. A value of 0 means that only a single request will be allowed to be
-    executed. A value of 1 means 1 concurrent request is allowed to be executed while accumulating new bulk requests.
-<9> Set a custom backoff policy which will initially wait for 100ms, increase exponentially and retries up to three
-    times. A retry is attempted whenever one or more bulk item requests have failed with an `EsRejectedExecutionException`
-    which indicates that there were too little compute resources available for processing the request. To disable backoff,
-    pass `BackoffPolicy.noBackoff()`.
+<1> 添加Elasticsearch client
+<2> 在批处理执行之前被调用。你可以使用 `request.numberOfActions()` 方法来获取本次批处理的数量
+<3> 在批处理执行之后被调用。你可以使用 `response.hasFailures()` 方法可以查看失败的请求
+<4> 在批处理执行失败，或抛出 `Throwable` 的时候被调用
+<5> 设置每次累计达10000个请求就立刻执行批处理
+<6> 设置每次数据到达5MB的大小就立刻执行批处理
+<7> 设置无论有几条请求，总之每隔5秒就立刻执行批处理
+<8> 设置执行批处理请求时允许的最大并发数。0代表每次只执行一个请求，1代表允许1条并发请求
+<9> 设置自定义补偿策略:第一次等待100ms，之后以指数形式增长，一共重试3次。当批处理执行的时候抛出 `EsRejectedExecutionException` 异常的时候，会启动重试策略。原因可能是硬件资源太低。如想关闭该策略，可以传入 `BackoffPolicy.noBackoff()`
 
-By default, `BulkProcessor`:
+默认情况，`BulkProcessor` 的配置如下：
 
-* sets bulkActions to `1000`
-* sets bulkSize to `5mb`
-* does not set flushInterval
-* sets concurrentRequests to 1, which means an asynchronous execution of the flush operation.
-* sets backoffPolicy to an exponential backoff with 8 retries and a start delay of 50ms. The total wait time is roughly 5.1 seconds.
+- `1000` 个请求
+- `5mb` 大小
+- 没有间隔
+- 允许1个并发请求
+- 每50ms重试一次，之后以指数形式增长，一共重试8次，总时间大概5.1s左右（这个5.1s是怎么算出来的？麻烦知道的告诉一下）
 
 [[java-docs-bulk-processor-requests]]
 ==== Add requests
 
-Then you can simply add your requests to the `BulkProcessor`:
+然后你就可以很简单的向 `BulkProcessor` 中添加请求了:
 
 [source,java]
 --------------------------------------------------
@@ -116,24 +109,24 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));
 [[java-docs-bulk-processor-close]]
 ==== Closing the Bulk Processor
 
-When all documents are loaded to the `BulkProcessor` it can be closed by using `awaitClose` or `close` methods:
+当所有文档全部加载到 `BulkProcessor` 之后，可以使用 `awaitClose` 或 `close` 方法关闭它:
 
 [source,java]
 --------------------------------------------------
 bulkProcessor.awaitClose(10, TimeUnit.MINUTES);
 --------------------------------------------------
 
-or
+或
 
 [source,java]
 --------------------------------------------------
 bulkProcessor.close();
 --------------------------------------------------
 
-Both methods flush any remaining documents and disable all other scheduled flushes if they were scheduled by setting
-`flushInterval`. If concurrent requests were enabled the `awaitClose` method waits for up to the specified timeout for
-all bulk requests to complete then returns `true`, if the specified waiting time elapses before all bulk requests complete,
-`false` is returned. The `close` method doesn't wait for any remaining bulk requests to complete and exits immediately.
+如果设置了 `flushInterval` ，上面两个方法都会刷新剩余的文档并且禁用定时刷新任务。
+如果开启了并发请求策略，`awaitClose` 方法会根据你所指定的时间作出等待，当规定时间内所有批处理请求全部完成时，会返回 `true` ；
+如果在规定时间内，仍有批处理请求未完成，则会返回 `false` 。
+`close` 方法不会等待批处理请求是否完成，而是直接取消剩余的所有请求。
 
 [[java-docs-bulk-processor-tests]]
 ==== Using Bulk Processor in tests

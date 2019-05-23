@@ -555,3 +555,9 @@ div.sect5 code {
     border-radius: 5px;
     position: relative;
 }
+
+h1 {
+    filter: alpha(Opacity=93);
+    -moz-opacity: 0.93;
+    opacity: 0.93;
+}

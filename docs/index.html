@@ -564,6 +564,12 @@ div.sect5 code {
     border-radius: 5px;
     position: relative;
 }
+
+h1 {
+    filter: alpha(Opacity=93);
+    -moz-opacity: 0.93;
+    opacity: 0.93;
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -1531,8 +1537,8 @@ for (MultiGetItemResponse itemResponse : multiGetItemResponses) { <i class="conu
 <div class="sect2">
 <h3 id="java-docs-bulk">5.7. Bulk API</h3>
 <div class="paragraph">
-<p>The bulk API allows one to index and delete several documents in a
-single request. Here is a sample usage:</p>
+<p>Bulk API 允许在一次单独的请求中索引或删除多个文档。
+下面是一个用法示例:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1571,11 +1577,10 @@ if (bulkResponse.hasFailures()) {
 <div class="sect2">
 <h3 id="java-docs-bulk-processor">5.8. Using Bulk Processor</h3>
 <div class="paragraph">
-<p>The <code>BulkProcessor</code> class offers a simple interface to flush bulk operations automatically based on the number or size
-of requests, or after a given period.</p>
+<p><code>BulkProcessor</code> 类提供了一个简单的接口来自动执行批处理操作，它可以设置的规则有请求数、请求数据大小、周期。</p>
 </div>
 <div class="paragraph">
-<p>To use it, first create a <code>BulkProcessor</code> instance:</p>
+<p>要使用它，首先需要创建一个 <code>BulkProcessor</code> 实例:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1615,74 +1620,68 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Add your Elasticsearch client</td>
+<td>添加Elasticsearch client</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>This method is called just before bulk is executed. You can for example see the numberOfActions with
-<code>request.numberOfActions()</code></td>
+<td>在批处理执行之前被调用。你可以使用 <code>request.numberOfActions()</code> 方法来获取本次批处理的数量</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>This method is called after bulk execution. You can for example check if there was some failing requests
-with <code>response.hasFailures()</code></td>
+<td>在批处理执行之后被调用。你可以使用 <code>response.hasFailures()</code> 方法可以查看失败的请求</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>This method is called when the bulk failed and raised a <code>Throwable</code></td>
+<td>在批处理执行失败，或抛出 <code>Throwable</code> 的时候被调用</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>We want to execute the bulk every 10 000 requests</td>
+<td>设置每次累计达10000个请求就立刻执行批处理</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>We want to flush the bulk every 5mb</td>
+<td>设置每次数据到达5MB的大小就立刻执行批处理</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>We want to flush the bulk every 5 seconds whatever the number of requests</td>
+<td>设置无论有几条请求，总之每隔5秒就立刻执行批处理</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>Set the number of concurrent requests. A value of 0 means that only a single request will be allowed to be
-executed. A value of 1 means 1 concurrent request is allowed to be executed while accumulating new bulk requests.</td>
+<td>设置执行批处理请求时允许的最大并发数。0代表每次只执行一个请求，1代表允许1条并发请求</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>Set a custom backoff policy which will initially wait for 100ms, increase exponentially and retries up to three
-times. A retry is attempted whenever one or more bulk item requests have failed with an <code>EsRejectedExecutionException</code>
-which indicates that there were too little compute resources available for processing the request. To disable backoff,
-pass <code>BackoffPolicy.noBackoff()</code>.</td>
+<td>设置自定义补偿策略:第一次等待100ms，之后以指数形式增长，一共重试3次。当批处理执行的时候抛出 <code>EsRejectedExecutionException</code> 异常的时候，会启动重试策略。原因可能是硬件资源太低。如想关闭该策略，可以传入 <code>BackoffPolicy.noBackoff()</code></td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>By default, <code>BulkProcessor</code>:</p>
+<p>默认情况，<code>BulkProcessor</code> 的配置如下：</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>sets bulkActions to <code>1000</code></p>
+<p><code>1000</code> 个请求</p>
 </li>
 <li>
-<p>sets bulkSize to <code>5mb</code></p>
+<p><code>5mb</code> 大小</p>
 </li>
 <li>
-<p>does not set flushInterval</p>
+<p>没有间隔</p>
 </li>
 <li>
-<p>sets concurrentRequests to 1, which means an asynchronous execution of the flush operation.</p>
+<p>允许1个并发请求</p>
 </li>
 <li>
-<p>sets backoffPolicy to an exponential backoff with 8 retries and a start delay of 50ms. The total wait time is roughly 5.1 seconds.</p>
+<p>每50ms重试一次，之后以指数形式增长，一共重试8次，总时间大概5.1s左右（这个5.1s是怎么算出来的？麻烦知道的告诉一下）</p>
 </li>
 </ul>
 </div>
 <div class="sect3">
 <h4 id="java-docs-bulk-processor-requests">5.8.1. Add requests</h4>
 <div class="paragraph">
-<p>Then you can simply add your requests to the <code>BulkProcessor</code>:</p>
+<p>然后你就可以很简单的向 <code>BulkProcessor</code> 中添加请求了:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1694,7 +1693,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 <div class="sect3">
 <h4 id="java-docs-bulk-processor-close">5.8.2. Closing the Bulk Processor</h4>
 <div class="paragraph">
-<p>When all documents are loaded to the <code>BulkProcessor</code> it can be closed by using <code>awaitClose</code> or <code>close</code> methods:</p>
+<p>当所有文档全部加载到 <code>BulkProcessor</code> 之后，可以使用 <code>awaitClose</code> 或 <code>close</code> 方法关闭它:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1702,7 +1701,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>or</p>
+<p>或</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1710,10 +1709,10 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Both methods flush any remaining documents and disable all other scheduled flushes if they were scheduled by setting
-<code>flushInterval</code>. If concurrent requests were enabled the <code>awaitClose</code> method waits for up to the specified timeout for
-all bulk requests to complete then returns <code>true</code>, if the specified waiting time elapses before all bulk requests complete,
-<code>false</code> is returned. The <code>close</code> method doesn&#8217;t wait for any remaining bulk requests to complete and exits immediately.</p>
+<p>如果设置了 <code>flushInterval</code> ，上面两个方法都会刷新剩余的文档并且禁用定时刷新任务。
+如果开启了并发请求策略，<code>awaitClose</code> 方法会根据你所指定的时间作出等待，当规定时间内所有批处理请求全部完成时，会返回 <code>true</code> ；
+如果在规定时间内，仍有批处理请求未完成，则会返回 <code>false</code> 。
+<code>close</code> 方法不会等待批处理请求是否完成，而是直接取消剩余的所有请求。</p>
 </div>
 </div>
 <div class="sect3">
