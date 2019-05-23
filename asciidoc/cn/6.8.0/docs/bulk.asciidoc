@@ -85,7 +85,7 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(
 <6> 设置每次数据到达5MB的大小就立刻执行批处理
 <7> 设置无论有几条请求，总之每隔5秒就立刻执行批处理
 <8> 设置执行批处理请求时允许的最大并发数。0代表每次只执行一个请求，1代表允许1条并发请求
-<9> 设置自定义补偿策略:第一次等待100ms，之后以指数形式增长，一共重试3次。当批处理执行的时候抛出 `EsRejectedExecutionException` 异常的时候，会启动重试策略。原因可能是硬件资源太低。如想关闭该策略，可以传入 `BackoffPolicy.noBackoff()`
+<9> 设置自定义补偿策略:第一次等待100ms，之后每次的间隔时间翻倍，一共重试3次。当批处理执行的时候抛出 `EsRejectedExecutionException` 异常的时候，会启动重试策略。原因可能是硬件资源太低。如想关闭该策略，可以传入 `BackoffPolicy.noBackoff()`
 
 默认情况，`BulkProcessor` 的配置如下：
 
@@ -93,7 +93,7 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(
 - `5mb` 大小
 - 没有间隔
 - 允许1个并发请求
-- 每50ms重试一次，之后以指数形式增长，一共重试8次，总时间大概5.1s左右（这个5.1s是怎么算出来的？麻烦知道的告诉一下）
+- 第一次等待50ms重试，之后每次的间隔时间翻倍，一共重试8次，总时间大概5.1s左右（这个5.1s是怎么算出来的？麻烦知道的告诉一下）
 
 [[java-docs-bulk-processor-requests]]
 ==== Add requests
