@@ -485,7 +485,7 @@ div.sect5 code {
 }
 
 .warning td.icon {
-    background: url('./images/warning.png') no-repeat 0 45%;
+    background: url('../images/warning.png') no-repeat 0 45%;
     width: 70px;
 }
 
@@ -494,7 +494,7 @@ div.sect5 code {
 }
 
 .important td.icon {
-    background: url('./images/important.png') no-repeat 0 45%;
+    background: url('../images/important.png') no-repeat 0 45%;
     width: 70px;
 }
 
@@ -503,7 +503,7 @@ div.sect5 code {
 }
 
 .note td.icon {
-    background: url('./images/note.png') no-repeat 0 45%;
+    background: url('../images/note.png') no-repeat 0 45%;
     width: 60px;
 }
 
@@ -560,4 +560,10 @@ h1 {
     filter: alpha(Opacity=93);
     -moz-opacity: 0.93;
     opacity: 0.93;
+}
+
+.choose-version {
+    position: fixed;
+    right: 5px;
+    z-index: 9999;
 }
