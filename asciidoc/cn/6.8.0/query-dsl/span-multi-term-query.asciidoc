@@ -6,7 +6,8 @@ See {ref}/query-dsl-span-multi-term-query.html[Span Multi Term Query]
 ["source","java"]
 --------------------------------------------------
 spanMultiTermQueryBuilder(
-        prefixQuery("user", "ki"));  <1>
+        prefixQuery("user", "ki")); <1>
 --------------------------------------------------
 <1> Can be any builder extending the `MultiTermQueryBuilder` class. For example: `FuzzyQueryBuilder`,
 `PrefixQueryBuilder`, `RangeQueryBuilder`, `RegexpQueryBuilder` or `WildcardQueryBuilder`.
+

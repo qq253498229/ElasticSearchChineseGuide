@@ -5,7 +5,7 @@ You can add mappings at index creation time:
 
 ["source","java"]
 --------------------------------------------------
-client.admin().indices().prepareCreate("twitter")    <1>
+client.admin().indices().prepareCreate("twitter") <1>
         .addMapping("_doc", "message", "type=text") <2>
         .get();
 --------------------------------------------------

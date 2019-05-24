@@ -6,8 +6,9 @@ See {ref}/query-dsl-span-not-query.html[Span Not Query]
 ["source","java"]
 --------------------------------------------------
 spanNotQuery(
-        spanTermQuery("field","value1"),    <1>
-        spanTermQuery("field","value2"));   <2>
+        spanTermQuery("field","value1"), <1>
+        spanTermQuery("field","value2")); <2>
 --------------------------------------------------
 <1> span query whose matches are filtered
 <2> span query whose matches must not overlap those returned
+

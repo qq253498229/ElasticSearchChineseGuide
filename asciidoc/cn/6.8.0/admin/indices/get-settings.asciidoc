@@ -6,12 +6,12 @@ The get settings API allows to retrieve settings of index/indices:
 [source,java]
 --------------------------------------------------
 GetSettingsResponse response = client.admin().indices()
-        .prepareGetSettings("company", "employee").get();                           <1>
+        .prepareGetSettings("company", "employee").get(); <1>
 for (ObjectObjectCursor<String, Settings> cursor : response.getIndexToSettings()) { <2>
-    String index = cursor.key;                                                      <3>
-    Settings settings = cursor.value;                                               <4>
-    Integer shards = settings.getAsInt("index.number_of_shards", null);             <5>
-    Integer replicas = settings.getAsInt("index.number_of_replicas", null);         <6>
+    String index = cursor.key; <3>
+    Settings settings = cursor.value; <4>
+    Integer shards = settings.getAsInt("index.number_of_shards", null); <5>
+    Integer replicas = settings.getAsInt("index.number_of_replicas", null); <6>
 }
 --------------------------------------------------
 <1> Get settings for indices `company` and `employee`

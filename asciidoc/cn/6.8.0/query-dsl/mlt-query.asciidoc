@@ -6,13 +6,14 @@ See {ref}/query-dsl-mlt-query.html[More Like This Query]
 ["source","java"]
 --------------------------------------------------
 String[] fields = {"name.first", "name.last"}; <1>
-String[] texts = {"text like this one"};        <2>
+String[] texts = {"text like this one"}; <2>
 
 moreLikeThisQuery(fields, texts, null)
-    .minTermFreq(1)                         <3>
-    .maxQueryTerms(12);                     <4>
+    .minTermFreq(1) <3>
+    .maxQueryTerms(12); <4>
 --------------------------------------------------
 <1> fields
 <2> text
 <3> ignore threshold
 <4> max num of Terms in generated queries
+

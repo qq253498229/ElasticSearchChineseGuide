@@ -52,3 +52,4 @@ DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
 <2> index
 <3> 执行操作
 <4> 删除文档的数量
+

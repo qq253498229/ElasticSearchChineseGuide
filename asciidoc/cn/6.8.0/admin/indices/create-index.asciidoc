@@ -17,11 +17,11 @@ Each index created can have specific settings associated with it.
 [source,java]
 --------------------------------------------------
 client.admin().indices().prepareCreate("twitter")
-        .setSettings(Settings.builder()             <1>
+        .setSettings(Settings.builder() <1>
                 .put("index.number_of_shards", 3)
                 .put("index.number_of_replicas", 2)
         )
-        .get();                                     <2>
+        .get(); <2>
 --------------------------------------------------
 <1> Settings for this index
 <2> Execute the action and wait for the result

@@ -5,10 +5,11 @@ See {ref}/query-dsl-geo-distance-query.html[Geo Distance Query]
 
 ["source","java"]
 --------------------------------------------------
-geoDistanceQuery("pin.location")                <1>
-    .point(40, -70)                             <2>
-    .distance(200, DistanceUnit.KILOMETERS);    <3>
+geoDistanceQuery("pin.location") <1>
+    .point(40, -70) <2>
+    .distance(200, DistanceUnit.KILOMETERS); <3>
 --------------------------------------------------
 <1> field
 <2> center point
 <3> distance from center point
+

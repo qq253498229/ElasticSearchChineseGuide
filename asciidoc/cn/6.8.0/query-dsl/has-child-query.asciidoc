@@ -19,8 +19,9 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 JoinQueryBuilders.hasChildQuery(
         "blog_tag", <1>
         termQuery("tag","something"), <2>
-        ScoreMode.None);        <3>
+        ScoreMode.None); <3>
 --------------------------------------------------
 <1> child type to query against
 <2> query
 <3> 评分模式支持: `ScoreMode.Avg`, `ScoreMode.Max`, `ScoreMode.Min`, `ScoreMode.None` 或 `ScoreMode.Total`
+

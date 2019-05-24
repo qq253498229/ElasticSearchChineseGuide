@@ -6,12 +6,13 @@ See {ref}/query-dsl-span-near-query.html[Span Near Query]
 ["source","java"]
 --------------------------------------------------
 spanNearQuery(
-        spanTermQuery("field","value1"),                <1>
-        12)                                             <2>
+        spanTermQuery("field","value1"), <1>
+        12) <2>
             .addClause(spanTermQuery("field","value2")) <3>
             .addClause(spanTermQuery("field","value3")) <4>
-            .inOrder(false);                            <5>
+            .inOrder(false); <5>
 --------------------------------------------------
 <1> span term queries
 <2> slop factor: the maximum number of intervening unmatched positions
 <3> whether matches are required to be in-order
+

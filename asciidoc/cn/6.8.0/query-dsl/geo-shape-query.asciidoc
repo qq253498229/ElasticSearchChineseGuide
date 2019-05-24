@@ -12,13 +12,13 @@ to your classpath in order to use this type:
 <dependency>
     <groupId>org.locationtech.spatial4j</groupId>
     <artifactId>spatial4j</artifactId>
-    <version>0.7</version>                        <1>
+    <version>0.7</version>  <1>
 </dependency>
 
 <dependency>
     <groupId>org.locationtech.jts</groupId>
     <artifactId>jts-core</artifactId>
-    <version>1.15.0</version>                         <2>
+    <version>1.15.0</version> <2>
     <exclusions>
         <exclusion>
             <groupId>xerces</groupId>
@@ -72,3 +72,4 @@ qb.relation(ShapeRelation.WITHIN) <4>
 <4> relation
 <5> Name of the index where the pre-indexed shape is. Defaults to 'shapes'.
 <6> The field specified as path containing the pre-indexed shape. Defaults to 'shape'.
+

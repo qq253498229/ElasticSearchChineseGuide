@@ -5,8 +5,9 @@ See {ref}/query-dsl-span-or-query.html[Span Or Query]
 
 ["source","java"]
 --------------------------------------------------
-spanOrQuery(spanTermQuery("field","value1"))        <1>
-    .addClause(spanTermQuery("field","value2"))     <2>
-    .addClause(spanTermQuery("field","value3"));    <3>
+spanOrQuery(spanTermQuery("field","value1")) <1>
+    .addClause(spanTermQuery("field","value2")) <2>
+    .addClause(spanTermQuery("field","value3")); <3>
 --------------------------------------------------
 <1> span term queries
+

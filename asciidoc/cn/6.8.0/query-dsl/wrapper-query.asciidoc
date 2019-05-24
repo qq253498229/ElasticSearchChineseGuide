@@ -10,3 +10,4 @@ wrapperQuery(query);
 --------------------------------------------------
 
 <1> query defined as query builder
+

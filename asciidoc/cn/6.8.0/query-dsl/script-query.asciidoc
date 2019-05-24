@@ -6,7 +6,7 @@ See {ref}/query-dsl-script-query.html[Script Query]
 ["source","java"]
 --------------------------------------------------
 scriptQuery(
-        new Script("doc['num1'].value > 1")     <1>
+        new Script("doc['num1'].value > 1") <1>
     );
 --------------------------------------------------
 <1> inlined script
@@ -26,12 +26,13 @@ You can use it then with:
 Map<String, Object> parameters = new HashMap<>();
 parameters.put("param1", 5);
 scriptQuery(new Script(
-        ScriptType.STORED,                          <1>
-        null,                                       <2>
-        "myscript",                                 <3>
-        singletonMap("param1", 5)));                <4>
+        ScriptType.STORED, <1>
+        null, <2>
+        "myscript", <3>
+        singletonMap("param1", 5))); <4>
 --------------------------------------------------
 <1> Script type: either `ScriptType.FILE`, `ScriptType.INLINE` or `ScriptType.INDEXED`
 <2> Scripting engine
 <3> Script name
 <4> Parameters as a `Map<String, Object>`
+

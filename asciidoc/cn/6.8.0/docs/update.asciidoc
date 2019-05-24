@@ -27,7 +27,7 @@ client.prepareUpdate("ttl", "doc", "1")
         .get();
 
 client.prepareUpdate("ttl", "doc", "1")
-        .setDoc(jsonBuilder()               <2>
+        .setDoc(jsonBuilder() <2>
             .startObject()
                 .field("gender", "male")
             .endObject())
@@ -89,7 +89,7 @@ UpdateRequest updateRequest = new UpdateRequest("index", "type", "1")
             .startObject()
                 .field("gender", "male")
             .endObject())
-        .upsert(indexRequest);              <1>
+        .upsert(indexRequest); <1>
 client.update(updateRequest).get();
 --------------------------------------------------
 <1> 如果文档不存在， `indexRequest` 中的元素就会被建立索引
@@ -100,7 +100,7 @@ client.update(updateRequest).get();
 --------------------------------------------------
 {
     "name"  : "Joe Dalton",
-    "gender": "male"        <1>
+    "gender": "male" <1>
 }
 --------------------------------------------------
 // NOTCONSOLE

@@ -53,7 +53,7 @@ import org.elasticsearch.common.unit.ByteSizeValue;
 import org.elasticsearch.common.unit.TimeValue;
 
 BulkProcessor bulkProcessor = BulkProcessor.builder(
-        client,  <1>
+        client, <1>
         new BulkProcessor.Listener() {
             @Override
             public void beforeBulk(long executionId,
@@ -176,7 +176,7 @@ try (BulkProcessor processor = initBulkProcessorBuilder(listener)
         .build()) {
 
 
-    processor.add(new IndexRequest()  <1>
+    processor.add(new IndexRequest() <1>
         .source(XContentType.JSON, "user", "some user"));
     processor.add(new IndexRequest("blogs", "post_type", "1") <2>
         .source(XContentType.JSON, "title", "some title"));

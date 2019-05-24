@@ -6,7 +6,7 @@
 ["source","java"]
 --------------------------------------------------
 constantScoreQuery(
-        termQuery("name","kimchy"))            <1>
+        termQuery("name","kimchy")) <1>
     .boost(2.0f); <2>
 --------------------------------------------------
 <1> your query

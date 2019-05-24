@@ -6,10 +6,11 @@ See {ref}/query-dsl-span-containing-query.html[Span Containing Query]
 ["source","java"]
 --------------------------------------------------
 spanContainingQuery(
-        spanNearQuery(spanTermQuery("field1","bar"), 5)     <1>
+        spanNearQuery(spanTermQuery("field1","bar"), 5) <1>
             .addClause(spanTermQuery("field1","baz"))
             .inOrder(true),
-        spanTermQuery("field1","foo"));                     <2>
+        spanTermQuery("field1","foo")); <2>
 --------------------------------------------------
 <1> `big` part
 <2> `little` part
+
