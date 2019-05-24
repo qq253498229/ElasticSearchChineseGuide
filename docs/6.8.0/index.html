@@ -1710,7 +1710,7 @@ client.update(updateRequest).get();</code></pre>
         .get();
 
 client.prepareUpdate("ttl", "doc", "1")
-        .setDoc(jsonBuilder()               <i class="conum" data-value="2"></i><b>(2)</b>
+        .setDoc(jsonBuilder() <i class="conum" data-value="2"></i><b>(2)</b>
             .startObject()
                 .field("gender", "male")
             .endObject())
@@ -1783,7 +1783,7 @@ UpdateRequest updateRequest = new UpdateRequest("index", "type", "1")
             .startObject()
                 .field("gender", "male")
             .endObject())
-        .upsert(indexRequest);              <i class="conum" data-value="1"></i><b>(1)</b>
+        .upsert(indexRequest); <i class="conum" data-value="1"></i><b>(1)</b>
 client.update(updateRequest).get();</code></pre>
 </div>
 </div>
@@ -1802,7 +1802,7 @@ client.update(updateRequest).get();</code></pre>
 <div class="content">
 <pre class="highlight"><code class="language-js" data-lang="js">{
     "name"  : "Joe Dalton",
-    "gender": "male"        <i class="conum" data-value="1"></i><b>(1)</b>
+    "gender": "male" <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
 </div>
@@ -1835,14 +1835,14 @@ client.update(updateRequest).get();</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">MultiGetResponse multiGetItemResponses = client.prepareMultiGet()
-    .add("twitter", "_doc", "1")            <i class="conum" data-value="1"></i><b>(1)</b>
-    .add("twitter", "_doc", "2", "3", "4")  <i class="conum" data-value="2"></i><b>(2)</b>
-    .add("another", "_doc", "foo")          <i class="conum" data-value="3"></i><b>(3)</b>
+    .add("twitter", "_doc", "1") <i class="conum" data-value="1"></i><b>(1)</b>
+    .add("twitter", "_doc", "2", "3", "4") <i class="conum" data-value="2"></i><b>(2)</b>
+    .add("another", "_doc", "foo") <i class="conum" data-value="3"></i><b>(3)</b>
     .get();
 
 for (MultiGetItemResponse itemResponse : multiGetItemResponses) { <i class="conum" data-value="4"></i><b>(4)</b>
     GetResponse response = itemResponse.getResponse();
-    if (response.isExists()) {                      <i class="conum" data-value="5"></i><b>(5)</b>
+    if (response.isExists()) { <i class="conum" data-value="5"></i><b>(5)</b>
         String json = response.getSourceAsString(); <i class="conum" data-value="6"></i><b>(6)</b>
     }
 }</code></pre>
@@ -1937,7 +1937,7 @@ import org.elasticsearch.common.unit.ByteSizeValue;
 import org.elasticsearch.common.unit.TimeValue;
 
 BulkProcessor bulkProcessor = BulkProcessor.builder(
-        client,  <i class="conum" data-value="1"></i><b>(1)</b>
+        client, <i class="conum" data-value="1"></i><b>(1)</b>
         new BulkProcessor.Listener() {
             @Override
             public void beforeBulk(long executionId,
@@ -2109,7 +2109,7 @@ client.prepareSearch().get();</code></pre>
         .build()) {
 
 
-    processor.add(new IndexRequest()  <i class="conum" data-value="1"></i><b>(1)</b>
+    processor.add(new IndexRequest() <i class="conum" data-value="1"></i><b>(1)</b>
         .source(XContentType.JSON, "user", "some user"));
     processor.add(new IndexRequest("blogs", "post_type", "1") <i class="conum" data-value="2"></i><b>(2)</b>
         .source(XContentType.JSON, "title", "some title"));
@@ -2583,7 +2583,7 @@ Histogram agg2 = sr.getAggregations().get("agg2");</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = client.prepareSearch(INDEX)
-    .setTerminateAfter(1000)    <i class="conum" data-value="1"></i><b>(1)</b>
+    .setTerminateAfter(1000) <i class="conum" data-value="1"></i><b>(1)</b>
     .get();
 
 if (sr.isTerminatedEarly()) {
@@ -2635,12 +2635,12 @@ template_params.put("param_gender", "male");</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = new SearchTemplateRequestBuilder(client)
-    .setScript("template_gender")                 <i class="conum" data-value="1"></i><b>(1)</b>
+    .setScript("template_gender") <i class="conum" data-value="1"></i><b>(1)</b>
     .setScriptType(ScriptService.ScriptType.FILE) <i class="conum" data-value="2"></i><b>(2)</b>
-    .setScriptParams(template_params)             <i class="conum" data-value="3"></i><b>(3)</b>
-    .setRequest(new SearchRequest())              <i class="conum" data-value="4"></i><b>(4)</b>
-    .get()                                        <i class="conum" data-value="5"></i><b>(5)</b>
-    .getResponse();                               <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+    .setScriptParams(template_params) <i class="conum" data-value="3"></i><b>(3)</b>
+    .setRequest(new SearchRequest()) <i class="conum" data-value="4"></i><b>(4)</b>
+    .get() <i class="conum" data-value="5"></i><b>(5)</b>
+    .getResponse(); <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2695,12 +2695,12 @@ template_params.put("param_gender", "male");</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = new SearchTemplateRequestBuilder(client)
-        .setScript("template_gender")         <i class="conum" data-value="1"></i><b>(1)</b>
-        .setScriptType(ScriptType.STORED)     <i class="conum" data-value="2"></i><b>(2)</b>
-        .setScriptParams(template_params)     <i class="conum" data-value="3"></i><b>(3)</b>
-        .setRequest(new SearchRequest())      <i class="conum" data-value="4"></i><b>(4)</b>
-        .get()                                <i class="conum" data-value="5"></i><b>(5)</b>
-        .getResponse();                       <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+        .setScript("template_gender") <i class="conum" data-value="1"></i><b>(1)</b>
+        .setScriptType(ScriptType.STORED) <i class="conum" data-value="2"></i><b>(2)</b>
+        .setScriptParams(template_params) <i class="conum" data-value="3"></i><b>(3)</b>
+        .setRequest(new SearchRequest()) <i class="conum" data-value="4"></i><b>(4)</b>
+        .get() <i class="conum" data-value="5"></i><b>(5)</b>
+        .getResponse(); <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -2737,18 +2737,18 @@ template_params.put("param_gender", "male");</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">sr = new SearchTemplateRequestBuilder(client)
-        .setScript("{\n" +                   <i class="conum" data-value="1"></i><b>(1)</b>
+        .setScript("{\n" + <i class="conum" data-value="1"></i><b>(1)</b>
                 "        \"query\" : {\n" +
                 "            \"match\" : {\n" +
                 "                \"gender\" : \"{{param_gender}}\"\n" +
                 "            }\n" +
                 "        }\n" +
                 "}")
-        .setScriptType(ScriptType.INLINE)    <i class="conum" data-value="2"></i><b>(2)</b>
-        .setScriptParams(template_params)    <i class="conum" data-value="3"></i><b>(3)</b>
-        .setRequest(new SearchRequest())     <i class="conum" data-value="4"></i><b>(4)</b>
-        .get()                               <i class="conum" data-value="5"></i><b>(5)</b>
-        .getResponse();                      <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+        .setScriptType(ScriptType.INLINE) <i class="conum" data-value="2"></i><b>(2)</b>
+        .setScriptParams(template_params) <i class="conum" data-value="3"></i><b>(3)</b>
+        .setRequest(new SearchRequest()) <i class="conum" data-value="4"></i><b>(4)</b>
+        .get() <i class="conum" data-value="5"></i><b>(5)</b>
+        .getResponse(); <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5047,7 +5047,7 @@ idsQuery() <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">constantScoreQuery(
-        termQuery("name","kimchy"))            <i class="conum" data-value="1"></i><b>(1)</b>
+        termQuery("name","kimchy")) <i class="conum" data-value="1"></i><b>(1)</b>
     .boost(2.0f); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
@@ -5187,7 +5187,7 @@ functionScoreQuery(functions);</code></pre>
 <pre class="highlight"><code class="language-java" data-lang="java">boostingQuery(
             termQuery("name","kimchy"), <i class="conum" data-value="1"></i><b>(1)</b>
             termQuery("name","dadoonet")) <i class="conum" data-value="2"></i><b>(2)</b>
-        .negativeBoost(0.2f);   <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+        .negativeBoost(0.2f); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5283,7 +5283,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 <pre class="highlight"><code class="language-java" data-lang="java">JoinQueryBuilders.hasChildQuery(
         "blog_tag", <i class="conum" data-value="1"></i><b>(1)</b>
         termQuery("tag","something"), <i class="conum" data-value="2"></i><b>(2)</b>
-        ScoreMode.None);        <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+        ScoreMode.None); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5350,57 +5350,52 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 <div class="sect2">
 <h3 id="java-geo-queries">8.6. Geo queries</h3>
 <div class="paragraph">
-<p>Elasticsearch supports two types of geo data:
-<code>geo_point</code> fields which support lat/lon pairs, and
-<code>geo_shape</code> fields, which support points, lines, circles, polygons, multi-polygons etc.</p>
+<p>Elasticsearch支持两种类型的地理位置数据：支持经纬度的 <code>geo_point</code> ，以及支持点、线、圆、多边形等的 <code>geo_shape</code> 。</p>
 </div>
 <div class="paragraph">
-<p>The queries in this group are:</p>
+<p>该组中的查询语句包括:</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><a href="#java-query-dsl-geo-shape-query"><code>geo_shape</code></a> query</dt>
+<dt class="hdlist1"><a href="#java-query-dsl-geo-shape-query"><code>geo_shape</code></a> 查询</dt>
 <dd>
-<p>Find document with geo-shapes which either intersect, are contained by, or
-do not intersect with the specified geo-shape.</p>
+<p>可以匹配坐标与指定区域相交、不相交或包含的地理位置。</p>
 </dd>
-<dt class="hdlist1"><a href="#java-query-dsl-geo-bounding-box-query"><code>geo_bounding_box</code></a> query</dt>
+<dt class="hdlist1"><a href="#java-query-dsl-geo-bounding-box-query"><code>geo_bounding_box</code></a> 查询</dt>
 <dd>
-<p>Finds documents with geo-points that fall into the specified rectangle.</p>
+<p>可以匹配坐标在矩形区域的地理位置。</p>
 </dd>
-<dt class="hdlist1"><a href="#java-query-dsl-geo-distance-query"><code>geo_distance</code></a> query</dt>
+<dt class="hdlist1"><a href="#java-query-dsl-geo-distance-query"><code>geo_distance</code></a> 查询</dt>
 <dd>
-<p>Finds document with geo-points within the specified distance of a central
-point.</p>
+<p>可以查询指定坐标为中心点指定距离内的地理位置。</p>
 </dd>
-<dt class="hdlist1"><a href="#java-query-dsl-geo-polygon-query"><code>geo_polygon</code></a> query</dt>
+<dt class="hdlist1"><a href="#java-query-dsl-geo-polygon-query"><code>geo_polygon</code></a> 查询</dt>
 <dd>
-<p>Find documents with geo-points within the specified polygon.</p>
+<p>可以查询坐标在多边形范围内的地理位置。</p>
 </dd>
 </dl>
 </div>
 <div class="sect3">
 <h4 id="java-query-dsl-geo-shape-query">8.6.1. GeoShape Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-shape-query.html">Geo Shape Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-shape-query.html">Geo Shape Query</a></p>
 </div>
 <div class="paragraph">
-<p>Note: the <code>geo_shape</code> type uses <code>Spatial4J</code> and <code>JTS</code>, both of which are
-optional dependencies. Consequently you must add <code>Spatial4J</code> and <code>JTS</code>
-to your classpath in order to use this type:</p>
+<p>Note: <code>geo_shape</code> 类型使用 <code>Spatial4J</code> 和 <code>JTS</code> 两种依赖。
+因此，必须将 <code>Spatial4J</code> 和 <code>JTS</code> 添加到 classpath中才能使用这种类型:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.locationtech.spatial4j&lt;/groupId&gt;
     &lt;artifactId&gt;spatial4j&lt;/artifactId&gt;
-    &lt;version&gt;0.7&lt;/version&gt;                        <i class="conum" data-value="1"></i><b>(1)</b>
+    &lt;version&gt;0.7&lt;/version&gt;  <i class="conum" data-value="1"></i><b>(1)</b>
 &lt;/dependency&gt;
 
 &lt;dependency&gt;
     &lt;groupId&gt;org.locationtech.jts&lt;/groupId&gt;
     &lt;artifactId&gt;jts-core&lt;/artifactId&gt;
-    &lt;version&gt;1.15.0&lt;/version&gt;                         <i class="conum" data-value="2"></i><b>(2)</b>
+    &lt;version&gt;1.15.0&lt;/version&gt; <i class="conum" data-value="2"></i><b>(2)</b>
     &lt;exclusions&gt;
         &lt;exclusion&gt;
             &lt;groupId&gt;xerces&lt;/groupId&gt;
@@ -5414,11 +5409,11 @@ to your classpath in order to use this type:</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>check for updates in <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.locationtech.spatial4j%22%20AND%20a%3A%22spatial4j%22">Maven Central</a></td>
+<td>在 <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.locationtech.spatial4j%22%20AND%20a%3A%22spatial4j%22">Maven Central</a> 中查看更新</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>check for updates in <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.locationtech.jts%22%20AND%20a%3A%22jts-core%22">Maven Central</a></td>
+<td>在 <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.locationtech.jts%22%20AND%20a%3A%22jts-core%22">Maven Central</a> 中查看更新</td>
 </tr>
 </table>
 </div>
@@ -5456,7 +5451,7 @@ qb.relation(ShapeRelation.WITHIN); <i class="conum" data-value="3"></i><b>(3)</b
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>relation can be <code>ShapeRelation.CONTAINS</code>, <code>ShapeRelation.WITHIN</code>, <code>ShapeRelation.INTERSECTS</code> or <code>ShapeRelation.DISJOINT</code></td>
+<td>关系可以是 <code>ShapeRelation.CONTAINS</code>, <code>ShapeRelation.WITHIN</code>, <code>ShapeRelation.INTERSECTS</code> 或 <code>ShapeRelation.DISJOINT</code></td>
 </tr>
 </table>
 </div>
@@ -5480,11 +5475,11 @@ qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The ID of the document that containing the pre-indexed shape.</td>
+<td>包含pre-indexed形状的文档ID</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Index type where the pre-indexed shape is.</td>
+<td>包含pre-indexed形状的index type</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
@@ -5492,11 +5487,11 @@ qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Name of the index where the pre-indexed shape is. Defaults to <em>shapes</em>.</td>
+<td>包含pre-indexed形状的index名，默认是shapes</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>The field specified as path containing the pre-indexed shape. Defaults to <em>shape</em>.</td>
+<td>包含pre-indexed形状的字段名，默认是&#8217;shape'</td>
 </tr>
 </table>
 </div>
@@ -5504,13 +5499,13 @@ qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-geo-bounding-box-query">8.6.2. Geo Bounding Box Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-bounding-box-query.html">Geo Bounding Box Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-bounding-box-query.html">Geo Bounding Box Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">geoBoundingBoxQuery("pin.location")              <i class="conum" data-value="1"></i><b>(1)</b>
-    .setCorners(40.73, -74.1,                    <i class="conum" data-value="2"></i><b>(2)</b>
-                40.717, -73.99);   <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">geoBoundingBoxQuery("pin.location") <i class="conum" data-value="1"></i><b>(1)</b>
+    .setCorners(40.73, -74.1, <i class="conum" data-value="2"></i><b>(2)</b>
+                40.717, -73.99); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5521,11 +5516,11 @@ qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>bounding box top left point</td>
+<td>矩形左上角的坐标点</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>bounding box bottom right point</td>
+<td>矩形右上角的坐标点</td>
 </tr>
 </table>
 </div>
@@ -5533,13 +5528,13 @@ qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-geo-distance-query">8.6.3. Geo Distance Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-distance-query.html">Geo Distance Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-distance-query.html">Geo Distance Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">geoDistanceQuery("pin.location")                <i class="conum" data-value="1"></i><b>(1)</b>
-    .point(40, -70)                             <i class="conum" data-value="2"></i><b>(2)</b>
-    .distance(200, DistanceUnit.KILOMETERS);    <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">geoDistanceQuery("pin.location") <i class="conum" data-value="1"></i><b>(1)</b>
+    .point(40, -70) <i class="conum" data-value="2"></i><b>(2)</b>
+    .distance(200, DistanceUnit.KILOMETERS); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5550,11 +5545,11 @@ qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>center point</td>
+<td>中心点坐标</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>distance from center point</td>
+<td>和中心点的距离</td>
 </tr>
 </table>
 </div>
@@ -5562,7 +5557,7 @@ qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-geo-polygon-query">8.6.4. Geo Polygon Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-polygon-query.html">Geo Polygon Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-geo-polygon-query.html">Geo Polygon Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5570,18 +5565,18 @@ qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
 points.add(new GeoPoint(40, -70));
 points.add(new GeoPoint(30, -80));
 points.add(new GeoPoint(20, -90));
-geoPolygonQuery("pin.location", points);            <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+geoPolygonQuery("pin.location", points); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>add your polygon of points a document should fall within</td>
+<td>添加落在多边形上的点的坐标</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>initialise the query with field and points</td>
+<td>通过字段和点初始化查询语句</td>
 </tr>
 </table>
 </div>
@@ -5622,11 +5617,11 @@ or collection of documents.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">String[] fields = {"name.first", "name.last"}; <i class="conum" data-value="1"></i><b>(1)</b>
-String[] texts = {"text like this one"};        <i class="conum" data-value="2"></i><b>(2)</b>
+String[] texts = {"text like this one"}; <i class="conum" data-value="2"></i><b>(2)</b>
 
 moreLikeThisQuery(fields, texts, null)
-    .minTermFreq(1)                         <i class="conum" data-value="3"></i><b>(3)</b>
-    .maxQueryTerms(12);                     <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+    .minTermFreq(1) <i class="conum" data-value="3"></i><b>(3)</b>
+    .maxQueryTerms(12); <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5658,7 +5653,7 @@ moreLikeThisQuery(fields, texts, null)
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">scriptQuery(
-        new Script("doc['num1'].value &gt; 1")     <i class="conum" data-value="1"></i><b>(1)</b>
+        new Script("doc['num1'].value &gt; 1") <i class="conum" data-value="1"></i><b>(1)</b>
     );</code></pre>
 </div>
 </div>
@@ -5686,10 +5681,10 @@ moreLikeThisQuery(fields, texts, null)
 <pre class="highlight"><code class="language-java" data-lang="java">Map&lt;String, Object&gt; parameters = new HashMap&lt;&gt;();
 parameters.put("param1", 5);
 scriptQuery(new Script(
-        ScriptType.STORED,                          <i class="conum" data-value="1"></i><b>(1)</b>
-        null,                                       <i class="conum" data-value="2"></i><b>(2)</b>
-        "myscript",                                 <i class="conum" data-value="3"></i><b>(3)</b>
-        singletonMap("param1", 5)));                <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+        ScriptType.STORED, <i class="conum" data-value="1"></i><b>(1)</b>
+        null, <i class="conum" data-value="2"></i><b>(2)</b>
+        "myscript", <i class="conum" data-value="3"></i><b>(3)</b>
+        singletonMap("param1", 5))); <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5887,7 +5882,7 @@ within the spans returned by a list of other span queries.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">spanMultiTermQueryBuilder(
-        prefixQuery("user", "ki"));  <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+        prefixQuery("user", "ki")); <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5908,8 +5903,8 @@ within the spans returned by a list of other span queries.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">spanFirstQuery(
-        spanTermQuery("user", "kimchy"),  <i class="conum" data-value="1"></i><b>(1)</b>
-        3                                  <i class="conum" data-value="2"></i><b>(2)</b>
+        spanTermQuery("user", "kimchy"), <i class="conum" data-value="1"></i><b>(1)</b>
+        3 <i class="conum" data-value="2"></i><b>(2)</b>
     );</code></pre>
 </div>
 </div>
@@ -5934,11 +5929,11 @@ within the spans returned by a list of other span queries.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">spanNearQuery(
-        spanTermQuery("field","value1"),                <i class="conum" data-value="1"></i><b>(1)</b>
-        12)                                             <i class="conum" data-value="2"></i><b>(2)</b>
+        spanTermQuery("field","value1"), <i class="conum" data-value="1"></i><b>(1)</b>
+        12) <i class="conum" data-value="2"></i><b>(2)</b>
             .addClause(spanTermQuery("field","value2")) <i class="conum" data-value="3"></i><b>(3)</b>
             .addClause(spanTermQuery("field","value3")) <i class="conum" data-value="4"></i><b>(4)</b>
-            .inOrder(false);                            <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+            .inOrder(false); <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5965,9 +5960,9 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">spanOrQuery(spanTermQuery("field","value1"))        <i class="conum" data-value="1"></i><b>(1)</b>
-    .addClause(spanTermQuery("field","value2"))     <i class="conum" data-value="2"></i><b>(2)</b>
-    .addClause(spanTermQuery("field","value3"));    <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanOrQuery(spanTermQuery("field","value1")) <i class="conum" data-value="1"></i><b>(1)</b>
+    .addClause(spanTermQuery("field","value2")) <i class="conum" data-value="2"></i><b>(2)</b>
+    .addClause(spanTermQuery("field","value3")); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5987,8 +5982,8 @@ within the spans returned by a list of other span queries.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">spanNotQuery(
-        spanTermQuery("field","value1"),    <i class="conum" data-value="1"></i><b>(1)</b>
-        spanTermQuery("field","value2"));   <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+        spanTermQuery("field","value1"), <i class="conum" data-value="1"></i><b>(1)</b>
+        spanTermQuery("field","value2")); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -6012,10 +6007,10 @@ within the spans returned by a list of other span queries.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">spanContainingQuery(
-        spanNearQuery(spanTermQuery("field1","bar"), 5)     <i class="conum" data-value="1"></i><b>(1)</b>
+        spanNearQuery(spanTermQuery("field1","bar"), 5) <i class="conum" data-value="1"></i><b>(1)</b>
             .addClause(spanTermQuery("field1","baz"))
             .inOrder(true),
-        spanTermQuery("field1","foo"));                     <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+        spanTermQuery("field1","foo")); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -6039,10 +6034,10 @@ within the spans returned by a list of other span queries.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">spanWithinQuery(
-        spanNearQuery(spanTermQuery("field1", "bar"), 5)    <i class="conum" data-value="1"></i><b>(1)</b>
+        spanNearQuery(spanTermQuery("field1", "bar"), 5) <i class="conum" data-value="1"></i><b>(1)</b>
             .addClause(spanTermQuery("field1", "baz"))
             .inOrder(true),
-        spanTermQuery("field1", "foo"));                    <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+        spanTermQuery("field1", "foo")); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -6126,11 +6121,11 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareCreate("twitter")
-        .setSettings(Settings.builder()             <i class="conum" data-value="1"></i><b>(1)</b>
+        .setSettings(Settings.builder() <i class="conum" data-value="1"></i><b>(1)</b>
                 .put("index.number_of_shards", 3)
                 .put("index.number_of_replicas", 2)
         )
-        .get();                                     <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+        .get(); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -6153,7 +6148,7 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareCreate("twitter")    <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareCreate("twitter") <i class="conum" data-value="1"></i><b>(1)</b>
         .addMapping("_doc", "message", "type=text") <i class="conum" data-value="2"></i><b>(2)</b>
         .get();</code></pre>
 </div>
@@ -6234,10 +6229,10 @@ client.admin().indices().preparePutMapping("twitter")
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareRefresh().get(); <i class="conum" data-value="1"></i><b>(1)</b>
 client.admin().indices()
-        .prepareRefresh("twitter")               <i class="conum" data-value="2"></i><b>(2)</b>
+        .prepareRefresh("twitter") <i class="conum" data-value="2"></i><b>(2)</b>
         .get();
 client.admin().indices()
-        .prepareRefresh("twitter", "company")   <i class="conum" data-value="3"></i><b>(3)</b>
+        .prepareRefresh("twitter", "company") <i class="conum" data-value="3"></i><b>(3)</b>
         .get();</code></pre>
 </div>
 </div>
@@ -6266,12 +6261,12 @@ client.admin().indices()
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">GetSettingsResponse response = client.admin().indices()
-        .prepareGetSettings("company", "employee").get();                           <i class="conum" data-value="1"></i><b>(1)</b>
+        .prepareGetSettings("company", "employee").get(); <i class="conum" data-value="1"></i><b>(1)</b>
 for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSettings()) { <i class="conum" data-value="2"></i><b>(2)</b>
-    String index = cursor.key;                                                      <i class="conum" data-value="3"></i><b>(3)</b>
-    Settings settings = cursor.value;                                               <i class="conum" data-value="4"></i><b>(4)</b>
-    Integer shards = settings.getAsInt("index.number_of_shards", null);             <i class="conum" data-value="5"></i><b>(5)</b>
-    Integer replicas = settings.getAsInt("index.number_of_replicas", null);         <i class="conum" data-value="6"></i><b>(6)</b>
+    String index = cursor.key; <i class="conum" data-value="3"></i><b>(3)</b>
+    Settings settings = cursor.value; <i class="conum" data-value="4"></i><b>(4)</b>
+    Integer shards = settings.getAsInt("index.number_of_shards", null); <i class="conum" data-value="5"></i><b>(5)</b>
+    Integer replicas = settings.getAsInt("index.number_of_replicas", null); <i class="conum" data-value="6"></i><b>(6)</b>
 }</code></pre>
 </div>
 </div>
@@ -6311,8 +6306,8 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareUpdateSettings("twitter")   <i class="conum" data-value="1"></i><b>(1)</b>
-        .setSettings(Settings.builder()                     <i class="conum" data-value="2"></i><b>(2)</b>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareUpdateSettings("twitter") <i class="conum" data-value="1"></i><b>(1)</b>
+        .setSettings(Settings.builder() <i class="conum" data-value="2"></i><b>(2)</b>
                 .put("index.number_of_replicas", 0)
         )
         .get();</code></pre>
@@ -6365,15 +6360,15 @@ some technical information about the cluster status per index:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">ClusterHealthResponse healths = client.admin().cluster().prepareHealth().get(); <i class="conum" data-value="1"></i><b>(1)</b>
-String clusterName = healths.getClusterName();              <i class="conum" data-value="2"></i><b>(2)</b>
-int numberOfDataNodes = healths.getNumberOfDataNodes();     <i class="conum" data-value="3"></i><b>(3)</b>
-int numberOfNodes = healths.getNumberOfNodes();             <i class="conum" data-value="4"></i><b>(4)</b>
+String clusterName = healths.getClusterName(); <i class="conum" data-value="2"></i><b>(2)</b>
+int numberOfDataNodes = healths.getNumberOfDataNodes(); <i class="conum" data-value="3"></i><b>(3)</b>
+int numberOfNodes = healths.getNumberOfNodes(); <i class="conum" data-value="4"></i><b>(4)</b>
 
 for (ClusterIndexHealth health : healths.getIndices().values()) { <i class="conum" data-value="5"></i><b>(5)</b>
-    String index = health.getIndex();                       <i class="conum" data-value="6"></i><b>(6)</b>
-    int numberOfShards = health.getNumberOfShards();        <i class="conum" data-value="7"></i><b>(7)</b>
-    int numberOfReplicas = health.getNumberOfReplicas();    <i class="conum" data-value="8"></i><b>(8)</b>
-    ClusterHealthStatus status = health.getStatus();        <i class="conum" data-value="9"></i><b>(9)</b>
+    String index = health.getIndex(); <i class="conum" data-value="6"></i><b>(6)</b>
+    int numberOfShards = health.getNumberOfShards(); <i class="conum" data-value="7"></i><b>(7)</b>
+    int numberOfReplicas = health.getNumberOfReplicas(); <i class="conum" data-value="8"></i><b>(8)</b>
+    ClusterHealthStatus status = health.getStatus(); <i class="conum" data-value="9"></i><b>(9)</b>
 }</code></pre>
 </div>
 </div>
@@ -6425,16 +6420,16 @@ for (ClusterIndexHealth health : healths.getIndices().values()) { <i class="conu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">client.admin().cluster().prepareHealth()            <i class="conum" data-value="1"></i><b>(1)</b>
-        .setWaitForYellowStatus()                   <i class="conum" data-value="2"></i><b>(2)</b>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().cluster().prepareHealth() <i class="conum" data-value="1"></i><b>(1)</b>
+        .setWaitForYellowStatus() <i class="conum" data-value="2"></i><b>(2)</b>
         .get();
-client.admin().cluster().prepareHealth("company")   <i class="conum" data-value="3"></i><b>(3)</b>
-        .setWaitForGreenStatus()                    <i class="conum" data-value="4"></i><b>(4)</b>
+client.admin().cluster().prepareHealth("company") <i class="conum" data-value="3"></i><b>(3)</b>
+        .setWaitForGreenStatus() <i class="conum" data-value="4"></i><b>(4)</b>
         .get();
 
-client.admin().cluster().prepareHealth("employee")  <i class="conum" data-value="5"></i><b>(5)</b>
-        .setWaitForGreenStatus()                    <i class="conum" data-value="6"></i><b>(6)</b>
-        .setTimeout(TimeValue.timeValueSeconds(2))  <i class="conum" data-value="7"></i><b>(7)</b>
+client.admin().cluster().prepareHealth("employee") <i class="conum" data-value="5"></i><b>(5)</b>
+        .setWaitForGreenStatus() <i class="conum" data-value="6"></i><b>(6)</b>
+        .setTimeout(TimeValue.timeValueSeconds(2)) <i class="conum" data-value="7"></i><b>(7)</b>
         .get();</code></pre>
 </div>
 </div>
@@ -6477,7 +6472,7 @@ to explicitly interpret the result:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">ClusterHealthResponse response = client.admin().cluster().prepareHealth("company")
-        .setWaitForGreenStatus()    <i class="conum" data-value="1"></i><b>(1)</b>
+        .setWaitForGreenStatus() <i class="conum" data-value="1"></i><b>(1)</b>
         .get();
 
 ClusterHealthStatus status = response.getIndices().get("company").getStatus();
