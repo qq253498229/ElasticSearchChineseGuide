@@ -1,36 +1,31 @@
 [[java-full-text-queries]]
 === Full text queries
 
-The high-level full text queries are usually used for running full text
-queries on full text fields like the body of an email. They understand how the
-field being queried is analyzed and will apply each field's
-`analyzer` (or `search_analyzer`) to the query string before executing.
+高级全文检索通常在全文本全字段这样的全文查询时使用，邮件的正文就是这样的例如。
+它们了解如何分析所查询的字段，并在查询前将每个字段的 `analyzer` (或 `search_analyzer` )应用于查询字符串中。
 
-The queries in this group are:
+该组中的查询语句包括:
 
 <<java-query-dsl-match-query,`match` query>>::
 
-    The standard query for performing full text queries, including fuzzy matching
-    and phrase or proximity queries.
+执行全文检索的标准查询语句，包括模糊匹配、短语匹配和近似匹配。
 
 <<java-query-dsl-multi-match-query,`multi_match` query>>::
 
-    The multi-field version of the `match` query.
+`match` query 的多字段版本。
 
 <<java-query-dsl-common-terms-query,`common_terms` query>>::
 
-    A more specialized query which gives more preference to uncommon words.
+一个更加特殊的查询语句，专门为不常用的词准备。
 
 <<java-query-dsl-query-string-query,`query_string` query>>::
 
-    Supports the compact Lucene query string syntax,
-    allowing you to specify AND|OR|NOT conditions and multi-field search
-    within a single query string. For expert users only.
+支持Lucene的语法，允许在条件中使用 AND|OR|NOT 和单语多字段查询。
+仅供专业用户使用。
 
 <<java-query-dsl-simple-query-string-query,`simple_query_string`>>::
 
-    A simpler, more robust version of the `query_string` syntax suitable
-    for exposing directly to users.
+一个 `query_string` 语法的的更简单且更健壮版本，适合直接开放给用户。
 
 include::match-query.asciidoc[]
 

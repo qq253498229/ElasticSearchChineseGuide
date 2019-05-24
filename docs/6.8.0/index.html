@@ -4508,13 +4508,12 @@ key [u0j2], point [45.087890625, 7.55859375], doc_count [1138]
 <h2 id="java-query-dsl">8. Query DSL</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Elasticsearch provides a full Java query dsl in a similar manner to the
-REST <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl.html">Query DSL</a>. The factory for query
-builders is <code>QueryBuilders</code>. Once your query is ready, you can use the
-<a href="#java-search">Search API</a>.</p>
+<p>Elasticsearch以类似于 REST <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl.html">Query DSL</a> 的方式提供了一套完整的java query dsl(Domain Specific Language)。
+查询语句构建的factory是 <code>QueryBuilders</code> 。
+查询准备就绪之后就可以使用 <a href="#java-search">Search API</a> 了。</p>
 </div>
 <div class="paragraph">
-<p>To use <code>QueryBuilders</code> just import them in your class:</p>
+<p>要使用 <code>QueryBuilders</code> 只需要在类中引入它们:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4522,67 +4521,60 @@ builders is <code>QueryBuilders</code>. Once your query is ready, you can use th
 </div>
 </div>
 <div class="paragraph">
-<p>Note that you can easily print (aka debug) JSON generated queries using
-<code>toString()</code> method on <code>QueryBuilder</code> object.</p>
+<p>注意可以使用 <code>QueryBuilder</code> 类中的 <code>toString()</code> 方法方便的打印(调试时)查询语句生成的JSON。</p>
 </div>
 <div class="paragraph">
-<p>The <code>QueryBuilder</code> can then be used with any API that accepts a query,
-such as <code>count</code> and <code>search</code>.</p>
+<p><code>QueryBuilder</code> 可以被用于接受查询语句的任何API中，例如 <code>count</code> 和 <code>search</code> 。</p>
 </div>
 <div class="sect2">
 <h3 id="java-query-dsl-match-all-query">8.1. Match All Query</h3>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-match-all-query.html">Match All Query</a></p>
+<p>请查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-match-all-query.html">Match All Query</a> 。</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">include-tagged::{query-dsl-test}[match_all]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">matchAllQuery();</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="java-full-text-queries">8.2. Full text queries</h3>
 <div class="paragraph">
-<p>The high-level full text queries are usually used for running full text
-queries on full text fields like the body of an email. They understand how the
-field being queried is analyzed and will apply each field&#8217;s
-<code>analyzer</code> (or <code>search_analyzer</code>) to the query string before executing.</p>
+<p>高级全文检索通常在全文本全字段这样的全文查询时使用，邮件的正文就是这样的例如。
+它们了解如何分析所查询的字段，并在查询前将每个字段的 <code>analyzer</code> (或 <code>search_analyzer</code> )应用于查询字符串中。</p>
 </div>
 <div class="paragraph">
-<p>The queries in this group are:</p>
+<p>该组中的查询语句包括:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="#java-query-dsl-match-query"><code>match</code> query</a></dt>
 <dd>
-<p>The standard query for performing full text queries, including fuzzy matching
-and phrase or proximity queries.</p>
+<p>执行全文检索的标准查询语句，包括模糊匹配、短语匹配和近似匹配。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-multi-match-query"><code>multi_match</code> query</a></dt>
 <dd>
-<p>The multi-field version of the <code>match</code> query.</p>
+<p><code>match</code> query 的多字段版本。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-common-terms-query"><code>common_terms</code> query</a></dt>
 <dd>
-<p>A more specialized query which gives more preference to uncommon words.</p>
+<p>一个更加特殊的查询语句，专门为不常用的词准备。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-query-string-query"><code>query_string</code> query</a></dt>
 <dd>
-<p>Supports the compact Lucene query string syntax,
-allowing you to specify AND|OR|NOT conditions and multi-field search
-within a single query string. For expert users only.</p>
+<p>支持Lucene的语法，允许在条件中使用 AND|OR|NOT 和单语多字段查询。
+仅供专业用户使用。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-simple-query-string-query"><code>simple_query_string</code></a></dt>
 <dd>
-<p>A simpler, more robust version of the <code>query_string</code> syntax suitable
-for exposing directly to users.</p>
+<p>一个 <code>query_string</code> 语法的的更简单且更健壮版本，适合直接开放给用户。</p>
 </dd>
 </dl>
 </div>
 <div class="sect3">
 <h4 id="java-query-dsl-match-query">8.2.1. Match Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-match-query.html">Match Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-match-query.html">Match Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4607,7 +4599,7 @@ for exposing directly to users.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-multi-match-query">8.2.2. Multi Match Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-multi-match-query.html">Multi Match Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-multi-match-query.html">Multi Match Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4632,7 +4624,7 @@ for exposing directly to users.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-common-terms-query">8.2.3. Common Terms Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-common-terms-query.html">Common Terms Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-common-terms-query.html">Common Terms Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4656,7 +4648,7 @@ for exposing directly to users.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-query-string-query">8.2.4. Query String Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-query-string-query.html">Query String Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-query-string-query.html">Query String Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4667,7 +4659,7 @@ for exposing directly to users.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-simple-query-string-query">8.2.5. Simple Query String Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-simple-query-string-query.html">Simple Query String Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-simple-query-string-query.html">Simple Query String Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">

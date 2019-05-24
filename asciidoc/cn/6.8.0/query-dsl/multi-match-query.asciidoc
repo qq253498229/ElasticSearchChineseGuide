@@ -1,7 +1,7 @@
 [[java-query-dsl-multi-match-query]]
 ==== Multi Match Query
 
-See {ref}/query-dsl-multi-match-query.html[Multi Match Query]
+查看 {ref}/query-dsl-multi-match-query.html[Multi Match Query]
 
 ["source","java"]
 --------------------------------------------------

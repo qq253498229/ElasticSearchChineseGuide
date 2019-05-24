@@ -1,23 +1,20 @@
 [[java-query-dsl]]
 == Query DSL
 
-Elasticsearch provides a full Java query dsl in a similar manner to the
-REST {ref}/query-dsl.html[Query DSL]. The factory for query
-builders is `QueryBuilders`. Once your query is ready, you can use the
-<<java-search,Search API>>.
+Elasticsearch以类似于 REST {ref}/query-dsl.html[Query DSL] 的方式提供了一套完整的java query dsl(Domain Specific Language)。
+查询语句构建的factory是 `QueryBuilders` 。
+查询准备就绪之后就可以使用 <<java-search,Search API>> 了。
 
-To use `QueryBuilders` just import them in your class:
+要使用 `QueryBuilders` 只需要在类中引入它们:
 
 [source,java]
 --------------------------------------------------
 import static org.elasticsearch.index.query.QueryBuilders.*;
 --------------------------------------------------
 
-Note that you can easily print (aka debug) JSON generated queries using
-`toString()` method on `QueryBuilder` object.
+注意可以使用 `QueryBuilder` 类中的 `toString()` 方法方便的打印(调试时)查询语句生成的JSON。
 
-The `QueryBuilder` can then be used with any API that accepts a query,
-such as `count` and `search`.
+`QueryBuilder` 可以被用于接受查询语句的任何API中，例如 `count` 和 `search` 。
 
 :query-dsl-test: {docdir}/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java
 

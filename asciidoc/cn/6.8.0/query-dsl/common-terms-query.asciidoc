@@ -1,7 +1,7 @@
 [[java-query-dsl-common-terms-query]]
 ==== Common Terms Query
 
-See {ref}/query-dsl-common-terms-query.html[Common Terms Query]
+查看 {ref}/query-dsl-common-terms-query.html[Common Terms Query]
 
 ["source","java"]
 --------------------------------------------------

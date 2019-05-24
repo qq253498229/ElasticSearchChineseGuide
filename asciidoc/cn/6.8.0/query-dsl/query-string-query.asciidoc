@@ -1,7 +1,7 @@
 [[java-query-dsl-query-string-query]]
 ==== Query String Query
 
-See {ref}/query-dsl-query-string-query.html[Query String Query]
+查看 {ref}/query-dsl-query-string-query.html[Query String Query]
 
 ["source","java"]
 --------------------------------------------------
