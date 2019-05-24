@@ -1,7 +1,7 @@
 [[java-query-dsl-boosting-query]]
 ==== Boosting Query
 
-See {ref}/query-dsl-boosting-query.html[Boosting Query]
+查看 {ref}/query-dsl-boosting-query.html[Boosting Query]
 
 ["source","java"]
 --------------------------------------------------

@@ -20,3 +20,5 @@ for (ObjectObjectCursor<String, Settings> cursor : response.getIndexToSettings()
 <4> Settings for the given index
 <5> Number of shards for this index
 <6> Number of replicas for this index
+
+

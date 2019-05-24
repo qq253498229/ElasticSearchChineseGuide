@@ -1,7 +1,7 @@
 [[java-query-dsl-bool-query]]
 ==== Bool Query
 
-See {ref}/query-dsl-bool-query.html[Bool Query]
+查看 {ref}/query-dsl-bool-query.html[Bool Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -15,4 +15,5 @@ boolQuery()
 <1> must query
 <2> must not query
 <3> should query
-<4> a query that must appear in the matching documents but doesn't contribute to scoring.
+<4> 绝对匹配，不参与评分。
+

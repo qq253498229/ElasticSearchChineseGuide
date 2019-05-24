@@ -1,7 +1,7 @@
 [[java-query-dsl-nested-query]]
 ==== Nested Query
 
-See {ref}/query-dsl-nested-query.html[Nested Query]
+查看 {ref}/query-dsl-nested-query.html[Nested Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -12,6 +12,8 @@ nestedQuery(
                 .must(rangeQuery("obj1.count").gt(5)),
         ScoreMode.Avg); <3>
 --------------------------------------------------
-<1> path to nested document
-<2> your query. Any fields referenced inside the query must use the complete path (fully qualified).
-<3> score mode could be `ScoreMode.Max`, `ScoreMode.Min`, `ScoreMode.Total`, `ScoreMode.Avg` or `ScoreMode.None`
+<1> 嵌套文档的路径
+<2> 查询中使用的所有字段都必须使用完整路径
+<3> 评分模式支持: `ScoreMode.Max`, `ScoreMode.Min`, `ScoreMode.Total`, `ScoreMode.Avg` 或 `ScoreMode.None`
+
+

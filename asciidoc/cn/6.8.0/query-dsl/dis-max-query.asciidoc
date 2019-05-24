@@ -1,7 +1,7 @@
 [[java-query-dsl-dis-max-query]]
 ==== Dis Max Query
 
-See {ref}/query-dsl-dis-max-query.html[Dis Max Query]
+查看 {ref}/query-dsl-dis-max-query.html[Dis Max Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -15,3 +15,5 @@ disMaxQuery()
 <2> add your queries
 <3> boost factor
 <4> tie breaker
+
+

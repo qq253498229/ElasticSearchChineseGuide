@@ -1,42 +1,33 @@
 [[java-compound-queries]]
 === Compound queries
 
-Compound queries wrap other compound or leaf queries, either to combine their
-results and scores, to change their behaviour, or to switch from query to
-filter context.
+组合查询可以将其它组合查询，以及其它单独的查询语句合并到一起，并将结果和匹配分数组合起来。
+它可以改变它们的行为，或是将查询转换为filter context。
 
-The queries in this group are:
+这一组中的查询有：
 
 <<java-query-dsl-constant-score-query,`constant_score` query>>::
 
-A query which wraps another query, but executes it in filter context.  All
-matching documents are given the same ``constant'' `_score`.
+包含其它查询的查询，但却以filter context的形式执行该语句。所有匹配到的文档都会分配相同的 "constant" `_score` 。
 
 <<java-query-dsl-bool-query,`bool` query>>::
 
-The default query for combining multiple leaf or compound query clauses, as
-`must`, `should`, `must_not`, or `filter` clauses.  The `must` and `should`
-clauses have their scores combined -- the more matching clauses, the better --
-while the `must_not` and `filter` clauses are executed in filter context.
+使用 `must`, `should`, `must_not`, 或 `filter` 可以将多个分支或组合查询语句组合到一起。
+其中 `must` 和 `should` 条件的得分会合并到一起，这是大多数时候使用的条件；
+而更好的办法是使用 `must_not` 和 `filter` ，这样它们会在 filter context 中执行。
 
 <<java-query-dsl-dis-max-query,`dis_max` query>>::
 
-A query which accepts multiple queries, and returns any documents which match
-any of the query clauses.  While the `bool` query combines the scores from all
-matching queries, the `dis_max` query uses the score of the single best-
-matching query clause.
+一个接受多个查询语句的查询，匹配到任何查询子句的文档都会返回。
+虽然 `bool` 语句已经将所有匹配结果的得分组合了起来，但 `dis_max` 的得分却是单条语句匹配的最高得分。
 
 <<java-query-dsl-function-score-query,`function_score` query>>::
 
-Modify the scores returned by the main query with functions to take into
-account factors like popularity, recency, distance, or custom algorithms
-implemented with scripting.
+使用函数修改主查询返回的分数，以考虑流行性、失效性、距离或使用脚本实现的自定义算法等因素。
 
 <<java-query-dsl-boosting-query,`boosting` query>>::
 
-Return documents which match a `positive` query, but reduce the score of
-documents which also match a `negative` query.
-
+查询条件将会分为正匹配和负匹配。 `positive` （正确）匹配到的文档将会加分，`negative` （负面）匹配得到的文档将会减分。
 
 include::constant-score-query.asciidoc[]
 include::bool-query.asciidoc[]

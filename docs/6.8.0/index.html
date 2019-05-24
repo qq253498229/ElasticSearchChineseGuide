@@ -5006,50 +5006,43 @@ idsQuery() <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="sect2">
 <h3 id="java-compound-queries">8.4. Compound queries</h3>
 <div class="paragraph">
-<p>Compound queries wrap other compound or leaf queries, either to combine their
-results and scores, to change their behaviour, or to switch from query to
-filter context.</p>
+<p>组合查询可以将其它组合查询，以及其它单独的查询语句合并到一起，并将结果和匹配分数组合起来。
+它可以改变它们的行为，或是将查询转换为filter context。</p>
 </div>
 <div class="paragraph">
-<p>The queries in this group are:</p>
+<p>这一组中的查询有：</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="#java-query-dsl-constant-score-query"><code>constant_score</code> query</a></dt>
 <dd>
-<p>A query which wraps another query, but executes it in filter context.  All
-matching documents are given the same &#8220;constant&#8221; <code>_score</code>.</p>
+<p>包含其它查询的查询，但却以filter context的形式执行该语句。所有匹配到的文档都会分配相同的 "constant" <code>_score</code> 。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-bool-query"><code>bool</code> query</a></dt>
 <dd>
-<p>The default query for combining multiple leaf or compound query clauses, as
-<code>must</code>, <code>should</code>, <code>must_not</code>, or <code>filter</code> clauses.  The <code>must</code> and <code>should</code>
-clauses have their scores combined&#8201;&#8212;&#8201;the more matching clauses, the better&#8201;&#8212;&#8201;while the <code>must_not</code> and <code>filter</code> clauses are executed in filter context.</p>
+<p>使用 <code>must</code>, <code>should</code>, <code>must_not</code>, 或 <code>filter</code> 可以将多个分支或组合查询语句组合到一起。
+其中 <code>must</code> 和 <code>should</code> 条件的得分会合并到一起，这是大多数时候使用的条件；
+而更好的办法是使用 <code>must_not</code> 和 <code>filter</code> ，这样它们会在 filter context 中执行。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-dis-max-query"><code>dis_max</code> query</a></dt>
 <dd>
-<p>A query which accepts multiple queries, and returns any documents which match
-any of the query clauses.  While the <code>bool</code> query combines the scores from all
-matching queries, the <code>dis_max</code> query uses the score of the single best-
-matching query clause.</p>
+<p>一个接受多个查询语句的查询，匹配到任何查询子句的文档都会返回。
+虽然 <code>bool</code> 语句已经将所有匹配结果的得分组合了起来，但 <code>dis_max</code> 的得分却是单条语句匹配的最高得分。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-function-score-query"><code>function_score</code> query</a></dt>
 <dd>
-<p>Modify the scores returned by the main query with functions to take into
-account factors like popularity, recency, distance, or custom algorithms
-implemented with scripting.</p>
+<p>使用函数修改主查询返回的分数，以考虑流行性、失效性、距离或使用脚本实现的自定义算法等因素。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-boosting-query"><code>boosting</code> query</a></dt>
 <dd>
-<p>Return documents which match a <code>positive</code> query, but reduce the score of
-documents which also match a <code>negative</code> query.</p>
+<p>查询条件将会分为正匹配和负匹配。 <code>positive</code> （正确）匹配到的文档将会加分，<code>negative</code> （负面）匹配得到的文档将会减分。</p>
 </dd>
 </dl>
 </div>
 <div class="sect3">
 <h4 id="java-query-dsl-constant-score-query">8.4.1. Constant Score Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-constant-score-query.html">Constant Score Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-constant-score-query.html">Constant Score Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5066,13 +5059,15 @@ documents which also match a <code>negative</code> query.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>query score
-==== Bool Query</td>
+<td>query score</td>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="java-query-dsl-bool-query">8.4.2. Bool Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html">Bool Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html">Bool Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5100,13 +5095,15 @@ documents which also match a <code>negative</code> query.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>a query that must appear in the matching documents but doesn&#8217;t contribute to scoring.
-==== Dis Max Query</td>
+<td>绝对匹配，不参与评分。</td>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="java-query-dsl-dis-max-query">8.4.3. Dis Max Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-dis-max-query.html">Dis Max Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-dis-max-query.html">Dis Max Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5133,16 +5130,18 @@ documents which also match a <code>negative</code> query.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>tie breaker
-==== Function Score Query</td>
+<td>tie breaker</td>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="java-query-dsl-function-score-query">8.4.4. Function Score Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-function-score-query.html">Function Score Query</a>.</p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-function-score-query.html">Function Score Query</a>.</p>
 </div>
 <div class="paragraph">
-<p>To use <code>ScoreFunctionBuilders</code> just import them in your class:</p>
+<p>想要使用 <code>ScoreFunctionBuilders</code> 只需要在类中引入:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5173,13 +5172,15 @@ functionScoreQuery(functions);</code></pre>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Add another function based on the age field
-==== Boosting Query</td>
+<td>Add another function based on the age field</td>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="java-query-dsl-boosting-query">8.4.5. Boosting Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-boosting-query.html">Boosting Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-boosting-query.html">Boosting Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5210,32 +5211,27 @@ functionScoreQuery(functions);</code></pre>
 <div class="sect2">
 <h3 id="java-joining-queries">8.5. Joining queries</h3>
 <div class="paragraph">
-<p>Performing full SQL-style joins in a distributed system like Elasticsearch is
-prohibitively expensive.  Instead, Elasticsearch offers two forms of join
-which are designed to scale horizontally.</p>
+<p>在Elasticsearch这样的分布式系统中使用SQL风格的关联语句对性能的损耗是非常大的。
+作为替代，Elasticsearch设计了两种支持水平拓展的关联操作。</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="#java-query-dsl-nested-query"><code>nested</code> query</a></dt>
 <dd>
-<p>Documents may contains fields of type <code>nested</code>. These
-fields are used to index arrays of objects, where each object can be queried
-(with the <code>nested</code> query) as an independent document.</p>
+<p>文档可能包含 <code>nested</code> 类型的字段。
+这些字段用于索引对象数组，其中每个对象都可以作为独立文档进行查询(使用 <code>nested</code> 查询)。</p>
 </dd>
-<dt class="hdlist1"><a href="#java-query-dsl-has-child-query"><code>has_child</code></a> and <a href="#java-query-dsl-has-parent-query"><code>has_parent</code></a> queries</dt>
+<dt class="hdlist1"><a href="#java-query-dsl-has-child-query"><code>has_child</code></a> 和 <a href="#java-query-dsl-has-parent-query"><code>has_parent</code></a> 查询</dt>
 <dd>
-<p>A parent-child relationship can exist between two
-document types within a single index. The <code>has_child</code> query returns parent
-documents whose child documents match the specified query, while the
-<code>has_parent</code> query returns child documents whose parent document matches the
-specified query.</p>
+<p>同一索引之中的文档可以存在父子关系。
+<code>has_child</code> 查询会返回子文档匹配的父文档，而 <code>has_parent</code> 查询则会返回父文档匹配的子文档。</p>
 </dd>
 </dl>
 </div>
 <div class="sect3">
 <h4 id="java-query-dsl-nested-query">8.5.1. Nested Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-nested-query.html">Nested Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-nested-query.html">Nested Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5251,15 +5247,15 @@ specified query.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>path to nested document</td>
+<td>嵌套文档的路径</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>your query. Any fields referenced inside the query must use the complete path (fully qualified).</td>
+<td>查询中使用的所有字段都必须使用完整路径</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>score mode could be <code>ScoreMode.Max</code>, <code>ScoreMode.Min</code>, <code>ScoreMode.Total</code>, <code>ScoreMode.Avg</code> or <code>ScoreMode.None</code></td>
+<td>评分模式支持: <code>ScoreMode.Max</code>, <code>ScoreMode.Min</code>, <code>ScoreMode.Total</code>, <code>ScoreMode.Avg</code> 或 <code>ScoreMode.None</code></td>
 </tr>
 </table>
 </div>
@@ -5267,10 +5263,10 @@ specified query.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-has-child-query">8.5.2. Has Child Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-has-child-query.html">Has Child Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-has-child-query.html">Has Child Query</a></p>
 </div>
 <div class="paragraph">
-<p>When using the <code>has_child</code> query it is important to use the <code>PreBuiltTransportClient</code> instead of the regular client:</p>
+<p>使用 <code>has_child</code> 查询的时候有一点很重要的就是使用 <code>PreBuiltTransportClient</code> 而不是普通的client。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5280,7 +5276,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </div>
 </div>
 <div class="paragraph">
-<p>Otherwise the parent-join module doesn&#8217;t get loaded and the <code>has_child</code> query can&#8217;t be used from the transport client.</p>
+<p>否则父子链接模块将不会被加载，同样的 <code>transport client</code> 中也不能使用 <code>has_child</code> 查询语句。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5302,7 +5298,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>score mode can be <code>ScoreMode.Avg</code>, <code>ScoreMode.Max</code>, <code>ScoreMode.Min</code>, <code>ScoreMode.None</code> or <code>ScoreMode.Total</code></td>
+<td>评分模式支持: <code>ScoreMode.Avg</code>, <code>ScoreMode.Max</code>, <code>ScoreMode.Min</code>, <code>ScoreMode.None</code> 或 <code>ScoreMode.Total</code></td>
 </tr>
 </table>
 </div>
@@ -5310,10 +5306,10 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 <div class="sect3">
 <h4 id="java-query-dsl-has-parent-query">8.5.3. Has Parent Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-has-parent-query.html">Has Parent</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-has-parent-query.html">Has Parent</a></p>
 </div>
 <div class="paragraph">
-<p>When using the <code>has_parent</code> query it is important to use the <code>PreBuiltTransportClient</code> instead of the regular client:</p>
+<p>使用 <code>has_parent</code> 查询的时候有一点很重要的就是使用 <code>PreBuiltTransportClient</code> 而不是普通的client:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5323,12 +5319,12 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </div>
 </div>
 <div class="paragraph">
-<p>Otherwise the parent-join module doesn&#8217;t get loaded and the <code>has_parent</code> query can&#8217;t be used from the transport client.</p>
+<p>否则父子链接模块将不会被加载，同样的 <code>transport client</code> 中也不能使用 <code>has_child</code> 查询语句。</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">JoinQueryBuilders.hasParentQuery(
-    "blog",                           <i class="conum" data-value="1"></i><b>(1)</b>
+    "blog", <i class="conum" data-value="1"></i><b>(1)</b>
     termQuery("tag","something"), <i class="conum" data-value="2"></i><b>(2)</b>
     false); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
@@ -5345,7 +5341,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>whether the score from the parent hit should propagate to the child hit</td>
+<td>是否将父文档匹配分数传递给子文档</td>
 </tr>
 </table>
 </div>
@@ -6303,11 +6299,13 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>Number of replicas for this index
-==== Update Indices Settings</td>
+<td>Number of replicas for this index</td>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="java-admin-indices-update-settings">9.1.5. Update Indices Settings</h4>
 <div class="paragraph">
 <p>You can change index settings by calling:</p>
 </div>

@@ -1,9 +1,9 @@
 [[java-query-dsl-has-child-query]]
 ==== Has Child Query
 
-See {ref}/query-dsl-has-child-query.html[Has Child Query]
+查看 {ref}/query-dsl-has-child-query.html[Has Child Query]
 
-When using the `has_child` query it is important to use the `PreBuiltTransportClient` instead of the regular client:
+使用 `has_child` 查询的时候有一点很重要的就是使用 `PreBuiltTransportClient` 而不是普通的client。
 
 [source,java]
 --------------------------------------------------
@@ -12,7 +12,7 @@ TransportClient client = new PreBuiltTransportClient(settings);
 client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddresses.forString("127.0.0.1"), 9300)));
 --------------------------------------------------
 
-Otherwise the parent-join module doesn't get loaded and the `has_child` query can't be used from the transport client.
+否则父子链接模块将不会被加载，同样的 `transport client` 中也不能使用 `has_child` 查询语句。
 
 ["source","java"]
 --------------------------------------------------
@@ -23,4 +23,4 @@ JoinQueryBuilders.hasChildQuery(
 --------------------------------------------------
 <1> child type to query against
 <2> query
-<3> score mode can be `ScoreMode.Avg`, `ScoreMode.Max`, `ScoreMode.Min`, `ScoreMode.None` or `ScoreMode.Total`
+<3> 评分模式支持: `ScoreMode.Avg`, `ScoreMode.Max`, `ScoreMode.Min`, `ScoreMode.None` 或 `ScoreMode.Total`
