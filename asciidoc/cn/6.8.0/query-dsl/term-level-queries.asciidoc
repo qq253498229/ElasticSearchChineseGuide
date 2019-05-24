@@ -1,66 +1,57 @@
 [[java-term-level-queries]]
 === Term level queries
 
-While the <<java-full-text-queries,full text queries>> will analyze the query
-string before executing, the _term-level queries_ operate on the exact terms
-that are stored in the inverted index.
+尽管 <<java-full-text-queries,full text queries>> 将在执行之前分析查询语句，
+但 _term-level queries_ 会按照存储在反向索引中的确切词进行操作。
 
-These queries are usually used for structured data like numbers, dates, and
-enums, rather than full text fields.  Alternatively, they allow you to craft
-low-level queries, foregoing the analysis process.
+这些查询语句通常使用在数字、日期和枚举等结构化数据，而不是全字符串字段。
+当然也允许在分析过程之前使用 low-level 查询语句。
 
-The queries in this group are:
+这一组中的查询有:
 
 <<java-query-dsl-term-query,`term` query>>::
 
-    Find documents which contain the exact term specified in the field
-    specified.
+检索指定字段包含指定条件的文档。
 
 <<java-query-dsl-terms-query,`terms` query>>::
 
-    Find documents which contain any of the exact terms specified in the field
-    specified.
+检索指定字段包含指定条件中的任意一个的文档。
 
 <<java-query-dsl-range-query,`range` query>>::
 
-    Find documents where the field specified contains values (dates, numbers,
-    or strings) in the range specified.
+检索指定字段包含指定范围内的值（日期、数字或字符串）的文档。
 
 <<java-query-dsl-exists-query,`exists` query>>::
 
-    Find documents where the field specified contains any non-null value.
+检索指定字段是否包含非空值的文档。
 
 <<java-query-dsl-prefix-query,`prefix` query>>::
 
-    Find documents where the field specified contains terms which being with
-    the exact prefix specified.
+查找指定字段是以指定的条件作为开头的文档。
 
 <<java-query-dsl-wildcard-query,`wildcard` query>>::
 
-    Find documents where the field specified contains terms which match the
-    pattern specified, where the pattern supports single character wildcards
-    (`?`) and multi-character wildcards (`*`)
+根据通配符匹配指定字段来检索文档，支持单字符匹配(`?`)和多字符匹配(`*`)。
 
 <<java-query-dsl-regexp-query,`regexp` query>>::
 
-    Find documents where the field specified contains terms which match the
-    regular expression specified.
+根据正则表达式匹配指定字段来检索文档。
 
 <<java-query-dsl-fuzzy-query,`fuzzy` query>>::
 
-    Find documents where the field specified contains terms which are fuzzily
-    similar to the specified term.  Fuzziness is measured as a
-    http://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance[Levenshtein edit distance]
-    of 1 or 2.
+根据模糊相似词检索文档。
+模糊度是根据
+https://zh.wikipedia.org/wiki/%E8%90%8A%E6%96%87%E6%96%AF%E5%9D%A6%E8%B7%9D%E9%9B%A2[莱文斯坦距离]
+1或2来衡量的
+。
 
 <<java-query-dsl-type-query,`type` query>>::
 
-    Find documents of the specified type.
+根据指定类型检索文档。
 
 <<java-query-dsl-ids-query,`ids` query>>::
 
-    Find documents with the specified type and IDs.
-
+根据指定类型和id列表检索文档。
 
 include::term-query.asciidoc[]
 

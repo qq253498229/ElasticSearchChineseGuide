@@ -4671,76 +4671,68 @@ key [u0j2], point [45.087890625, 7.55859375], doc_count [1138]
 <div class="sect2">
 <h3 id="java-term-level-queries">8.3. Term level queries</h3>
 <div class="paragraph">
-<p>While the <a href="#java-full-text-queries">full text queries</a> will analyze the query
-string before executing, the <em>term-level queries</em> operate on the exact terms
-that are stored in the inverted index.</p>
+<p>尽管 <a href="#java-full-text-queries">full text queries</a> 将在执行之前分析查询语句，
+但 <em>term-level queries</em> 会按照存储在反向索引中的确切词进行操作。</p>
 </div>
 <div class="paragraph">
-<p>These queries are usually used for structured data like numbers, dates, and
-enums, rather than full text fields.  Alternatively, they allow you to craft
-low-level queries, foregoing the analysis process.</p>
+<p>这些查询语句通常使用在数字、日期和枚举等结构化数据，而不是全字符串字段。
+当然也允许在分析过程之前使用 low-level 查询语句。</p>
 </div>
 <div class="paragraph">
-<p>The queries in this group are:</p>
+<p>这一组中的查询有:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="#java-query-dsl-term-query"><code>term</code> query</a></dt>
 <dd>
-<p>Find documents which contain the exact term specified in the field
-specified.</p>
+<p>检索指定字段包含指定条件的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-terms-query"><code>terms</code> query</a></dt>
 <dd>
-<p>Find documents which contain any of the exact terms specified in the field
-specified.</p>
+<p>检索指定字段包含指定条件中的任意一个的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-range-query"><code>range</code> query</a></dt>
 <dd>
-<p>Find documents where the field specified contains values (dates, numbers,
-or strings) in the range specified.</p>
+<p>检索指定字段包含指定范围内的值（日期、数字或字符串）的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-exists-query"><code>exists</code> query</a></dt>
 <dd>
-<p>Find documents where the field specified contains any non-null value.</p>
+<p>检索指定字段是否包含非空值的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-prefix-query"><code>prefix</code> query</a></dt>
 <dd>
-<p>Find documents where the field specified contains terms which being with
-the exact prefix specified.</p>
+<p>查找指定字段是以指定的条件作为开头的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-wildcard-query"><code>wildcard</code> query</a></dt>
 <dd>
-<p>Find documents where the field specified contains terms which match the
-pattern specified, where the pattern supports single character wildcards
-(<code>?</code>) and multi-character wildcards (<code>*</code>)</p>
+<p>根据通配符匹配指定字段来检索文档，支持单字符匹配(<code>?</code>)和多字符匹配(<code>*</code>)。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-regexp-query"><code>regexp</code> query</a></dt>
 <dd>
-<p>Find documents where the field specified contains terms which match the
-regular expression specified.</p>
+<p>根据正则表达式匹配指定字段来检索文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-fuzzy-query"><code>fuzzy</code> query</a></dt>
 <dd>
-<p>Find documents where the field specified contains terms which are fuzzily
-similar to the specified term.  Fuzziness is measured as a
-<a href="http://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance">Levenshtein edit distance</a>
-of 1 or 2.</p>
+<p>根据模糊相似词检索文档。
+模糊度是根据
+<a href="https://zh.wikipedia.org/wiki/%E8%90%8A%E6%96%87%E6%96%AF%E5%9D%A6%E8%B7%9D%E9%9B%A2">莱文斯坦距离</a>
+1或2来衡量的
+。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-type-query"><code>type</code> query</a></dt>
 <dd>
-<p>Find documents of the specified type.</p>
+<p>根据指定类型检索文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-ids-query"><code>ids</code> query</a></dt>
 <dd>
-<p>Find documents with the specified type and IDs.</p>
+<p>根据指定类型和id列表检索文档。</p>
 </dd>
 </dl>
 </div>
 <div class="sect3">
 <h4 id="java-query-dsl-term-query">8.3.1. Term Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-term-query.html">Term Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-term-query.html">Term Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4765,7 +4757,7 @@ of 1 or 2.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-terms-query">8.3.2. Terms Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-terms-query.html">Terms Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-terms-query.html">Terms Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4789,7 +4781,7 @@ of 1 or 2.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-range-query">8.3.3. Range Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-range-query.html">Range Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-range-query.html">Range Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4804,29 +4796,29 @@ of 1 or 2.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>field</td>
+<td>字段</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>from</td>
+<td>开始</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>to</td>
+<td>结束</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>include lower value means that <code>from</code> is <code>gt</code> when <code>false</code> or <code>gte</code> when <code>true</code></td>
+<td>是否包含最小值</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>include upper value means that <code>to</code> is <code>lt</code> when <code>false</code> or <code>lte</code> when <code>true</code></td>
+<td>是否包含最大值</td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">// A simplified form using gte, gt, lt or lte
+<pre class="highlight"><code class="language-java" data-lang="java">// 一种简单的写法是使用 gte(greater than or equal), gt, lt 或 lte(less than or equal)
 rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
     .gte("10") <i class="conum" data-value="2"></i><b>(2)</b>
     .lt("20"); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
@@ -4840,11 +4832,11 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>set <code>from</code> to 10 and <code>includeLower</code> to <code>true</code></td>
+<td>等价于 <code>from(10)</code> 和 <code>includeLower(true)</code> 两个条件</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>set <code>to</code> to 20 and <code>includeUpper</code> to <code>false</code></td>
+<td>等价于 <code>to(20)</code> 和 <code>includeUpper(false)</code> 两个条件</td>
 </tr>
 </table>
 </div>
@@ -4852,7 +4844,7 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-exists-query">8.3.4. Exists Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-exists-query.html">Exists Query</a>.</p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-exists-query.html">Exists Query</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4871,7 +4863,7 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-prefix-query">8.3.5. Prefix Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-prefix-query.html">Prefix Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-prefix-query.html">Prefix Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4896,7 +4888,7 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-wildcard-query">8.3.6. Wildcard Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-wildcard-query.html">Wildcard Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-wildcard-query.html">Wildcard Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4909,11 +4901,11 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>field</td>
+<td>字段</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>wildcard expression</td>
+<td>通配符表达式</td>
 </tr>
 </table>
 </div>
@@ -4921,7 +4913,7 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-regexp-query">8.3.7. Regexp Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-regexp-query.html">Regexp Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-regexp-query.html">Regexp Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4938,7 +4930,7 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>regexp</td>
+<td>正则表达式</td>
 </tr>
 </table>
 </div>
@@ -4946,7 +4938,7 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-fuzzy-query">8.3.8. Fuzzy Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-fuzzy-query.html">Fuzzy Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-fuzzy-query.html">Fuzzy Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4971,7 +4963,7 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-type-query">8.3.9. Type Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-type-query.html">Type Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-type-query.html">Type Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4990,7 +4982,7 @@ rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
 <div class="sect3">
 <h4 id="java-query-dsl-ids-query">8.3.10. Ids Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-ids-query.html">Ids Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-ids-query.html">Ids Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5005,7 +4997,7 @@ idsQuery() <i class="conum" data-value="1"></i><b>(1)</b>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>type is optional</td>
+<td>type 是可选项</td>
 </tr>
 </table>
 </div>

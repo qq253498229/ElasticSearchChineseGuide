@@ -1,7 +1,7 @@
 [[java-query-dsl-regexp-query]]
 ==== Regexp Query
 
-See {ref}/query-dsl-regexp-query.html[Regexp Query]
+查看 {ref}/query-dsl-regexp-query.html[Regexp Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -10,4 +10,4 @@ regexpQuery(
         "s.*y"); <2>
 --------------------------------------------------
 <1> field
-<2> regexp
+<2> 正则表达式

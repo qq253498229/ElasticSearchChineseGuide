@@ -1,7 +1,7 @@
 [[java-query-dsl-wildcard-query]]
 ==== Wildcard Query
 
-See {ref}/query-dsl-wildcard-query.html[Wildcard Query]
+查看 {ref}/query-dsl-wildcard-query.html[Wildcard Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -9,5 +9,5 @@ wildcardQuery(
         "user", <1>
         "k?mch*"); <2>
 --------------------------------------------------
-<1> field
-<2> wildcard expression
+<1> 字段
+<2> 通配符表达式

@@ -1,7 +1,7 @@
 [[java-query-dsl-prefix-query]]
 ==== Prefix Query
 
-See {ref}/query-dsl-prefix-query.html[Prefix Query]
+查看 {ref}/query-dsl-prefix-query.html[Prefix Query]
 
 ["source","java"]
 --------------------------------------------------

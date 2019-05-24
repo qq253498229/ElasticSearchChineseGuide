@@ -1,7 +1,7 @@
 [[java-query-dsl-type-query]]
 ==== Type Query
 
-See {ref}/query-dsl-type-query.html[Type Query]
+查看 {ref}/query-dsl-type-query.html[Type Query]
 
 ["source","java"]
 --------------------------------------------------

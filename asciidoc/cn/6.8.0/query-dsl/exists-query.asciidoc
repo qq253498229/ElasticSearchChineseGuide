@@ -1,7 +1,7 @@
 [[java-query-dsl-exists-query]]
 ==== Exists Query
 
-See {ref}/query-dsl-exists-query.html[Exists Query].
+查看 {ref}/query-dsl-exists-query.html[Exists Query].
 
 ["source","java"]
 --------------------------------------------------

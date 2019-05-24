@@ -1,7 +1,7 @@
 [[java-query-dsl-fuzzy-query]]
 ==== Fuzzy Query
 
-See {ref}/query-dsl-fuzzy-query.html[Fuzzy Query]
+查看 {ref}/query-dsl-fuzzy-query.html[Fuzzy Query]
 
 ["source","java"]
 --------------------------------------------------

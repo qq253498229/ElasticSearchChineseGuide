@@ -2,7 +2,7 @@
 ==== Ids Query
 
 
-See {ref}/query-dsl-ids-query.html[Ids Query]
+查看 {ref}/query-dsl-ids-query.html[Ids Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -12,4 +12,4 @@ idsQuery("my_type", "type2")
 idsQuery() <1>
         .addIds("1", "4", "100");
 --------------------------------------------------
-<1> type is optional
+<1> type 是可选项

@@ -1,7 +1,7 @@
 [[java-query-dsl-range-query]]
 ==== Range Query
 
-See {ref}/query-dsl-range-query.html[Range Query]
+查看 {ref}/query-dsl-range-query.html[Range Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -11,19 +11,19 @@ rangeQuery("price") <1>
     .includeLower(true) <4>
     .includeUpper(false);  <5>
 --------------------------------------------------
-<1> field
-<2> from
-<3> to
-<4> include lower value means that `from` is `gt` when `false` or `gte` when `true`
-<5> include upper value means that `to` is `lt` when `false` or `lte` when `true`
+<1> 字段
+<2> 开始
+<3> 结束
+<4> 是否包含最小值
+<5> 是否包含最大值
 
 ["source","java"]
 --------------------------------------------------
-// A simplified form using gte, gt, lt or lte
+// 一种简单的写法是使用 gte(greater than or equal), gt, lt 或 lte(less than or equal)
 rangeQuery("age") <1>
     .gte("10") <2>
     .lt("20"); <3>
 --------------------------------------------------
 <1> field
-<2> set `from` to 10 and `includeLower` to `true`
-<3> set `to` to 20 and `includeUpper` to `false`
+<2> 等价于 `from(10)` 和 `includeLower(true)` 两个条件
+<3> 等价于 `to(20)` 和 `includeUpper(false)` 两个条件

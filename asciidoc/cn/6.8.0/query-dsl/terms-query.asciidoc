@@ -1,7 +1,7 @@
 [[java-query-dsl-terms-query]]
 ==== Terms Query
 
-See {ref}/query-dsl-terms-query.html[Terms Query]
+查看 {ref}/query-dsl-terms-query.html[Terms Query]
 
 ["source","java"]
 --------------------------------------------------
