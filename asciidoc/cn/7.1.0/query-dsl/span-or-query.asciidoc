@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-span-or-query.html[Span Or Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[span_or]
 --------------------------------------------------

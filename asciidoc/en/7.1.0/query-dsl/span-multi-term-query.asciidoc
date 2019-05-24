@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-span-multi-term-query.html[Span Multi Term Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[span_multi]
 --------------------------------------------------

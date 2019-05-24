@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-simple-query-string-query.html[Simple Query String Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[simple_query_string]
 --------------------------------------------------

@@ -20,7 +20,7 @@ For more information on the delete operation, check out the
 The delete by query API allows one to delete a given set of documents based on
 the result of a query:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[delete-by-query-sync]
 --------------------------------------------------
@@ -32,7 +32,7 @@ include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[delete-by-que
 As it can be a long running operation, if you wish to do it asynchronously, you can call `execute` instead of `get`
 and provide a listener like:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[delete-by-query-async]
 --------------------------------------------------

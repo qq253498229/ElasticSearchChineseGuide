@@ -3,9 +3,10 @@
 
 See {ref}/query-dsl-wrapper-query.html[Wrapper Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[wrapper]
+String query = "{\"term\": {\"user\": \"kimchy\"}}"; <1>
+wrapperQuery(query);
 --------------------------------------------------
 
 <1> query defined as query builder

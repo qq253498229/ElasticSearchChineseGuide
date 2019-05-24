@@ -3,9 +3,11 @@
 
 See {ref}/query-dsl-prefix-query.html[Prefix Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[prefix]
+prefixQuery(
+        "brand", <1>
+        "heine"); <2>
 --------------------------------------------------
 <1> field
 <2> prefix

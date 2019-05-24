@@ -3,9 +3,11 @@
 
 You can add mappings at index creation time:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{client-tests}/IndicesDocumentationIT.java[index-with-mapping]
+client.admin().indices().prepareCreate("twitter")    <1>
+        .addMapping("_doc", "message", "type=text") <2>
+        .get();
 --------------------------------------------------
 <1> <<java-admin-indices-create-index,Creates an index>> called `twitter`
 <2> Add a `_doc` type with a field called `message` that has the datatype `text`.
@@ -18,9 +20,32 @@ The PUT mapping API also allows for updating the mapping after index
 creation. In this case you can provide the mapping as a String similar
 to the REST API syntax:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{client-tests}/IndicesDocumentationIT.java[putMapping-request-source]
+client.admin().indices().preparePutMapping("twitter") <1>
+.setType("_doc")
+.setSource("{\n" +
+        "  \"properties\": {\n" +
+        "    \"name\": {\n" + <2>
+        "      \"type\": \"text\"\n" +
+        "    }\n" +
+        "  }\n" +
+        "}", XContentType.JSON)
+.get();
+
+// You can also provide the type in the source document
+client.admin().indices().preparePutMapping("twitter")
+.setType("_doc")
+.setSource("{\n" +
+        "    \"_doc\":{\n" + <3>
+        "        \"properties\": {\n" +
+        "            \"name\": {\n" +
+        "                \"type\": \"text\"\n" +
+        "            }\n" +
+        "        }\n" +
+        "    }\n" +
+        "}", XContentType.JSON)
+.get();
 --------------------------------------------------
 <1> Puts a mapping on existing index called `twitter`
 <2> Adds a new field `name` to the mapping

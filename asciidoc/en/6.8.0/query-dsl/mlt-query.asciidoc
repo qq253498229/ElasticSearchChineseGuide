@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-mlt-query.html[More Like This Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[more_like_this]
 --------------------------------------------------

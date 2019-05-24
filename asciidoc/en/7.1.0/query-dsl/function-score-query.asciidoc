@@ -10,7 +10,7 @@ To use `ScoreFunctionBuilders` just import them in your class:
 import static org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders.*;
 --------------------------------------------------
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[function_score]
 --------------------------------------------------

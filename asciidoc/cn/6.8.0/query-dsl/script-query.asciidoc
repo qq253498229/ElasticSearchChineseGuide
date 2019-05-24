@@ -3,9 +3,11 @@
 
 See {ref}/query-dsl-script-query.html[Script Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[script_inline]
+scriptQuery(
+        new Script("doc['num1'].value > 1")     <1>
+    );
 --------------------------------------------------
 <1> inlined script
 
@@ -19,9 +21,15 @@ doc['num1'].value > params.param1
 
 You can use it then with:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[script_file]
+Map<String, Object> parameters = new HashMap<>();
+parameters.put("param1", 5);
+scriptQuery(new Script(
+        ScriptType.STORED,                          <1>
+        null,                                       <2>
+        "myscript",                                 <3>
+        singletonMap("param1", 5)));                <4>
 --------------------------------------------------
 <1> Script type: either `ScriptType.FILE`, `ScriptType.INLINE` or `ScriptType.INDEXED`
 <2> Scripting engine

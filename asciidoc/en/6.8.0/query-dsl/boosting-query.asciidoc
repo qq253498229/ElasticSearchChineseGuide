@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-boosting-query.html[Boosting Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[boosting]
 --------------------------------------------------

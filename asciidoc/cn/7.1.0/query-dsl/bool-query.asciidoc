@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-bool-query.html[Bool Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[bool]
 --------------------------------------------------

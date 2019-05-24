@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-script-query.html[Script Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[script_inline]
 --------------------------------------------------
@@ -19,7 +19,7 @@ doc['num1'].value > params.param1
 
 You can use it then with:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[script_file]
 --------------------------------------------------

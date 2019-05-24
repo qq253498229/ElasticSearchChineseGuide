@@ -154,7 +154,7 @@ for (TaskInfo info: tasksList.getTasks()) {
 使用上面显示的 `TaskId` 您可以直接地找到task:
 
 // provide API Example
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 GetTaskResponse get = client.admin().cluster().prepareGetTask(taskId).get();
 --------------------------------------------------

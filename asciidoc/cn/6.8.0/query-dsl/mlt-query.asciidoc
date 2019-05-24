@@ -3,9 +3,14 @@
 
 See {ref}/query-dsl-mlt-query.html[More Like This Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[more_like_this]
+String[] fields = {"name.first", "name.last"}; <1>
+String[] texts = {"text like this one"};        <2>
+
+moreLikeThisQuery(fields, texts, null)
+    .minTermFreq(1)                         <3>
+    .maxQueryTerms(12);                     <4>
 --------------------------------------------------
 <1> fields
 <2> text

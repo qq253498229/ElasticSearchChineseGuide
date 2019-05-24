@@ -5,7 +5,7 @@ The simplest usage of `updateByQuery` updates each
 document in an index without changing the source. This usage enables
 picking up a new property or another online mapping change.
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query]
 --------------------------------------------------
@@ -37,7 +37,7 @@ limiting the total number of documents to update, and updating documents
 with a script:
 
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-filter]
 --------------------------------------------------
@@ -46,14 +46,14 @@ include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-que
 to select the documents. You can use this access to change the default scroll size or
 otherwise modify the request for matching documents.
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-size]
 --------------------------------------------------
 
 You can also combine `size` with sorting to limit the documents updated:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-sort]
 --------------------------------------------------
@@ -61,7 +61,7 @@ include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-que
 In addition to changing the `_source` field for the document, you can use a
 script to change the action, similar to the Update API:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-script]
 --------------------------------------------------
@@ -90,7 +90,7 @@ from its original location.
 
 You can also perform these operations on multiple indices and types at once, similar to the search API:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-multi-index]
 --------------------------------------------------
@@ -98,7 +98,7 @@ include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-que
 If you provide a `routing` value then the process copies the routing value to the scroll query,
 limiting the process to the shards that match that routing value:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-routing]
 --------------------------------------------------
@@ -106,7 +106,7 @@ include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-que
 `updateByQuery` can also use the ingest node by
 specifying a `pipeline` like this:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-pipeline]
 --------------------------------------------------
@@ -117,7 +117,7 @@ include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-que
 
 You can fetch the status of all running update-by-query requests with the Task API:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-list-tasks]
 --------------------------------------------------
@@ -125,7 +125,7 @@ include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-que
 With the `TaskId` shown above you can look up the task directly:
 
 // provide API Example
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-get-task]
 --------------------------------------------------
@@ -136,7 +136,7 @@ include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-que
 
 Any Update By Query can be canceled using the Task Cancel API:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-cancel-task]
 --------------------------------------------------
@@ -152,7 +152,7 @@ The task status API continues to list the task until the cancellation is complet
 
 Use the `_rethrottle` API to change the value of `requests_per_second` on a running update:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[update-by-query-rethrottle]
 --------------------------------------------------

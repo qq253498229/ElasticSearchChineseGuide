@@ -4,8 +4,12 @@
 
 See {ref}/query-dsl-ids-query.html[Ids Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[ids]
+idsQuery("my_type", "type2")
+        .addIds("1", "4", "100");
+
+idsQuery() <1>
+        .addIds("1", "4", "100");
 --------------------------------------------------
 <1> type is optional

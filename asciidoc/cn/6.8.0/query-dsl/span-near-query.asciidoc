@@ -3,9 +3,14 @@
 
 See {ref}/query-dsl-span-near-query.html[Span Near Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[span_near]
+spanNearQuery(
+        spanTermQuery("field","value1"),                <1>
+        12)                                             <2>
+            .addClause(spanTermQuery("field","value2")) <3>
+            .addClause(spanTermQuery("field","value3")) <4>
+            .inOrder(false);                            <5>
 --------------------------------------------------
 <1> span term queries
 <2> slop factor: the maximum number of intervening unmatched positions

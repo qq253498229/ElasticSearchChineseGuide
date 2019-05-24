@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-span-near-query.html[Span Near Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[span_near]
 --------------------------------------------------

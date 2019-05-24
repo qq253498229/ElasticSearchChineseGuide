@@ -174,7 +174,7 @@ Global parameters can be specified on the BulkRequest as well as BulkProcessor, 
  have to be set before any sub request is added - index, type - and you have to specify them during  BulkRequest or
  BulkProcessor creation. Some are optional - pipeline, routing - and can be specified at any point before the bulk is sent.
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{hlrc-tests}/BulkProcessorIT.java[bulk-processor-mix-parameters]
 --------------------------------------------------
@@ -182,7 +182,7 @@ include-tagged::{hlrc-tests}/BulkProcessorIT.java[bulk-processor-mix-parameters]
 <2> local pipeline parameter on a sub request will override global parameters from BulkRequest
 
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{hlrc-tests}/BulkRequestWithGlobalParametersIT.java[bulk-request-mix-pipeline]
 --------------------------------------------------

@@ -3,7 +3,7 @@
 
 See {ref}/docs-reindex.html[reindex API].
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-reindex-tests}/ReindexDocumentationIT.java[reindex1]
 --------------------------------------------------

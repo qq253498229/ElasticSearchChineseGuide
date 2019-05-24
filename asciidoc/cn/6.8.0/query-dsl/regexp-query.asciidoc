@@ -3,9 +3,11 @@
 
 See {ref}/query-dsl-regexp-query.html[Regexp Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[regexp]
+regexpQuery(
+        "name.first", <1>
+        "s.*y"); <2>
 --------------------------------------------------
 <1> field
 <2> regexp

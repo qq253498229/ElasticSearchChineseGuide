@@ -578,9 +578,6 @@ h1 {
 }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-/* Pygments CSS disabled. Pygments is not available. */
-</style>
 <script type="text/javascript">
 
     /*
@@ -1065,7 +1062,7 @@ h1 {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml">&lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.elasticsearch&lt;/groupId&gt;
     &lt;artifactId&gt;elasticsearch&lt;/artifactId&gt;
     &lt;version&gt;{version}&lt;/version&gt;
@@ -1074,7 +1071,7 @@ h1 {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml">&lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.elasticsearch.client&lt;/groupId&gt;
     &lt;artifactId&gt;transport&lt;/artifactId&gt;
     &lt;version&gt;{version}&lt;/version&gt;
@@ -1083,7 +1080,7 @@ h1 {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml">&lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.elasticsearch.client&lt;/groupId&gt;
     &lt;artifactId&gt;elasticsearch-rest-high-level-client&lt;/artifactId&gt;
     &lt;version&gt;{version}&lt;/version&gt;
@@ -1103,7 +1100,7 @@ h1 {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml">&lt;repository&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;repository&gt;
     &lt;id&gt;elastic-lucene-snapshots&lt;/id&gt;
     &lt;name&gt;Elastic Lucene Snapshots&lt;/name&gt;
     &lt;url&gt;https://s3.amazonaws.com/download.elasticsearch.org/lucenesnapshots/00142c9&lt;/url&gt;
@@ -1117,7 +1114,7 @@ h1 {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="groovy">maven {
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">maven {
     name "lucene-snapshots"
     url 'https://s3.amazonaws.com/download.elasticsearch.org/lucenesnapshots/00142c9'
 }</code></pre>
@@ -1131,7 +1128,7 @@ h1 {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml">&lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
     &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
     &lt;version&gt;2.11.1&lt;/version&gt;
@@ -1144,7 +1141,7 @@ h1 {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="properties">appender.console.type = Console
+<pre class="highlight"><code class="language-properties" data-lang="properties">appender.console.type = Console
 appender.console.name = console
 appender.console.layout.type = PatternLayout
 appender.console.layout.pattern = [%d{ISO8601}][%-5p][%-25c] %marker%m%n
@@ -1161,7 +1158,7 @@ rootLogger.appenderRef.console.ref = console</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml">&lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
     &lt;artifactId&gt;log4j-to-slf4j&lt;/artifactId&gt;
     &lt;version&gt;2.11.1&lt;/version&gt;
@@ -1180,7 +1177,7 @@ rootLogger.appenderRef.console.ref = console</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml">&lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
     &lt;artifactId&gt;slf4j-simple&lt;/artifactId&gt;
     &lt;version&gt;1.7.21&lt;/version&gt;
@@ -1262,7 +1259,7 @@ rootLogger.appenderRef.console.ref = console</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// on startup
+<pre class="highlight"><code class="language-java" data-lang="java">// on startup
 
 TransportClient client = new PreBuiltTransportClient(Settings.EMPTY)
         .addTransportAddress(new TransportAddress(InetAddress.getByName("host1"), 9300))
@@ -1278,7 +1275,7 @@ client.close();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">Settings settings = Settings.builder()
+<pre class="highlight"><code class="language-java" data-lang="java">Settings settings = Settings.builder()
         .put("cluster.name", "myClusterName").build();
 TransportClient client = new PreBuiltTransportClient(settings);
 //Add transport addresses and do something with the client...</code></pre>
@@ -1301,7 +1298,7 @@ transport client排除非数据节点的原因，是为了避免向master节点�
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">Settings settings = Settings.builder()
+<pre class="highlight"><code class="language-java" data-lang="java">Settings settings = Settings.builder()
         .put("client.transport.sniff", true).build();
 TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 </div>
@@ -1444,7 +1441,7 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">String json = "{" +
+<pre class="highlight"><code class="language-java" data-lang="java">String json = "{" +
         "\"user\":\"kimchy\"," +
         "\"postDate\":\"2013-01-30\"," +
         "\"message\":\"trying out Elasticsearch\"" +
@@ -1459,7 +1456,7 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">Map&lt;String, Object&gt; json = new HashMap&lt;String, Object&gt;();
+<pre class="highlight"><code class="language-java" data-lang="java">Map&lt;String, Object&gt; json = new HashMap&lt;String, Object&gt;();
 json.put("user","kimchy");
 json.put("postDate",new Date());
 json.put("message","trying out Elasticsearch");</code></pre>
@@ -1475,7 +1472,7 @@ json.put("message","trying out Elasticsearch");</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import com.fasterxml.jackson.databind.*;
+<pre class="highlight"><code class="language-java" data-lang="java">import com.fasterxml.jackson.databind.*;
 
 // 示例化一个 json mapper
 ObjectMapper mapper = new ObjectMapper(); // create once, reuse
@@ -1492,7 +1489,7 @@ byte[] json = mapper.writeValueAsBytes(yourbeaninstance);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import static org.elasticsearch.common.xcontent.XContentFactory.*;
+<pre class="highlight"><code class="language-java" data-lang="java">import static org.elasticsearch.common.xcontent.XContentFactory.*;
 
 XContentBuilder builder = jsonBuilder()
     .startObject()
@@ -1512,7 +1509,7 @@ XContentBuilder builder = jsonBuilder()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.common.Strings;
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.common.Strings;
 
 String json = Strings.toString(builder);</code></pre>
 </div>
@@ -1526,7 +1523,7 @@ String json = Strings.toString(builder);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import static org.elasticsearch.common.xcontent.XContentFactory.*;
+<pre class="highlight"><code class="language-java" data-lang="java">import static org.elasticsearch.common.xcontent.XContentFactory.*;
 
 IndexResponse response = client.prepareIndex("twitter", "_doc", "1")
         .setSource(jsonBuilder()
@@ -1544,7 +1541,7 @@ IndexResponse response = client.prepareIndex("twitter", "_doc", "1")
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">String json = "{" +
+<pre class="highlight"><code class="language-java" data-lang="java">String json = "{" +
         "\"user\":\"kimchy\"," +
         "\"postDate\":\"2013-01-30\"," +
         "\"message\":\"trying out Elasticsearch\"" +
@@ -1560,7 +1557,7 @@ IndexResponse response = client.prepareIndex("twitter", "_doc")
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// Index name
+<pre class="highlight"><code class="language-java" data-lang="java">// Index name
 String _index = response.getIndex();
 // Type name
 String _type = response.getType();
@@ -1585,7 +1582,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">GetResponse response = client.prepareGet("twitter", "_doc", "1").get();</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">GetResponse response = client.prepareGet("twitter", "_doc", "1").get();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1600,7 +1597,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">DeleteResponse response = client.prepareDelete("twitter", "_doc", "1").get();</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">DeleteResponse response = client.prepareDelete("twitter", "_doc", "1").get();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1614,7 +1611,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">BulkByScrollResponse response =
+<pre class="highlight"><code class="language-java" data-lang="java">BulkByScrollResponse response =
   DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
     .filter(QueryBuilders.matchQuery("gender", "male")) <i class="conum" data-value="1"></i><b>(1)</b>
     .source("persons") <i class="conum" data-value="2"></i><b>(2)</b>
@@ -1647,7 +1644,7 @@ long deleted = response.getDeleted(); <i class="conum" data-value="4"></i><b>(4)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
+<pre class="highlight"><code class="language-java" data-lang="java">DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
     .filter(QueryBuilders.matchQuery("gender", "male")) <i class="conum" data-value="1"></i><b>(1)</b>
     .source("persons") <i class="conum" data-value="2"></i><b>(2)</b>
     .execute(new ActionListener&lt;BulkByScrollResponse&gt;() { <i class="conum" data-value="3"></i><b>(3)</b>
@@ -1690,7 +1687,7 @@ long deleted = response.getDeleted(); <i class="conum" data-value="4"></i><b>(4)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateRequest updateRequest = new UpdateRequest();
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateRequest updateRequest = new UpdateRequest();
 updateRequest.index("index");
 updateRequest.type("_doc");
 updateRequest.id("1");
@@ -1706,7 +1703,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">client.prepareUpdate("ttl", "doc", "1")
+<pre class="highlight"><code class="language-java" data-lang="java">client.prepareUpdate("ttl", "doc", "1")
         .setScript(new Script(
             "ctx._source.gender = \"male\"", <i class="conum" data-value="1"></i><b>(1)</b>
             ScriptService.ScriptType.INLINE, null, null))
@@ -1742,7 +1739,7 @@ client.prepareUpdate("ttl", "doc", "1")
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateRequest updateRequest = new UpdateRequest("ttl", "doc", "1")
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateRequest updateRequest = new UpdateRequest("ttl", "doc", "1")
         .script(new Script("ctx._source.gender = \"male\""));
 client.update(updateRequest).get();</code></pre>
 </div>
@@ -1759,7 +1756,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateRequest updateRequest = new UpdateRequest("index", "type", "1")
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateRequest updateRequest = new UpdateRequest("index", "type", "1")
         .doc(jsonBuilder()
             .startObject()
                 .field("gender", "male")
@@ -1775,7 +1772,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">IndexRequest indexRequest = new IndexRequest("index", "type", "1")
+<pre class="highlight"><code class="language-java" data-lang="java">IndexRequest indexRequest = new IndexRequest("index", "type", "1")
         .source(jsonBuilder()
             .startObject()
                 .field("name", "Joe Smith")
@@ -1803,7 +1800,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="js">{
+<pre class="highlight"><code class="language-js" data-lang="js">{
     "name"  : "Joe Dalton",
     "gender": "male"        <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
@@ -1822,7 +1819,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="js">{
+<pre class="highlight"><code class="language-js" data-lang="js">{
     "name" : "Joe Smith",
     "gender": "male"
 }</code></pre>
@@ -1837,7 +1834,7 @@ client.update(updateRequest).get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">MultiGetResponse multiGetItemResponses = client.prepareMultiGet()
+<pre class="highlight"><code class="language-java" data-lang="java">MultiGetResponse multiGetItemResponses = client.prepareMultiGet()
     .add("twitter", "_doc", "1")            <i class="conum" data-value="1"></i><b>(1)</b>
     .add("twitter", "_doc", "2", "3", "4")  <i class="conum" data-value="2"></i><b>(2)</b>
     .add("another", "_doc", "foo")          <i class="conum" data-value="3"></i><b>(3)</b>
@@ -1891,7 +1888,7 @@ for (MultiGetItemResponse itemResponse : multiGetItemResponses) { <i class="conu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import static org.elasticsearch.common.xcontent.XContentFactory.*;
+<pre class="highlight"><code class="language-java" data-lang="java">import static org.elasticsearch.common.xcontent.XContentFactory.*;
 
 BulkRequestBuilder bulkRequest = client.prepareBulk();
 
@@ -1933,7 +1930,7 @@ if (bulkResponse.hasFailures()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.action.bulk.BackoffPolicy;
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.action.bulk.BackoffPolicy;
 import org.elasticsearch.action.bulk.BulkProcessor;
 import org.elasticsearch.common.unit.ByteSizeUnit;
 import org.elasticsearch.common.unit.ByteSizeValue;
@@ -2034,7 +2031,7 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">bulkProcessor.add(new IndexRequest("twitter", "_doc", "1").source(/* your doc here */));
+<pre class="highlight"><code class="language-java" data-lang="java">bulkProcessor.add(new IndexRequest("twitter", "_doc", "1").source(/* your doc here */));
 bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 </div>
@@ -2046,7 +2043,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">bulkProcessor.awaitClose(10, TimeUnit.MINUTES);</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">bulkProcessor.awaitClose(10, TimeUnit.MINUTES);</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2054,7 +2051,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">bulkProcessor.close();</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">bulkProcessor.close();</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2072,7 +2069,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">BulkProcessor bulkProcessor = BulkProcessor.builder(client, new BulkProcessor.Listener() { /* Listener methods */ })
+<pre class="highlight"><code class="language-java" data-lang="java">BulkProcessor bulkProcessor = BulkProcessor.builder(client, new BulkProcessor.Listener() { /* Listener methods */ })
         .setBulkActions(10000)
         .setConcurrentRequests(0)
         .build();
@@ -2104,7 +2101,7 @@ client.prepareSearch().get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">try (BulkProcessor processor = initBulkProcessorBuilder(listener)
+<pre class="highlight"><code class="language-java" data-lang="java">try (BulkProcessor processor = initBulkProcessorBuilder(listener)
         .setGlobalIndex("tweets")
         .setGlobalType("_doc")
         .setGlobalRouting("routing")
@@ -2133,7 +2130,7 @@ client.prepareSearch().get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">BulkRequest request = new BulkRequest();
+<pre class="highlight"><code class="language-java" data-lang="java">BulkRequest request = new BulkRequest();
 request.pipeline("globalId");
 
 request.add(new IndexRequest("test", "doc", "1")
@@ -2166,7 +2163,7 @@ request.add(new IndexRequest("test", "doc", "2")
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
   UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
 updateByQuery.source("source_index").abortOnVersionConflict(false);
 BulkByScrollResponse response = updateByQuery.get();</code></pre>
@@ -2205,7 +2202,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
   UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
 updateByQuery.source("source_index")
     .filter(QueryBuilders.termQuery("level", "awesome"))
@@ -2223,7 +2220,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
   UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
 updateByQuery.source("source_index")
     .source()
@@ -2236,7 +2233,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
   UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
 updateByQuery.source("source_index")
     .size(100)
@@ -2250,7 +2247,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
   UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
 updateByQuery.source("source_index")
     .script(new Script(
@@ -2294,7 +2291,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
   UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
 updateByQuery.source("foo", "bar").source().setTypes("a", "b");
 BulkByScrollResponse response = updateByQuery.get();</code></pre>
@@ -2305,7 +2302,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
   UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
 updateByQuery.source().setRouting("cat");
 BulkByScrollResponse response = updateByQuery.get();</code></pre>
@@ -2316,7 +2313,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
+<pre class="highlight"><code class="language-java" data-lang="java">UpdateByQueryRequestBuilder updateByQuery =
   UpdateByQueryAction.INSTANCE.newRequestBuilder(client);
 updateByQuery.setPipeline("hurray");
 BulkByScrollResponse response = updateByQuery.get();</code></pre>
@@ -2330,7 +2327,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ListTasksResponse tasksList = client.admin().cluster().prepareListTasks()
+<pre class="highlight"><code class="language-java" data-lang="java">ListTasksResponse tasksList = client.admin().cluster().prepareListTasks()
     .setActions(UpdateByQueryAction.NAME).setDetailed(true).get();
 for (TaskInfo info: tasksList.getTasks()) {
     TaskId taskId = info.getTaskId();
@@ -2345,7 +2342,7 @@ for (TaskInfo info: tasksList.getTasks()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">GetTaskResponse get = client.admin().cluster().prepareGetTask(taskId).get();</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">GetTaskResponse get = client.admin().cluster().prepareGetTask(taskId).get();</code></pre>
 </div>
 </div>
 </div>
@@ -2356,7 +2353,7 @@ for (TaskInfo info: tasksList.getTasks()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// Cancel all update-by-query requests
+<pre class="highlight"><code class="language-java" data-lang="java">// Cancel all update-by-query requests
 client.admin().cluster().prepareCancelTasks()
     .setActions(UpdateByQueryAction.NAME).get().getTasks();
 // Cancel a specific update-by-query request
@@ -2378,7 +2375,7 @@ client.admin().cluster().prepareCancelTasks()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">RethrottleAction.INSTANCE.newRequestBuilder(client)
+<pre class="highlight"><code class="language-java" data-lang="java">RethrottleAction.INSTANCE.newRequestBuilder(client)
     .setTaskId(taskId)
     .setRequestsPerSecond(2.0f)
     .get();</code></pre>
@@ -2400,7 +2397,7 @@ client.admin().cluster().prepareCancelTasks()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">BulkByScrollResponse response =
+<pre class="highlight"><code class="language-java" data-lang="java">BulkByScrollResponse response =
     ReindexAction.INSTANCE.newRequestBuilder(client)
     .source("source_index")
     .destination("target_index")
@@ -2431,14 +2428,14 @@ client.admin().cluster().prepareCancelTasks()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.action.search.SearchResponse;
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.index.query.QueryBuilders.*;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SearchResponse response = client.prepareSearch("index1", "index2")
+<pre class="highlight"><code class="language-java" data-lang="java">SearchResponse response = client.prepareSearch("index1", "index2")
         .setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
         .setQuery(QueryBuilders.termQuery("multi", "test"))                 // Query
         .setPostFilter(QueryBuilders.rangeQuery("age").from(12).to(18))     // Filter
@@ -2451,7 +2448,7 @@ import org.elasticsearch.index.query.QueryBuilders.*;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// MatchAll on the whole cluster with all default options
+<pre class="highlight"><code class="language-java" data-lang="java">// MatchAll on the whole cluster with all default options
 SearchResponse response = client.prepareSearch().get();</code></pre>
 </div>
 </div>
@@ -2478,7 +2475,7 @@ SearchResponse response = client.prepareSearch().get();</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import static org.elasticsearch.index.query.QueryBuilders.*;
+<pre class="highlight"><code class="language-java" data-lang="java">import static org.elasticsearch.index.query.QueryBuilders.*;
 
 QueryBuilder qb = termQuery("multi", "test");
 
@@ -2516,7 +2513,7 @@ do {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SearchRequestBuilder srb1 = client
+<pre class="highlight"><code class="language-java" data-lang="java">SearchRequestBuilder srb1 = client
     .prepareSearch().setQuery(QueryBuilders.queryStringQuery("elasticsearch")).setSize(1);
 SearchRequestBuilder srb2 = client
     .prepareSearch().setQuery(QueryBuilders.matchQuery("name", "kimchy")).setSize(1);
@@ -2549,7 +2546,7 @@ for (MultiSearchResponse.Item item : sr.getResponses()) { <i class="conum" data-
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SearchResponse sr = client.prepareSearch()
+<pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = client.prepareSearch()
     .setQuery(QueryBuilders.matchAllQuery())
     .addAggregation(
             AggregationBuilders.terms("agg1").field("field")
@@ -2585,7 +2582,7 @@ Histogram agg2 = sr.getAggregations().get("agg2");</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SearchResponse sr = client.prepareSearch(INDEX)
+<pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = client.prepareSearch(INDEX)
     .setTerminateAfter(1000)    <i class="conum" data-value="1"></i><b>(1)</b>
     .get();
 
@@ -2613,7 +2610,7 @@ if (sr.isTerminatedEarly()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">Map&lt;String, Object&gt; template_params = new HashMap&lt;&gt;();
+<pre class="highlight"><code class="language-java" data-lang="java">Map&lt;String, Object&gt; template_params = new HashMap&lt;&gt;();
 template_params.put("param_gender", "male");</code></pre>
 </div>
 </div>
@@ -2623,7 +2620,7 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="js">{
+<pre class="highlight"><code class="language-js" data-lang="js">{
     "query" : {
         "match" : {
             "gender" : "{{param_gender}}"
@@ -2637,7 +2634,7 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SearchResponse sr = new SearchTemplateRequestBuilder(client)
+<pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = new SearchTemplateRequestBuilder(client)
     .setScript("template_gender")                 <i class="conum" data-value="1"></i><b>(1)</b>
     .setScriptType(ScriptService.ScriptType.FILE) <i class="conum" data-value="2"></i><b>(2)</b>
     .setScriptParams(template_params)             <i class="conum" data-value="3"></i><b>(3)</b>
@@ -2679,7 +2676,7 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">client.admin().cluster().preparePutStoredScript()
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().cluster().preparePutStoredScript()
     .setScriptLang("mustache")
     .setId("template_gender")
     .setSource(new BytesArray(
@@ -2697,7 +2694,7 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SearchResponse sr = new SearchTemplateRequestBuilder(client)
+<pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = new SearchTemplateRequestBuilder(client)
         .setScript("template_gender")         <i class="conum" data-value="1"></i><b>(1)</b>
         .setScriptType(ScriptType.STORED)     <i class="conum" data-value="2"></i><b>(2)</b>
         .setScriptParams(template_params)     <i class="conum" data-value="3"></i><b>(3)</b>
@@ -2739,7 +2736,7 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">sr = new SearchTemplateRequestBuilder(client)
+<pre class="highlight"><code class="language-java" data-lang="java">sr = new SearchTemplateRequestBuilder(client)
         .setScript("{\n" +                   <i class="conum" data-value="1"></i><b>(1)</b>
                 "        \"query\" : {\n" +
                 "            \"match\" : {\n" +
@@ -2786,43 +2783,59 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-aggs">7. Aggregations</h2>
+<h2 id="java-aggs">7. Aggregations(聚合)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Elasticsearch provides a full Java API to play with aggregations. See the
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html">Aggregations guide</a>.</p>
+<p>Elasticsearch 提供了完整的 Java API 来使用aggregation.
+请查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html">Aggregations guide</a>。</p>
 </div>
 <div class="paragraph">
-<p>Use the factory for aggregation builders (<code>AggregationBuilders</code>) and add each aggregation
-you want to compute when querying and add it to your search request:</p>
+<p>使用factory来构建聚合( <code>AggregationBuilders</code> )，并将需要统计的聚合加入到查询语句中:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SearchResponse sr = node.client().prepareSearch()
+<pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = node.client().prepareSearch()
         .setQuery( /* your query */ )
         .addAggregation( /* add an aggregation */ )
         .execute().actionGet();</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Note that you can add more than one aggregation. See
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-search.html">Search Java API</a> for details.</p>
+<p>注意，这里可以添加多个聚合。
+详情请查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-search.html">Search Java API</a> 。</p>
 </div>
 <div class="paragraph">
-<p>To build aggregation requests, use <code>AggregationBuilders</code> helpers. Just import them
-in your class:</p>
+<p>为了构建聚合请求，可以使用内置的 <code>AggregationBuilders</code> 助手。
+只需要在你的类中引入:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.AggregationBuilders;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.AggregationBuilders;</code></pre>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_structuring_aggregations">7.1. Structuring aggregations</h3>
 <div class="paragraph">
-<p>As explained in the
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html">Aggregations guide</a>, you can define
-sub aggregations inside an aggregation.</p>
+<p>如 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html">Aggregations guide</a> 所述，你可以在聚合中定义子聚合。</p>
+</div>
+<div class="paragraph">
+<p>聚合可以是 <strong>指标（Metrics）</strong> 聚合或者是 <strong>桶（Buckets）</strong> 聚合。</p>
+</div>
+<div class="paragraph">
+<p>例如，这个例子里有3个聚合，分别由下面这些部分组成：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>条件聚合(桶)</p>
+</li>
+<li>
+<p>日期柱状图聚合(桶)</p>
+</li>
+<li>
+<p>平均值聚合(指标)</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>An aggregation could be a metrics aggregation or a bucket aggregation.</p>
@@ -2845,7 +2858,7 @@ sub aggregations inside an aggregation.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SearchResponse sr = node.client().prepareSearch()
+<pre class="highlight"><code class="language-java" data-lang="java">SearchResponse sr = node.client().prepareSearch()
     .addAggregation(
         AggregationBuilders.terms("by_country").field("country")
         .subAggregation(AggregationBuilders.dateHistogram("by_year")
@@ -2874,7 +2887,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">MinAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">MinAggregationBuilder aggregation =
         AggregationBuilders
                 .min("agg")
                 .field("height");</code></pre>
@@ -2888,12 +2901,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.min.Min;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.min.Min;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Min agg = sr.getAggregations().get("agg");
 double value = agg.getValue();</code></pre>
 </div>
@@ -2914,7 +2927,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">MaxAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">MaxAggregationBuilder aggregation =
         AggregationBuilders
                 .max("agg")
                 .field("height");</code></pre>
@@ -2928,12 +2941,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.max.Max;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.max.Max;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Max agg = sr.getAggregations().get("agg");
 double value = agg.getValue();</code></pre>
 </div>
@@ -2954,7 +2967,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">SumAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">SumAggregationBuilder aggregation =
         AggregationBuilders
                 .sum("agg")
                 .field("height");</code></pre>
@@ -2968,12 +2981,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.sum.Sum;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.sum.Sum;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Sum agg = sr.getAggregations().get("agg");
 double value = agg.getValue();</code></pre>
 </div>
@@ -2994,7 +3007,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AvgAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AvgAggregationBuilder aggregation =
         AggregationBuilders
                 .avg("agg")
                 .field("height");</code></pre>
@@ -3008,12 +3021,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.avg.Avg;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.avg.Avg;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Avg agg = sr.getAggregations().get("agg");
 double value = agg.getValue();</code></pre>
 </div>
@@ -3034,7 +3047,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">StatsAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">StatsAggregationBuilder aggregation =
         AggregationBuilders
                 .stats("agg")
                 .field("height");</code></pre>
@@ -3048,12 +3061,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.stats.Stats;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.stats.Stats;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Stats agg = sr.getAggregations().get("agg");
 double min = agg.getMin();
 double max = agg.getMax();
@@ -3078,7 +3091,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ExtendedStatsAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">ExtendedStatsAggregationBuilder aggregation =
         AggregationBuilders
                 .extendedStats("agg")
                 .field("height");</code></pre>
@@ -3092,12 +3105,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.stats.extended.ExtendedStats;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.stats.extended.ExtendedStats;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 ExtendedStats agg = sr.getAggregations().get("agg");
 double min = agg.getMin();
 double max = agg.getMax();
@@ -3125,7 +3138,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ValueCountAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">ValueCountAggregationBuilder aggregation =
         AggregationBuilders
                 .count("agg")
                 .field("height");</code></pre>
@@ -3139,12 +3152,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.valuecount.ValueCount;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.valuecount.ValueCount;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 ValueCount agg = sr.getAggregations().get("agg");
 long value = agg.getValue();</code></pre>
 </div>
@@ -3165,7 +3178,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">PercentilesAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">PercentilesAggregationBuilder aggregation =
         AggregationBuilders
                 .percentiles("agg")
                 .field("height");</code></pre>
@@ -3176,7 +3189,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">PercentilesAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">PercentilesAggregationBuilder aggregation =
         AggregationBuilders
                 .percentiles("agg")
                 .field("height")
@@ -3191,13 +3204,13 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.percentiles.Percentile;
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.percentiles.Percentile;
 import org.elasticsearch.search.aggregations.metrics.percentiles.Percentiles;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Percentiles agg = sr.getAggregations().get("agg");
 // For each entry
 for (Percentile entry : agg) {
@@ -3213,7 +3226,7 @@ for (Percentile entry : agg) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">percent [1.0], value [0.814338896154595]
+<pre class="highlight"><code class="language-text" data-lang="text">percent [1.0], value [0.814338896154595]
 percent [5.0], value [0.8761912455821302]
 percent [25.0], value [1.173346540141847]
 percent [50.0], value [1.5432023318692198]
@@ -3238,7 +3251,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">PercentileRanksAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">PercentileRanksAggregationBuilder aggregation =
         AggregationBuilders
                 .percentileRanks("agg")
                 .field("height")
@@ -3253,13 +3266,13 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.percentiles.Percentile;
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.percentiles.Percentile;
 import org.elasticsearch.search.aggregations.metrics.percentiles.PercentileRanks;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 PercentileRanks agg = sr.getAggregations().get("agg");
 // For each entry
 for (Percentile entry : agg) {
@@ -3275,7 +3288,7 @@ for (Percentile entry : agg) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">percent [29.664353095090945], value [1.24]
+<pre class="highlight"><code class="language-text" data-lang="text">percent [29.664353095090945], value [1.24]
 percent [73.9335313461868], value [1.91]
 percent [94.40095147327283], value [2.22]</code></pre>
 </div>
@@ -3296,7 +3309,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">CardinalityAggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">CardinalityAggregationBuilder aggregation =
         AggregationBuilders
                 .cardinality("agg")
                 .field("tags");</code></pre>
@@ -3310,12 +3323,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.cardinality.Cardinality;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.cardinality.Cardinality;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Cardinality agg = sr.getAggregations().get("agg");
 long value = agg.getValue();</code></pre>
 </div>
@@ -3336,7 +3349,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">GeoBoundsBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">GeoBoundsBuilder aggregation =
         GeoBoundsAggregationBuilder
                 .geoBounds("agg")
                 .field("address.location")
@@ -3351,12 +3364,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.metrics.geobounds.GeoBounds;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.metrics.geobounds.GeoBounds;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 GeoBounds agg = sr.getAggregations().get("agg");
 GeoPoint bottomRight = agg.bottomRight();
 GeoPoint topLeft = agg.topLeft();
@@ -3368,7 +3381,7 @@ logger.info("bottomRight {}, topLeft {}", bottomRight, topLeft);</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">bottomRight [40.70500764381921, 13.952946866893775], topLeft [53.49603022435221, -4.190029308156676]</code></pre>
+<pre class="highlight"><code class="language-text" data-lang="text">bottomRight [40.70500764381921, 13.952946866893775], topLeft [53.49603022435221, -4.190029308156676]</code></pre>
 </div>
 </div>
 </div>
@@ -3387,7 +3400,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
     AggregationBuilders
         .terms("agg").field("gender")
         .subAggregation(
@@ -3400,7 +3413,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
     AggregationBuilders
         .terms("agg").field("gender")
         .subAggregation(
@@ -3419,13 +3432,13 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.terms.Terms;
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.terms.Terms;
 import org.elasticsearch.search.aggregations.metrics.tophits.TopHits;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Terms agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -3447,7 +3460,7 @@ for (Terms.Bucket entry : agg.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [male], doc_count [5107]
+<pre class="highlight"><code class="language-text" data-lang="text">key [male], doc_count [5107]
  -&gt; id [AUnzSZze9k7PKXtq04x2], _source [{"gender":"male",...}]
  -&gt; id [AUnzSZzj9k7PKXtq04x4], _source [{"gender":"male",...}]
  -&gt; id [AUnzSZzl9k7PKXtq04x5], _source [{"gender":"male",...}]
@@ -3473,7 +3486,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
     .scriptedMetric("agg")
     .initScript(new Script("state.heights = []"))
     .mapScript(new Script("state.heights.add(doc.gender.value == 'male' ? doc.height.value : -1.0 * doc.height.value)"));</code></pre>
@@ -3484,7 +3497,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
     .scriptedMetric("agg")
     .initScript(new Script("state.heights = []"))
     .mapScript(new Script("state.heights.add(doc.gender.value == 'male' ? doc.height.value : -1.0 * doc.height.value)"))
@@ -3496,7 +3509,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
     .scriptedMetric("agg")
     .initScript(new Script("state.heights = []"))
     .mapScript(new Script("state.heights.add(doc.gender.value == 'male' ? doc.height.value : -1.0 * doc.height.value)"))
@@ -3512,13 +3525,13 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.terms.Terms;
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.terms.Terms;
 import org.elasticsearch.search.aggregations.metrics.tophits.TopHits;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 ScriptedMetric agg = sr.getAggregations().get("agg");
 Object scriptedResult = agg.aggregation();
 logger.info("scriptedResult [{}]", scriptedResult);</code></pre>
@@ -3530,7 +3543,7 @@ For the first example, this will basically produce:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">scriptedResult object [ArrayList]
+<pre class="highlight"><code class="language-text" data-lang="text">scriptedResult object [ArrayList]
 scriptedResult [ {
 "heights" : [ 1.122218480146643, -1.8148918111233887, -1.7626731575142909, ... ]
 }, {
@@ -3549,7 +3562,7 @@ scriptedResult [ {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">scriptedResult object [ArrayList]
+<pre class="highlight"><code class="language-text" data-lang="text">scriptedResult object [ArrayList]
 scriptedResult [-41.279615707402876,
                 -60.88007362339038,
                 38.823270659734256,
@@ -3562,7 +3575,7 @@ scriptedResult [-41.279615707402876,
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">scriptedResult object [Double]
+<pre class="highlight"><code class="language-text" data-lang="text">scriptedResult object [Double]
 scriptedResult [2.171917696507009]</code></pre>
 </div>
 </div>
@@ -3585,7 +3598,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders
     .global("agg")
     .subAggregation(AggregationBuilders.terms("genders").field("gender"));</code></pre>
 </div>
@@ -3598,12 +3611,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.global.Global;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.global.Global;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Global agg = sr.getAggregations().get("agg");
 agg.getDocCount(); // Doc count</code></pre>
 </div>
@@ -3624,7 +3637,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders
     .filter("agg", QueryBuilders.termQuery("gender", "male"));</code></pre>
 </div>
 </div>
@@ -3636,12 +3649,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.filter.Filter;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.filter.Filter;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Filter agg = sr.getAggregations().get("agg");
 agg.getDocCount(); // Doc count</code></pre>
 </div>
@@ -3662,7 +3675,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
     AggregationBuilders
         .filters("agg",
             new FiltersAggregator.KeyedFilter("men", QueryBuilders.termQuery("gender", "male")),
@@ -3677,12 +3690,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.filters.Filters;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.filters.Filters;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Filters agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -3698,7 +3711,7 @@ for (Filters.Bucket entry : agg.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [men], doc_count [4982]
+<pre class="highlight"><code class="language-text" data-lang="text">key [men], doc_count [4982]
 key [women], doc_count [5018]</code></pre>
 </div>
 </div>
@@ -3718,7 +3731,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders.missing("agg").field("gender");</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders.missing("agg").field("gender");</code></pre>
 </div>
 </div>
 </div>
@@ -3729,12 +3742,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.missing.Missing;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.missing.Missing;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Missing agg = sr.getAggregations().get("agg");
 agg.getDocCount(); // Doc count</code></pre>
 </div>
@@ -3755,7 +3768,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders
     .nested("agg", "resellers");</code></pre>
 </div>
 </div>
@@ -3767,12 +3780,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.nested.Nested;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.nested.Nested;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Nested agg = sr.getAggregations().get("agg");
 agg.getDocCount(); // Doc count</code></pre>
 </div>
@@ -3793,7 +3806,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
     AggregationBuilders
         .nested("agg", "resellers")
         .subAggregation(
@@ -3814,14 +3827,14 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.nested.Nested;
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.nested.Nested;
 import org.elasticsearch.search.aggregations.bucket.nested.ReverseNested;
 import org.elasticsearch.search.aggregations.bucket.terms.Terms;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Nested agg = sr.getAggregations().get("agg");
 Terms name = agg.getAggregations().get("name");
 for (Terms.Bucket bucket : name.getBuckets()) {
@@ -3846,7 +3859,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
     AggregationBuilders
         .children("agg", "reseller"); <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
@@ -3866,12 +3879,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.join.aggregations.Children;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.join.aggregations.Children;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Children agg = sr.getAggregations().get("agg");
 agg.getDocCount(); // Doc count</code></pre>
 </div>
@@ -3892,7 +3905,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders
     .terms("genders")
     .field("gender");</code></pre>
 </div>
@@ -3905,12 +3918,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.terms.Terms;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.terms.Terms;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Terms genders = sr.getAggregations().get("genders");
 
 // For each entry
@@ -3928,7 +3941,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.BucketOrder;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.BucketOrder;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3936,7 +3949,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders
     .terms("genders")
     .field("gender")
     .order(BucketOrder.count(true))</code></pre>
@@ -3947,7 +3960,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders
     .terms("genders")
     .field("gender")
     .order(BucketOrder.key(true))</code></pre>
@@ -3958,7 +3971,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders
     .terms("genders")
     .field("gender")
     .order(BucketOrder.aggregation("avg_height", false))
@@ -3972,7 +3985,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilders
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilders
     .terms("genders")
     .field("gender")
     .order(BucketOrder.compound( // in order of priority:
@@ -3999,7 +4012,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
         AggregationBuilders
                 .significantTerms("significant_countries")
                 .field("address.country");
@@ -4019,12 +4032,12 @@ SearchResponse sr = client.prepareSearch()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.significant.SignificantTerms;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.significant.SignificantTerms;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 SignificantTerms agg = sr.getAggregations().get("significant_countries");
 
 // For each entry
@@ -4050,7 +4063,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
         AggregationBuilders
                 .range("agg")
                 .field("height")
@@ -4067,12 +4080,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.range.Range;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.range.Range;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Range agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -4091,7 +4104,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [*-1.0], from [-Infinity], to [1.0], doc_count [9]
+<pre class="highlight"><code class="language-text" data-lang="text">key [*-1.0], from [-Infinity], to [1.0], doc_count [9]
 key [1.0-1.5], from [1.0], to [1.5], doc_count [21]
 key [1.5-*], from [1.5], to [Infinity], doc_count [20]</code></pre>
 </div>
@@ -4112,7 +4125,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
         AggregationBuilders
                 .dateRange("agg")
                 .field("dateOfBirth")
@@ -4130,12 +4143,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.range.Range;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.range.Range;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Range agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -4154,7 +4167,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [*-1950], from [null], to [1950-01-01T00:00:00.000Z], doc_count [8]
+<pre class="highlight"><code class="language-text" data-lang="text">key [*-1950], from [null], to [1950-01-01T00:00:00.000Z], doc_count [8]
 key [1950-1960], from [1950-01-01T00:00:00.000Z], to [1960-01-01T00:00:00.000Z], doc_count [5]
 key [1960-*], from [1960-01-01T00:00:00.000Z], to [null], doc_count [37]</code></pre>
 </div>
@@ -4175,7 +4188,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregatorBuilder&lt;?&gt; aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregatorBuilder&lt;?&gt; aggregation =
         AggregationBuilders
                 .ipRange("agg")
                 .field("ip")
@@ -4189,7 +4202,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregatorBuilder&lt;?&gt; aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregatorBuilder&lt;?&gt; aggregation =
         AggregationBuilders
                 .ipRange("agg")
                 .field("ip")
@@ -4206,12 +4219,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.range.Range;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.range.Range;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Range agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -4230,7 +4243,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [*-192.168.1.0], from [null], to [192.168.1.0], doc_count [13]
+<pre class="highlight"><code class="language-text" data-lang="text">key [*-192.168.1.0], from [null], to [192.168.1.0], doc_count [13]
 key [192.168.1.0-192.168.2.0], from [192.168.1.0], to [192.168.2.0], doc_count [14]
 key [192.168.2.0-*], from [192.168.2.0], to [null], doc_count [23]</code></pre>
 </div>
@@ -4240,7 +4253,7 @@ key [192.168.2.0-*], from [192.168.2.0], to [null], doc_count [23]</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [192.168.0.0/32], from [192.168.0.0], to [192.168.0.1], doc_count [0]
+<pre class="highlight"><code class="language-text" data-lang="text">key [192.168.0.0/32], from [192.168.0.0], to [192.168.0.1], doc_count [0]
 key [192.168.0.0/24], from [192.168.0.0], to [192.168.1.0], doc_count [13]
 key [192.168.0.0/16], from [192.168.0.0], to [192.169.0.0], doc_count [50]</code></pre>
 </div>
@@ -4261,7 +4274,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
         AggregationBuilders
                 .histogram("agg")
                 .field("height")
@@ -4276,12 +4289,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.histogram.Histogram;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.histogram.Histogram;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Histogram agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -4315,7 +4328,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
         AggregationBuilders
                 .dateHistogram("agg")
                 .field("dateOfBirth")
@@ -4327,7 +4340,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
         AggregationBuilders
                 .dateHistogram("agg")
                 .field("dateOfBirth")
@@ -4342,12 +4355,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.histogram.Histogram;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.histogram.Histogram;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Histogram agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -4365,7 +4378,7 @@ for (Histogram.Bucket entry : agg.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [1942-01-01T00:00:00.000Z], date [1942], doc_count [1]
+<pre class="highlight"><code class="language-text" data-lang="text">key [1942-01-01T00:00:00.000Z], date [1942], doc_count [1]
 key [1945-01-01T00:00:00.000Z], date [1945], doc_count [1]
 key [1946-01-01T00:00:00.000Z], date [1946], doc_count [1]
 ...
@@ -4396,7 +4409,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
         AggregationBuilders
                 .geoDistance("agg", new GeoPoint(48.84237171118314,2.33320027692004))
                 .field("address.location")
@@ -4414,12 +4427,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.range.Range;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.range.Range;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 Range agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -4438,7 +4451,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [*-3.0], from [0.0], to [3.0], doc_count [161]
+<pre class="highlight"><code class="language-text" data-lang="text">key [*-3.0], from [0.0], to [3.0], doc_count [161]
 key [3.0-10.0], from [3.0], to [10.0], doc_count [460]
 key [10.0-500.0], from [10.0], to [500.0], doc_count [4925]</code></pre>
 </div>
@@ -4459,7 +4472,7 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AggregationBuilder aggregation =
+<pre class="highlight"><code class="language-java" data-lang="java">AggregationBuilder aggregation =
         AggregationBuilders
                 .geohashGrid("agg")
                 .field("address.location")
@@ -4474,12 +4487,12 @@ with Java API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import org.elasticsearch.search.aggregations.bucket.geogrid.GeoHashGrid;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import org.elasticsearch.search.aggregations.bucket.geogrid.GeoHashGrid;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// sr is here your SearchResponse object
+<pre class="highlight"><code class="language-java" data-lang="java">// sr is here your SearchResponse object
 GeoHashGrid agg = sr.getAggregations().get("agg");
 
 // For each entry
@@ -4497,7 +4510,7 @@ for (GeoHashGrid.Bucket entry : agg.getBuckets()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="text">key [gbqu], point [47.197265625, -1.58203125], doc_count [1282]
+<pre class="highlight"><code class="language-text" data-lang="text">key [gbqu], point [47.197265625, -1.58203125], doc_count [1282]
 key [gbvn], point [50.361328125, -4.04296875], doc_count [1248]
 key [u1j0], point [50.712890625, 7.20703125], doc_count [1156]
 key [u0j2], point [45.087890625, 7.55859375], doc_count [1138]
@@ -4523,7 +4536,7 @@ builders is <code>QueryBuilders</code>. Once your query is ready, you can use th
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import static org.elasticsearch.index.query.QueryBuilders.*;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import static org.elasticsearch.index.query.QueryBuilders.*;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4541,7 +4554,7 @@ such as <code>count</code> and <code>search</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[match_all]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">include-tagged::{query-dsl-test}[match_all]</code></pre>
 </div>
 </div>
 </div>
@@ -4591,7 +4604,9 @@ for exposing directly to users.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[match]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">matchQuery(
+        "name", <i class="conum" data-value="1"></i><b>(1)</b>
+        "kimchy elasticsearch"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4614,7 +4629,9 @@ for exposing directly to users.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[multi_match]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">multiMatchQuery(
+        "kimchy elasticsearch", <i class="conum" data-value="1"></i><b>(1)</b>
+        "user", "message"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4637,7 +4654,8 @@ for exposing directly to users.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[common_terms]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">commonTermsQuery("name", <i class="conum" data-value="1"></i><b>(1)</b>
+                 "kimchy"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4660,7 +4678,7 @@ for exposing directly to users.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[query_string]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">queryStringQuery("+kimchy -elasticsearch");</code></pre>
 </div>
 </div>
 </div>
@@ -4671,7 +4689,7 @@ for exposing directly to users.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[simple_query_string]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">simpleQueryStringQuery("+kimchy -elasticsearch");</code></pre>
 </div>
 </div>
 </div>
@@ -4752,7 +4770,9 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[term]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">termQuery(
+        "name", <i class="conum" data-value="1"></i><b>(1)</b>
+        "kimchy"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4775,7 +4795,8 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[terms]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">termsQuery("tags", <i class="conum" data-value="1"></i><b>(1)</b>
+        "blue", "pill"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4798,7 +4819,11 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[range]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">rangeQuery("price") <i class="conum" data-value="1"></i><b>(1)</b>
+    .from(5) <i class="conum" data-value="2"></i><b>(2)</b>
+    .to(10) <i class="conum" data-value="3"></i><b>(3)</b>
+    .includeLower(true) <i class="conum" data-value="4"></i><b>(4)</b>
+    .includeUpper(false);  <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4827,7 +4852,10 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[range_simplified]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">// A simplified form using gte, gt, lt or lte
+rangeQuery("age") <i class="conum" data-value="1"></i><b>(1)</b>
+    .gte("10") <i class="conum" data-value="2"></i><b>(2)</b>
+    .lt("20"); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4854,7 +4882,7 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[exists]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">existsQuery("name"); <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4873,7 +4901,9 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[prefix]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">prefixQuery(
+        "brand", <i class="conum" data-value="1"></i><b>(1)</b>
+        "heine"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4896,7 +4926,9 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[wildcard]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">wildcardQuery(
+        "user", <i class="conum" data-value="1"></i><b>(1)</b>
+        "k?mch*"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4919,7 +4951,9 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[regexp]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">regexpQuery(
+        "name.first", <i class="conum" data-value="1"></i><b>(1)</b>
+        "s.*y"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4942,7 +4976,9 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[fuzzy]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">fuzzyQuery(
+        "name", <i class="conum" data-value="1"></i><b>(1)</b>
+        "kimchy"); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4965,7 +5001,7 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[type]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">typeQuery("my_type"); <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -4984,7 +5020,11 @@ of 1 or 2.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[ids]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">idsQuery("my_type", "type2")
+        .addIds("1", "4", "100");
+
+idsQuery() <i class="conum" data-value="1"></i><b>(1)</b>
+        .addIds("1", "4", "100");</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5047,7 +5087,9 @@ documents which also match a <code>negative</code> query.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[constant_score]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">constantScoreQuery(
+        termQuery("name","kimchy"))            <i class="conum" data-value="1"></i><b>(1)</b>
+    .boost(2.0f); <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5068,7 +5110,12 @@ documents which also match a <code>negative</code> query.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[bool]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">boolQuery()
+        .must(termQuery("content", "test1")) <i class="conum" data-value="1"></i><b>(1)</b>
+        .must(termQuery("content", "test4")) <i class="conum" data-value="1"></i><b>(1)</b>
+        .mustNot(termQuery("content", "test2")) <i class="conum" data-value="2"></i><b>(2)</b>
+        .should(termQuery("content", "test3")) <i class="conum" data-value="3"></i><b>(3)</b>
+        .filter(termQuery("content", "test5"));  <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5097,7 +5144,11 @@ documents which also match a <code>negative</code> query.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[dis_max]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">disMaxQuery()
+        .add(termQuery("name", "kimchy")) <i class="conum" data-value="1"></i><b>(1)</b>
+        .add(termQuery("name", "elasticsearch")) <i class="conum" data-value="2"></i><b>(2)</b>
+        .boost(1.2f) <i class="conum" data-value="3"></i><b>(3)</b>
+        .tieBreaker(0.7f); <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5129,12 +5180,19 @@ documents which also match a <code>negative</code> query.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">import static org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders.*;</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">import static org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders.*;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[function_score]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">FilterFunctionBuilder[] functions = {
+        new FunctionScoreQueryBuilder.FilterFunctionBuilder(
+                matchQuery("name", "kimchy"), <i class="conum" data-value="1"></i><b>(1)</b>
+                randomFunction()), <i class="conum" data-value="2"></i><b>(2)</b>
+        new FunctionScoreQueryBuilder.FilterFunctionBuilder(
+                exponentialDecayFunction("age", 0L, 1L)) <i class="conum" data-value="3"></i><b>(3)</b>
+};
+functionScoreQuery(functions);</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5159,7 +5217,10 @@ documents which also match a <code>negative</code> query.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[boosting]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">boostingQuery(
+            termQuery("name","kimchy"), <i class="conum" data-value="1"></i><b>(1)</b>
+            termQuery("name","dadoonet")) <i class="conum" data-value="2"></i><b>(2)</b>
+        .negativeBoost(0.2f);   <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5212,7 +5273,12 @@ specified query.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[nested]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">nestedQuery(
+        "obj1", <i class="conum" data-value="1"></i><b>(1)</b>
+        boolQuery() <i class="conum" data-value="2"></i><b>(2)</b>
+                .must(matchQuery("obj1.name", "blue"))
+                .must(rangeQuery("obj1.count").gt(5)),
+        ScoreMode.Avg); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5242,7 +5308,7 @@ specified query.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">Settings settings = Settings.builder().put("cluster.name", "elasticsearch").build();
+<pre class="highlight"><code class="language-java" data-lang="java">Settings settings = Settings.builder().put("cluster.name", "elasticsearch").build();
 TransportClient client = new PreBuiltTransportClient(settings);
 client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddresses.forString("127.0.0.1"), 9300)));</code></pre>
 </div>
@@ -5252,7 +5318,10 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[has_child]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">JoinQueryBuilders.hasChildQuery(
+        "blog_tag", <i class="conum" data-value="1"></i><b>(1)</b>
+        termQuery("tag","something"), <i class="conum" data-value="2"></i><b>(2)</b>
+        ScoreMode.None);        <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5282,7 +5351,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">Settings settings = Settings.builder().put("cluster.name", "elasticsearch").build();
+<pre class="highlight"><code class="language-java" data-lang="java">Settings settings = Settings.builder().put("cluster.name", "elasticsearch").build();
 TransportClient client = new PreBuiltTransportClient(settings);
 client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddresses.forString("127.0.0.1"), 9300)));</code></pre>
 </div>
@@ -5292,7 +5361,10 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[has_parent]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">JoinQueryBuilders.hasParentQuery(
+    "blog",                           <i class="conum" data-value="1"></i><b>(1)</b>
+    termQuery("tag","something"), <i class="conum" data-value="2"></i><b>(2)</b>
+    false); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5357,7 +5429,7 @@ to your classpath in order to use this type:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="xml">&lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.locationtech.spatial4j&lt;/groupId&gt;
     &lt;artifactId&gt;spatial4j&lt;/artifactId&gt;
     &lt;version&gt;0.7&lt;/version&gt;                        <i class="conum" data-value="1"></i><b>(1)</b>
@@ -5390,14 +5462,24 @@ to your classpath in order to use this type:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// Import ShapeRelation and ShapeBuilder
+<pre class="highlight"><code class="language-java" data-lang="java">// Import ShapeRelation and ShapeBuilder
 import org.elasticsearch.common.geo.ShapeRelation;
 import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[geo_shape]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">GeoShapeQueryBuilder qb = geoShapeQuery(
+        "pin.location", <i class="conum" data-value="1"></i><b>(1)</b>
+        new MultiPointBuilder( <i class="conum" data-value="2"></i><b>(2)</b>
+                new CoordinatesBuilder()
+            .coordinate(0, 0)
+            .coordinate(0, 10)
+            .coordinate(10, 10)
+            .coordinate(10, 0)
+            .coordinate(0, 0)
+            .build()));
+qb.relation(ShapeRelation.WITHIN); <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5418,7 +5500,14 @@ import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[indexed_geo_shape]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">// Using pre-indexed shapes
+GeoShapeQueryBuilder qb = geoShapeQuery(
+            "pin.location", <i class="conum" data-value="1"></i><b>(1)</b>
+            "DEU", <i class="conum" data-value="2"></i><b>(2)</b>
+            "countries"); <i class="conum" data-value="3"></i><b>(3)</b>
+qb.relation(ShapeRelation.WITHIN) <i class="conum" data-value="4"></i><b>(4)</b>
+    .indexedShapeIndex("shapes") <i class="conum" data-value="5"></i><b>(5)</b>
+    .indexedShapePath("location");  <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5457,7 +5546,9 @@ import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[geo_bounding_box]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">geoBoundingBoxQuery("pin.location")              <i class="conum" data-value="1"></i><b>(1)</b>
+    .setCorners(40.73, -74.1,                    <i class="conum" data-value="2"></i><b>(2)</b>
+                40.717, -73.99);   <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5484,7 +5575,9 @@ import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[geo_distance]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">geoDistanceQuery("pin.location")                <i class="conum" data-value="1"></i><b>(1)</b>
+    .point(40, -70)                             <i class="conum" data-value="2"></i><b>(2)</b>
+    .distance(200, DistanceUnit.KILOMETERS);    <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5511,7 +5604,11 @@ import org.elasticsearch.common.geo.builders.ShapeBuilder;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[geo_polygon]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">List&lt;GeoPoint&gt; points = new ArrayList&lt;GeoPoint&gt;(); <i class="conum" data-value="1"></i><b>(1)</b>
+points.add(new GeoPoint(40, -70));
+points.add(new GeoPoint(30, -80));
+points.add(new GeoPoint(20, -90));
+geoPolygonQuery("pin.location", points);            <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5562,7 +5659,12 @@ or collection of documents.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[more_like_this]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">String[] fields = {"name.first", "name.last"}; <i class="conum" data-value="1"></i><b>(1)</b>
+String[] texts = {"text like this one"};        <i class="conum" data-value="2"></i><b>(2)</b>
+
+moreLikeThisQuery(fields, texts, null)
+    .minTermFreq(1)                         <i class="conum" data-value="3"></i><b>(3)</b>
+    .maxQueryTerms(12);                     <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5593,7 +5695,9 @@ or collection of documents.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[script_inline]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">scriptQuery(
+        new Script("doc['num1'].value &gt; 1")     <i class="conum" data-value="1"></i><b>(1)</b>
+    );</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5609,7 +5713,7 @@ or collection of documents.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="painless">doc['num1'].value &gt; params.param1</code></pre>
+<pre class="highlight"><code class="language-painless" data-lang="painless">doc['num1'].value &gt; params.param1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5617,7 +5721,13 @@ or collection of documents.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[script_file]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">Map&lt;String, Object&gt; parameters = new HashMap&lt;&gt;();
+parameters.put("param1", 5);
+scriptQuery(new Script(
+        ScriptType.STORED,                          <i class="conum" data-value="1"></i><b>(1)</b>
+        null,                                       <i class="conum" data-value="2"></i><b>(2)</b>
+        "myscript",                                 <i class="conum" data-value="3"></i><b>(3)</b>
+        singletonMap("param1", 5)));                <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5649,7 +5759,7 @@ or collection of documents.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">Settings settings = Settings.builder().put("cluster.name", "elasticsearch").build();
+<pre class="highlight"><code class="language-java" data-lang="java">Settings settings = Settings.builder().put("cluster.name", "elasticsearch").build();
 TransportClient client = new PreBuiltTransportClient(settings);
 client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddresses.forString("127.0.0.1"), 9300)));</code></pre>
 </div>
@@ -5660,7 +5770,7 @@ a document containing a percolator query should be indexed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">// create an index with a percolator field with the name 'query':
+<pre class="highlight"><code class="language-java" data-lang="java">// create an index with a percolator field with the name 'query':
 client.admin().indices().prepareCreate("myIndexName")
                         .addMapping("_doc", "query", "type=percolator", "content", "type=text")
                         .get();
@@ -5688,7 +5798,7 @@ code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">//Build a document to check against the percolator
+<pre class="highlight"><code class="language-java" data-lang="java">//Build a document to check against the percolator
 XContentBuilder docBuilder = XContentFactory.jsonBuilder().startObject();
 docBuilder.field("content", "This is amazing!");
 docBuilder.endObject(); //End of the JSON root object
@@ -5713,7 +5823,8 @@ for(SearchHit hit : response.getHits()) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[wrapper]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">String query = "{\"term\": {\"user\": \"kimchy\"}}"; <i class="conum" data-value="1"></i><b>(1)</b>
+wrapperQuery(query);</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5788,7 +5899,9 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[span_term]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanTermQuery(
+        "user",  <i class="conum" data-value="1"></i><b>(1)</b>
+        "kimchy");  <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5811,7 +5924,8 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[span_multi]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanMultiTermQueryBuilder(
+        prefixQuery("user", "ki"));  <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5831,7 +5945,10 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[span_first]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanFirstQuery(
+        spanTermQuery("user", "kimchy"),  <i class="conum" data-value="1"></i><b>(1)</b>
+        3                                  <i class="conum" data-value="2"></i><b>(2)</b>
+    );</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5854,7 +5971,12 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[span_near]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanNearQuery(
+        spanTermQuery("field","value1"),                <i class="conum" data-value="1"></i><b>(1)</b>
+        12)                                             <i class="conum" data-value="2"></i><b>(2)</b>
+            .addClause(spanTermQuery("field","value2")) <i class="conum" data-value="3"></i><b>(3)</b>
+            .addClause(spanTermQuery("field","value3")) <i class="conum" data-value="4"></i><b>(4)</b>
+            .inOrder(false);                            <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5881,7 +6003,9 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[span_or]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanOrQuery(spanTermQuery("field","value1"))        <i class="conum" data-value="1"></i><b>(1)</b>
+    .addClause(spanTermQuery("field","value2"))     <i class="conum" data-value="2"></i><b>(2)</b>
+    .addClause(spanTermQuery("field","value3"));    <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5900,7 +6024,9 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[span_not]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanNotQuery(
+        spanTermQuery("field","value1"),    <i class="conum" data-value="1"></i><b>(1)</b>
+        spanTermQuery("field","value2"));   <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5923,7 +6049,11 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[span_containing]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanContainingQuery(
+        spanNearQuery(spanTermQuery("field1","bar"), 5)     <i class="conum" data-value="1"></i><b>(1)</b>
+            .addClause(spanTermQuery("field1","baz"))
+            .inOrder(true),
+        spanTermQuery("field1","foo"));                     <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5946,7 +6076,11 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../client/rest-high-level/src/test/java/org/elasticsearch/client/documentation/QueryDSLDocumentationTests.java[span_within]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">spanWithinQuery(
+        spanNearQuery(spanTermQuery("field1", "bar"), 5)    <i class="conum" data-value="1"></i><b>(1)</b>
+            .addClause(spanTermQuery("field1", "baz"))
+            .inOrder(true),
+        spanTermQuery("field1", "foo"));                    <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -5976,7 +6110,7 @@ within the spans returned by a list of other span queries.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">AdminClient adminClient = client.admin();</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">AdminClient adminClient = client.admin();</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -5998,7 +6132,7 @@ In the rest of this guide, we will use <code>client.admin()</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">IndicesAdminClient indicesAdminClient = client.admin().indices();</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">IndicesAdminClient indicesAdminClient = client.admin().indices();</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -6020,7 +6154,7 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">client.admin().indices().prepareCreate("twitter").get();</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareCreate("twitter").get();</code></pre>
 </div>
 </div>
 <h5 id="java-admin-indices-create-index-settings" class="float">Index Settings</h5>
@@ -6029,7 +6163,7 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">client.admin().indices().prepareCreate("twitter")
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareCreate("twitter")
         .setSettings(Settings.builder()             <i class="conum" data-value="1"></i><b>(1)</b>
                 .put("index.number_of_shards", 3)
                 .put("index.number_of_replicas", 2)
@@ -6057,7 +6191,9 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../server/src/test/java/org/elasticsearch/client/documentation/IndicesDocumentationIT.java[index-with-mapping]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareCreate("twitter")    <i class="conum" data-value="1"></i><b>(1)</b>
+        .addMapping("_doc", "message", "type=text") <i class="conum" data-value="2"></i><b>(2)</b>
+        .get();</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -6084,7 +6220,30 @@ to the REST API syntax:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">include-tagged::/Users/wangbin/src/git/ElasticSearchChineseGuide/asciidoc/cn/6.8.0/../../server/src/test/java/org/elasticsearch/client/documentation/IndicesDocumentationIT.java[putMapping-request-source]</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().preparePutMapping("twitter") <i class="conum" data-value="1"></i><b>(1)</b>
+.setType("_doc")
+.setSource("{\n" +
+        "  \"properties\": {\n" +
+        "    \"name\": {\n" + <i class="conum" data-value="2"></i><b>(2)</b>
+        "      \"type\": \"text\"\n" +
+        "    }\n" +
+        "  }\n" +
+        "}", XContentType.JSON)
+.get();
+
+// You can also provide the type in the source document
+client.admin().indices().preparePutMapping("twitter")
+.setType("_doc")
+.setSource("{\n" +
+        "    \"_doc\":{\n" + <i class="conum" data-value="3"></i><b>(3)</b>
+        "        \"properties\": {\n" +
+        "            \"name\": {\n" +
+        "                \"type\": \"text\"\n" +
+        "            }\n" +
+        "        }\n" +
+        "    }\n" +
+        "}", XContentType.JSON)
+.get();</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -6111,7 +6270,7 @@ to the REST API syntax:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">client.admin().indices().prepareRefresh().get(); <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareRefresh().get(); <i class="conum" data-value="1"></i><b>(1)</b>
 client.admin().indices()
         .prepareRefresh("twitter")               <i class="conum" data-value="2"></i><b>(2)</b>
         .get();
@@ -6144,7 +6303,7 @@ client.admin().indices()
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">GetSettingsResponse response = client.admin().indices()
+<pre class="highlight"><code class="language-java" data-lang="java">GetSettingsResponse response = client.admin().indices()
         .prepareGetSettings("company", "employee").get();                           <i class="conum" data-value="1"></i><b>(1)</b>
 for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSettings()) { <i class="conum" data-value="2"></i><b>(2)</b>
     String index = cursor.key;                                                      <i class="conum" data-value="3"></i><b>(3)</b>
@@ -6188,7 +6347,7 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">client.admin().indices().prepareUpdateSettings("twitter")   <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().indices().prepareUpdateSettings("twitter")   <i class="conum" data-value="1"></i><b>(1)</b>
         .setSettings(Settings.builder()                     <i class="conum" data-value="2"></i><b>(2)</b>
                 .put("index.number_of_replicas", 0)
         )
@@ -6216,7 +6375,7 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ClusterAdminClient clusterAdminClient = client.admin().cluster();</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">ClusterAdminClient clusterAdminClient = client.admin().cluster();</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -6241,7 +6400,7 @@ some technical information about the cluster status per index:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ClusterHealthResponse healths = client.admin().cluster().prepareHealth().get(); <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlight"><code class="language-java" data-lang="java">ClusterHealthResponse healths = client.admin().cluster().prepareHealth().get(); <i class="conum" data-value="1"></i><b>(1)</b>
 String clusterName = healths.getClusterName();              <i class="conum" data-value="2"></i><b>(2)</b>
 int numberOfDataNodes = healths.getNumberOfDataNodes();     <i class="conum" data-value="3"></i><b>(3)</b>
 int numberOfNodes = healths.getNumberOfNodes();             <i class="conum" data-value="4"></i><b>(4)</b>
@@ -6302,7 +6461,7 @@ for (ClusterIndexHealth health : healths.getIndices().values()) { <i class="conu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">client.admin().cluster().prepareHealth()            <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlight"><code class="language-java" data-lang="java">client.admin().cluster().prepareHealth()            <i class="conum" data-value="1"></i><b>(1)</b>
         .setWaitForYellowStatus()                   <i class="conum" data-value="2"></i><b>(2)</b>
         .get();
 client.admin().cluster().prepareHealth("company")   <i class="conum" data-value="3"></i><b>(3)</b>
@@ -6353,7 +6512,7 @@ to explicitly interpret the result:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">ClusterHealthResponse response = client.admin().cluster().prepareHealth("company")
+<pre class="highlight"><code class="language-java" data-lang="java">ClusterHealthResponse response = client.admin().cluster().prepareHealth("company")
         .setWaitForGreenStatus()    <i class="conum" data-value="1"></i><b>(1)</b>
         .get();
 
@@ -6386,7 +6545,7 @@ and delete stored scripts and templates.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="java">PutStoredScriptResponse response = client.admin().cluster().preparePutStoredScript()
+<pre class="highlight"><code class="language-java" data-lang="java">PutStoredScriptResponse response = client.admin().cluster().preparePutStoredScript()
                 .setId("script1")
                 .setContent(new BytesArray("{\"script\": {\"lang\": \"painless\", \"source\": \"_score * doc['my_numeric_field'].value\"} }"), XContentType.JSON)
                 .get();

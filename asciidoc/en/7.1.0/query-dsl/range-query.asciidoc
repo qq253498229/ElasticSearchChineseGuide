@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-range-query.html[Range Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[range]
 --------------------------------------------------
@@ -13,7 +13,7 @@ include-tagged::{query-dsl-test}[range]
 <4> include lower value means that `from` is `gt` when `false` or `gte` when `true`
 <5> include upper value means that `to` is `lt` when `false` or `lte` when `true`
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[range_simplified]
 --------------------------------------------------

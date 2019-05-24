@@ -3,9 +3,11 @@
 
 See {ref}/query-dsl-geo-distance-query.html[Geo Distance Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[geo_distance]
+geoDistanceQuery("pin.location")                <1>
+    .point(40, -70)                             <2>
+    .distance(200, DistanceUnit.KILOMETERS);    <3>
 --------------------------------------------------
 <1> field
 <2> center point

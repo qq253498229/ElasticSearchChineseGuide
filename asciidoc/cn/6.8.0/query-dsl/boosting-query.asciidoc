@@ -3,9 +3,12 @@
 
 See {ref}/query-dsl-boosting-query.html[Boosting Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[boosting]
+boostingQuery(
+            termQuery("name","kimchy"), <1>
+            termQuery("name","dadoonet")) <2>
+        .negativeBoost(0.2f);   <3>
 --------------------------------------------------
 <1> query that will promote documents
 <2> query that will demote documents

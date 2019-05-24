@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-match-all-query.html[Match All Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[match_all]
 --------------------------------------------------

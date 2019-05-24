@@ -37,7 +37,7 @@ import org.elasticsearch.common.geo.ShapeRelation;
 import org.elasticsearch.common.geo.builders.ShapeBuilder;
 --------------------------------------------------
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[geo_shape]
 --------------------------------------------------
@@ -45,7 +45,7 @@ include-tagged::{query-dsl-test}[geo_shape]
 <2> shape
 <3> relation can be `ShapeRelation.CONTAINS`, `ShapeRelation.WITHIN`, `ShapeRelation.INTERSECTS` or `ShapeRelation.DISJOINT`
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[indexed_geo_shape]
 --------------------------------------------------

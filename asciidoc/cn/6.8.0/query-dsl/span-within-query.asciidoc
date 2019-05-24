@@ -3,9 +3,13 @@
 
 See {ref}/query-dsl-span-within-query.html[Span Within Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[span_within]
+spanWithinQuery(
+        spanNearQuery(spanTermQuery("field1", "bar"), 5)    <1>
+            .addClause(spanTermQuery("field1", "baz"))
+            .inOrder(true),
+        spanTermQuery("field1", "foo"));                    <2>
 --------------------------------------------------
 <1> `big` part
 <2> `little` part

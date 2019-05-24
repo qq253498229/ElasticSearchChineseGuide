@@ -14,9 +14,12 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 
 Otherwise the parent-join module doesn't get loaded and the `has_child` query can't be used from the transport client.
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[has_child]
+JoinQueryBuilders.hasChildQuery(
+        "blog_tag", <1>
+        termQuery("tag","something"), <2>
+        ScoreMode.None);        <3>
 --------------------------------------------------
 <1> child type to query against
 <2> query

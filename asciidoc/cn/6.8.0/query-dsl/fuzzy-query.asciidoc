@@ -3,9 +3,11 @@
 
 See {ref}/query-dsl-fuzzy-query.html[Fuzzy Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[fuzzy]
+fuzzyQuery(
+        "name", <1>
+        "kimchy"); <2>
 --------------------------------------------------
 <1> field
 <2> text

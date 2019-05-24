@@ -3,7 +3,7 @@
 
 You can add mappings at index creation time:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-tests}/IndicesDocumentationIT.java[index-with-mapping]
 --------------------------------------------------
@@ -18,7 +18,7 @@ The PUT mapping API also allows for updating the mapping after index
 creation. In this case you can provide the mapping as a String similar
 to the REST API syntax:
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{client-tests}/IndicesDocumentationIT.java[putMapping-request-source]
 --------------------------------------------------

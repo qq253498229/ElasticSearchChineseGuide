@@ -3,9 +3,11 @@
 
 See {ref}/query-dsl-geo-bounding-box-query.html[Geo Bounding Box Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
-include-tagged::{query-dsl-test}[geo_bounding_box]
+geoBoundingBoxQuery("pin.location")              <1>
+    .setCorners(40.73, -74.1,                    <2>
+                40.717, -73.99);   <3>
 --------------------------------------------------
 <1> field
 <2> bounding box top left point

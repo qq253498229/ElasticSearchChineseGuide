@@ -14,7 +14,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 
 Otherwise the parent-join module doesn't get loaded and the `has_parent` query can't be used from the transport client.
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[has_parent]
 --------------------------------------------------

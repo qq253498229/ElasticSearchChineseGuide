@@ -3,7 +3,7 @@
 
 See {ref}/query-dsl-dis-max-query.html[Dis Max Query]
 
-["source","java",subs="attributes,callouts,macros"]
+["source","java"]
 --------------------------------------------------
 include-tagged::{query-dsl-test}[dis_max]
 --------------------------------------------------

@@ -1,11 +1,10 @@
 [[java-aggs]]
-== Aggregations
+== Aggregations(聚合)
 
-Elasticsearch provides a full Java API to play with aggregations. See the
-{ref}/search-aggregations.html[Aggregations guide].
+Elasticsearch 提供了完整的 Java API 来使用aggregation.
+请查看 {ref}/search-aggregations.html[Aggregations guide]。
 
-Use the factory for aggregation builders (`AggregationBuilders`) and add each aggregation
-you want to compute when querying and add it to your search request:
+使用factory来构建聚合( `AggregationBuilders` )，并将需要统计的聚合加入到查询语句中:
 
 [source,java]
 --------------------------------------------------
@@ -15,11 +14,11 @@ SearchResponse sr = node.client().prepareSearch()
         .execute().actionGet();
 --------------------------------------------------
 
-Note that you can add more than one aggregation. See
-{ref}/search-search.html[Search Java API] for details.
+注意，这里可以添加多个聚合。
+详情请查看 {ref}/search-search.html[Search Java API] 。
 
-To build aggregation requests, use `AggregationBuilders` helpers. Just import them
-in your class:
+为了构建聚合请求，可以使用内置的 `AggregationBuilders` 助手。
+只需要在你的类中引入:
 
 [source,java]
 --------------------------------------------------
@@ -28,9 +27,15 @@ import org.elasticsearch.search.aggregations.AggregationBuilders;
 
 === Structuring aggregations
 
-As explained in the
-{ref}/search-aggregations.html[Aggregations guide], you can define
-sub aggregations inside an aggregation.
+如 {ref}/search-aggregations.html[Aggregations guide] 所述，你可以在聚合中定义子聚合。
+
+聚合可以是 **指标（Metrics）** 聚合或者是 **桶（Buckets）** 聚合。
+
+例如，这个例子里有3个聚合，分别由下面这些部分组成：
+
+- 条件聚合(桶)
+- 日期柱状图聚合(桶)
+- 平均值聚合(指标)
 
 An aggregation could be a metrics aggregation or a bucket aggregation.
 
