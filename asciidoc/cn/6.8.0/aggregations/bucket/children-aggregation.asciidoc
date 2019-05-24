@@ -1,14 +1,14 @@
 [[java-aggs-bucket-children]]
 ==== Children Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-bucket-children-aggregation.html[Children Aggregation]
-with Java API.
+。
 
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -16,11 +16,11 @@ AggregationBuilder aggregation =
     AggregationBuilders
         .children("agg", "reseller"); <1>
 --------------------------------------------------
-1. `"agg"` is the name of the aggregation and `"reseller"` is the child type
+<1> `"agg"` 是聚合的名字，  `"reseller"` 是子类型
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------

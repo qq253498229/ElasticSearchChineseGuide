@@ -1,14 +1,14 @@
 [[java-aggs-bucket-terms]]
 ==== Terms Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-bucket-terms-aggregation.html[Terms Aggregation]
-with Java API.
+。
 
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -20,7 +20,7 @@ AggregationBuilders
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------
@@ -41,14 +41,14 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 
 ===== Order
 
-Import bucket ordering strategy classes:
+导入BucketOrder类:
 
 [source,java]
 --------------------------------------------------
 import org.elasticsearch.search.aggregations.BucketOrder;
 --------------------------------------------------
 
-Ordering the buckets by their `doc_count` in an ascending manner:
+按 `doc_count` 升序方式进行排序:
 
 [source,java]
 --------------------------------------------------
@@ -81,7 +81,7 @@ AggregationBuilders
     )
 --------------------------------------------------
 
-Ordering the buckets by multiple criteria:
+按多个条件排序:
 
 [source,java]
 --------------------------------------------------

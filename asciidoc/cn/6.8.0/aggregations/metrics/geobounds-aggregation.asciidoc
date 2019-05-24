@@ -1,14 +1,14 @@
 [[java-aggs-metrics-geobounds]]
 ==== Geo Bounds Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-metrics-geobounds-aggregation.html[Geo Bounds Aggregation]
-with Java API.
+。
 
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -22,7 +22,7 @@ GeoBoundsBuilder aggregation =
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------
@@ -38,7 +38,7 @@ GeoPoint topLeft = agg.topLeft();
 logger.info("bottomRight {}, topLeft {}", bottomRight, topLeft);
 --------------------------------------------------
 
-This will basically produce:
+一般会返回如下结果:
 
 [source,text]
 --------------------------------------------------

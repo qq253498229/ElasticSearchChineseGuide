@@ -2819,40 +2819,21 @@ template_params.put("param_gender", "male");</code></pre>
 <p>如 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html">Aggregations guide</a> 所述，你可以在聚合中定义子聚合。</p>
 </div>
 <div class="paragraph">
-<p>聚合可以是 <strong>指标（Metrics）</strong> 聚合或者是 <strong>桶（Buckets）</strong> 聚合。</p>
+<p>聚合可以是一个 <strong>metrics（指标）</strong> 聚合或者是 <strong>bucket（桶）</strong> 聚合。</p>
 </div>
 <div class="paragraph">
-<p>例如，这个例子里有3个聚合，分别由下面这些部分组成：</p>
+<p>例如，这里有三个级别的聚合:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>条件聚合(桶)</p>
+<p>Terms aggregation (bucket)条件聚合(桶)</p>
 </li>
 <li>
-<p>日期柱状图聚合(桶)</p>
+<p>Date Histogram aggregation (bucket)日期柱状图聚合(桶)</p>
 </li>
 <li>
-<p>平均值聚合(指标)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>An aggregation could be a metrics aggregation or a bucket aggregation.</p>
-</div>
-<div class="paragraph">
-<p>For example, here is a 3 levels aggregation composed of:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Terms aggregation (bucket)</p>
-</li>
-<li>
-<p>Date Histogram aggregation (bucket)</p>
-</li>
-<li>
-<p>Average aggregation (metric)</p>
+<p>Average aggregation (metric)平均值聚合(指标)</p>
 </li>
 </ul>
 </div>
@@ -2876,14 +2857,14 @@ template_params.put("param_gender", "male");</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-min">7.2.1. Min Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-min-aggregation.html">Min Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2897,7 +2878,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2916,14 +2897,14 @@ double value = agg.getValue();</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-max">7.2.2. Max Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-max-aggregation.html">Max Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_2">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2937,7 +2918,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_2">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2956,14 +2937,14 @@ double value = agg.getValue();</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-sum">7.2.3. Sum Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-sum-aggregation.html">Sum Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_3">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2977,7 +2958,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_3">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2996,14 +2977,14 @@ double value = agg.getValue();</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-avg">7.2.4. Avg Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-avg-aggregation.html">Avg Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_4">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3017,7 +2998,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_4">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3036,14 +3017,14 @@ double value = agg.getValue();</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-stats">7.2.5. Stats Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-stats-aggregation.html">Stats Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_5">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3057,7 +3038,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_5">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3080,14 +3061,14 @@ long count = agg.getCount();</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-extendedstats">7.2.6. Extended Stats Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-extendedstats-aggregation.html">Extended Stats Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_6">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3101,7 +3082,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_6">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3127,14 +3108,14 @@ double variance = agg.getVariance();</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-valuecount">7.2.7. Value Count Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-valuecount-aggregation.html">Value Count Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_7">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3148,7 +3129,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_7">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3167,14 +3148,14 @@ long value = agg.getValue();</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-percentile">7.2.8. Percentile Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-percentile-aggregation.html">Percentile Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_8">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3185,7 +3166,7 @@ with Java API.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can provide your own percentiles instead of using defaults:</p>
+<p>当然你可以提供自己的数字，而不是使用默认值:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3200,7 +3181,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_8">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3222,7 +3203,7 @@ for (Percentile entry : agg) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce for the first example:</p>
+<p>上面的例子一般会返回这样的结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3240,14 +3221,14 @@ percent [99.0], value [2.284989339108279]</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-percentile-rank">7.2.9. Percentile Ranks Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-percentile-rank-aggregation.html">Percentile Ranks Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_9">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3262,7 +3243,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_9">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3284,7 +3265,7 @@ for (Percentile entry : agg) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3298,14 +3279,14 @@ percent [94.40095147327283], value [2.22]</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-cardinality">7.2.10. Cardinality Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-cardinality-aggregation.html">Cardinality Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_10">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3319,7 +3300,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_10">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3338,14 +3319,14 @@ long value = agg.getValue();</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-geobounds">7.2.11. Geo Bounds Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-geobounds-aggregation.html">Geo Bounds Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_11">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3360,7 +3341,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_11">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3377,7 +3358,7 @@ logger.info("bottomRight {}, topLeft {}", bottomRight, topLeft);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3389,14 +3370,14 @@ logger.info("bottomRight {}, topLeft {}", bottomRight, topLeft);</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-metrics-tophits">7.2.12. Top Hits Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-top-hits-aggregation.html">Top Hits Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_12">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3409,7 +3390,7 @@ with Java API.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can use most of the options available for standard search such as <code>from</code>, <code>size</code>, <code>sort</code>, <code>highlight</code>, <code>explain</code>&#8230;&#8203;</p>
+<p>大多数在查询时使用的参数在这里都可以使用，比如 <code>from</code>, <code>size</code>, <code>sort</code>, <code>highlight</code>, <code>explain</code>&#8230;&#8203;</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3428,7 +3409,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_12">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3456,7 +3437,7 @@ for (Terms.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce for the first example:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3475,14 +3456,14 @@ key [female], doc_count [4893]
 <div class="sect3">
 <h4 id="java-aggs-metrics-scripted-metric">7.2.13. Scripted Metric Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-scripted-metric-aggregation.html">Scripted Metric Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_13">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3493,7 +3474,7 @@ with Java API.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also specify a <code>combine</code> script which will be executed on each shard:</p>
+<p>你也还可以指定将在每个shard上执行的 <code>combine</code> 脚本:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3505,7 +3486,7 @@ with Java API.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also specify a <code>reduce</code> script which will be executed on the node which gets the request:</p>
+<p>您还可以指定将在每个接收请求的节点上执行的 <code>reduce</code> 脚本:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3521,7 +3502,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_13">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3538,8 +3519,8 @@ logger.info("scriptedResult [{}]", scriptedResult);</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Note that the result depends on the script you built.
-For the first example, this will basically produce:</p>
+<p>请注意，聚合的结果取决于你所构建的脚本。
+第一个例子一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3558,7 +3539,7 @@ scriptedResult [ {
 </div>
 </div>
 <div class="paragraph">
-<p>The second example will produce:</p>
+<p>第二个例子会返回:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3571,7 +3552,7 @@ scriptedResult [-41.279615707402876,
 </div>
 </div>
 <div class="paragraph">
-<p>The last example will produce:</p>
+<p>最后一个例子会返回:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3587,14 +3568,14 @@ scriptedResult [2.171917696507009]</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-global">7.3.1. Global Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-global-aggregation.html">Global Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_14">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3607,7 +3588,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_14">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3626,14 +3607,14 @@ agg.getDocCount(); // Doc count</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-filter">7.3.2. Filter Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-filter-aggregation.html">Filter Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_15">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3645,7 +3626,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_15">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3664,14 +3645,14 @@ agg.getDocCount(); // Doc count</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-filters">7.3.3. Filters Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-filters-aggregation.html">Filters Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_16">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3686,7 +3667,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_16">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3707,7 +3688,7 @@ for (Filters.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3720,14 +3701,14 @@ key [women], doc_count [5018]</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-missing">7.3.4. Missing Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-missing-aggregation.html">Missing Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_17">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3738,7 +3719,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_17">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3757,14 +3738,14 @@ agg.getDocCount(); // Doc count</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-nested">7.3.5. Nested Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-nested-aggregation.html">Nested Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_18">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3776,7 +3757,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_18">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3795,14 +3776,14 @@ agg.getDocCount(); // Doc count</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-reverse-nested">7.3.6. Reverse Nested Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-reverse-nested-aggregation.html">Reverse Nested Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_19">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3823,7 +3804,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_19">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3848,14 +3829,14 @@ for (Terms.Bucket bucket : name.getBuckets()) {
 <div class="sect3">
 <h4 id="java-aggs-bucket-children">7.3.7. Children Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-children-aggregation.html">Children Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_20">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3864,18 +3845,19 @@ with Java API.</p>
         .children("agg", "reseller"); <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>"agg"</code> is the name of the aggregation and <code>"reseller"</code> is the child type</p>
-</li>
-</ol>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>"agg"</code> 是聚合的名字，  <code>"reseller"</code> 是子类型</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_use_aggregation_response_20">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3894,14 +3876,14 @@ agg.getDocCount(); // Doc count</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-terms">7.3.8. Terms Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-terms-aggregation.html">Terms Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_21">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3914,7 +3896,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_21">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3937,7 +3919,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 <div class="sect4">
 <h5 id="_order">Order</h5>
 <div class="paragraph">
-<p>Import bucket ordering strategy classes:</p>
+<p>导入BucketOrder类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3945,7 +3927,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>Ordering the buckets by their <code>doc_count</code> in an ascending manner:</p>
+<p>按 <code>doc_count</code> 升序方式进行排序:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3981,7 +3963,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>Ordering the buckets by multiple criteria:</p>
+<p>按多个条件排序:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4001,14 +3983,14 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 <div class="sect3">
 <h4 id="java-aggs-bucket-significantterms">7.3.9. Significant Terms Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-significantterms-aggregation.html">Significant Terms Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_22">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4028,7 +4010,7 @@ SearchResponse sr = client.prepareSearch()
 <div class="sect4">
 <h5 id="_use_aggregation_response_22">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4052,14 +4034,14 @@ for (SignificantTerms.Bucket entry : agg.getBuckets()) {
 <div class="sect3">
 <h4 id="java-aggs-bucket-range">7.3.10. Range Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-range-aggregation.html">Range Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_23">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4076,7 +4058,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_23">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4100,7 +4082,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce for the first example:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4114,14 +4096,14 @@ key [1.5-*], from [1.5], to [Infinity], doc_count [20]</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-daterange">7.3.11. Date Range Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-daterange-aggregation.html">Date Range Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_24">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4139,7 +4121,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_24">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4163,7 +4145,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4177,14 +4159,14 @@ key [1960-*], from [1960-01-01T00:00:00.000Z], to [null], doc_count [37]</code><
 <div class="sect3">
 <h4 id="java-aggs-bucket-iprange">7.3.12. Ip Range Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-iprange-aggregation.html">Ip Range Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_25">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4198,7 +4180,7 @@ with Java API.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Note that you could also use ip masks as ranges:</p>
+<p>注意，你也可以使用ip掩码作为范围:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4215,7 +4197,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_25">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4239,7 +4221,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce for the first example:</p>
+<p>第一个请求一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4249,7 +4231,7 @@ key [192.168.2.0-*], from [192.168.2.0], to [null], doc_count [23]</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>And for the second one (using Ip masks):</p>
+<p>第二个请求（使用IP掩码）一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4263,14 +4245,14 @@ key [192.168.0.0/16], from [192.168.0.0], to [192.169.0.0], doc_count [50]</code
 <div class="sect3">
 <h4 id="java-aggs-bucket-histogram">7.3.13. Histogram Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-histogram-aggregation.html">Histogram Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_26">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4285,7 +4267,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_26">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4310,21 +4292,21 @@ for (Histogram.Bucket entry : agg.getBuckets()) {
 <div class="sect4">
 <h5 id="_order_2">Order</h5>
 <div class="paragraph">
-<p>Supports the same order functionality as the <a href="#java-aggs-bucket-terms"><code>Terms Aggregation</code></a>.</p>
+<p>支持与 <a href="#java-aggs-bucket-terms"><code>Terms Aggregation</code></a> 相同的排序功能。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="java-aggs-bucket-datehistogram">7.3.14. Date Histogram Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-datehistogram-aggregation.html">Date Histogram Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_27">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4336,7 +4318,7 @@ with Java API.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Or if you want to set an interval of 10 days:</p>
+<p>如果你想设置10天间隔:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4351,7 +4333,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_27">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4374,7 +4356,7 @@ for (Histogram.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce for the first example:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4391,21 +4373,21 @@ key [2008-01-01T00:00:00.000Z], date [2008], doc_count [3]</code></pre>
 <div class="sect4">
 <h5 id="_order_3">Order</h5>
 <div class="paragraph">
-<p>Supports the same order functionality as the <a href="#java-aggs-bucket-terms"><code>Terms Aggregation</code></a>.</p>
+<p>支持与 <a href="#java-aggs-bucket-terms"><code>Terms Aggregation</code></a> 相同的排序功能。</p>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="java-aggs-bucket-geodistance">7.3.15. Geo Distance Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-geodistance-aggregation.html">Geo Distance Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_28">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4423,7 +4405,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_28">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4447,7 +4429,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4461,14 +4443,14 @@ key [10.0-500.0], from [10.0], to [500.0], doc_count [4925]</code></pre>
 <div class="sect3">
 <h4 id="java-aggs-bucket-geohashgrid">7.3.16. Geo Hash Grid Aggregation</h4>
 <div class="paragraph">
-<p>Here is how you can use
+<p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-bucket-geohashgrid-aggregation.html">Geo Hash Grid Aggregation</a>
-with Java API.</p>
+。</p>
 </div>
 <div class="sect4">
 <h5 id="_prepare_aggregation_request_29">Prepare aggregation request</h5>
 <div class="paragraph">
-<p>Here is an example on how to create the aggregation request:</p>
+<p>这里有一个创建聚合请求的例子:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4483,7 +4465,7 @@ with Java API.</p>
 <div class="sect4">
 <h5 id="_use_aggregation_response_29">Use aggregation response</h5>
 <div class="paragraph">
-<p>Import Aggregation definition classes:</p>
+<p>导入聚合定义类:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4506,7 +4488,7 @@ for (GeoHashGrid.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="paragraph">
-<p>This will basically produce:</p>
+<p>一般会返回如下结果:</p>
 </div>
 <div class="listingblock">
 <div class="content">

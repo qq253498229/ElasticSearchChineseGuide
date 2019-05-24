@@ -1,13 +1,13 @@
 [[java-aggs-metrics-scripted-metric]]
 ==== Scripted Metric Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-metrics-scripted-metric-aggregation.html[Scripted Metric Aggregation]
-with Java API.
+。
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -43,7 +43,7 @@ ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------

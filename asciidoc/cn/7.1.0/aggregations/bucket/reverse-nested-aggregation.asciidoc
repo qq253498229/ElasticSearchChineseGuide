@@ -1,14 +1,14 @@
 [[java-aggs-bucket-reverse-nested]]
 ==== Reverse Nested Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-bucket-reverse-nested-aggregation.html[Reverse Nested Aggregation]
-with Java API.
+。
 
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -28,7 +28,7 @@ AggregationBuilder aggregation =
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------

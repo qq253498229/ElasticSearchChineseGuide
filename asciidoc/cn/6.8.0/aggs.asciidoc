@@ -29,21 +29,13 @@ import org.elasticsearch.search.aggregations.AggregationBuilders;
 
 如 {ref}/search-aggregations.html[Aggregations guide] 所述，你可以在聚合中定义子聚合。
 
-聚合可以是 **指标（Metrics）** 聚合或者是 **桶（Buckets）** 聚合。
+聚合可以是一个 **metrics（指标）** 聚合或者是 **bucket（桶）** 聚合。
 
-例如，这个例子里有3个聚合，分别由下面这些部分组成：
+例如，这里有三个级别的聚合:
 
-- 条件聚合(桶)
-- 日期柱状图聚合(桶)
-- 平均值聚合(指标)
-
-An aggregation could be a metrics aggregation or a bucket aggregation.
-
-For example, here is a 3 levels aggregation composed of:
-
-* Terms aggregation (bucket)
-* Date Histogram aggregation (bucket)
-* Average aggregation (metric)
+* Terms aggregation (bucket)条件聚合(桶)
+* Date Histogram aggregation (bucket)日期柱状图聚合(桶)
+* Average aggregation (metric)平均值聚合(指标)
 
 [source,java]
 --------------------------------------------------

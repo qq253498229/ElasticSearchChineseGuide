@@ -1,14 +1,14 @@
 [[java-aggs-metrics-tophits]]
 ==== Top Hits Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-metrics-top-hits-aggregation.html[Top Hits Aggregation]
-with Java API.
+。
 
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -20,7 +20,7 @@ AggregationBuilder aggregation =
         );
 --------------------------------------------------
 
-You can use most of the options available for standard search such as `from`, `size`, `sort`, `highlight`, `explain`...
+大多数在查询时使用的参数在这里都可以使用，比如 `from`, `size`, `sort`, `highlight`, `explain`...
 
 [source,java]
 --------------------------------------------------
@@ -37,7 +37,7 @@ AggregationBuilder aggregation =
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------
@@ -64,7 +64,7 @@ for (Terms.Bucket entry : agg.getBuckets()) {
 }
 --------------------------------------------------
 
-This will basically produce for the first example:
+一般会返回如下结果:
 
 [source,text]
 --------------------------------------------------

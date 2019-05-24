@@ -1,14 +1,14 @@
 [[java-aggs-metrics-extendedstats]]
 ==== Extended Stats Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-metrics-extendedstats-aggregation.html[Extended Stats Aggregation]
-with Java API.
+。
 
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -21,7 +21,7 @@ ExtendedStatsAggregationBuilder aggregation =
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------

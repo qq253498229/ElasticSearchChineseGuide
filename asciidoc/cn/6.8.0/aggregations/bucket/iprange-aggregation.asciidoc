@@ -1,14 +1,14 @@
 [[java-aggs-bucket-iprange]]
 ==== Ip Range Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-bucket-iprange-aggregation.html[Ip Range Aggregation]
-with Java API.
+。
 
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -21,7 +21,7 @@ AggregatorBuilder<?> aggregation =
                 .addUnboundedFrom("192.168.2.0");          // from 192.168.2.0 to +infinity
 --------------------------------------------------
 
-Note that you could also use ip masks as ranges:
+注意，你也可以使用ip掩码作为范围:
 
 [source,java]
 --------------------------------------------------
@@ -36,7 +36,7 @@ AggregatorBuilder<?> aggregation =
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------
@@ -59,7 +59,7 @@ for (Range.Bucket entry : agg.getBuckets()) {
 }
 --------------------------------------------------
 
-This will basically produce for the first example:
+第一个请求一般会返回如下结果:
 
 [source,text]
 --------------------------------------------------
@@ -68,7 +68,7 @@ key [192.168.1.0-192.168.2.0], from [192.168.1.0], to [192.168.2.0], doc_count [
 key [192.168.2.0-*], from [192.168.2.0], to [null], doc_count [23]
 --------------------------------------------------
 
-And for the second one (using Ip masks):
+第二个请求（使用IP掩码）一般会返回如下结果:
 
 [source,text]
 --------------------------------------------------

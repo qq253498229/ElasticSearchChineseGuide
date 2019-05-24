@@ -1,13 +1,13 @@
 [[java-aggs-metrics-scripted-metric]]
 ==== Scripted Metric Aggregation
 
-Here is how you can use
+请查看
 {ref}/search-aggregations-metrics-scripted-metric-aggregation.html[Scripted Metric Aggregation]
-with Java API.
+。
 
 ===== Prepare aggregation request
 
-Here is an example on how to create the aggregation request:
+这里有一个创建聚合请求的例子:
 
 [source,java]
 --------------------------------------------------
@@ -17,7 +17,7 @@ ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
     .mapScript(new Script("state.heights.add(doc.gender.value == 'male' ? doc.height.value : -1.0 * doc.height.value)"));
 --------------------------------------------------
 
-You can also specify a `combine` script which will be executed on each shard:
+你也还可以指定将在每个shard上执行的 `combine` 脚本:
 
 [source,java]
 --------------------------------------------------
@@ -28,7 +28,7 @@ ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
     .combineScript(new Script("double heights_sum = 0.0; for (t in state.heights) { heights_sum += t } return heights_sum"));
 --------------------------------------------------
 
-You can also specify a `reduce` script which will be executed on the node which gets the request:
+您还可以指定将在每个接收请求的节点上执行的 `reduce` 脚本:
 
 [source,java]
 --------------------------------------------------
@@ -43,7 +43,7 @@ ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
 
 ===== Use aggregation response
 
-Import Aggregation definition classes:
+导入聚合定义类:
 
 [source,java]
 --------------------------------------------------
@@ -59,8 +59,8 @@ Object scriptedResult = agg.aggregation();
 logger.info("scriptedResult [{}]", scriptedResult);
 --------------------------------------------------
 
-Note that the result depends on the script you built.
-For the first example, this will basically produce:
+请注意，聚合的结果取决于你所构建的脚本。
+第一个例子一般会返回如下结果:
 
 [source,text]
 --------------------------------------------------
@@ -78,7 +78,7 @@ scriptedResult [ {
 } ]
 --------------------------------------------------
 
-The second example will produce:
+第二个例子会返回:
 
 [source,text]
 --------------------------------------------------
@@ -90,7 +90,7 @@ scriptedResult [-41.279615707402876,
                 11.300902755741326]
 --------------------------------------------------
 
-The last example will produce:
+最后一个例子会返回:
 
 [source,text]
 --------------------------------------------------
