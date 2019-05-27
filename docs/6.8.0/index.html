@@ -5585,19 +5585,17 @@ geoPolygonQuery("pin.location", points); <i class="conum" data-value="2"></i><b>
 <div class="sect2">
 <h3 id="java-specialized-queries">8.7. Specialized queries</h3>
 <div class="paragraph">
-<p>This group contains queries which do not fit into the other groups:</p>
+<p>该组查询中包含以下这些不适用于其它查询的语句:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="#java-query-dsl-mlt-query"><code>more_like_this</code> query</a></dt>
 <dd>
-<p>This query finds documents which are similar to the specified text, document,
-or collection of documents.</p>
+<p>这个查询语句可以检索出和指定的文本、文档或文档集合相似的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-script-query"><code>script</code> query</a></dt>
 <dd>
-<p>This query allows a script to act as a filter.  Also see the
-<a href="#java-query-dsl-function-score-query"><code>function_score</code> query</a>.</p>
+<p>这个查询语句可以将脚本作为过滤器来适用。请查看 <a href="#java-query-dsl-function-score-query"><code>function_score</code> query</a> 。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-percolate-query"><code>percolate</code> query</a></dt>
 <dd>
@@ -5605,14 +5603,14 @@ or collection of documents.</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-wrapper-query"><code>wrapper</code> query</a></dt>
 <dd>
-<p>A query that accepts other queries as json or yaml string.</p>
+<p>可以接受Json和Yaml类型语句的查询。</p>
 </dd>
 </dl>
 </div>
 <div class="sect3">
 <h4 id="java-query-dsl-mlt-query">8.7.1. More Like This Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-mlt-query.html">More Like This Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-mlt-query.html">More Like This Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5636,11 +5634,11 @@ moreLikeThisQuery(fields, texts, null)
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>ignore threshold</td>
+<td>忽略阈值</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>max num of Terms in generated queries</td>
+<td>生成语句条件的最大字数</td>
 </tr>
 </table>
 </div>
@@ -5648,7 +5646,7 @@ moreLikeThisQuery(fields, texts, null)
 <div class="sect3">
 <h4 id="java-query-dsl-script-query">8.7.2. Script Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-script-query.html">Script Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-script-query.html">Script Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5661,12 +5659,12 @@ moreLikeThisQuery(fields, texts, null)
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>inlined script</td>
+<td>定义脚本</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>If you have stored on each data node a script named <code>myscript.painless</code> with:</p>
+<p>如果数据节点上已经存储了脚本，例如叫 <code>myscript.painless</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5674,7 +5672,7 @@ moreLikeThisQuery(fields, texts, null)
 </div>
 </div>
 <div class="paragraph">
-<p>You can use it then with:</p>
+<p>你就可以这样使用它:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5711,7 +5709,7 @@ scriptQuery(new Script(
 <div class="sect3">
 <h4 id="java-query-percolate-query">8.7.3. Percolate Query</h4>
 <div class="paragraph">
-<p>See:
+<p>查看:
  * <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-percolate-query.html">Percolate Query</a></p>
 </div>
 <div class="listingblock">
@@ -5722,8 +5720,7 @@ client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddres
 </div>
 </div>
 <div class="paragraph">
-<p>Before the <code>percolate</code> query can be used an <code>percolator</code> mapping should be added and
-a document containing a percolator query should be indexed:</p>
+<p>在使用 <code>percolate</code> 查询之前，应该添加 <code>percolate</code> 的映射，并且应该对包含 <code>percolate</code> 查询的文档建立索引:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5746,12 +5743,10 @@ client.prepareIndex("myIndexName", "_doc", "myDesignatedQueryName")
 </div>
 </div>
 <div class="paragraph">
-<p>This indexes the above term query under the name
-<strong>myDesignatedQueryName</strong>.</p>
+<p>查询语句会在 <strong>myDesignatedQueryName</strong> 的下面建立索引。</p>
 </div>
 <div class="paragraph">
-<p>In order to check a document against the registered queries, use this
-code:</p>
+<p>为了对照已注册的查询语句检查文档，可以使用如下代码:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5776,7 +5771,7 @@ for(SearchHit hit : response.getHits()) {
 <div class="sect3">
 <h4 id="java-query-dsl-wrapper-query">8.7.4. Wrapper Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-wrapper-query.html">Wrapper Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-wrapper-query.html">Wrapper Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">

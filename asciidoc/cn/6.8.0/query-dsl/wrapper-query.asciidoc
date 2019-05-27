@@ -1,7 +1,7 @@
 [[java-query-dsl-wrapper-query]]
 ==== Wrapper Query
 
-See {ref}/query-dsl-wrapper-query.html[Wrapper Query]
+查看 {ref}/query-dsl-wrapper-query.html[Wrapper Query]
 
 ["source","java"]
 --------------------------------------------------

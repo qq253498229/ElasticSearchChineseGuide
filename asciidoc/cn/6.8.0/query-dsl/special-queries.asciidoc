@@ -2,17 +2,15 @@
 
 === Specialized queries
 
-This group contains queries which do not fit into the other groups:
+该组查询中包含以下这些不适用于其它查询的语句:
 
 <<java-query-dsl-mlt-query,`more_like_this` query>>::
 
-This query finds documents which are similar to the specified text, document,
-or collection of documents.
+这个查询语句可以检索出和指定的文本、文档或文档集合相似的文档。
 
 <<java-query-dsl-script-query,`script` query>>::
 
-This query allows a script to act as a filter.  Also see the
-<<java-query-dsl-function-score-query,`function_score` query>>.
+这个查询语句可以将脚本作为过滤器来适用。请查看 <<java-query-dsl-function-score-query,`function_score` query>> 。
 
 <<java-query-percolate-query,`percolate` query>>::
 
@@ -20,7 +18,7 @@ This query finds percolator queries based on documents.
 
 <<java-query-dsl-wrapper-query,`wrapper` query>>::
 
-A query that accepts other queries as json or yaml string.
+可以接受Json和Yaml类型语句的查询。
 
 include::mlt-query.asciidoc[]
 
@@ -29,3 +27,4 @@ include::script-query.asciidoc[]
 include::percolate-query.asciidoc[]
 
 include::wrapper-query.asciidoc[]
+

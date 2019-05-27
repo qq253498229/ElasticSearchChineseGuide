@@ -1,7 +1,7 @@
 [[java-query-dsl-mlt-query]]
 ==== More Like This Query
 
-See {ref}/query-dsl-mlt-query.html[More Like This Query]
+查看 {ref}/query-dsl-mlt-query.html[More Like This Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -14,6 +14,7 @@ moreLikeThisQuery(fields, texts, null)
 --------------------------------------------------
 <1> fields
 <2> text
-<3> ignore threshold
-<4> max num of Terms in generated queries
+<3> 忽略阈值
+<4> 生成语句条件的最大字数
+
 

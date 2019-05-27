@@ -1,7 +1,7 @@
 [[java-query-percolate-query]]
 ==== Percolate Query
 
-See:
+查看:
  * {ref}/query-dsl-percolate-query.html[Percolate Query]
 
 
@@ -12,8 +12,7 @@ TransportClient client = new PreBuiltTransportClient(settings);
 client.addTransportAddress(new TransportAddress(new InetSocketAddress(InetAddresses.forString("127.0.0.1"), 9300)));
 --------------------------------------------------
 
-Before the `percolate` query can be used an `percolator` mapping should be added and
-a document containing a percolator query should be indexed:
+在使用 `percolate` 查询之前，应该添加 `percolate` 的映射，并且应该对包含 `percolate` 查询的文档建立索引:
 
 [source,java]
 --------------------------------------------------
@@ -35,11 +34,9 @@ client.prepareIndex("myIndexName", "_doc", "myDesignatedQueryName")
     .get();
 --------------------------------------------------
 
-This indexes the above term query under the name
-*myDesignatedQueryName*.
+查询语句会在 **myDesignatedQueryName** 的下面建立索引。
 
-In order to check a document against the registered queries, use this
-code:
+为了对照已注册的查询语句检查文档，可以使用如下代码:
 
 [source,java]
 --------------------------------------------------
@@ -59,3 +56,4 @@ for(SearchHit hit : response.getHits()) {
     // Percolator queries as hit
 }
 --------------------------------------------------
+

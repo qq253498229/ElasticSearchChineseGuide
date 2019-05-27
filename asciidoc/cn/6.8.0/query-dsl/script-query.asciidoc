@@ -1,7 +1,7 @@
 [[java-query-dsl-script-query]]
 ==== Script Query
 
-See {ref}/query-dsl-script-query.html[Script Query]
+查看 {ref}/query-dsl-script-query.html[Script Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -9,17 +9,17 @@ scriptQuery(
         new Script("doc['num1'].value > 1") <1>
     );
 --------------------------------------------------
-<1> inlined script
+<1> 定义脚本
 
 
-If you have stored on each data node a script named `myscript.painless` with:
+如果数据节点上已经存储了脚本，例如叫 `myscript.painless` :
 
 [source,painless]
 --------------------------------------------------
 doc['num1'].value > params.param1
 --------------------------------------------------
 
-You can use it then with:
+你就可以这样使用它:
 
 ["source","java"]
 --------------------------------------------------
