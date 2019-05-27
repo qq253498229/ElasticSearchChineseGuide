@@ -1,7 +1,7 @@
 [[java-query-dsl-span-containing-query]]
 ==== Span Containing Query
 
-See {ref}/query-dsl-span-containing-query.html[Span Containing Query]
+查看 {ref}/query-dsl-span-containing-query.html[Span Containing Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -11,6 +11,6 @@ spanContainingQuery(
             .inOrder(true),
         spanTermQuery("field1","foo")); <2>
 --------------------------------------------------
-<1> `big` part
-<2> `little` part
+<1> `大` 的部分
+<2> `小` 的部分
 

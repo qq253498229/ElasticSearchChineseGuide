@@ -1,7 +1,7 @@
 [[java-query-dsl-span-first-query]]
 ==== Span First Query
 
-See {ref}/query-dsl-span-first-query.html[Span First Query]
+查看 {ref}/query-dsl-span-first-query.html[Span First Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -11,5 +11,5 @@ spanFirstQuery(
     );
 --------------------------------------------------
 <1> query
-<2> max end position
+<2> 最大结束点位置
 

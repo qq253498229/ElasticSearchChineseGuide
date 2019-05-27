@@ -1,52 +1,46 @@
 [[java-span-queries]]
 === Span queries
 
-Span queries are low-level positional queries which provide expert control
-over the order and proximity of the specified terms. These are typically used
-to implement very specific queries on legal documents or patents.
+Span queries 是一种低级别的位置查询语句，它提供对排序和相似度更专业的控制。
+通常用在法律文件或专利这样非常具体的查询。
 
-Span queries cannot be mixed with non-span queries (with the exception of the `span_multi` query).
+Span queries不能和non-span queries(`span_multi` query 是个例外)混合使用。
 
-The queries in this group are:
+该组中包括以下查询:
 
 <<java-query-dsl-span-term-query,`span_term` query>>::
 
-The equivalent of the <<java-query-dsl-term-query,`term` query>> but for use with
-other span queries.
+等同于 <<java-query-dsl-term-query,`term` query>> ，但用于其它跨度查询。
 
 <<java-query-dsl-span-multi-term-query,`span_multi` query>>::
 
-Wraps a <<java-query-dsl-term-query,`term`>>, <<java-query-dsl-range-query,`range`>>,
+包括 <<java-query-dsl-term-query,`term`>>, <<java-query-dsl-range-query,`range`>>,
 <<java-query-dsl-prefix-query,`prefix`>>, <<java-query-dsl-wildcard-query,`wildcard`>>,
-<<java-query-dsl-regexp-query,`regexp`>>, or <<java-query-dsl-fuzzy-query,`fuzzy`>> query.
+<<java-query-dsl-regexp-query,`regexp`>>, 或 <<java-query-dsl-fuzzy-query,`fuzzy`>> 这些查询语句。
 
 <<java-query-dsl-span-first-query,`span_first` query>>::
 
-Accepts another span query whose matches must appear within the first N
-positions of the field.
+接收另一个 span query，它的匹配项必须出现在该字段的前 N 个位置。
 
 <<java-query-dsl-span-near-query,`span_near` query>>::
 
-Accepts multiple span queries whose matches must be within the specified distance of each other, and possibly in the same order.
+接受在指定距离内其它的span queries，并且可以是以相同的顺序。
 
 <<java-query-dsl-span-or-query,`span_or` query>>::
 
-Combines multiple span queries -- returns documents which match any of the
-specified queries.
+将多个span queries组合起来，并返回任何匹配的文档。
 
 <<java-query-dsl-span-not-query,`span_not` query>>::
 
-Wraps another span query, and excludes any documents which match that query.
+包含其它span query，并排除匹配的文档。
 
 <<java-query-dsl-span-containing-query,`span_containing` query>>::
 
-Accepts a list of span queries, but only returns those spans which also match a second span query.
+接受一个span queries列表，但只返回两个条件都匹配的文档。
 
 <<java-query-dsl-span-within-query,`span_within` query>>::
 
-The result from a single span query is returned as long is its span falls
-within the spans returned by a list of other span queries.
-
+只要span query落在由其它span queries中，就会返回span query的结果。
 
 include::span-term-query.asciidoc[]
 
@@ -63,3 +57,4 @@ include::span-not-query.asciidoc[]
 include::span-containing-query.asciidoc[]
 
 include::span-within-query.asciidoc[]
+

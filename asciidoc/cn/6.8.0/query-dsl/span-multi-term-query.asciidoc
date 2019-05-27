@@ -1,13 +1,14 @@
 [[java-query-dsl-span-multi-term-query]]
 ==== Span Multi Term Query
 
-See {ref}/query-dsl-span-multi-term-query.html[Span Multi Term Query]
+查看 {ref}/query-dsl-span-multi-term-query.html[Span Multi Term Query]
 
 ["source","java"]
 --------------------------------------------------
 spanMultiTermQueryBuilder(
         prefixQuery("user", "ki")); <1>
 --------------------------------------------------
-<1> Can be any builder extending the `MultiTermQueryBuilder` class. For example: `FuzzyQueryBuilder`,
-`PrefixQueryBuilder`, `RangeQueryBuilder`, `RegexpQueryBuilder` or `WildcardQueryBuilder`.
+<1> 支持任何继承 `MultiTermQueryBuilder` 的类，比如 `FuzzyQueryBuilder` ,
+`PrefixQueryBuilder`, `RangeQueryBuilder`, `RegexpQueryBuilder` 或 `WildcardQueryBuilder`.
+
 

@@ -1,7 +1,7 @@
 [[java-query-dsl-span-near-query]]
 ==== Span Near Query
 
-See {ref}/query-dsl-span-near-query.html[Span Near Query]
+查看 {ref}/query-dsl-span-near-query.html[Span Near Query]
 
 ["source","java"]
 --------------------------------------------------
@@ -12,7 +12,9 @@ spanNearQuery(
             .addClause(spanTermQuery("field","value3")) <4>
             .inOrder(false); <5>
 --------------------------------------------------
-<1> span term queries
-<2> slop factor: the maximum number of intervening unmatched positions
-<3> whether matches are required to be in-order
+<1> span queries 条件
+<2> 不匹配的最大数量
+<3> span queries 条件
+<4> span queries 条件
+<5> 匹配之后是否需要排序
 

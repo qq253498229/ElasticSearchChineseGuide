@@ -5792,62 +5792,57 @@ wrapperQuery(query);</code></pre>
 <div class="sect2">
 <h3 id="java-span-queries">8.8. Span queries</h3>
 <div class="paragraph">
-<p>Span queries are low-level positional queries which provide expert control
-over the order and proximity of the specified terms. These are typically used
-to implement very specific queries on legal documents or patents.</p>
+<p>Span queries 是一种低级别的位置查询语句，它提供对排序和相似度更专业的控制。
+通常用在法律文件或专利这样非常具体的查询。</p>
 </div>
 <div class="paragraph">
-<p>Span queries cannot be mixed with non-span queries (with the exception of the <code>span_multi</code> query).</p>
+<p>Span queries不能和non-span queries(<code>span_multi</code> query 是个例外)混合使用。</p>
 </div>
 <div class="paragraph">
-<p>The queries in this group are:</p>
+<p>该组中包括以下查询:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a href="#java-query-dsl-span-term-query"><code>span_term</code> query</a></dt>
 <dd>
-<p>The equivalent of the <a href="#java-query-dsl-term-query"><code>term</code> query</a> but for use with
-other span queries.</p>
+<p>等同于 <a href="#java-query-dsl-term-query"><code>term</code> query</a> ，但用于其它跨度查询。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-span-multi-term-query"><code>span_multi</code> query</a></dt>
 <dd>
-<p>Wraps a <a href="#java-query-dsl-term-query"><code>term</code></a>, <a href="#java-query-dsl-range-query"><code>range</code></a>,
+<p>包括 <a href="#java-query-dsl-term-query"><code>term</code></a>, <a href="#java-query-dsl-range-query"><code>range</code></a>,
 <a href="#java-query-dsl-prefix-query"><code>prefix</code></a>, <a href="#java-query-dsl-wildcard-query"><code>wildcard</code></a>,
-<a href="#java-query-dsl-regexp-query"><code>regexp</code></a>, or <a href="#java-query-dsl-fuzzy-query"><code>fuzzy</code></a> query.</p>
+<a href="#java-query-dsl-regexp-query"><code>regexp</code></a>, 或 <a href="#java-query-dsl-fuzzy-query"><code>fuzzy</code></a> 这些查询语句。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-span-first-query"><code>span_first</code> query</a></dt>
 <dd>
-<p>Accepts another span query whose matches must appear within the first N
-positions of the field.</p>
+<p>接收另一个 span query，它的匹配项必须出现在该字段的前 N 个位置。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-span-near-query"><code>span_near</code> query</a></dt>
 <dd>
-<p>Accepts multiple span queries whose matches must be within the specified distance of each other, and possibly in the same order.</p>
+<p>接受在指定距离内其它的span queries，并且可以是以相同的顺序。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-span-or-query"><code>span_or</code> query</a></dt>
 <dd>
-<p>Combines multiple span queries&#8201;&#8212;&#8201;returns documents which match any of the
-specified queries.</p>
+<p>将多个span queries组合起来，并返回任何匹配的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-span-not-query"><code>span_not</code> query</a></dt>
 <dd>
-<p>Wraps another span query, and excludes any documents which match that query.</p>
+<p>包含其它span query，并排除匹配的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-span-containing-query"><code>span_containing</code> query</a></dt>
 <dd>
-<p>Accepts a list of span queries, but only returns those spans which also match a second span query.</p>
+<p>接受一个span queries列表，但只返回两个条件都匹配的文档。</p>
 </dd>
 <dt class="hdlist1"><a href="#java-query-dsl-span-within-query"><code>span_within</code> query</a></dt>
 <dd>
-<p>The result from a single span query is returned as long is its span falls
-within the spans returned by a list of other span queries.</p>
+<p>只要span query落在由其它span queries中，就会返回span query的结果。</p>
 </dd>
 </dl>
 </div>
 <div class="sect3">
 <h4 id="java-query-dsl-span-term-query">8.8.1. Span Term Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-term-query.html">Span Term Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-term-query.html">Span Term Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5872,7 +5867,7 @@ within the spans returned by a list of other span queries.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-span-multi-term-query">8.8.2. Span Multi Term Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-multi-term-query.html">Span Multi Term Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-multi-term-query.html">Span Multi Term Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5884,8 +5879,8 @@ within the spans returned by a list of other span queries.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Can be any builder extending the <code>MultiTermQueryBuilder</code> class. For example: <code>FuzzyQueryBuilder</code>,
-<code>PrefixQueryBuilder</code>, <code>RangeQueryBuilder</code>, <code>RegexpQueryBuilder</code> or <code>WildcardQueryBuilder</code>.</td>
+<td>支持任何继承 <code>MultiTermQueryBuilder</code> 的类，比如 <code>FuzzyQueryBuilder</code> ,
+<code>PrefixQueryBuilder</code>, <code>RangeQueryBuilder</code>, <code>RegexpQueryBuilder</code> 或 <code>WildcardQueryBuilder</code>.</td>
 </tr>
 </table>
 </div>
@@ -5893,7 +5888,7 @@ within the spans returned by a list of other span queries.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-span-first-query">8.8.3. Span First Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-first-query.html">Span First Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-first-query.html">Span First Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5911,7 +5906,7 @@ within the spans returned by a list of other span queries.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>max end position</td>
+<td>最大结束点位置</td>
 </tr>
 </table>
 </div>
@@ -5919,7 +5914,7 @@ within the spans returned by a list of other span queries.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-span-near-query">8.8.4. Span Near Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-near-query.html">Span Near Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-near-query.html">Span Near Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5935,15 +5930,23 @@ within the spans returned by a list of other span queries.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>span term queries</td>
+<td>span queries 条件</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>slop factor: the maximum number of intervening unmatched positions</td>
+<td>不匹配的最大数量</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>whether matches are required to be in-order</td>
+<td>span queries 条件</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>span queries 条件</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>匹配之后是否需要排序</td>
 </tr>
 </table>
 </div>
@@ -5951,7 +5954,7 @@ within the spans returned by a list of other span queries.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-span-or-query">8.8.5. Span Or Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-or-query.html">Span Or Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-or-query.html">Span Or Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5964,7 +5967,7 @@ within the spans returned by a list of other span queries.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>span term queries</td>
+<td>span queries 条件</td>
 </tr>
 </table>
 </div>
@@ -5972,7 +5975,7 @@ within the spans returned by a list of other span queries.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-span-not-query">8.8.6. Span Not Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-not-query.html">Span Not Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-not-query.html">Span Not Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5985,11 +5988,11 @@ within the spans returned by a list of other span queries.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>span query whose matches are filtered</td>
+<td>需要进行过滤的 span query</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>span query whose matches must not overlap those returned</td>
+<td>需要排除的 span query</td>
 </tr>
 </table>
 </div>
@@ -5997,7 +6000,7 @@ within the spans returned by a list of other span queries.</p>
 <div class="sect3">
 <h4 id="java-query-dsl-span-containing-query">8.8.7. Span Containing Query</h4>
 <div class="paragraph">
-<p>See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-containing-query.html">Span Containing Query</a></p>
+<p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-span-containing-query.html">Span Containing Query</a></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6012,11 +6015,11 @@ within the spans returned by a list of other span queries.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>big</code> part</td>
+<td><code>大</code> 的部分</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td><code>little</code> part</td>
+<td><code>小</code> 的部分</td>
 </tr>
 </table>
 </div>
@@ -6039,11 +6042,11 @@ within the spans returned by a list of other span queries.</p>
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><code>big</code> part</td>
+<td><code>大</code> 的部分</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td><code>little</code> part</td>
+<td><code>小</code> 的部分</td>
 </tr>
 </table>
 </div>
