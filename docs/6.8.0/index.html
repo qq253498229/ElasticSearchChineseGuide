@@ -6496,9 +6496,8 @@ if (!status.equals(ClusterHealthStatus.GREEN)) {
 <div class="sect3">
 <h4 id="stored-scripts">9.2.2. Stored Scripts API</h4>
 <div class="paragraph">
-<p>The stored script API allows one to interact with scripts and templates
-stored in Elasticsearch. It can be used to create, update, get,
-and delete stored scripts and templates.</p>
+<p>Stored Scripts API 允许用户与存储在 Elasticsearch 中的 scripts 和 templates 进行交互。
+它可用于 create, update, get, 和 delete 存储的 scripts 和 templates。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6517,13 +6516,13 @@ DeleteStoredScriptResponse response = client().admin().cluster().prepareDeleteSt
 </div>
 </div>
 <div class="paragraph">
-<p>To store templates simply use "mustache" for the scriptLang.</p>
+<p>要存储模板，只需使用 "mustache" 作为脚本语言。</p>
 </div>
 <div class="sect4">
 <h5 id="_script_language">Script Language</h5>
 <div class="paragraph">
-<p>The put stored script API allows one to set the language of the stored script.
-If one is not provided the default scripting language will be used.</p>
+<p>Put stored script API 允许用户设置 stored script 的语言。
+如果未提供，将使用默认脚本语言。</p>
 </div>
 </div>
 </div>
