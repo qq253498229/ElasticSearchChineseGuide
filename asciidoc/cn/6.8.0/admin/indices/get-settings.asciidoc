@@ -1,7 +1,7 @@
 [[java-admin-indices-get-settings]]
 ==== Get Settings
 
-The get settings API allows to retrieve settings of index/indices:
+Get settings API 允许检索 index/indices 的设置:
 
 [source,java]
 --------------------------------------------------
@@ -14,11 +14,11 @@ for (ObjectObjectCursor<String, Settings> cursor : response.getIndexToSettings()
     Integer replicas = settings.getAsInt("index.number_of_replicas", null); <6>
 }
 --------------------------------------------------
-<1> Get settings for indices `company` and `employee`
-<2> Iterate over results
-<3> Index name
-<4> Settings for the given index
-<5> Number of shards for this index
-<6> Number of replicas for this index
+<1> 获取 `company` 和 `employee` indices 的设置
+<2> 遍历结果
+<3> Index 名称
+<4> Index 的设置
+<5> Index 的 shards 数量
+<6> Index 的 replicas 数量
 
 

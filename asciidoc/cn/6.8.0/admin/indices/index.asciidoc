@@ -1,7 +1,7 @@
 [[java-admin-indices]]
 === Indices Administration
 
-To access indices Java API, you need to call `indices()` method from an <<java-admin,`AdminClient`>>:
+要想访问indices JavaAPI，你需要从 <<java-admin,`AdminClient`>> 类中调用 `indices()` 方法:
 
 [source,java]
 --------------------------------------------------
@@ -9,7 +9,7 @@ IndicesAdminClient indicesAdminClient = client.admin().indices();
 --------------------------------------------------
 
 [NOTE]
-In the rest of this guide, we will use `client.admin().indices()`.
+在这篇文档的其余部分中，我们使用 `client.admin()` 来获取。
 
 include::create-index.asciidoc[]
 
@@ -18,4 +18,6 @@ include::put-mapping.asciidoc[]
 include::refresh.asciidoc[]
 
 include::get-settings.asciidoc[]
+
 include::update-settings.asciidoc[]
+

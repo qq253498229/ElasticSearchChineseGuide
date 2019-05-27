@@ -1,7 +1,8 @@
 [[java-admin-indices-create-index]]
 ==== Create Index
 
-Using an <<java-admin-indices,`IndicesAdminClient`>>, you can create an index with all default settings and no mapping:
+使用 <<java-admin-indices,`IndicesAdminClient`>>,
+你可以使用默认设置和空映射来创建index:
 
 [source,java]
 --------------------------------------------------
@@ -12,7 +13,7 @@ client.admin().indices().prepareCreate("twitter").get();
 [[java-admin-indices-create-index-settings]]
 ===== Index Settings
 
-Each index created can have specific settings associated with it.
+创建的每个index都有单独的设置。
 
 [source,java]
 --------------------------------------------------
@@ -23,6 +24,6 @@ client.admin().indices().prepareCreate("twitter")
         )
         .get(); <2>
 --------------------------------------------------
-<1> Settings for this index
-<2> Execute the action and wait for the result
+<1> 该index的设置
+<2> 执行操作并等待结果
 

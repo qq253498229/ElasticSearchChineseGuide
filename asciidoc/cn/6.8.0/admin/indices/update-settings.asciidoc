@@ -1,7 +1,7 @@
 [[java-admin-indices-update-settings]]
 ==== Update Indices Settings
 
-You can change index settings by calling:
+你可以通过调用以下代码来修改 index :
 
 [source,java]
 --------------------------------------------------
@@ -11,6 +11,6 @@ client.admin().indices().prepareUpdateSettings("twitter") <1>
         )
         .get();
 --------------------------------------------------
-<1> Index to update
-<2> Settings
+<1> 要更新的 index
+<2> 设置
 

@@ -6058,10 +6058,10 @@ wrapperQuery(query);</code></pre>
 <h2 id="java-admin">9. Java API Administration</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Elasticsearch provides a full Java API to deal with administration tasks.</p>
+<p>Elasticsearch提供了一套完整的JavaAPI来处理管理员任务。</p>
 </div>
 <div class="paragraph">
-<p>To access them, you need to call <code>admin()</code> method from a client to get an <code>AdminClient</code>:</p>
+<p>想要使用它们，你需要从 <code>client</code> 中调用 <code>admin()</code> 方法来获取 <code>AdminClient</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6075,7 +6075,7 @@ wrapperQuery(query);</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the rest of this guide, we will use <code>client.admin()</code>.
+在这篇文档的其余部分中，我们使用 <code>client.admin()</code> 来获取。
 </td>
 </tr>
 </table>
@@ -6083,7 +6083,7 @@ In the rest of this guide, we will use <code>client.admin()</code>.
 <div class="sect2">
 <h3 id="java-admin-indices">9.1. Indices Administration</h3>
 <div class="paragraph">
-<p>To access indices Java API, you need to call <code>indices()</code> method from an <a href="#java-admin"><code>AdminClient</code></a>:</p>
+<p>要想访问indices JavaAPI，你需要从 <a href="#java-admin"><code>AdminClient</code></a> 类中调用 <code>indices()</code> 方法:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6097,7 +6097,7 @@ In the rest of this guide, we will use <code>client.admin()</code>.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the rest of this guide, we will use <code>client.admin().indices()</code>.
+在这篇文档的其余部分中，我们使用 <code>client.admin()</code> 来获取。
 </td>
 </tr>
 </table>
@@ -6105,7 +6105,8 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 <div class="sect3">
 <h4 id="java-admin-indices-create-index">9.1.1. Create Index</h4>
 <div class="paragraph">
-<p>Using an <a href="#java-admin-indices"><code>IndicesAdminClient</code></a>, you can create an index with all default settings and no mapping:</p>
+<p>使用 <a href="#java-admin-indices"><code>IndicesAdminClient</code></a>,
+你可以使用默认设置和空映射来创建index:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6114,7 +6115,7 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 </div>
 <h5 id="java-admin-indices-create-index-settings" class="float">Index Settings</h5>
 <div class="paragraph">
-<p>Each index created can have specific settings associated with it.</p>
+<p>创建的每个index都有单独的设置。</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6130,17 +6131,20 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Settings for this index</td>
+<td>该index的设置</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Execute the action and wait for the result</td>
+<td>执行操作并等待结果</td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect3">
 <h4 id="java-admin-indices-put-mapping">9.1.2. Put Mapping</h4>
+<div class="paragraph">
+<p>你可以在创建index的时候添加映射:</p>
+</div>
 <div class="paragraph">
 <p>You can add mappings at index creation time:</p>
 </div>
@@ -6155,23 +6159,21 @@ In the rest of this guide, we will use <code>client.admin().indices()</code>.
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td><a href="#java-admin-indices-create-index">Creates an index</a> called <code>twitter</code></td>
+<td><a href="#java-admin-indices-create-index">Creates an index</a> 名字是 <code>twitter</code></td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Add a <code>_doc</code> type with a field called <code>message</code> that has the datatype <code>text</code>.</td>
+<td>添加名为 <code>message</code> 类型为 <code>_doc</code> 的字段，该字段的数据类型为 <code>text</code></td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>There are several variants of the above <code>addMapping</code> method, some taking an
-<code>XContentBuilder</code> or a <code>Map</code> with the mapping definition as arguments. Make sure
-to check the javadocs to pick the simplest one for your use case.</p>
+<p>上面的 <code>addMapping</code> 方法有几种变体，有些采用 <code>XContentBuilder</code> 或带有映射定义的 <code>Map</code> 作为参数。
+请在阅读javadocs后再选择适合你的最简单的方法。</p>
 </div>
 <div class="paragraph">
-<p>The PUT mapping API also allows for updating the mapping after index
-creation. In this case you can provide the mapping as a String similar
-to the REST API syntax:</p>
+<p>PUT mapping API还允许在创建 index 后更新映射。
+在这种情况下，您可以提供一个类似于REST API语法的String映射:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6205,15 +6207,15 @@ client.admin().indices().preparePutMapping("twitter")
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Puts a mapping on existing index called <code>twitter</code></td>
+<td>修改名为 <code>twitter</code> 的 index 的映射</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Adds a new field <code>name</code> to the mapping</td>
+<td>向映射中添加一个名为 <code>name</code> 的新字段</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>The type can be also provided within the source</td>
+<td>这中方式也可以在source中提供</td>
 </tr>
 </table>
 </div>
@@ -6221,7 +6223,7 @@ client.admin().indices().preparePutMapping("twitter")
 <div class="sect3">
 <h4 id="java-admin-indices-refresh">9.1.3. Refresh</h4>
 <div class="paragraph">
-<p>The refresh API allows to explicitly refresh one or more index:</p>
+<p>Refresh API允许显式地刷新一个或多个index:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6238,15 +6240,15 @@ client.admin().indices()
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Refresh all indices</td>
+<td>刷新所有 indices</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Refresh one index</td>
+<td>刷新单个 index</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Refresh many indices</td>
+<td>刷新多个 indices</td>
 </tr>
 </table>
 </div>
@@ -6254,7 +6256,7 @@ client.admin().indices()
 <div class="sect3">
 <h4 id="java-admin-indices-get-settings">9.1.4. Get Settings</h4>
 <div class="paragraph">
-<p>The get settings API allows to retrieve settings of index/indices:</p>
+<p>Get settings API 允许检索 index/indices 的设置:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6272,27 +6274,27 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Get settings for indices <code>company</code> and <code>employee</code></td>
+<td>获取 <code>company</code> 和 <code>employee</code> indices 的设置</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Iterate over results</td>
+<td>遍历结果</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Index name</td>
+<td>Index 名称</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Settings for the given index</td>
+<td>Index 的设置</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Number of shards for this index</td>
+<td>Index 的 shards 数量</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>Number of replicas for this index</td>
+<td>Index 的 replicas 数量</td>
 </tr>
 </table>
 </div>
@@ -6300,7 +6302,7 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 <div class="sect3">
 <h4 id="java-admin-indices-update-settings">9.1.5. Update Indices Settings</h4>
 <div class="paragraph">
-<p>You can change index settings by calling:</p>
+<p>你可以通过调用以下代码来修改 index :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6315,11 +6317,11 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Index to update</td>
+<td>要更新的 index</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Settings</td>
+<td>设置</td>
 </tr>
 </table>
 </div>
