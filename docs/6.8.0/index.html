@@ -6330,7 +6330,7 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 <div class="sect2">
 <h3 id="java-admin-cluster">9.2. Cluster Administration</h3>
 <div class="paragraph">
-<p>To access cluster Java API, you need to call <code>cluster()</code> method from an <a href="#java-admin"><code>AdminClient</code></a>:</p>
+<p>想要访问集群 Java API ，你需要从 <a href="#java-admin"><code>AdminClient</code></a> 类中调用 <code>cluster()</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6344,7 +6344,7 @@ for (ObjectObjectCursor&lt;String, Settings&gt; cursor : response.getIndexToSett
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-In the rest of this guide, we will use <code>client.admin().cluster()</code>.
+在这篇文档的其余部分中，我们使用 <code>client.admin()</code> 来获取。
 </td>
 </tr>
 </table>
@@ -6354,8 +6354,7 @@ In the rest of this guide, we will use <code>client.admin().cluster()</code>.
 <div class="sect4">
 <h5 id="java-admin-cluster-health-health">Health</h5>
 <div class="paragraph">
-<p>The cluster health API allows to get a very simple status on the health of the cluster and also can give you
-some technical information about the cluster status per index:</p>
+<p>Cluster Health API 可以获取集群健康的简单状态，并且还可以为您提供每个index的集群状态技术信息:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6376,39 +6375,39 @@ for (ClusterIndexHealth health : healths.getIndices().values()) { <i class="conu
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Get information for all indices</td>
+<td>获取所有 indices 的信息</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Access the cluster name</td>
+<td>获取 cluster 名称</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Get the total number of data nodes</td>
+<td>获取数据节点的数量</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Get the total number of nodes</td>
+<td>获取节点的数量</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Iterate over all indices</td>
+<td>遍历所有 indices</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>Index name</td>
+<td>Index 名称</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>Number of shards</td>
+<td>Shards 数量</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>Number of replicas</td>
+<td>Replicas 数量</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>Index status</td>
+<td>Index 状态</td>
 </tr>
 </table>
 </div>
@@ -6416,7 +6415,7 @@ for (ClusterIndexHealth health : healths.getIndices().values()) { <i class="conu
 <div class="sect4">
 <h5 id="java-admin-cluster-health-wait-status">Wait for status</h5>
 <div class="paragraph">
-<p>You can use the cluster health API to wait for a specific status for the whole cluster or for a given index:</p>
+<p>可以使用 cluster health API 等待整个 cluster 或给定 index 的特定状态:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6437,37 +6436,36 @@ client.admin().cluster().prepareHealth("employee") <i class="conum" data-value="
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Prepare a health request</td>
+<td>准备 health 请求</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Wait for the cluster being yellow</td>
+<td>等待 cluster 状态变黄</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>Prepare the health request for index <code>company</code></td>
+<td>为 <code>company</code> index 准备 health 请求</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>Wait for the index being green</td>
+<td>等待 index 状态变绿</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>Prepare the health request for index <code>employee</code></td>
+<td>为 <code>employee</code> index 准备 health 请求</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>Wait for the index being green</td>
+<td>等待 index 状态变绿</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>Wait at most for 2 seconds</td>
+<td>等待最多2秒</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>If the index does not have the expected status and you want to fail in that case, you need
-to explicitly interpret the result:</p>
+<p>如果 index 没有匹配预期状态，并且你希望在这种情况下返回失败，则必须明确指定:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -6485,11 +6483,11 @@ if (!status.equals(ClusterHealthStatus.GREEN)) {
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Wait for the index being green</td>
+<td>等待 index 状态变绿</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Throw an exception if not <code>GREEN</code></td>
+<td>如果不是 <code>绿色</code> 那么就抛出一个异常</td>
 </tr>
 </table>
 </div>
