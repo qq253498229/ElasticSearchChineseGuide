@@ -1,6 +1,18 @@
 # ElasticSearch-Java API      
 
-## 目录
+更新日志：
+
+2019-05-28
+
+> 6.8.0版本初稿完成，[在线地址](https://qq253498229.github.io/ElasticSearchChineseGuide/6.8.0/)
+
+2019-05-22
+
+> 6.8.0版本正在施工,[在线地址](https://qq253498229.github.io/ElasticSearchChineseGuide/)
+
+> 7.x在计划中，欢迎小伙伴们参与贡献
+
+## 6.2.2版本目录
 - [前言](markdown/1Preface/readme.md)
 - [Javadoc](markdown/2JavaDoc/readme.md)
 - [Maven仓库](markdown/3MavenRepository/readme.md)
@@ -25,12 +37,6 @@
 
 > 欢迎大家踊跃提交issue/pull request。联系方式：codeforfun@foxmail.com
 
-> ES版本 6.2.2
 
-更新日志：
 
-2019-05-22
 
-> 6.8.0版本正在施工,[在线地址](https://qq253498229.github.io/ElasticSearchChineseGuide/)
-
-> 7.x在计划中，欢迎小伙伴们参与贡献
