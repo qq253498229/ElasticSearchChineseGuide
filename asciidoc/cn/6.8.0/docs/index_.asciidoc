@@ -6,21 +6,21 @@ Index API 可以在指定的index中将一个结构化的JSON文档建立索引�
 [[java-docs-index-generate]]
 ==== 生成JSON格式的文档
 
-有几种不同的方式来生成JSON文档:
+一般有下面几种方式来生成一个JSON文档:
 
 * 手动使用 `byte[]` 或 `String` 类型拼接一个JSON
-* 使用 `Map` 类型会自动转换成等效的JSON
-* 使用第三方库将你的Bean序列化成Json格式，例如 https://github.com/FasterXML/jackson[Jackson]
-* 使用内置的 XContentFactory.jsonBuilder()
+* 使用 `Map` 类型会自动转换成对应的JSON
+* 使用第三方库将你的Bean序列化成Json格式，例如 https://github.com/FasterXML/jackson[Jackson] 库等
+* 使用内置的 XContentFactory.jsonBuilder() 生成JSON
 
-在内部，所有类型都会转换成 `byte[]` 类型（所以String类型最后也会转成 `byte[]` 类型）。
-因此，如果你的对象已经是这种格式了，那么就直接使用它吧。
-当然 `jsonBuilder` 是一个高度优化后的工具，你可以使用它来直接构造 `byte[]`
+在内部，所有类型最终都会转换成 `byte[]` 类型（所以String类型最后也会转成 `byte[]` 类型）。
+因此，如果你的对象已经是 `byte[]` 类型了，那么就直接使用它吧。
+当然官方内置的 `jsonBuilder` 是一个高度优化后的工具，你可以使用它来直接构造 `byte[]` 。
 
 [[java-docs-index-generate-diy]]
 ===== 手动拼接
 
-没什么困难的，你唯一需要注意的是通过
+没什么困难的，唯一需要注意的是通过
 {ref}/mapping-date-format.html[Date Format]
 对日期进行格式化。
 
@@ -49,18 +49,18 @@ json.put("message","trying out Elasticsearch");
 
 
 [[java-docs-index-generate-beans]]
-===== 序列化你的bean
+===== 序列化 JavaBean
 
 你可以使用 https://github.com/FasterXML/jackson[Jackson] 将你的Bean序列化成JSON。
 请将 http://search.maven.org/#search%7Cga%7C1%7Cjackson-databind[Jackson Databind] 加入你的项目中。
-然后你就可以使用 `ObjectMapper` 来序列化你的Bean了：
+然后你就可以使用 `ObjectMapper` 来序列化你的Bean了:
 
 [source,java]
 --------------------------------------------------
 import com.fasterxml.jackson.databind.*;
 
-// 示例化一个 json mapper
-ObjectMapper mapper = new ObjectMapper(); // create once, reuse
+// 实例化一个 json mapper
+ObjectMapper mapper = new ObjectMapper(); // 只创建一次，重复使用
 
 // 生成 json
 byte[] json = mapper.writeValueAsBytes(yourbeaninstance);
@@ -138,16 +138,18 @@ IndexResponse response = client.prepareIndex("twitter", "_doc")
 
 [source,java]
 --------------------------------------------------
-// Index name
+// Index 名称
 String _index = response.getIndex();
-// Type name
+// Type 名称
 String _type = response.getType();
 // Document ID (generated or not)
 String _id = response.getId();
-// Version (if it's the first time you index this document, you will get: 1)
+// Version (如果你是新建的这个文档，会得到1)
 long _version = response.getVersion();
-// status has stored current instance statement.
+// 当前实例的存储状态
 RestStatus status = response.status();
 --------------------------------------------------
 
 有关index操作的更多信息，请查看 REST {ref}/docs-index_.html[index] 。
+
+

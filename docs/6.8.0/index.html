@@ -1407,9 +1407,9 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 <p>Index API 可以在指定的index中将一个结构化的JSON文档建立索引，并使其可以被查询到。</p>
 </div>
 <div class="sect3">
-<h4 id="java-docs-index-generate">5.1.1. 生成JSON文档</h4>
+<h4 id="java-docs-index-generate">5.1.1. 生成JSON格式的文档</h4>
 <div class="paragraph">
-<p>有几种不同的方式来生成JSON文档:</p>
+<p>一般有下面几种方式来生成一个JSON文档:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1417,25 +1417,25 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 <p>手动使用 <code>byte[]</code> 或 <code>String</code> 类型拼接一个JSON</p>
 </li>
 <li>
-<p>使用 <code>Map</code> 类型会自动转换成等效的JSON</p>
+<p>使用 <code>Map</code> 类型会自动转换成对应的JSON</p>
 </li>
 <li>
-<p>使用第三方库将你的Bean序列化成Json格式，例如 <a href="https://github.com/FasterXML/jackson">Jackson</a></p>
+<p>使用第三方库将你的Bean序列化成Json格式，例如 <a href="https://github.com/FasterXML/jackson">Jackson</a> 库等</p>
 </li>
 <li>
-<p>使用内置的 XContentFactory.jsonBuilder()</p>
+<p>使用内置的 XContentFactory.jsonBuilder() 生成JSON</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>在内部，所有类型都会转换成 <code>byte[]</code> 类型（所以String类型最后也会转成 <code>byte[]</code> 类型）。
-因此，如果你的对象已经是这种格式了，那么就直接使用它吧。
-当然 <code>jsonBuilder</code> 是一个高度优化后的工具，你可以使用它来直接构造 <code>byte[]</code></p>
+<p>在内部，所有类型最终都会转换成 <code>byte[]</code> 类型（所以String类型最后也会转成 <code>byte[]</code> 类型）。
+因此，如果你的对象已经是 <code>byte[]</code> 类型了，那么就直接使用它吧。
+当然官方内置的 <code>jsonBuilder</code> 是一个高度优化后的工具，你可以使用它来直接构造 <code>byte[]</code> 。</p>
 </div>
 <div class="sect4">
 <h5 id="java-docs-index-generate-diy">手动拼接</h5>
 <div class="paragraph">
-<p>没什么困难的，你唯一需要注意的是通过
+<p>没什么困难的，唯一需要注意的是通过
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/mapping-date-format.html">Date Format</a>
 对日期进行格式化。</p>
 </div>
@@ -1464,18 +1464,18 @@ json.put("message","trying out Elasticsearch");</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="java-docs-index-generate-beans">序列化你的bean</h5>
+<h5 id="java-docs-index-generate-beans">序列化 JavaBean</h5>
 <div class="paragraph">
 <p>你可以使用 <a href="https://github.com/FasterXML/jackson">Jackson</a> 将你的Bean序列化成JSON。
 请将 <a href="http://search.maven.org/#search%7Cga%7C1%7Cjackson-databind">Jackson Databind</a> 加入你的项目中。
-然后你就可以使用 <code>ObjectMapper</code> 来序列化你的Bean了：</p>
+然后你就可以使用 <code>ObjectMapper</code> 来序列化你的Bean了:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">import com.fasterxml.jackson.databind.*;
 
-// 示例化一个 json mapper
-ObjectMapper mapper = new ObjectMapper(); // create once, reuse
+// 实例化一个 json mapper
+ObjectMapper mapper = new ObjectMapper(); // 只创建一次，重复使用
 
 // 生成 json
 byte[] json = mapper.writeValueAsBytes(yourbeaninstance);</code></pre>
@@ -1557,15 +1557,15 @@ IndexResponse response = client.prepareIndex("twitter", "_doc")
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">// Index name
+<pre class="highlight"><code class="language-java" data-lang="java">// Index 名称
 String _index = response.getIndex();
-// Type name
+// Type 名称
 String _type = response.getType();
 // Document ID (generated or not)
 String _id = response.getId();
-// Version (if it's the first time you index this document, you will get: 1)
+// Version (如果你是新建的这个文档，会得到1)
 long _version = response.getVersion();
-// status has stored current instance statement.
+// 当前实例的存储状态
 RestStatus status = response.status();</code></pre>
 </div>
 </div>
