@@ -186,3 +186,6 @@ include::aggs.asciidoc[]
 include::query-dsl.asciidoc[]
 
 include::admin/index.asciidoc[]
+
+include::../other.adoc[]
+

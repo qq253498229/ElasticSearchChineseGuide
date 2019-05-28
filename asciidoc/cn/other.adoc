@@ -1,0 +1,55 @@
+[[custom-words]]
+== 其它
+
+本文旨在帮助中文用户学习ElasticSearch，商业用途请提前联系作者，其余用途你随便整。
+
+NOTE: 以下内容和ElasticSearch官方无关，爱看不看2333
+
+[[origin-address]]
+=== 原文地址
+
+https://www.elastic.co/guide/en/elasticsearch/client/java-api/6.8/index.html[点击查看官方原文]
+
+[[compare-with-database]]
+=== 对比关系型数据库
+
+名词::
+
+* index: 索引(名词)，类似于关系型数据库(例如MySQL/SQLServer等)中的数据库(database)
+* type: 类型，类似于关系型数据库中的表格(table)
+* document: 文档，类似于关系型数据库中的一条数据
+* id: 唯一标示，类似于关系型数据库中的主键
+* bulk:批处理接口的关键字，在实际项目中你可能会经常用到它，类似于关系型数据库中的 **insert into table values(x),(x),(x)** 这种批处理写法。当然ES还支持批量删除和修改
+
+动词::
+
+* index: 索引(动词)，类似于关系型数据库中的insert
+* get: 查询，类似于关系型数据库中的select
+* delete: 删除，类似于关系型数据库中的delete
+* update: 更新，类似于关系型数据库中的update
+
+
+NOTE: 注意，名词解释只是方便理解，实现原理以及使用方法和关系型数据库有很大的区别。
+
+[[translate-address]]
+=== 翻译源码地址
+
+欢迎小伙伴贡献和指点
+
+https://gitee.com/consolelog/chinese_translation_of_elasticsearchjavaapi[码云仓库]
+
+https://github.com/qq253498229/ElasticSearchChineseGuide[Github]
+
+[[update-log]]
+=== 更新日志
+
+2019-05-28::
+
+6.8.0版本初稿完成
+
+2019-05-22::
+
+6.8.0版本正在施工, https://qq253498229.github.io/ElasticSearchChineseGuide/6.8.0/[在线地址]。
+7.x在计划中，欢迎小伙伴们参与贡献
+
+

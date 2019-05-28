@@ -6529,6 +6529,120 @@ DeleteStoredScriptResponse response = client().admin().cluster().prepareDeleteSt
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="custom-words">10. 其它</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>本文旨在帮助中文用户学习ElasticSearch，商业用途请提前联系作者，其余用途你随便整。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+以下内容和ElasticSearch官方无关，爱看不看2333
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="origin-address">10.1. 原文地址</h3>
+<div class="paragraph">
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/client/java-api/6.8/index.html">点击查看官方原文</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="compare-with-database">10.2. 对比关系型数据库</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">名词</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>index: 索引(名词)，类似于关系型数据库(例如MySQL/SQLServer等)中的数据库(database)</p>
+</li>
+<li>
+<p>type: 类型，类似于关系型数据库中的表格(table)</p>
+</li>
+<li>
+<p>document: 文档，类似于关系型数据库中的一条数据</p>
+</li>
+<li>
+<p>id: 唯一标示，类似于关系型数据库中的主键</p>
+</li>
+<li>
+<p>bulk:批处理接口的关键字，在实际项目中你可能会经常用到它，类似于关系型数据库中的 <strong>insert into table values(x),(x),(x)</strong> 这种批处理写法。当然ES还支持批量删除和修改</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">动词</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>index: 索引(动词)，类似于关系型数据库中的insert</p>
+</li>
+<li>
+<p>get: 查询，类似于关系型数据库中的select</p>
+</li>
+<li>
+<p>delete: 删除，类似于关系型数据库中的delete</p>
+</li>
+<li>
+<p>update: 更新，类似于关系型数据库中的update</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+注意，名词解释只是方便理解，实现原理以及使用方法和关系型数据库有很大的区别。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="translate-address">10.3. 翻译源码地址</h3>
+<div class="paragraph">
+<p>欢迎小伙伴贡献和指点</p>
+</div>
+<div class="paragraph">
+<p><a href="https://gitee.com/consolelog/chinese_translation_of_elasticsearchjavaapi">码云仓库</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/qq253498229/ElasticSearchChineseGuide">Github</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="update-log">10.4. 更新日志</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">2019-05-28</dt>
+<dd>
+<p>6.8.0版本初稿完成</p>
+</dd>
+<dt class="hdlist1">2019-05-22</dt>
+<dd>
+<p>6.8.0版本正在施工, <a href="https://qq253498229.github.io/ElasticSearchChineseGuide/6.8.0/">在线地址</a>。
+7.x在计划中，欢迎小伙伴们参与贡献</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
