@@ -1,5 +1,5 @@
 [[java-docs-update-by-query]]
-=== Update By Query API
+=== 通过条件更新文档
 
 `updateByQuery` 最简单的用法是在不更改源的情况下更新同一个index中的所有文档。
 这种用法还可以获取新的属性或其它网络映射的改变。
@@ -135,7 +135,7 @@ BulkByScrollResponse response = updateByQuery.get();
 --------------------------------------------------
 
 [[java-docs-update-by-query-task-api]]
-=== Works with the Task API
+==== Works with the Task API
 
 你可以使用 Task API 来获取所有正在运行中的 update-by-query 请求状态:
 
@@ -160,7 +160,7 @@ GetTaskResponse get = client.admin().cluster().prepareGetTask(taskId).get();
 --------------------------------------------------
 
 [[java-docs-update-by-query-cancel-task-api]]
-=== Works with the Cancel Task API
+==== Works with the Cancel Task API
 
 任何 Update By Query 可以使用 Task Cancel API 来取消:
 
@@ -179,7 +179,7 @@ client.admin().cluster().prepareCancelTasks()
 取消请求通常非常快，但也需要几秒钟。任务状态API会继续列出任务，直到取消完成。
 
 [[java-docs-update-by-query-rethrottle]]
-=== Rethrottling
+==== Rethrottling
 
 使用 `_rethrottle` API 可以修改正在运行的 `requests_per_second` 值:
 

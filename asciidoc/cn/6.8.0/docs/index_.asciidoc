@@ -1,5 +1,5 @@
 [[java-docs-index]]
-=== Index API
+=== 对JSON文档建立索引
 
 Index API 可以在指定的index中将一个结构化的JSON文档建立索引，并使其可以被查询到。
 

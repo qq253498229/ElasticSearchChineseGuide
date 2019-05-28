@@ -1,5 +1,5 @@
 [[java-docs-get]]
-=== Get API
+=== 根据ID获取文档
 
 Get API 可以根据 `id` 从 index 中获取JSON文档。
 下面就是一个获取JSON格式文档的例子，它的条件是index为twitter，type是 `_doc` ，id是1:

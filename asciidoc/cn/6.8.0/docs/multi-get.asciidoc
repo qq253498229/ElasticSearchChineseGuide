@@ -1,7 +1,7 @@
 [[java-docs-multi-get]]
-=== Multi Get API
+=== 获取多个文档
 
-Multi get API 允许通过 `index` 和  `id` 获取文档列表:
+Multi get API 允许通过 `index` 和  `id` 获取多个文档:
 
 [source,java]
 --------------------------------------------------

@@ -1356,16 +1356,16 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 <div class="title">单文档 API</div>
 <ul>
 <li>
-<p><a href="#java-docs-index">Index API</a></p>
+<p><a href="#java-docs-index">对JSON文档建立索引</a></p>
 </li>
 <li>
-<p><a href="#java-docs-get">Get API</a></p>
+<p><a href="#java-docs-get">根据ID获取文档</a></p>
 </li>
 <li>
-<p><a href="#java-docs-delete">Delete API</a></p>
+<p><a href="#java-docs-delete">删除文档</a></p>
 </li>
 <li>
-<p><a href="#java-docs-update">Update API</a></p>
+<p><a href="#java-docs-update">更新文档</a></p>
 </li>
 </ul>
 </div>
@@ -1373,19 +1373,19 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 <div class="title">多文档 API</div>
 <ul>
 <li>
-<p><a href="#java-docs-multi-get">Multi Get API</a></p>
+<p><a href="#java-docs-multi-get">获取多个文档</a></p>
 </li>
 <li>
-<p><a href="#java-docs-bulk">Bulk API</a></p>
+<p><a href="#java-docs-bulk">批处理</a></p>
 </li>
 <li>
-<p><a href="#java-docs-reindex">Reindex API</a></p>
+<p><a href="#java-docs-reindex">重新建立索引</a></p>
 </li>
 <li>
-<p><a href="#java-docs-update-by-query">Update By Query API</a></p>
+<p><a href="#java-docs-update-by-query">通过条件更新文档</a></p>
 </li>
 <li>
-<p><a href="#java-docs-delete-by-query">Delete By Query API</a></p>
+<p><a href="#java-docs-delete-by-query">根据条件删除文档</a></p>
 </li>
 </ul>
 </div>
@@ -1402,7 +1402,7 @@ TransportClient client = new PreBuiltTransportClient(settings);</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="java-docs-index">5.1. Index API</h3>
+<h3 id="java-docs-index">5.1. 对JSON文档建立索引</h3>
 <div class="paragraph">
 <p>Index API 可以在指定的index中将一个结构化的JSON文档建立索引，并使其可以被查询到。</p>
 </div>
@@ -1575,7 +1575,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-get">5.2. Get API</h3>
+<h3 id="java-docs-get">5.2. 根据ID获取文档</h3>
 <div class="paragraph">
 <p>Get API 可以根据 <code>id</code> 从 index 中获取JSON文档。
 下面就是一个获取JSON格式文档的例子，它的条件是index为twitter，type是 <code>_doc</code> ，id是1:</p>
@@ -1590,7 +1590,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-delete">5.3. Delete API</h3>
+<h3 id="java-docs-delete">5.3. 删除文档</h3>
 <div class="paragraph">
 <p>Delete API 可以在指定的 index 中根据ID删除一个JSON类型的文档。
 下面就是一个删除JSON文档的例子，它的index是twitter，type是 <code>_doc</code> ，id是1:</p>
@@ -1605,7 +1605,7 @@ RestStatus status = response.status();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-delete-by-query">5.4. Delete By Query API</h3>
+<h3 id="java-docs-delete-by-query">5.4. 根据条件删除文档</h3>
 <div class="paragraph">
 <p>Delete By Query API 可以根据查询的结果删除一组文档:</p>
 </div>
@@ -1681,7 +1681,7 @@ long deleted = response.getDeleted(); <i class="conum" data-value="4"></i><b>(4)
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-update">5.5. Update API</h3>
+<h3 id="java-docs-update">5.5. 更新文档</h3>
 <div class="paragraph">
 <p>你可以创建一个 <code>UpdateRequest</code> 并发送给client:</p>
 </div>
@@ -1828,9 +1828,9 @@ client.update(updateRequest).get();</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-multi-get">5.6. Multi Get API</h3>
+<h3 id="java-docs-multi-get">5.6. 获取多个文档</h3>
 <div class="paragraph">
-<p>Multi get API 允许通过 <code>index</code> 和  <code>id</code> 获取文档列表:</p>
+<p>Multi get API 允许通过 <code>index</code> 和  <code>id</code> 获取多个文档:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1881,7 +1881,7 @@ for (MultiGetItemResponse itemResponse : multiGetItemResponses) { <i class="conu
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-bulk">5.7. Bulk API</h3>
+<h3 id="java-docs-bulk">5.7. 批处理</h3>
 <div class="paragraph">
 <p>Bulk API 允许在一次单独的请求中索引或删除多个文档。
 下面是一个用法示例:</p>
@@ -1921,9 +1921,9 @@ if (bulkResponse.hasFailures()) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-bulk-processor">5.8. Using Bulk Processor</h3>
+<h3 id="java-docs-bulk-processor">5.8. 使用批处理工具</h3>
 <div class="paragraph">
-<p><code>BulkProcessor</code> 类提供了一个简单的接口来自动执行批处理操作，它可以设置的规则有请求数、请求数据大小、周期。</p>
+<p><code>BulkProcessor</code> 类提供了一个简单的 API 来自动执行批处理操作，它可以设置的规则有请求数、请求数据大小、周期。</p>
 </div>
 <div class="paragraph">
 <p>要使用它，首先需要创建一个 <code>BulkProcessor</code> 实例:</p>
@@ -2156,7 +2156,7 @@ request.add(new IndexRequest("test", "doc", "2")
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-docs-update-by-query">5.9. Update By Query API</h3>
+<h3 id="java-docs-update-by-query">5.9. 通过条件更新文档</h3>
 <div class="paragraph">
 <p><code>updateByQuery</code> 最简单的用法是在不更改源的情况下更新同一个index中的所有文档。
 这种用法还可以获取新的属性或其它网络映射的改变。</p>
@@ -2319,9 +2319,8 @@ updateByQuery.setPipeline("hurray");
 BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="java-docs-update-by-query-task-api">5.10. Works with the Task API</h3>
+<div class="sect3">
+<h4 id="java-docs-update-by-query-task-api">5.9.1. Works with the Task API</h4>
 <div class="paragraph">
 <p>你可以使用 Task API 来获取所有正在运行中的 update-by-query 请求状态:</p>
 </div>
@@ -2346,8 +2345,8 @@ for (TaskInfo info: tasksList.getTasks()) {
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="java-docs-update-by-query-cancel-task-api">5.11. Works with the Cancel Task API</h3>
+<div class="sect3">
+<h4 id="java-docs-update-by-query-cancel-task-api">5.9.2. Works with the Cancel Task API</h4>
 <div class="paragraph">
 <p>任何 Update By Query 可以使用 Task Cancel API 来取消:</p>
 </div>
@@ -2368,8 +2367,8 @@ client.admin().cluster().prepareCancelTasks()
 <p>取消请求通常非常快，但也需要几秒钟。任务状态API会继续列出任务，直到取消完成。</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="java-docs-update-by-query-rethrottle">5.12. Rethrottling</h3>
+<div class="sect3">
+<h4 id="java-docs-update-by-query-rethrottle">5.9.3. Rethrottling</h4>
 <div class="paragraph">
 <p>使用 <code>_rethrottle</code> API 可以修改正在运行的 <code>requests_per_second</code> 值:</p>
 </div>
@@ -2390,8 +2389,9 @@ client.admin().cluster().prepareCancelTasks()
 为防止滚动超时，要在完成当前批处理后设置 <code>requests_per_second</code> 来减慢进程。</p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="java-docs-reindex">5.13. Reindex API</h3>
+<h3 id="java-docs-reindex">5.10. 重新建立索引</h3>
 <div class="paragraph">
 <p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/docs-reindex.html">reindex API</a>。</p>
 </div>

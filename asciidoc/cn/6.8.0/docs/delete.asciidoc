@@ -1,5 +1,5 @@
 [[java-docs-delete]]
-=== Delete API
+=== 删除文档
 
 Delete API 可以在指定的 index 中根据ID删除一个JSON类型的文档。
 下面就是一个删除JSON文档的例子，它的index是twitter，type是 `_doc` ，id是1:
@@ -12,7 +12,7 @@ DeleteResponse response = client.prepareDelete("twitter", "_doc", "1").get();
 有关Delete操作的更多信息，请查看 {ref}/docs-delete.html[delete API] 。
 
 [[java-docs-delete-by-query]]
-=== Delete By Query API
+=== 根据条件删除文档
 
 Delete By Query API 可以根据查询的结果删除一组文档:
 

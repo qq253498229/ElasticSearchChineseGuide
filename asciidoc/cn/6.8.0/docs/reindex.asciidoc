@@ -1,5 +1,5 @@
 [[java-docs-reindex]]
-=== Reindex API
+=== 重新建立索引
 
 查看 {ref}/docs-reindex.html[reindex API]。
 

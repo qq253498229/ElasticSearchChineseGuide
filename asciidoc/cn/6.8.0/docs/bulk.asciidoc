@@ -1,5 +1,5 @@
 [[java-docs-bulk]]
-=== Bulk API
+=== 批处理
 
 Bulk API 允许在一次单独的请求中索引或删除多个文档。
 下面是一个用法示例:
@@ -38,9 +38,9 @@ if (bulkResponse.hasFailures()) {
 --------------------------------------------------
 
 [[java-docs-bulk-processor]]
-=== Using Bulk Processor
+=== 使用批处理工具
 
-`BulkProcessor` 类提供了一个简单的接口来自动执行批处理操作，它可以设置的规则有请求数、请求数据大小、周期。
+`BulkProcessor` 类提供了一个简单的 API 来自动执行批处理操作，它可以设置的规则有请求数、请求数据大小、周期。
 
 要使用它，首先需要创建一个 `BulkProcessor` 实例:
 
