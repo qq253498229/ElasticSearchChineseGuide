@@ -1733,7 +1733,7 @@ client.prepareUpdate("ttl", "doc", "1")
 <p>Note that you can&#8217;t provide both <code>script</code> and <code>doc</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-api-script">5.5.1. Update by script</h4>
+<h4 id="java-docs-update-api-script">5.5.1. 通过脚本更新</h4>
 <div class="paragraph">
 <p>Update API 允许通过一个脚本来更新文档:</p>
 </div>
@@ -1746,12 +1746,9 @@ client.update(updateRequest).get();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-api-merge-docs">5.5.2. Update by merging documents</h4>
+<h4 id="java-docs-update-api-merge-docs">5.5.2. 合并文档</h4>
 <div class="paragraph">
-<p>Update API 也可以传入一部分文档，
-并将之合并
-(简单的递归合并，对象的内部合并，替换键值对和数组)
-到一个已存在的文档中。
+<p>Update API 也可以传入一部分文档，并将之合并(简单的递归合并，对象的内部合并，替换键值对和数组)到一个已存在的文档中。
 例如:</p>
 </div>
 <div class="listingblock">
@@ -1766,9 +1763,9 @@ client.update(updateRequest).get();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-api-upsert">5.5.3. Upsert</h4>
+<h4 id="java-docs-update-api-upsert">5.5.3. 更新并插入</h4>
 <div class="paragraph">
-<p>Update API 也支持 <code>upsert</code> 。如果文档不存在，<code>upsert</code> 元素的内容会被建立一个索引:</p>
+<p>Update API 也支持 <code>upsert</code> 。如果该文档不存在，则会对该文档建立索引:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2025,7 +2022,7 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(
 </ul>
 </div>
 <div class="sect3">
-<h4 id="java-docs-bulk-processor-requests">5.8.1. Add requests</h4>
+<h4 id="java-docs-bulk-processor-requests">5.8.1. 添加请求</h4>
 <div class="paragraph">
 <p>然后你就可以很简单的向 <code>BulkProcessor</code> 中添加请求了:</p>
 </div>
@@ -2037,7 +2034,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-bulk-processor-close">5.8.2. Closing the Bulk Processor</h4>
+<h4 id="java-docs-bulk-processor-close">5.8.2. 关闭批处理工具</h4>
 <div class="paragraph">
 <p>当所有文档全部加载到 <code>BulkProcessor</code> 之后，可以使用 <code>awaitClose</code> 或 <code>close</code> 方法关闭它:</p>
 </div>
@@ -2062,7 +2059,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-bulk-processor-tests">5.8.3. Using Bulk Processor in tests</h4>
+<h4 id="java-docs-bulk-processor-tests">5.8.3. 在测试中使用批处理工具</h4>
 <div class="paragraph">
 <p>如果你正使用 Elasticsearch 进行测试并且使用的是 <code>BulkProcessor</code> 来批量添加数据，那么最好将并发请求数量设置为 <code>0</code> ，
 这样批处理请求将会以同步的方式执行:</p>
@@ -2092,7 +2089,7 @@ client.prepareSearch().get();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-bulk-global-parameters">5.8.4. Global Parameters</h4>
+<h4 id="java-docs-bulk-global-parameters">5.8.4. 全局参数</h4>
 <div class="paragraph">
 <p>全局参数可以在 BulkRequest 和 BulkProcessor 上指定，类似于REST API。
 这些全局参数用作默认值，可以被每个子请求的本地参数所覆盖。
@@ -2320,7 +2317,7 @@ BulkByScrollResponse response = updateByQuery.get();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-by-query-task-api">5.9.1. Works with the Task API</h4>
+<h4 id="java-docs-update-by-query-task-api">5.9.1. 使用任务 API</h4>
 <div class="paragraph">
 <p>你可以使用 Task API 来获取所有正在运行中的 update-by-query 请求状态:</p>
 </div>
@@ -2346,7 +2343,7 @@ for (TaskInfo info: tasksList.getTasks()) {
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-by-query-cancel-task-api">5.9.2. Works with the Cancel Task API</h4>
+<h4 id="java-docs-update-by-query-cancel-task-api">5.9.2. 取消任务 API</h4>
 <div class="paragraph">
 <p>任何 Update By Query 可以使用 Task Cancel API 来取消:</p>
 </div>
@@ -2368,7 +2365,7 @@ client.admin().cluster().prepareCancelTasks()
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-docs-update-by-query-rethrottle">5.9.3. Rethrottling</h4>
+<h4 id="java-docs-update-by-query-rethrottle">5.9.3. 二次节流</h4>
 <div class="paragraph">
 <p>使用 <code>_rethrottle</code> API 可以修改正在运行的 <code>requests_per_second</code> 值:</p>
 </div>

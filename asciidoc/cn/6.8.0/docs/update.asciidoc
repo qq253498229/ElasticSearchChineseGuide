@@ -39,7 +39,7 @@ client.prepareUpdate("ttl", "doc", "1")
 Note that you can't provide both `script` and `doc`.
 
 [[java-docs-update-api-script]]
-==== Update by script
+==== 通过脚本更新
 
 Update API 允许通过一个脚本来更新文档:
 
@@ -52,12 +52,9 @@ client.update(updateRequest).get();
 
 
 [[java-docs-update-api-merge-docs]]
-==== Update by merging documents
+==== 合并文档
 
-Update API 也可以传入一部分文档，
-并将之合并
-(简单的递归合并，对象的内部合并，替换键值对和数组)
-到一个已存在的文档中。
+Update API 也可以传入一部分文档，并将之合并(简单的递归合并，对象的内部合并，替换键值对和数组)到一个已存在的文档中。
 例如:
 
 [source,java]
@@ -72,9 +69,9 @@ client.update(updateRequest).get();
 
 
 [[java-docs-update-api-upsert]]
-==== Upsert
+==== 更新并插入
 
-Update API 也支持 `upsert` 。如果文档不存在，`upsert` 元素的内容会被建立一个索引:
+Update API 也支持 `upsert` 。如果该文档不存在，则会对该文档建立索引:
 
 [source,java]
 --------------------------------------------------

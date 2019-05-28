@@ -96,7 +96,7 @@ BulkProcessor bulkProcessor = BulkProcessor.builder(
 - 第一次等待50ms重试，之后每次的间隔时间翻倍，一共重试8次，总时间大概5.1s左右（这个5.1s是怎么算出来的？麻烦知道的告诉一下）
 
 [[java-docs-bulk-processor-requests]]
-==== Add requests
+==== 添加请求
 
 然后你就可以很简单的向 `BulkProcessor` 中添加请求了:
 
@@ -107,7 +107,7 @@ bulkProcessor.add(new DeleteRequest("twitter", "_doc", "2"));
 --------------------------------------------------
 
 [[java-docs-bulk-processor-close]]
-==== Closing the Bulk Processor
+==== 关闭批处理工具
 
 当所有文档全部加载到 `BulkProcessor` 之后，可以使用 `awaitClose` 或 `close` 方法关闭它:
 
@@ -129,7 +129,7 @@ bulkProcessor.close();
 `close` 方法不会等待批处理请求是否完成，而是直接取消剩余的所有请求。
 
 [[java-docs-bulk-processor-tests]]
-==== Using Bulk Processor in tests
+==== 在测试中使用批处理工具
 
 如果你正使用 Elasticsearch 进行测试并且使用的是 `BulkProcessor` 来批量添加数据，那么最好将并发请求数量设置为 `0` ，
 这样批处理请求将会以同步的方式执行:
@@ -159,7 +159,7 @@ client.prepareSearch().get();
 
 
 [[java-docs-bulk-global-parameters]]
-==== Global Parameters
+==== 全局参数
 
 全局参数可以在 BulkRequest 和 BulkProcessor 上指定，类似于REST API。
 这些全局参数用作默认值，可以被每个子请求的本地参数所覆盖。
@@ -200,3 +200,4 @@ request.add(new IndexRequest("test", "doc", "2")
 --------------------------------------------------
 <1> 子请求中的本地管道参数将覆盖BulkRequest中的全局参数
 <2> BulkRequest 的全局参数将应用于子请求
+
