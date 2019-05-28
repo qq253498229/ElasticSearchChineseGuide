@@ -4,7 +4,7 @@
 Index API 可以在指定的index中将一个结构化的JSON文档建立索引，并使其可以被查询到。
 
 [[java-docs-index-generate]]
-==== 生成JSON文档
+==== 生成JSON格式的文档
 
 有几种不同的方式来生成JSON文档:
 
