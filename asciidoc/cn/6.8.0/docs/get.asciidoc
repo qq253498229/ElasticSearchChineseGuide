@@ -1,7 +1,7 @@
 [[java-docs-get]]
 === Get API
 
-Get接口可以根据id从索引中获取JSON文档。
+Get API 可以根据 `id` 从 index 中获取JSON文档。
 下面就是一个获取JSON格式文档的例子，它的条件是index为twitter，type是 `_doc` ，id是1:
 
 [source,java]
@@ -10,3 +10,4 @@ GetResponse response = client.prepareGet("twitter", "_doc", "1").get();
 --------------------------------------------------
 
 有关Get操作的更多信息，请查看 REST {ref}/docs-get.html[get] 。
+

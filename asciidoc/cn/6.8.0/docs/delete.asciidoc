@@ -1,7 +1,7 @@
 [[java-docs-delete]]
 === Delete API
 
-Delete API 可以在指定的索引中根据ID删除一个JSON类型的文档。
+Delete API 可以在指定的 index 中根据ID删除一个JSON类型的文档。
 下面就是一个删除JSON文档的例子，它的index是twitter，type是 `_doc` ，id是1:
 
 [source,java]
