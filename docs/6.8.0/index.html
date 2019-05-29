@@ -2466,7 +2466,7 @@ SearchResponse response = client.prepareSearch().get();</code></pre>
 <p>有关索引操作的更多信息，请查看 REST <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html">search</a>。</p>
 </div>
 <div class="sect2">
-<h3 id="java-search-scrolling">6.1. Using scrolls in Java</h3>
+<h3 id="java-search-scrolling">6.1. 使用分页</h3>
 <div class="paragraph">
 <p>首先请阅读 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-scroll.html">scroll documentation</a></p>
 </div>
@@ -2504,7 +2504,7 @@ do {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-search-msearch">6.2. MultiSearch API</h3>
+<h3 id="java-search-msearch">6.2. 多条件查询</h3>
 <div class="paragraph">
 <p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-multi-search.html">MultiSearch API Query</a> 文档</p>
 </div>
@@ -2537,7 +2537,7 @@ for (MultiSearchResponse.Item item : sr.getResponses()) { <i class="conum" data-
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-search-aggs">6.3. Using Aggregations</h3>
+<h3 id="java-search-aggs">6.3. 使用聚合</h3>
 <div class="paragraph">
 <p>下面这段代码展示了如何在一次查询中加入两个聚合:</p>
 </div>
@@ -2572,7 +2572,7 @@ Histogram agg2 = sr.getAggregations().get("agg2");</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-search-terminate-after">6.4. Terminate After</h3>
+<h3 id="java-search-terminate-after">6.4. 提前结束查询</h3>
 <div class="paragraph">
 <p>设置一次查询的最大数，到达这个数量的时候，查询操作就会提前终止。
 如果设置了的话，可以在 <code>SearchResponse</code> 对象中使用 <code>isTerminatedEarly()</code> 查看操作是否提前结束。例:</p>
@@ -2598,7 +2598,7 @@ if (sr.isTerminatedEarly()) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-search-template">6.5. Search Template</h3>
+<h3 id="java-search-template">6.5. 搜索模板</h3>
 <div class="paragraph">
 <p>查看 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-template.html">Search Template</a> 文档</p>
 </div>

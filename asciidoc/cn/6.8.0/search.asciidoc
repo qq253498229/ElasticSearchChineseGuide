@@ -39,7 +39,7 @@ NOTE: 注意：尽管JavaAPI定义了额外的搜索类型 QUERY_AND_FETCH 和 D
 有关索引操作的更多信息，请查看 REST {ref}/search.html[search]。
 
 [[java-search-scrolling]]
-=== Using scrolls in Java
+=== 使用分页
 
 首先请阅读 {ref}/search-request-scroll.html[scroll documentation]
 
@@ -66,7 +66,7 @@ do {
 <2> 没有结果返回的时候就停止循环和游标
 
 [[java-search-msearch]]
-=== MultiSearch API
+=== 多条件查询
 
 查看 {ref}/search-multi-search.html[MultiSearch API Query] 文档
 
@@ -92,7 +92,7 @@ for (MultiSearchResponse.Item item : sr.getResponses()) { <1>
 
 
 [[java-search-aggs]]
-=== Using Aggregations
+=== 使用聚合
 
 下面这段代码展示了如何在一次查询中加入两个聚合:
 
@@ -118,7 +118,7 @@ Histogram agg2 = sr.getAggregations().get("agg2");
 详情请查看 <<java-aggs,Aggregations Java API>> 。
 
 [[java-search-terminate-after]]
-=== Terminate After
+=== 提前结束查询
 
 设置一次查询的最大数，到达这个数量的时候，查询操作就会提前终止。
 如果设置了的话，可以在 `SearchResponse` 对象中使用 `isTerminatedEarly()` 查看操作是否提前结束。例:
@@ -136,7 +136,7 @@ if (sr.isTerminatedEarly()) {
 <1> 查询到1000个文档就停止
 
 [[java-search-template]]
-=== Search Template
+=== 搜索模板
 
 查看 {ref}/search-template.html[Search Template] 文档
 
@@ -242,3 +242,4 @@ sr = new SearchTemplateRequestBuilder(client)
 <4> 设置执行上下文(可以在这里定义index名称)
 <5> 执行并获取模版的响应
 <6> 从模板响应中获取查询结果
+
