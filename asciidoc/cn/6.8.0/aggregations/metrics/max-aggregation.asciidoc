@@ -1,12 +1,12 @@
 [[java-aggs-metrics-max]]
-==== Max Aggregation
+==== 最大值聚合
 
 请查看
 {ref}/search-aggregations-metrics-max-aggregation.html[Max Aggregation]
 。
 
-
-===== Prepare aggregation request
+[[agg-max-pre]]
+===== 准备聚合请求
 
 这里有一个创建聚合请求的例子:
 
@@ -18,8 +18,8 @@ MaxAggregationBuilder aggregation =
                 .field("height");
 --------------------------------------------------
 
-
-===== Use aggregation response
+[[agg-max-res]]
+===== 使用聚合响应
 
 导入聚合定义类:
 

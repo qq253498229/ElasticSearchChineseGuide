@@ -1,5 +1,5 @@
 [[java-aggs]]
-== Aggregations(聚合)
+== 聚合
 
 Elasticsearch 提供了完整的 Java API 来使用aggregation.
 请查看 {ref}/search-aggregations.html[Aggregations guide]。
@@ -25,11 +25,12 @@ SearchResponse sr = node.client().prepareSearch()
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 --------------------------------------------------
 
-=== Structuring aggregations
+[[agg-build]]
+=== 构造聚合
 
 如 {ref}/search-aggregations.html[Aggregations guide] 所述，你可以在聚合中定义子聚合。
 
-聚合可以是一个 **metrics（指标）** 聚合或者是 **bucket（桶）** 聚合。
+聚合可以是一个 **metrics（指标）** 聚合或者是 **bucket（分组/桶）** 聚合。
 
 例如，这里有三个级别的聚合:
 
@@ -51,10 +52,13 @@ SearchResponse sr = node.client().prepareSearch()
     .execute().actionGet();
 --------------------------------------------------
 
-=== Metrics aggregations
+[[agg-metrics]]
+=== 指标聚合
 
 include::aggregations/metrics.asciidoc[]
 
-=== Bucket aggregations
+[[agg-bucket]]
+=== 分组聚合
 
 include::aggregations/bucket.asciidoc[]
+

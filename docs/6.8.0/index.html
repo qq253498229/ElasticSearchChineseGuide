@@ -2780,7 +2780,7 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="java-aggs">7. Aggregations(聚合)</h2>
+<h2 id="java-aggs">7. 聚合</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Elasticsearch 提供了完整的 Java API 来使用aggregation.
@@ -2811,12 +2811,12 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_structuring_aggregations">7.1. Structuring aggregations</h3>
+<h3 id="agg-build">7.1. 构造聚合</h3>
 <div class="paragraph">
 <p>如 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html">Aggregations guide</a> 所述，你可以在聚合中定义子聚合。</p>
 </div>
 <div class="paragraph">
-<p>聚合可以是一个 <strong>metrics（指标）</strong> 聚合或者是 <strong>bucket（桶）</strong> 聚合。</p>
+<p>聚合可以是一个 <strong>metrics（指标）</strong> 聚合或者是 <strong>bucket（分组/桶）</strong> 聚合。</p>
 </div>
 <div class="paragraph">
 <p>例如，这里有三个级别的聚合:</p>
@@ -2850,16 +2850,16 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_metrics_aggregations">7.2. Metrics aggregations</h3>
+<h3 id="agg-metrics">7.2. 指标聚合</h3>
 <div class="sect3">
-<h4 id="java-aggs-metrics-min">7.2.1. Min Aggregation</h4>
+<h4 id="java-aggs-metrics-min">7.2.1. 最小值聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-min-aggregation.html">Min Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request">Prepare aggregation request</h5>
+<h5 id="agg-min-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -2873,7 +2873,7 @@ template_params.put("param_gender", "male");</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response">Use aggregation response</h5>
+<h5 id="agg-min-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -2892,14 +2892,14 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-max">7.2.2. Max Aggregation</h4>
+<h4 id="java-aggs-metrics-max">7.2.2. 最大值聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-max-aggregation.html">Max Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_2">Prepare aggregation request</h5>
+<h5 id="agg-max-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -2913,7 +2913,7 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_2">Use aggregation response</h5>
+<h5 id="agg-max-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -2932,14 +2932,14 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-sum">7.2.3. Sum Aggregation</h4>
+<h4 id="java-aggs-metrics-sum">7.2.3. 求和聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-sum-aggregation.html">Sum Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_3">Prepare aggregation request</h5>
+<h5 id="agg-sum-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -2953,7 +2953,7 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_3">Use aggregation response</h5>
+<h5 id="agg-sum-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -2972,14 +2972,14 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-avg">7.2.4. Avg Aggregation</h4>
+<h4 id="java-aggs-metrics-avg">7.2.4. 平均值聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-avg-aggregation.html">Avg Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_4">Prepare aggregation request</h5>
+<h5 id="agg-avg-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -2993,7 +2993,7 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_4">Use aggregation response</h5>
+<h5 id="agg-avg-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3012,14 +3012,14 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-stats">7.2.5. Stats Aggregation</h4>
+<h4 id="java-aggs-metrics-stats">7.2.5. 统计聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-stats-aggregation.html">Stats Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_5">Prepare aggregation request</h5>
+<h5 id="agg-stats-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3033,7 +3033,7 @@ double value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_5">Use aggregation response</h5>
+<h5 id="agg-stats-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3056,14 +3056,14 @@ long count = agg.getCount();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-extendedstats">7.2.6. Extended Stats Aggregation</h4>
+<h4 id="java-aggs-metrics-extendedstats">7.2.6. 统计聚合拓展</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-extendedstats-aggregation.html">Extended Stats Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_6">Prepare aggregation request</h5>
+<h5 id="agg-stats-ext-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3077,7 +3077,7 @@ long count = agg.getCount();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_6">Use aggregation response</h5>
+<h5 id="agg-stats-ext-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3103,14 +3103,14 @@ double variance = agg.getVariance();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-valuecount">7.2.7. Value Count Aggregation</h4>
+<h4 id="java-aggs-metrics-valuecount">7.2.7. 数量聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-valuecount-aggregation.html">Value Count Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_7">Prepare aggregation request</h5>
+<h5 id="agg-valuecount-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3124,7 +3124,7 @@ double variance = agg.getVariance();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_7">Use aggregation response</h5>
+<h5 id="agg-valuecount-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3143,14 +3143,14 @@ long value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-percentile">7.2.8. Percentile Aggregation</h4>
+<h4 id="java-aggs-metrics-percentile">7.2.8. 百分比聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-percentile-aggregation.html">Percentile Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_8">Prepare aggregation request</h5>
+<h5 id="agg-percentile-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3176,7 +3176,7 @@ long value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_8">Use aggregation response</h5>
+<h5 id="agg-percentile-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3216,14 +3216,14 @@ percent [99.0], value [2.284989339108279]</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-percentile-rank">7.2.9. Percentile Ranks Aggregation</h4>
+<h4 id="java-aggs-metrics-percentile-rank">7.2.9. 百分比排名聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-percentile-rank-aggregation.html">Percentile Ranks Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_9">Prepare aggregation request</h5>
+<h5 id="agg-percentile-rank-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3238,7 +3238,7 @@ percent [99.0], value [2.284989339108279]</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_9">Use aggregation response</h5>
+<h5 id="agg-percentile-rank-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3274,14 +3274,14 @@ percent [94.40095147327283], value [2.22]</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-cardinality">7.2.10. Cardinality Aggregation</h4>
+<h4 id="java-aggs-metrics-cardinality">7.2.10. 基数聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-cardinality-aggregation.html">Cardinality Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_10">Prepare aggregation request</h5>
+<h5 id="agg-cardinality-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3295,7 +3295,7 @@ percent [94.40095147327283], value [2.22]</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_10">Use aggregation response</h5>
+<h5 id="agg-cardinality-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3314,14 +3314,14 @@ long value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-geobounds">7.2.11. Geo Bounds Aggregation</h4>
+<h4 id="java-aggs-metrics-geobounds">7.2.11. 地理范围聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-geobounds-aggregation.html">Geo Bounds Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_11">Prepare aggregation request</h5>
+<h5 id="agg-geobounds-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3336,7 +3336,7 @@ long value = agg.getValue();</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_11">Use aggregation response</h5>
+<h5 id="agg-geobounds-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3365,14 +3365,14 @@ logger.info("bottomRight {}, topLeft {}", bottomRight, topLeft);</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-tophits">7.2.12. Top Hits Aggregation</h4>
+<h4 id="java-aggs-metrics-tophits">7.2.12. 热门聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-top-hits-aggregation.html">Top Hits Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_12">Prepare aggregation request</h5>
+<h5 id="agg-tophits-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3404,7 +3404,7 @@ logger.info("bottomRight {}, topLeft {}", bottomRight, topLeft);</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_12">Use aggregation response</h5>
+<h5 id="agg-tophits-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3451,14 +3451,14 @@ key [female], doc_count [4893]
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-aggs-metrics-scripted-metric">7.2.13. Scripted Metric Aggregation</h4>
+<h4 id="java-aggs-metrics-scripted-metric">7.2.13. 脚本指标聚合</h4>
 <div class="paragraph">
 <p>请查看
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations-metrics-scripted-metric-aggregation.html">Scripted Metric Aggregation</a>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_13">Prepare aggregation request</h5>
+<h5 id="agg-scripted-pre">准备聚合请求</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3497,7 +3497,7 @@ key [female], doc_count [4893]
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_13">Use aggregation response</h5>
+<h5 id="agg-scripted-res">使用聚合响应</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3561,7 +3561,7 @@ scriptedResult [2.171917696507009]</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_bucket_aggregations">7.3. Bucket aggregations</h3>
+<h3 id="agg-bucket">7.3. 分组聚合</h3>
 <div class="sect3">
 <h4 id="java-aggs-bucket-global">7.3.1. Global Aggregation</h4>
 <div class="paragraph">
@@ -3570,7 +3570,7 @@ scriptedResult [2.171917696507009]</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_14">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3583,7 +3583,7 @@ scriptedResult [2.171917696507009]</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_14">Use aggregation response</h5>
+<h5 id="_use_aggregation_response">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3609,7 +3609,7 @@ agg.getDocCount(); // Doc count</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_15">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_2">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3621,7 +3621,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_15">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_2">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3647,7 +3647,7 @@ agg.getDocCount(); // Doc count</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_16">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_3">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3662,7 +3662,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_16">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_3">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3703,7 +3703,7 @@ key [women], doc_count [5018]</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_17">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_4">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3714,7 +3714,7 @@ key [women], doc_count [5018]</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_17">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_4">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3740,7 +3740,7 @@ agg.getDocCount(); // Doc count</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_18">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_5">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3752,7 +3752,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_18">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_5">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3778,7 +3778,7 @@ agg.getDocCount(); // Doc count</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_19">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_6">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3799,7 +3799,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_19">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_6">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3831,7 +3831,7 @@ for (Terms.Bucket bucket : name.getBuckets()) {
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_20">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_7">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3852,7 +3852,7 @@ for (Terms.Bucket bucket : name.getBuckets()) {
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_20">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_7">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3878,7 +3878,7 @@ agg.getDocCount(); // Doc count</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_21">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_8">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -3891,7 +3891,7 @@ agg.getDocCount(); // Doc count</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_21">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_8">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -3985,7 +3985,7 @@ for (Terms.Bucket entry : genders.getBuckets()) {
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_22">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_9">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -4005,7 +4005,7 @@ SearchResponse sr = client.prepareSearch()
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_22">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_9">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -4036,7 +4036,7 @@ for (SignificantTerms.Bucket entry : agg.getBuckets()) {
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_23">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_10">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -4053,7 +4053,7 @@ for (SignificantTerms.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_23">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_10">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -4098,7 +4098,7 @@ key [1.5-*], from [1.5], to [Infinity], doc_count [20]</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_24">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_11">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -4116,7 +4116,7 @@ key [1.5-*], from [1.5], to [Infinity], doc_count [20]</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_24">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_11">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -4161,7 +4161,7 @@ key [1960-*], from [1960-01-01T00:00:00.000Z], to [null], doc_count [37]</code><
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_25">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_12">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -4192,7 +4192,7 @@ key [1960-*], from [1960-01-01T00:00:00.000Z], to [null], doc_count [37]</code><
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_25">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_12">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -4247,7 +4247,7 @@ key [192.168.0.0/16], from [192.168.0.0], to [192.169.0.0], doc_count [50]</code
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_26">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_13">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -4262,7 +4262,7 @@ key [192.168.0.0/16], from [192.168.0.0], to [192.169.0.0], doc_count [50]</code
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_26">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_13">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -4301,7 +4301,7 @@ for (Histogram.Bucket entry : agg.getBuckets()) {
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_27">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_14">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -4328,7 +4328,7 @@ for (Histogram.Bucket entry : agg.getBuckets()) {
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_27">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_14">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -4382,7 +4382,7 @@ key [2008-01-01T00:00:00.000Z], date [2008], doc_count [3]</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_28">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_15">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -4400,7 +4400,7 @@ key [2008-01-01T00:00:00.000Z], date [2008], doc_count [3]</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_28">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_15">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>
@@ -4445,7 +4445,7 @@ key [10.0-500.0], from [10.0], to [500.0], doc_count [4925]</code></pre>
 。</p>
 </div>
 <div class="sect4">
-<h5 id="_prepare_aggregation_request_29">Prepare aggregation request</h5>
+<h5 id="_prepare_aggregation_request_16">Prepare aggregation request</h5>
 <div class="paragraph">
 <p>这里有一个创建聚合请求的例子:</p>
 </div>
@@ -4460,7 +4460,7 @@ key [10.0-500.0], from [10.0], to [500.0], doc_count [4925]</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_use_aggregation_response_29">Use aggregation response</h5>
+<h5 id="_use_aggregation_response_16">Use aggregation response</h5>
 <div class="paragraph">
 <p>导入聚合定义类:</p>
 </div>

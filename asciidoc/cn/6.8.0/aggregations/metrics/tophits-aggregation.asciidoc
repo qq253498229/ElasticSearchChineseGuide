@@ -1,12 +1,12 @@
 [[java-aggs-metrics-tophits]]
-==== Top Hits Aggregation
+==== 热门聚合
 
 请查看
 {ref}/search-aggregations-metrics-top-hits-aggregation.html[Top Hits Aggregation]
 。
 
-
-===== Prepare aggregation request
+[[agg-tophits-pre]]
+===== 准备聚合请求
 
 这里有一个创建聚合请求的例子:
 
@@ -35,7 +35,8 @@ AggregationBuilder aggregation =
         );
 --------------------------------------------------
 
-===== Use aggregation response
+[[agg-tophits-res]]
+===== 使用聚合响应
 
 导入聚合定义类:
 
@@ -77,3 +78,4 @@ key [female], doc_count [4893]
  -> id [AUnzSZzp9k7PKXtq04x8], _source [{"gender":"female",...}]
  -> id [AUnzSZ0W9k7PKXtq04yS], _source [{"gender":"female",...}]
 --------------------------------------------------
+

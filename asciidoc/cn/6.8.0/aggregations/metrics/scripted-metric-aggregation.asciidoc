@@ -1,11 +1,12 @@
 [[java-aggs-metrics-scripted-metric]]
-==== Scripted Metric Aggregation
+==== 脚本指标聚合
 
 请查看
 {ref}/search-aggregations-metrics-scripted-metric-aggregation.html[Scripted Metric Aggregation]
 。
 
-===== Prepare aggregation request
+[[agg-scripted-pre]]
+===== 准备聚合请求
 
 这里有一个创建聚合请求的例子:
 
@@ -41,7 +42,8 @@ ScriptedMetricAggregationBuilder aggregation = AggregationBuilders
 --------------------------------------------------
 
 
-===== Use aggregation response
+[[agg-scripted-res]]
+===== 使用聚合响应
 
 导入聚合定义类:
 

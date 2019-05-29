@@ -1,12 +1,12 @@
 [[java-aggs-metrics-geobounds]]
-==== Geo Bounds Aggregation
+==== 地理范围聚合
 
 请查看
 {ref}/search-aggregations-metrics-geobounds-aggregation.html[Geo Bounds Aggregation]
 。
 
-
-===== Prepare aggregation request
+[[agg-geobounds-pre]]
+===== 准备聚合请求
 
 这里有一个创建聚合请求的例子:
 
@@ -19,8 +19,8 @@ GeoBoundsBuilder aggregation =
                 .wrapLongitude(true);
 --------------------------------------------------
 
-
-===== Use aggregation response
+[[agg-geobounds-res]]
+===== 使用聚合响应
 
 导入聚合定义类:
 
@@ -44,3 +44,4 @@ logger.info("bottomRight {}, topLeft {}", bottomRight, topLeft);
 --------------------------------------------------
 bottomRight [40.70500764381921, 13.952946866893775], topLeft [53.49603022435221, -4.190029308156676]
 --------------------------------------------------
+

@@ -1,11 +1,12 @@
 [[java-aggs-metrics-stats]]
-==== Stats Aggregation
+==== 统计聚合
 
 请查看
 {ref}/search-aggregations-metrics-stats-aggregation.html[Stats Aggregation]
 。
 
-===== Prepare aggregation request
+[[agg-stats-pre]]
+===== 准备聚合请求
 
 这里有一个创建聚合请求的例子:
 
@@ -18,7 +19,8 @@ StatsAggregationBuilder aggregation =
 --------------------------------------------------
 
 
-===== Use aggregation response
+[[agg-stats-res]]
+===== 使用聚合响应
 
 导入聚合定义类:
 

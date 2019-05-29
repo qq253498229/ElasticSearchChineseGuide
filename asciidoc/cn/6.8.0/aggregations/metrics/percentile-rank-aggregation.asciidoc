@@ -1,12 +1,13 @@
 [[java-aggs-metrics-percentile-rank]]
-==== Percentile Ranks Aggregation
+==== 百分比排名聚合
 
 请查看
 {ref}/search-aggregations-metrics-percentile-rank-aggregation.html[Percentile Ranks Aggregation]
 。
 
 
-===== Prepare aggregation request
+[[agg-percentile-rank-pre]]
+===== 准备聚合请求
 
 这里有一个创建聚合请求的例子:
 
@@ -19,8 +20,8 @@ PercentileRanksAggregationBuilder aggregation =
                 .values(1.24, 1.91, 2.22);
 --------------------------------------------------
 
-
-===== Use aggregation response
+[[agg-percentile-rank-res]]
+===== 使用聚合响应
 
 导入聚合定义类:
 
